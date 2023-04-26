@@ -13,24 +13,24 @@
       
       
       
-        <link rel="prev" href="../enum/">
+        <link rel="prev" href="../../../codingStyleIdioms/pImpl/">
       
       
-        <link rel="next" href="../pointer_refer/">
+        <link rel="next" href="../../../tool/output/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
-        <title>decltype那些事 - C++那些事</title>
+        <title>极客时间《现代C++实战30讲》 - C++那些事</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -46,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#decltype" class="md-skip">
+        <a href="#c30" class="md-skip">
           跳转至
         </a>
       
@@ -87,7 +87,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
+    <a href="../../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              decltype那些事
+              极客时间《现代C++实战30讲》
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
+    <a href="../../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -218,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         项目概要
       </a>
     </li>
@@ -233,7 +233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use/" class="md-nav__link">
+      <a href="../../../use/" class="md-nav__link">
         使用须知
       </a>
     </li>
@@ -248,7 +248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video/" class="md-nav__link">
+      <a href="../../../video/" class="md-nav__link">
         视频教程
       </a>
     </li>
@@ -263,7 +263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../group/" class="md-nav__link">
+      <a href="../../../group/" class="md-nav__link">
         优质社群
       </a>
     </li>
@@ -276,16 +276,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
@@ -294,7 +292,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           基础进阶
@@ -307,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../const/" class="md-nav__link">
+      <a href="../../../basic_content/const/" class="md-nav__link">
         const那些事
       </a>
     </li>
@@ -321,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../static/" class="md-nav__link">
+      <a href="../../../basic_content/static/" class="md-nav__link">
         static那些事
       </a>
     </li>
@@ -335,7 +333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../this/" class="md-nav__link">
+      <a href="../../../basic_content/this/" class="md-nav__link">
         this那些事
       </a>
     </li>
@@ -349,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inline/" class="md-nav__link">
+      <a href="../../../basic_content/inline/" class="md-nav__link">
         inline那些事
       </a>
     </li>
@@ -363,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sizeof/" class="md-nav__link">
+      <a href="../../../basic_content/sizeof/" class="md-nav__link">
         sizeof那些事
       </a>
     </li>
@@ -377,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../abstract/" class="md-nav__link">
+      <a href="../../../basic_content/abstract/" class="md-nav__link">
         纯虚函数和抽象类那些事
       </a>
     </li>
@@ -391,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vptr_vtable/" class="md-nav__link">
+      <a href="../../../basic_content/vptr_vtable/" class="md-nav__link">
         vptr_vtable那些事
       </a>
     </li>
@@ -405,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual/" class="md-nav__link">
+      <a href="../../../basic_content/virtual/" class="md-nav__link">
         virtual那些事
       </a>
     </li>
@@ -419,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../volatile/" class="md-nav__link">
+      <a href="../../../basic_content/volatile/" class="md-nav__link">
         volatile那些事
       </a>
     </li>
@@ -433,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../assert/" class="md-nav__link">
+      <a href="../../../basic_content/assert/" class="md-nav__link">
         assert那些事
       </a>
     </li>
@@ -447,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bit/" class="md-nav__link">
+      <a href="../../../basic_content/bit/" class="md-nav__link">
         位域那些事
       </a>
     </li>
@@ -461,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extern/" class="md-nav__link">
+      <a href="../../../basic_content/extern/" class="md-nav__link">
         extern那些事
       </a>
     </li>
@@ -475,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../struct/" class="md-nav__link">
+      <a href="../../../basic_content/struct/" class="md-nav__link">
         struct那些事
       </a>
     </li>
@@ -489,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../struct_class/" class="md-nav__link">
+      <a href="../../../basic_content/struct_class/" class="md-nav__link">
         struct与class那些事
       </a>
     </li>
@@ -503,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../union/" class="md-nav__link">
+      <a href="../../../basic_content/union/" class="md-nav__link">
         union那些事
       </a>
     </li>
@@ -517,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../c_poly/" class="md-nav__link">
+      <a href="../../../basic_content/c_poly/" class="md-nav__link">
         c实现C++多态那些事
       </a>
     </li>
@@ -531,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explicit/" class="md-nav__link">
+      <a href="../../../basic_content/explicit/" class="md-nav__link">
         explicit那些事
       </a>
     </li>
@@ -545,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../friend/" class="md-nav__link">
+      <a href="../../../basic_content/friend/" class="md-nav__link">
         friend那些事
       </a>
     </li>
@@ -559,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using/" class="md-nav__link">
+      <a href="../../../basic_content/using/" class="md-nav__link">
         using那些事
       </a>
     </li>
@@ -573,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../maohao/" class="md-nav__link">
+      <a href="../../../basic_content/maohao/" class="md-nav__link">
         ::那些事
       </a>
     </li>
@@ -587,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enum/" class="md-nav__link">
+      <a href="../../../basic_content/enum/" class="md-nav__link">
         enum那些事
       </a>
     </li>
@@ -599,93 +597,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          decltype那些事
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../basic_content/decltype/" class="md-nav__link">
         decltype那些事
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.基本使用
-  </a>
-  
-    <nav class="md-nav" aria-label="1.基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1 推导出表达式类型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-usingtypedef" class="md-nav__link">
-    1.2 与using/typedef合用，用于定义类型。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3 重用匿名类型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-auto" class="md-nav__link">
-    1.4 泛型编程中结合auto，用于追踪函数的返回值类型
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.判别规则
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -697,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pointer_refer/" class="md-nav__link">
+      <a href="../../../basic_content/pointer_refer/" class="md-nav__link">
         引用与指针那些事
       </a>
     </li>
@@ -711,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macro/" class="md-nav__link">
+      <a href="../../../basic_content/macro/" class="md-nav__link">
         宏那些事
       </a>
     </li>
@@ -760,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical_exercises/10_day_practice/10_day/" class="md-nav__link">
+      <a href="../../../practical_exercises/10_day_practice/10_day/" class="md-nav__link">
         10日狂练
       </a>
     </li>
@@ -774,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical_exercises/key_exercises/key/" class="md-nav__link">
+      <a href="../../../practical_exercises/key_exercises/key/" class="md-nav__link">
         重点实战练习
       </a>
     </li>
@@ -823,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../c%2B%2B2.0/c%2B%2B11/c%2B%2B11/" class="md-nav__link">
+      <a href="../../../c%2B%2B2.0/c%2B%2B11/c%2B%2B11/" class="md-nav__link">
         C++11
       </a>
     </li>
@@ -837,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../update/" class="md-nav__link">
+      <a href="../../../update/" class="md-nav__link">
         待更新
       </a>
     </li>
@@ -886,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design_pattern/singleton/singleton/" class="md-nav__link">
+      <a href="../../../design_pattern/singleton/singleton/" class="md-nav__link">
         单例模式
       </a>
     </li>
@@ -935,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/array/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/array/" class="md-nav__link">
         array
       </a>
     </li>
@@ -949,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/deque/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/deque/" class="md-nav__link">
         deque
       </a>
     </li>
@@ -963,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/queue_stack/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/queue_stack/" class="md-nav__link">
         queue and stack
       </a>
     </li>
@@ -977,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/list/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/list/" class="md-nav__link">
         list
       </a>
     </li>
@@ -991,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/vector/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/vector/" class="md-nav__link">
         vector
       </a>
     </li>
@@ -1005,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/typename/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/typename/" class="md-nav__link">
         typename
       </a>
     </li>
@@ -1019,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/traits/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/traits/" class="md-nav__link">
         traits
       </a>
     </li>
@@ -1033,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/iterator/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/iterator/" class="md-nav__link">
         iterator
       </a>
     </li>
@@ -1047,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/%E8%B0%88%E8%B0%88STL%E8%AE%BE%E8%AE%A1%E4%B9%8BEBO%E4%BC%98%E5%8C%96/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/%E8%B0%88%E8%B0%88STL%E8%AE%BE%E8%AE%A1%E4%B9%8BEBO%E4%BC%98%E5%8C%96/" class="md-nav__link">
         EBO优化
       </a>
     </li>
@@ -1061,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/rb_tree/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/rb_tree/" class="md-nav__link">
         rb_tree
       </a>
     </li>
@@ -1075,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/set_multiset/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/set_multiset/" class="md-nav__link">
         set and multiset
       </a>
     </li>
@@ -1089,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/map_multimap/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/map_multimap/" class="md-nav__link">
         map and multimap
       </a>
     </li>
@@ -1103,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/hashtable/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/hashtable/" class="md-nav__link">
         hashtable
       </a>
     </li>
@@ -1117,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/myhashtable/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/myhashtable/" class="md-nav__link">
         myhashtable
       </a>
     </li>
@@ -1131,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../src_analysis/stl/unordered_map/" class="md-nav__link">
+      <a href="../../../src_analysis/stl/unordered_map/" class="md-nav__link">
         unordered_map
       </a>
     </li>
@@ -1180,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/concurrency_v1/concurrency/" class="md-nav__link">
+      <a href="../../../concurrency/concurrency_v1/concurrency/" class="md-nav__link">
         C++ Concurrency in Action
       </a>
     </li>
@@ -1194,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/Threading_In_CPlusPlus/thread/" class="md-nav__link">
+      <a href="../../../concurrency/Threading_In_CPlusPlus/thread/" class="md-nav__link">
         Threading In C++
       </a>
     </li>
@@ -1243,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../codingStyleIdioms/classInitializers/" class="md-nav__link">
+      <a href="../../../codingStyleIdioms/classInitializers/" class="md-nav__link">
         类初始化列表
       </a>
     </li>
@@ -1257,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../codingStyleIdioms/enumclass/" class="md-nav__link">
+      <a href="../../../codingStyleIdioms/enumclass/" class="md-nav__link">
         枚举类替换命名空间
       </a>
     </li>
@@ -1271,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../codingStyleIdioms/RAII/" class="md-nav__link">
+      <a href="../../../codingStyleIdioms/RAII/" class="md-nav__link">
         RAII
       </a>
     </li>
@@ -1285,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../codingStyleIdioms/copy-swap/" class="md-nav__link">
+      <a href="../../../codingStyleIdioms/copy-swap/" class="md-nav__link">
         copy and swap
       </a>
     </li>
@@ -1299,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../codingStyleIdioms/pImpl/" class="md-nav__link">
+      <a href="../../../codingStyleIdioms/pImpl/" class="md-nav__link">
         pImpl
       </a>
     </li>
@@ -1319,14 +1235,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
       
       
       
@@ -1335,7 +1253,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           学习课程
@@ -1346,11 +1264,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../learn_class/modern_cpp_30/jiketime_class/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         极客时间《现代C++实战30讲》
       </a>
+      
     </li>
   
 
@@ -1397,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/output/" class="md-nav__link">
+      <a href="../../../tool/output/" class="md-nav__link">
         容器快捷输出工具
       </a>
     </li>
@@ -1411,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/like_python/" class="md-nav__link">
+      <a href="../../../tool/like_python/" class="md-nav__link">
         像Python一样玩C/C++
       </a>
     </li>
@@ -1425,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/look/" class="md-nav__link">
+      <a href="../../../tool/look/" class="md-nav__link">
         观察编译过程变化
       </a>
     </li>
@@ -1439,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/C%2B%2B%E7%9A%84Debug%E5%B7%A5%E5%85%B7dbg-macro/" class="md-nav__link">
+      <a href="../../../tool/C%2B%2B%E7%9A%84Debug%E5%B7%A5%E5%85%B7dbg-macro/" class="md-nav__link">
         C++的Debug工具dbg-macro
       </a>
     </li>
@@ -1488,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../extension/some_problem/string_int/" class="md-nav__link">
+      <a href="../../../extension/some_problem/string_int/" class="md-nav__link">
         一些问题
       </a>
     </li>
@@ -1510,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contribute/" class="md-nav__link">
+      <a href="../../../contribute/" class="md-nav__link">
         项目贡献
       </a>
     </li>
@@ -1525,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         联系作者
       </a>
     </li>
@@ -1552,62 +1480,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.基本使用
-  </a>
-  
-    <nav class="md-nav" aria-label="1.基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    1.1 推导出表达式类型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-usingtypedef" class="md-nav__link">
-    1.2 与using/typedef合用，用于定义类型。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    1.3 重用匿名类型
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-auto" class="md-nav__link">
-    1.4 泛型编程中结合auto，用于追踪函数的返回值类型
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2.判别规则
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1621,113 +1493,34 @@
                   
 
 
-<h1 id="decltype">decltype那些事<a class="headerlink" href="#decltype" title="Permanent link">&para;</a></h1>
-<h2 id="1">1.基本使用<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>decltype的语法是:</p>
-<div class="codehilite"><pre><span></span><code>decltype (expression)
-</code></pre></div>
-
-<p>这里的括号是必不可少的,decltype的作用是“查询表达式的类型”，因此，上面语句的效果是，返回 expression 表达式的类型。注意，decltype 仅仅“查询”表达式的类型，并不会对表达式进行“求值”。</p>
-<h3 id="11">1.1 推导出表达式类型<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>int i = 4;
-decltype(i) a; //推导结果为int。a的类型为int。
-</code></pre></div>
-
-<h3 id="12-usingtypedef">1.2 与using/typedef合用，用于定义类型。<a class="headerlink" href="#12-usingtypedef" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="c1">//sizeof(a)的返回值为size_t类型</span>
-<span class="k">using</span><span class="w"> </span><span class="kt">ptrdiff_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">((</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
-<span class="k">using</span><span class="w"> </span><span class="n">nullptr_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
-<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="w"> </span><span class="o">&gt;</span><span class="n">vec</span><span class="p">;</span>
-<span class="k">typedef</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="n">vectype</span><span class="p">;</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">vectype</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="c1">//...</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>这样和auto一样，也提高了代码的可读性。</p>
-<h3 id="13">1.3 重用匿名类型<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
-<p>在C++中，我们有时候会遇上一些匿名类型，如:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">;</span>
-<span class="w">    </span><span class="n">doubel</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span><span class="n">anon_s</span><span class="p">;</span>
-</code></pre></div>
-
-<p>而借助decltype，我们可以重新使用这个匿名的结构体：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">decltype</span><span class="p">(</span><span class="n">anon_s</span><span class="p">)</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="p">;</span><span class="c1">//定义了一个上面匿名的结构体</span>
-</code></pre></div>
-
-<h3 id="14-auto">1.4 泛型编程中结合auto，用于追踪函数的返回值类型<a class="headerlink" href="#14-auto" title="Permanent link">&para;</a></h3>
-<p>这也是decltype最大的用途了。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">multiply</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="o">-&gt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>完整代码见：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/decltype/decltype.cpp">decltype.cpp</a></p>
-<h2 id="2">2.判别规则<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>对于decltype(e)而言，其判别结果受以下条件的影响：</p>
-<p>如果e是一个没有带括号的标记符表达式或者类成员访问表达式，那么的decltype（e）就是e所命名的实体的类型。此外，如果e是一个被重载的函数，则会导致编译错误。
-否则 ，假设e的类型是T，如果e是一个将亡值，那么decltype（e）为T&amp;&amp;
-否则，假设e的类型是T，如果e是一个左值，那么decltype（e）为T&amp;。
-否则，假设e的类型是T，则decltype（e）为T。</p>
-<p>标记符指的是除去关键字、字面量等编译器需要使用的标记之外的程序员自己定义的标记，而单个标记符对应的表达式即为标记符表达式。例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-</code></pre></div>
-
-<p>则arr为一个标记符表达式，而arr[3]+0不是。</p>
-<p>举例如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="p">{</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="n">s</span><span class="w"> </span><span class="p">;</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">Overloaded</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">Overloaded</span><span class="p">(</span><span class="kt">char</span><span class="p">);</span><span class="c1">//重载的函数</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nf">RvalRef</span><span class="p">();</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Func</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
-
-<span class="c1">//规则一：推导为其类型</span>
-<span class="k">decltype</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="n">var1</span><span class="p">;</span><span class="w"> </span><span class="c1">//int 标记符表达式</span>
-
-<span class="k">decltype</span><span class="w"> </span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="n">var2</span><span class="p">;</span><span class="c1">//int *  标记符表达式</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="n">var3</span><span class="p">;</span><span class="c1">//doubel 成员访问表达式</span>
-
-<span class="c1">//decltype(Overloaded) var4;//重载函数。编译错误。</span>
-
-<span class="c1">//规则二：将亡值。推导为类型的右值引用。</span>
-
-<span class="k">decltype</span><span class="w"> </span><span class="p">(</span><span class="n">RvalRef</span><span class="p">())</span><span class="w"> </span><span class="n">var5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-
-<span class="c1">//规则三：左值，推导为类型的引用。</span>
-
-<span class="k">decltype</span><span class="w"> </span><span class="p">((</span><span class="n">i</span><span class="p">))</span><span class="n">var6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">     </span><span class="c1">//int&amp;</span>
-
-<span class="k">decltype</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">var7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">//int&amp;  条件表达式返回左值。</span>
-
-<span class="k">decltype</span><span class="w"> </span><span class="p">(</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">var8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">//int&amp;  ++i返回i的左值。</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="w"> </span><span class="n">var9</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="c1">//int&amp;. []操作返回左值</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span><span class="n">var10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="c1">//int&amp; *操作返回左值</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span><span class="n">var11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//const char(&amp;)[9]  字符串字面常量为左值，且为const左值。</span>
-
-
-<span class="c1">//规则四：以上都不是，则推导为本类型</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">var12</span><span class="p">;</span><span class="c1">//const int</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="n">Func</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="n">var13</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="c1">//const bool</span>
-
-<span class="k">decltype</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">var14</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="c1">//int i++返回右值</span>
-</code></pre></div>
-
-<p>学习参考：https://www.cnblogs.com/QG-whz/p/4952980.html</p>
+<h1 id="c30">极客时间《C++实战30讲》<a class="headerlink" href="#c30" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/RAII">堆、栈、RAII：C++里该如何管理资源？</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/RAII/heap.cpp">堆</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/RAII/stack.cpp">栈</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/RAII/RAII.cpp">RAII</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/smart_ptr">自己动手，实现C++的智能指针</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/smart_ptr/auto_scope.cpp">auto_ptr、scope_ptr</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/smart_ptr/unique_ptr.cpp">unique_ptr</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/smart_ptr/shared_ptr.cpp">shared_ptr</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference">右值和移动究竟解决了什么问题？</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference/reference.cpp">左值与右值</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference/lifetime.cpp">延长声明周期</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference/collapses.cpp">引用折叠</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference/forward.cpp">完美转发</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/reference/don'treturnReference.cpp">不要返回本地变量的引用</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/container1">容器1</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/container2">容器2</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/exception">异常</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/literalAssert">字面量、静态断言和成员函数说明符</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/returnObj">是不是应该返回对象？</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/compilerpoly">编译期多态：泛型编程和模板入门</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/compilercompute">译期能做些什么？一个完整的计算世界</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/SFINAE">SFINAE：不是错误的替换失败是怎么回事?</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/constexpr">constexpr：一个常态的世界</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/functionLambda">函数对象和lambda：进入函数式编程</a></li>
+<li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/learn_class/modern_cpp_30/memorymodel_atomic">内存模型和atomic：理解并发的复杂性</a></li>
+</ul>
 
 
 
@@ -1784,10 +1577,10 @@ decltype(i) a; //推导结果为int。a的类型为int。
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
       
     
   </body>
