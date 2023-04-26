@@ -1,0 +1,2250 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stories About C Plus Plus">
+      
+      
+        <meta name="author" content="光城">
+      
+      
+      
+        <link rel="prev" href="../%E8%B0%88%E8%B0%88STL%E8%AE%BE%E8%AE%A1%E4%B9%8BEBO%E4%BC%98%E5%8C%96/">
+      
+      
+        <link rel="next" href="../set_multiset/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+    
+    
+      
+        <title>rb_tree - C++那些事</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c-stl" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            C++那些事
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              rb_tree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Light-City/CPlusPlusThings
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    C++那些事
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Light-City/CPlusPlusThings
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        项目概要
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../use/" class="md-nav__link">
+        使用须知
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../video/" class="md-nav__link">
+        视频教程
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../group/" class="md-nav__link">
+        优质社群
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          基础进阶
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          基础进阶
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/const/" class="md-nav__link">
+        const那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/static/" class="md-nav__link">
+        static那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/this/" class="md-nav__link">
+        this那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/inline/" class="md-nav__link">
+        inline那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/sizeof/" class="md-nav__link">
+        sizeof那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/abstract/" class="md-nav__link">
+        纯虚函数和抽象类那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/vptr_vtable/" class="md-nav__link">
+        vptr_vtable那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/virtual/" class="md-nav__link">
+        virtual那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/volatile/" class="md-nav__link">
+        volatile那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/assert/" class="md-nav__link">
+        assert那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/bit/" class="md-nav__link">
+        位域那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/extern/" class="md-nav__link">
+        extern那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/struct/" class="md-nav__link">
+        struct那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/struct_class/" class="md-nav__link">
+        struct与class那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/union/" class="md-nav__link">
+        union那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/c_poly/" class="md-nav__link">
+        c实现C++多态那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/explicit/" class="md-nav__link">
+        explicit那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/friend/" class="md-nav__link">
+        friend那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/using/" class="md-nav__link">
+        using那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/maohao/" class="md-nav__link">
+        ::那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/enum/" class="md-nav__link">
+        enum那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/decltype/" class="md-nav__link">
+        decltype那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/pointer_refer/" class="md-nav__link">
+        引用与指针那些事
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic_content/macro/" class="md-nav__link">
+        宏那些事
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          实战系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          实战系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical_exercises/10_day_practice/10_day/" class="md-nav__link">
+        10日狂练
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical_exercises/key_exercises/key/" class="md-nav__link">
+        重点实战练习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          C++2.0新特性
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          C++2.0新特性
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B2.0/c%2B%2B11/c%2B%2B11/" class="md-nav__link">
+        C++11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../update/" class="md-nav__link">
+        待更新
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          设计模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          设计模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design_pattern/singleton/singleton/" class="md-nav__link">
+        单例模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          源码剖析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          源码剖析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../array/" class="md-nav__link">
+        array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deque/" class="md-nav__link">
+        deque
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../queue_stack/" class="md-nav__link">
+        queue and stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../list/" class="md-nav__link">
+        list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        vector
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typename/" class="md-nav__link">
+        typename
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../traits/" class="md-nav__link">
+        traits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iterator/" class="md-nav__link">
+        iterator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B0%88%E8%B0%88STL%E8%AE%BE%E8%AE%A1%E4%B9%8BEBO%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        EBO优化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          rb_tree
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        rb_tree
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    0.导语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.红黑树节点基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.红黑树节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.红黑树迭代器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.红黑树操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.红黑树插入
+  </a>
+  
+    <nav class="md-nav" aria-label="5.红黑树插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 旋转过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2插入总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.使用
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set_multiset/" class="md-nav__link">
+        set and multiset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map_multimap/" class="md-nav__link">
+        map and multimap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hashtable/" class="md-nav__link">
+        hashtable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../myhashtable/" class="md-nav__link">
+        myhashtable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unordered_map/" class="md-nav__link">
+        unordered_map
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          并发编程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          并发编程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concurrency/concurrency_v1/concurrency/" class="md-nav__link">
+        C++ Concurrency in Action
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concurrency/Threading_In_CPlusPlus/thread/" class="md-nav__link">
+        Threading In C++
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          惯用法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          惯用法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codingStyleIdioms/classInitializers/" class="md-nav__link">
+        类初始化列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codingStyleIdioms/enumclass/" class="md-nav__link">
+        枚举类替换命名空间
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codingStyleIdioms/RAII/" class="md-nav__link">
+        RAII
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codingStyleIdioms/copy-swap/" class="md-nav__link">
+        copy and swap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../codingStyleIdioms/pImpl/" class="md-nav__link">
+        pImpl
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          学习课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          学习课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn_class/modern_C%2B%2B_30/jiketime_class/" class="md-nav__link">
+        极客时间《现代C++实战30讲》
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          工具篇
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          工具篇
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tool/output/" class="md-nav__link">
+        容器快捷输出工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tool/like_python/" class="md-nav__link">
+        像Python一样玩C/C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tool/look/" class="md-nav__link">
+        观察编译过程变化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tool/C%2B%2B%E7%9A%84Debug%E5%B7%A5%E5%85%B7dbg-macro/" class="md-nav__link">
+        C++的Debug工具dbg-macro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          拓展部分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          拓展部分
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extension/some_problem/string_int/" class="md-nav__link">
+        一些问题
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contribute/" class="md-nav__link">
+        项目贡献
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        联系作者
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    0.导语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.红黑树节点基类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.红黑树节点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.红黑树迭代器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.红黑树操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.红黑树插入
+  </a>
+  
+    <nav class="md-nav" aria-label="5.红黑树插入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 旋转过程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2插入总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.使用
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="c-stl">C++ STL源码剖析之红黑树<a class="headerlink" href="#c-stl" title="Permanent link">&para;</a></h1>
+<h2 id="0">0.导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>在STL源码中有两段话，简单翻译后如下：</p>
+<p>STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, 
+multimap）.里面所用的insertion和deletion方法以
+《Introduction to Algorithms》一书为基础,但是有以下两点不同: </p>
+<p>(1)header不仅指向root,也指向红黑树的最左节点,以便用常数时间实现begin(),并且也指向红黑树的最右边节点,以便 
+set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
+<p>(2)当要删除的节点有两个子节点时，其后继节点连接到其位置，而不是被复制，因此，唯一使无效的迭代器是引用已删除节点的迭代器。</p>
+<p>上述话翻译成图，如下，相比于普通的红黑树多了一个header节点，并且为红色。普通的红黑树是以100节点开始的，且满足下面五条性质：
+- 每个节点或是红色的,或是黑色的.
+- 根节点是黑色的.
+- 每个叶节点（NULL）是黑色的.
+- 如果一个节点是红色的，则它的两个孩子节点都是黑色的.
+- 对每个节点，从该节点到其所有后代叶节点的简单路径上，均包含相同数目的黑色节点.</p>
+<p>当然这里的rb_tree也是一样满足这几条性质，迭代器的begin指向红黑树根节点，也就是header的父亲，而end指向header节点。</p>
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。
+图中省略号表示节点没有画完，还有其他节点，所以省略。</p>
+<h2 id="1">1.红黑树节点基类<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>红黑树基类，非常简单，在文件开头定义了颜色标记。</p>
+<p>基类中包含了指向自己的指针，分别定义了left、right、parent，同时包含了一个颜色标记常量，而里面有两个核心函数，目的是获取红黑树中最小节点与最大节点。
+我们知道对于二分搜索树获取最小节点就是左子树一直往下搜，最大节点就是右子树一直往下搜即可。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 颜色标记</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">_Rb_tree_color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_S_red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">_S_black</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span>
+
+<span class="c1">// 基类</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_node_base</span>
+<span class="p">{</span>
+<span class="c1">// typedef重命名</span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="o">*</span><span class="w"> </span><span class="n">_Base_ptr</span><span class="p">;</span>
+
+<span class="c1">// 颜色</span>
+<span class="n">_Rb_tree_color</span><span class="w">  </span><span class="n">_M_color</span><span class="p">;</span>
+<span class="c1">// 指向父亲</span>
+<span class="n">_Base_ptr</span><span class="w">       </span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="c1">// 指向左孩子</span>
+<span class="n">_Base_ptr</span><span class="w">       </span><span class="n">_M_left</span><span class="p">;</span>
+<span class="c1">// 指向右孩子</span>
+<span class="n">_Base_ptr</span><span class="w">       </span><span class="n">_M_right</span><span class="p">;</span>
+
+<span class="c1">// 求红黑树的最小节点</span>
+<span class="k">static</span><span class="w"> </span><span class="n">_Base_ptr</span>
+<span class="nf">_S_minimum</span><span class="p">(</span><span class="n">_Base_ptr</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 求红黑树最大节点</span>
+<span class="k">static</span><span class="w"> </span><span class="n">_Base_ptr</span>
+<span class="nf">_S_maximum</span><span class="p">(</span><span class="n">_Base_ptr</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">};</span>
+</code></pre></div>
+
+<h2 id="2">2.红黑树节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>红黑树节点继承自红黑树基类。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Val</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_node</span><span class="o">&lt;</span><span class="n">_Value</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">_Link_type</span><span class="p">;</span><span class="c1">//节点指针,指向数据节点</span>
+<span class="w">    </span><span class="n">_Value</span><span class="w"> </span><span class="n">_M_value_field</span><span class="p">;</span><span class="c1">//节点数据域,即关键字</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<h2 id="3">3.红黑树迭代器<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>红黑树迭代器里面有一个红黑树基类成员，然后通过该成员进行迭代器的相关操作。
+同时，我们可以知道该迭代器属于<code>bidirectional_iterator_tag</code>。</p>
+<p>里面也包含了萃取机相关需要的typedef。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_iterator</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">  </span><span class="n">value_type</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&amp;</span><span class="w"> </span><span class="n">reference</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="o">*</span><span class="w"> </span><span class="n">pointer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">bidirectional_iterator_tag</span><span class="w"> </span><span class="n">iterator_category</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="kt">ptrdiff_t</span><span class="w">                  </span><span class="n">difference_type</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_iterator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span><span class="w">        </span><span class="n">_Self</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="o">::</span><span class="n">_Base_ptr</span><span class="w"> </span><span class="n">_Base_ptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_node</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;*</span><span class="w">           </span><span class="n">_Link_type</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">_Base_ptr</span><span class="w"> </span><span class="n">_M_node</span><span class="p">;</span>
+<span class="p">};</span><span class="w">   </span>
+</code></pre></div>
+
+<p>获取数据</p>
+<div class="codehilite"><pre><span></span><code><span class="n">reference</span>
+<span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_M_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">_M_valptr</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+
+<span class="n">pointer</span>
+<span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">_M_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">_M_valptr</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>重载++操作符</p>
+<div class="codehilite"><pre><span></span><code><span class="n">_Self</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_M_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Rb_tree_increment</span><span class="p">(</span><span class="n">_M_node</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>而<code>_Rb_tree_increment</code>底层是<code>local_Rb_tree_increment</code>，如下实现：</p>
+<div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span>
+<span class="nf">local_Rb_tree_increment</span><span class="p">(</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="o">*</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w">       </span><span class="cm">/* 存在右子树,那么下一个节点为右子树的最小节点 */</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w">  </span><span class="p">{</span><span class="w">                        </span>
+<span class="w">        </span><span class="cm">/* 不存在右子树,那么分为两种情况：自底往上搜索,当前节点为父节点的左孩子的时候,父节点就是后继节点； */</span>
+<span class="cm">/* 第二种情况:_x为header节点了,那么_x就是最后的后继节点. 简言之_x为最小节点且往上回溯,一直为父节点的右孩子,直到_x变为父节点,_y为其右孩子 */</span>
+<span class="w">        </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="p">;</span>
+<span class="w">            </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>重载--操作符：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">_Self</span><span class="o">&amp;</span>
+<span class="k">operator</span><span class="o">--</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_M_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Rb_tree_decrement</span><span class="p">(</span><span class="n">_M_node</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>同理，而<code>_Rb_tree_decrement</code>底层是<code>local_Rb_tree_decrement</code>，如下实现：</p>
+<div class="codehilite"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span>
+<span class="nf">local_Rb_tree_decrement</span><span class="p">(</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="p">)</span>
+<span class="k">throw</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="cm">/* header节点 */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span>
+<span class="w">         </span><span class="n">_S_red</span>
+<span class="w">         </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__x</span>
+<span class="w">         </span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="cm">/* 左节点不为空,返回左子树中最大的节点 */</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w">  </span><span class="p">{</span>
+<span class="cm">/* 自底向上找到当前节点为其父节点的右孩子,那么父节点就是前驱节点 */</span>
+<span class="w">        </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="p">;</span>
+<span class="w">            </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__y</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span>
+<span class="w">        </span><span class="p">(</span><span class="n">__x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>重载==与!=操作符，直接判断节点指针是否相等。</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">bool</span>
+<span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_M_node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="p">.</span><span class="n">_M_node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="kt">bool</span>
+<span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_M_node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">__x</span><span class="p">.</span><span class="n">_M_node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>其他重要函数，黑节点统计：</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span>
+<span class="nf">_Rb_tree_black_count</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__node</span><span class="p">,</span>
+<span class="w">                     </span><span class="k">const</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__root</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__node</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_black</span><span class="p">)</span>
+<span class="w">            </span><span class="o">++</span><span class="n">__sum</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__root</span><span class="p">)</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="n">__node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__node</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__sum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>后面来阐述最重要的插入操作。</p>
+<h2 id="4">4.红黑树操作<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>比较重要的是，里面使用节点基类来声明了一个指针。还包含了一个<code>_Rb_tree_impl</code>用来对红黑树初始化操作与内存管理操作。里面还包含了两种迭代器，一个rbtree，另一个是reverse，说明支持rbegin,rend操作。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Key</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Val</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_KeyOfValue</span><span class="p">,</span>
+<span class="w">           </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Compare</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Val</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_Rb_tree</span>
+<span class="p">{</span>
+
+<span class="k">protected</span><span class="o">:</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="o">*</span><span class="w">         </span><span class="n">_Base_ptr</span><span class="p">;</span>
+
+<span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Key_compare</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">_Is_pod_comparator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__is_pod</span><span class="p">(</span><span class="n">_Key_compare</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_impl</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">_Node_allocator</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">_Key_compare</span><span class="w">      </span><span class="n">_M_key_compare</span><span class="p">;</span>
+<span class="w">      </span><span class="n">_Rb_tree_node_base</span><span class="w">    </span><span class="n">_M_header</span><span class="p">;</span>
+<span class="w">      </span><span class="n">size_type</span><span class="w">         </span><span class="n">_M_node_count</span><span class="p">;</span><span class="w"> </span><span class="c1">// Keeps track of size of tree.</span>
+
+<span class="w">      </span><span class="n">_Rb_tree_impl</span><span class="p">()</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">_Node_allocator</span><span class="p">(),</span><span class="w"> </span><span class="n">_M_key_compare</span><span class="p">(),</span><span class="w"> </span><span class="n">_M_header</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">_M_node_count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">_M_initialize</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">_Rb_tree_impl</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Key_compare</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__comp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_Node_allocator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__a</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">_Node_allocator</span><span class="p">(</span><span class="n">__a</span><span class="p">),</span><span class="w"> </span><span class="n">_M_key_compare</span><span class="p">(</span><span class="n">__comp</span><span class="p">),</span><span class="w"> </span><span class="n">_M_header</span><span class="p">(),</span>
+<span class="w">        </span><span class="n">_M_node_count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">_M_initialize</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="o">:</span>
+<span class="w">      </span><span class="kt">void</span>
+<span class="w">      </span><span class="n">_M_initialize</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_header</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w">  </span>
+
+<span class="w">    </span><span class="p">};</span>
+<span class="k">public</span><span class="o">:</span><span class="w"> </span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Rb_tree_iterator</span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span><span class="w">       </span><span class="n">iterator</span><span class="p">;</span>
+<span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">reverse_iterator</span><span class="o">&lt;</span><span class="n">iterator</span><span class="o">&gt;</span><span class="w">     </span><span class="n">reverse_iterator</span><span class="p">;</span><span class="w"> </span>
+<span class="k">private</span><span class="o">:</span>
+<span class="n">_Rb_tree_impl</span><span class="o">&lt;</span><span class="n">_Compare</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_M_impl</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<blockquote>
+<p>获取红黑树根节点、最左与最右节点</p>
+</blockquote>
+<p>回到一开始的图：
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 图中100 节点</span>
+<span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
+<span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_parent</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 图中most left标记</span>
+<span class="n">_Base_ptr</span><span class="o">&amp;</span>
+<span class="nf">_M_leftmost</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+
+<span class="c1">// 图中most right标记</span>
+<span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
+<span class="nf">_M_rightmost</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_right</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">_Link_type</span>
+
+<span class="w"> </span><span class="c1">// 图中begin()标记</span>
+<span class="nf">_M_begin</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">.</span><span class="n">_M_parent</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 图中end()标记</span>
+<span class="n">_Link_type</span>
+<span class="nf">_M_end</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
+<span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>我们再看代码是不是非常清晰！</p>
+<h2 id="5">5.红黑树插入<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 旋转过程<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>左旋转是将该节点的右节点设置为它的父节点，该节点将变成刚才右节点的左孩子</p>
+<p>直接看源码中的图与代码对比即可。</p>
+<p>在<code>tree.cc</code>源码中实现函数为<code>local_Rb_tree_rotate_left</code>与<code>local_Rb_tree_rotate_right</code>。
+下面我们将源码进行剖析成比较容易理解的代码，具体见注释。
+大家会发现函数名与变量名与源码不同，是因为下面是当时自己实现的，但是不影响源码阅读，就直接拿来对比了。</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">* 当前节点的左旋转过程</span>
+<span class="cm">* 将该节点的右节点设置为它的父节点，该节点将变成刚才右节点的左孩子</span>
+<span class="cm">* @param _x</span>
+<span class="cm">*/</span>
+<span class="c1">//    _x                      _y</span>
+<span class="c1">//  /   \     左旋转         /  \</span>
+<span class="c1">// T1   _y   ---------&gt;   _x    T3</span>
+<span class="c1">//     / \              /   \</span>
+<span class="c1">//    T2 T3            T1   T2</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">leftRotate</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">_x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// step1 处理_x的右孩子</span>
+<span class="w">    </span><span class="c1">// 右节点变为_x节点的父亲节点,先保存一下右节点</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// T2变为node的右节点</span>
+<span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">NULL</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// step2 处理_y与父亲节点关系</span>
+<span class="w">    </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span><span class="w">      </span><span class="c1">// 原来_x的父亲变为_y的父亲</span>
+<span class="w">    </span><span class="c1">// 说明原来_x为root节点,此时需要将_y设为新root节点</span>
+<span class="w">    </span><span class="c1">// 或者判断NULL == _y-&gt;parent</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span>
+<span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w">    </span><span class="c1">// 原_x的父节点的左孩子连接新节点_y</span>
+<span class="w">        </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="c1">// 原_x的父节点的右孩子连接新节点_y</span>
+<span class="w">        </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// step3 处理_x与_y关系</span>
+<span class="w">    </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="p">;</span><span class="w">      </span><span class="c1">// _y的左孩子为_x</span>
+<span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span><span class="w">    </span><span class="c1">// _x的父亲是_y</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>同理，右旋转如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//        _x                      _y</span>
+<span class="c1">//      /   \     右旋转         /  \</span>
+<span class="c1">//     _y    T2 -------------&gt;  T0  _x</span>
+<span class="c1">//    /  \                         /  \</span>
+<span class="c1">//   T0  T1                       T1  T2</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">rightRotate</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">_x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// step1 处理_x的左孩子</span>
+<span class="w">    </span><span class="c1">// 左节点变为_x节点的父亲节点,先保存一下左节点</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// T1变为_x的左孩子</span>
+<span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">NULL</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// step2 处理_y与父节点之间的关系</span>
+<span class="w">    </span><span class="c1">// 或者判断_x-&gt;parent==NULL</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span>
+<span class="w">        </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span>
+<span class="w">        </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// step3 处理_x与_y关系</span>
+<span class="w">    </span><span class="n">_y</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span><span class="p">;</span><span class="w">     </span><span class="c1">// _y的右孩子为_x</span>
+<span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span><span class="w">    </span><span class="c1">// _x的父亲是_y</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>case 1.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
+<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
+<p>case 1.2 若无叔叔节点或者其叔叔节点为黑色分为下面两种：</p>
+<p>情况1.2.1：x的叔叔节点y是黑色且x是一个右孩子</p>
+<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
+<p>情况1.2.2：x的叔叔节点y是黑色且x是一个左孩子</p>
+<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
+<p>对应源代码中：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">        * 解决办法是：颜色翻转，父亲与叔叔的颜色都变为黑色,祖父节点变为红色,然后当前节点设为祖父，依次网上来判断是否破坏了红黑树性质</span>
+<span class="cm">        */</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 将其父节点改为黑色</span>
+<span class="w">    </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">               </span><span class="c1">// 将其叔叔节点改为黑色</span>
+<span class="w">    </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">               </span><span class="c1">// 将其祖父节点改为红色</span>
+<span class="w">    </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="p">;</span><span class="w">                            </span><span class="c1">// 修改_x,往上回溯</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 无叔叔或者叔叔为黑色</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// 当前节点为父亲节点的右孩子</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="n">local_Rb_tree_rotate_left</span><span class="p">(</span><span class="n">__x</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">     </span><span class="c1">// 以父节点进行左旋转</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// 旋转之后,节点x变成其父节点的左孩子</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">            </span><span class="c1">// 将其父亲节点改为黑色</span>
+<span class="w">    </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">                       </span><span class="c1">// 将其祖父节点改为红色</span>
+<span class="w">    </span><span class="n">local_Rb_tree_rotate_right</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">      </span><span class="c1">// 以祖父节点右旋转</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>另外一个是上述对称过程：</p>
+<p>case 2.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
+<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
+<p>case 2.2 若无叔叔节点或者其叔叔节点为黑色</p>
+<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
+<p>情况2.2.1：x的叔叔节点y是黑色且x是一个左孩子</p>
+<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
+<div class="codehilite"><pre><span></span><code><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
+<span class="w">    </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">               </span><span class="c1">// 祖父节点改为红色</span>
+<span class="w">    </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span>
+<span class="w">    </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 若无叔叔节点或者其叔叔节点为黑色</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// 当前节点为父亲节点的左孩子</span>
+<span class="w">        </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">        </span><span class="n">local_Rb_tree_rotate_right</span><span class="p">(</span><span class="n">__x</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">    </span><span class="c1">// 以父节点右旋转</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">        </span><span class="c1">// 父节点置为黑色</span>
+<span class="w">    </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">                   </span><span class="c1">// 祖父节点置为红色</span>
+<span class="w">    </span><span class="n">local_Rb_tree_rotate_left</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">   </span><span class="c1">// 左旋转</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>_Rb_tree_insert_and_rebalance</code>完整解析：</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span>
+<span class="nf">_Rb_tree_insert_and_rebalance</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">__insert_left</span><span class="p">,</span>
+<span class="w">                              </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__x</span><span class="p">,</span>
+<span class="w">                              </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__p</span><span class="p">,</span>
+<span class="w">                              </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__header</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_parent</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Initialize fields in new node to insert.</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 处理__header部分</span>
+<span class="w">    </span><span class="c1">// Insert.</span>
+<span class="w">    </span><span class="c1">// Make new node child of parent and maintain root, leftmost and</span>
+<span class="w">    </span><span class="c1">// rightmost nodes.</span>
+<span class="w">    </span><span class="c1">// N.B. First node is always inserted left.</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__insert_left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">__p</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span><span class="w"> </span><span class="c1">// also makes leftmost = __x when __p == &amp;__header</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__header</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span>
+<span class="w">            </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_left</span><span class="p">)</span>
+<span class="w">            </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span><span class="w"> </span><span class="c1">// maintain leftmost pointing to min node</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">__p</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_right</span><span class="p">)</span>
+<span class="w">            </span><span class="n">__header</span><span class="p">.</span><span class="n">_M_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="p">;</span><span class="w"> </span><span class="c1">// maintain rightmost pointing to max node</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w"> </span><span class="c1">// Rebalance.</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">__root</span>
+<span class="w">           </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">   </span><span class="c1">// 若新插入节点不是为RB-Tree的根节点，且其父节点color属性也是红色,即违反了性质4.</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__xpp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span><span class="w">        </span><span class="c1">// 祖父节点</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">)</span><span class="w">   </span><span class="c1">// 父亲是祖父节点的左孩子</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/**</span>
+<span class="cm">                 * 解决办法是：颜色翻转，父亲与叔叔的颜色都变为黑色,祖父节点变为红色,然后当前节点设为祖父，依次网上来判断是否破坏了红黑树性质</span>
+<span class="cm">                 */</span>
+<span class="w">                </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 将其父节点改为黑色</span>
+<span class="w">                </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">               </span><span class="c1">// 将其叔叔节点改为黑色</span>
+<span class="w">                </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">               </span><span class="c1">// 将其祖父节点改为红色</span>
+<span class="w">                </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="p">;</span><span class="w">                            </span><span class="c1">// 修改_x,往上回溯</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 无叔叔或者叔叔为黑色</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// 当前节点为父亲节点的右孩子</span>
+<span class="w">                    </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">local_Rb_tree_rotate_left</span><span class="p">(</span><span class="n">__x</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">     </span><span class="c1">// 以父节点进行左旋转</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="c1">// 旋转之后,节点x变成其父节点的左孩子</span>
+<span class="w">                </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">            </span><span class="c1">// 将其父亲节点改为黑色</span>
+<span class="w">                </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">                       </span><span class="c1">// 将其祖父节点改为红色</span>
+<span class="w">                </span><span class="n">local_Rb_tree_rotate_right</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">      </span><span class="c1">// 以祖父节点右旋转</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 父亲是祖父节点的右孩子</span>
+<span class="w">            </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
+<span class="w">                </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
+<span class="w">                </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">               </span><span class="c1">// 祖父节点改为红色</span>
+<span class="w">                </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span>
+<span class="w">                </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">        </span><span class="c1">// 若无叔叔节点或者其叔叔节点为黑色</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// 当前节点为父亲节点的左孩子</span>
+<span class="w">                    </span><span class="n">__x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">local_Rb_tree_rotate_right</span><span class="p">(</span><span class="n">__x</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">    </span><span class="c1">// 以父节点右旋转</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">        </span><span class="c1">// 父节点置为黑色</span>
+<span class="w">                </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_red</span><span class="p">;</span><span class="w">                   </span><span class="c1">// 祖父节点置为红色</span>
+<span class="w">                </span><span class="n">local_Rb_tree_rotate_left</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">   </span><span class="c1">// 左旋转</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//若新插入节点为根节点,则违反性质2</span>
+<span class="w">    </span><span class="c1">//只需将其重新赋值为黑色即可</span>
+<span class="w">    </span><span class="n">__root</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="52">5.2插入总结<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
+<p>根据上述插入过程与源码分析，我们得出下面三种：
+假设P代码父亲节点，N代表当前新插入节点，U代表叔叔节点，G代表祖父节点。</p>
+<p>case 1:U为红色，P、N也都为红色，则可以通过改变颜色，自底向上递归调整，下次N就变味G，往上判断即可。如果碰巧将根节点染成了红色, 可以在算法的最后强制root改为黑。</p>
+<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
+<p>case 2:U为黑色，考虑N是P的左孩子还是右孩子。</p>
+<p>case2.1 如果是右孩子,先进行左旋转，再进入下一种情况。</p>
+<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
+<p>case2.2 可能是上述情况变化而来，但不一定是！策略为：右旋转，改变颜色。</p>
+<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
+<p>经过上述源码的分析得知，红黑树插入为镜像变换，另一种情况刚好相反。</p>
+<p>删除操作，比较复杂，这里就暂时没分析了，后面补上。。。</p>
+<h2 id="6">6.使用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>前面说了那么多，如何使用呢？</p>
+<p>引入头文件：</p>
+<div class="codehilite"><pre><span></span><code>#include&lt;map&gt;或者&lt;set&gt;
+</code></pre></div>
+
+<p>类定义：</p>
+<div class="codehilite"><pre><span></span><code>_Rb_tree&lt;int, int, _Identity&lt;int&gt;, less&lt;int&gt;&gt; itree;
+</code></pre></div>
+
+<p>然后调用相应函数即可。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2023 光城
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Light-City/CPlusPlusThings" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
