@@ -297,6 +297,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hot" class="md-nav__link">
+    HOT: 新增项目
+  </a>
+  
+    <nav class="md-nav" aria-label="HOT: 新增项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    线程池
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内存池
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1100mutex" class="md-nav__link">
     1.手把手100行写一个简易版Mutex
   </a>
@@ -1584,6 +1611,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hot" class="md-nav__link">
+    HOT: 新增项目
+  </a>
+  
+    <nav class="md-nav" aria-label="HOT: 新增项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    线程池
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内存池
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1100mutex" class="md-nav__link">
     1.手把手100行写一个简易版Mutex
   </a>
@@ -1674,6 +1728,36 @@
 
 
 <h1 id="_1">重磅项目<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="hot">HOT: 新增项目<a class="headerlink" href="#hot" title="Permanent link">&para;</a></h2>
+<h3 id="_2">线程池<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>这个项目的线程池是基于Apache Arrow项目的衍生版本。我们将Arrow项目中复杂的核心结构——线程池——完全剥离出来，形成了这个独立的项目。由于原始的线程池与Arrow项目本身的工具有深度依赖关系，因此我们在这个项目中对线程池进行了一些深度移除和改造，以保持与原始Arrow线程池的基础功能一致。一些改动包括：</p>
+<ul>
+<li>将Arrow的Future替换为std::future</li>
+<li>将Arrow的Result替换为std::optional</li>
+<li>重构了Submit接口，使用promise进行实现</li>
+</ul>
+<p>通过这些改动，我们的目标是：</p>
+<ul>
+<li>使线程池更方便地作为其他项目的依赖库使用</li>
+<li>提供简单的方式来引入本项目的so库和头文件，以使用线程池功能</li>
+</ul>
+<p>此外，这个项目还可以作为深入学习线程池设计与实现的资源。我们欢迎您探索并使用这个经过精心改进的线程池。</p>
+<p>https://github.com/Light-City/light-thread-pool</p>
+<h3 id="_3">内存池<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>这个项目的内存池是基于Apache Arrow项目的衍生版本。我们将Arrow项目中复杂的核心结构——内存池——完全剥离出来，形成了这个独立的项目。由于原始的内存池与Arrow项目本身的工具有深度依赖关系，因此我们在这个项目中对内存池进行了一些深度移除和改造，以保持与原始Arrow内存池的基础功能一致。一些改动包括：</p>
+<ul>
+<li>分离allocator与memory_pool</li>
+<li>移除不需要的LoggingMemoryPool、ProxyMemoryPool</li>
+<li>移除jemalloc等第三方malloc库，未来可以支持</li>
+</ul>
+<p>通过这些改动，我们的目标是：</p>
+<ul>
+<li>使代码更加精简</li>
+<li>使内存池更方便地作为其他项目的依赖库使用
+提供简单的方式来引入本项目的so库和头文件，以使用内存池功能
+此外，这个项目还可以作为深入学习内存池设计与实现的资源。我们欢迎您探索并使用这个经过精心改进的内存池。</li>
+</ul>
+<p>https://github.com/Light-City/light-memory-pool</p>
 <h2 id="1100mutex">1.手把手100行写一个简易版Mutex<a class="headerlink" href="#1100mutex" title="Permanent link">&para;</a></h2>
 <h3 id="11">1.1 内容<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>项目名称：简易互斥锁（SimpleMutex）</p>
