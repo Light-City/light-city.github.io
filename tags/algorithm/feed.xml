@@ -1,9 +1,9 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>light-city club</title>
+      <title>CPlusPlusThings</title>
       <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
-      <description>light-city blog</description>
+      <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
       <language>en-us</language>
       <managingEditor>455954986@qq.com (light-city)</managingEditor>
       <webMaster>455954986@qq.com (light-city)</webMaster>
