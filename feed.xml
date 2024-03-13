@@ -2,18 +2,18 @@
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>CPlusPlusThings</title>
-      <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
+      <link>https://light-city.github.io/blog</link>
       <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
       <language>en-us</language>
       <managingEditor>455954986@qq.com (light-city)</managingEditor>
       <webMaster>455954986@qq.com (light-city)</webMaster>
       <lastBuildDate>Thu, 24 Oct 2024 00:00:00 GMT</lastBuildDate>
-      <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://light-city.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/ebo</guid>
+    <guid>https://light-city.github.io/blog/ebo</guid>
     <title>EBO (Empty Base Optimization) in STL Design</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/ebo</link>
+    <link>https://light-city.github.io/blog/ebo</link>
     <description>Exploring the Empty Base Optimization (EBO) in the design of the C++ Standard Template Library (STL)</description>
     <pubDate>Thu, 24 Oct 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -21,9 +21,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/lldb_debug</guid>
+    <guid>https://light-city.github.io/blog/lldb_debug</guid>
     <title>Debugging a Simple Program with LLDB - Step-by-Step Guide</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/lldb_debug</link>
+    <link>https://light-city.github.io/blog/lldb_debug</link>
     <description>Learn how to effectively debug a simple program using LLDB with this comprehensive step-by-step guide. Find out how to troubleshoot errors and optimize your code.</description>
     <pubDate>Sat, 02 Mar 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -31,9 +31,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/come_on_inter</guid>
+    <guid>https://light-city.github.io/blog/come_on_inter</guid>
     <title>four interview questions</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/come_on_inter</link>
+    <link>https://light-city.github.io/blog/come_on_inter</link>
     <description>four interview questionsr</description>
     <pubDate>Sun, 25 Feb 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -41,9 +41,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/set_multiset</guid>
+    <guid>https://light-city.github.io/blog/set_multiset</guid>
     <title>Exploring the C++ STL Source Code: The Story of set and multiset</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/set_multiset</link>
+    <link>https://light-city.github.io/blog/set_multiset</link>
     <description>Discover the fascinating journey through the C++ STL source code to unravel the secrets behind set and multiset data structures. Gain insightful knowledge of their implementation and optimize your programming skills.</description>
     <pubDate>Mon, 19 Feb 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -51,9 +51,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/myhashtable</guid>
+    <guid>https://light-city.github.io/blog/myhashtable</guid>
     <title>Handwriting a HashTable: Building a Strong Foundation for Algorithms from Scratch</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/myhashtable</link>
+    <link>https://light-city.github.io/blog/myhashtable</link>
     <description>Learn how to implement a HashTable from the ground up, setting the stage for mastering algorithms and data structures.</description>
     <pubDate>Sat, 20 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -61,9 +61,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/rb_tree</guid>
+    <guid>https://light-city.github.io/blog/rb_tree</guid>
     <title>C++ STL源码剖析之红黑树</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/rb_tree</link>
+    <link>https://light-city.github.io/blog/rb_tree</link>
     <description>C++ STL源码剖析之红黑树</description>
     <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -71,9 +71,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/array</guid>
+    <guid>https://light-city.github.io/blog/array</guid>
     <title>C++ STL Source Code Analysis: tr1 and std array</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/array</link>
+    <link>https://light-city.github.io/blog/array</link>
     <description>An analysis of the C++ STL source code covering tr1 and std array</description>
     <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -81,9 +81,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/iterator</guid>
+    <guid>https://light-city.github.io/blog/iterator</guid>
     <title>Implementation of a Simple iterator_category in C++ STL Source Code Analysis</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/iterator</link>
+    <link>https://light-city.github.io/blog/iterator</link>
     <description>An analysis of C++ STL source code to implement a simple iterator_category</description>
     <pubDate>Mon, 08 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -91,9 +91,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/list</guid>
+    <guid>https://light-city.github.io/blog/list</guid>
     <title>In-depth Analysis of C++ STL Source Code: Doubly Linked Circular List (list)</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/list</link>
+    <link>https://light-city.github.io/blog/list</link>
     <description>In-depth Analysis of C++ STL Source Code: Doubly Linked Circular List (list)</description>
     <pubDate>Sat, 06 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -101,9 +101,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/map_multimap</guid>
+    <guid>https://light-city.github.io/blog/map_multimap</guid>
     <title>C++ STL源码剖析之map、multimap、initializer_list</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/map_multimap</link>
+    <link>https://light-city.github.io/blog/map_multimap</link>
     <description>C++ STL源码剖析之map、multimap、initializer_list</description>
     <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -111,9 +111,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/queue_stack</guid>
+    <guid>https://light-city.github.io/blog/queue_stack</guid>
     <title>C++ STL源码剖析之容器配接器stack与queue、priority_queue</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/queue_stack</link>
+    <link>https://light-city.github.io/blog/queue_stack</link>
     <description>C++ STL源码剖析之容器配接器stack与queue、priority_queue</description>
     <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -121,9 +121,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/traits</guid>
+    <guid>https://light-city.github.io/blog/traits</guid>
     <title>In-depth Analysis of C++ STL Source Code: Traits Programming Technique</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/traits</link>
+    <link>https://light-city.github.io/blog/traits</link>
     <description>In-depth Analysis of C++ STL Source Code: Traits Programming Technique</description>
     <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -131,9 +131,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/trie</guid>
+    <guid>https://light-city.github.io/blog/trie</guid>
     <title>算法从0到1之trie(字典树)的增删改查(递归与非递归实现)</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/trie</link>
+    <link>https://light-city.github.io/blog/trie</link>
     <description>算法从0到1之trie(字典树)的增删改查(递归与非递归实现)</description>
     <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -141,9 +141,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/uorndered_map</guid>
+    <guid>https://light-city.github.io/blog/uorndered_map</guid>
     <title>Exploring the STL Source Code: Unordered Containers</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/uorndered_map</link>
+    <link>https://light-city.github.io/blog/uorndered_map</link>
     <description>Delve into the implementation details of the STL unordered containers source code. Understand the inner workings and optimizations for efficient usage in C++ programming.</description>
     <pubDate>Sat, 04 Mar 2023 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -151,9 +151,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</guid>
+    <guid>https://light-city.github.io/blog/thread_debug_basic</guid>
     <title>Fundamentals of C/C++ Multithreading Programming</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</link>
+    <link>https://light-city.github.io/blog/thread_debug_basic</link>
     <description>Troubleshooting multithreading issues with Linux commands</description>
     <pubDate>Thu, 24 Sep 2020 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -161,9 +161,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</guid>
+    <guid>https://light-city.github.io/blog/go_helloworld</guid>
     <title>C++ Project: Googletest Unit Testing</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</link>
+    <link>https://light-city.github.io/blog/go_helloworld</link>
     <description>Using Googletest and its assertions in Clion</description>
     <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -171,9 +171,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</guid>
+    <guid>https://light-city.github.io/blog/googletest</guid>
     <title>Googletest Unit Testing in C++ Projects</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</link>
+    <link>https://light-city.github.io/blog/googletest</link>
     <description>An introduction to using Googletest and its assertions in CLion.</description>
     <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>

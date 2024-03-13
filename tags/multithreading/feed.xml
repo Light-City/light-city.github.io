@@ -2,18 +2,18 @@
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>CPlusPlusThings</title>
-      <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
+      <link>https://light-city.github.io/blog</link>
       <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
       <language>en-us</language>
       <managingEditor>455954986@qq.com (light-city)</managingEditor>
       <webMaster>455954986@qq.com (light-city)</webMaster>
       <lastBuildDate>Thu, 24 Sep 2020 00:00:00 GMT</lastBuildDate>
-      <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/tags/multithreading/feed.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://light-city.github.io/tags/multithreading/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</guid>
+    <guid>https://light-city.github.io/blog/thread_debug_basic</guid>
     <title>Fundamentals of C/C++ Multithreading Programming</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</link>
+    <link>https://light-city.github.io/blog/thread_debug_basic</link>
     <description>Troubleshooting multithreading issues with Linux commands</description>
     <pubDate>Thu, 24 Sep 2020 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>

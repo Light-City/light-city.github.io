@@ -2,18 +2,18 @@
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>CPlusPlusThings</title>
-      <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
+      <link>https://light-city.github.io/blog</link>
       <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
       <language>en-us</language>
       <managingEditor>455954986@qq.com (light-city)</managingEditor>
       <webMaster>455954986@qq.com (light-city)</webMaster>
       <lastBuildDate>Tue, 17 Sep 2019 00:00:00 GMT</lastBuildDate>
-      <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/tags/googletest/feed.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://light-city.github.io/tags/googletest/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</guid>
+    <guid>https://light-city.github.io/blog/go_helloworld</guid>
     <title>C++ Project: Googletest Unit Testing</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</link>
+    <link>https://light-city.github.io/blog/go_helloworld</link>
     <description>Using Googletest and its assertions in Clion</description>
     <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
@@ -21,9 +21,9 @@
   </item>
 
   <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</guid>
+    <guid>https://light-city.github.io/blog/googletest</guid>
     <title>Googletest Unit Testing in C++ Projects</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</link>
+    <link>https://light-city.github.io/blog/googletest</link>
     <description>An introduction to using Googletest and its assertions in CLion.</description>
     <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
