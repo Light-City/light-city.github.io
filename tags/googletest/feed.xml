@@ -1,0 +1,34 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>light-city club</title>
+      <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
+      <description>light-city blog</description>
+      <language>en-us</language>
+      <managingEditor>455954986@qq.com (light-city)</managingEditor>
+      <webMaster>455954986@qq.com (light-city)</webMaster>
+      <lastBuildDate>Tue, 17 Sep 2019 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/tags/googletest/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</guid>
+    <title>C++ Project: Googletest Unit Testing</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/go_helloworld</link>
+    <description>Using Googletest and its assertions in Clion</description>
+    <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>googletest</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</guid>
+    <title>Googletest Unit Testing in C++ Projects</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/googletest</link>
+    <description>An introduction to using Googletest and its assertions in CLion.</description>
+    <pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>Googletest</category>
+  </item>
+
+    </channel>
+  </rss>

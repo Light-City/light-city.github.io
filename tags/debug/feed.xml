@@ -12,12 +12,22 @@
       
   <item>
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/lldb_debug</guid>
-    <title>使用 LLDB 调试简单程序</title>
+    <title>Debugging a Simple Program with LLDB - Step-by-Step Guide</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/lldb_debug</link>
-    <description>c++ lldb debug</description>
+    <description>Learn how to effectively debug a simple program using LLDB with this comprehensive step-by-step guide. Find out how to troubleshoot errors and optimize your code.</description>
     <pubDate>Sat, 02 Mar 2024 00:00:00 GMT</pubDate>
     <author>455954986@qq.com (light-city)</author>
     <category>lldb</category><category>debug</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</guid>
+    <title>Fundamentals of C/C++ Multithreading Programming</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/thread_debug_basic</link>
+    <description>Troubleshooting multithreading issues with Linux commands</description>
+    <pubDate>Thu, 24 Sep 2020 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>C</category><category>debug</category><category>multithreading</category>
   </item>
 
     </channel>

@@ -1,0 +1,84 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>light-city club</title>
+      <link>https://tailwind-nextjs-starter-blog.vercel.app/blog</link>
+      <description>light-city blog</description>
+      <language>en-us</language>
+      <managingEditor>455954986@qq.com (light-city)</managingEditor>
+      <webMaster>455954986@qq.com (light-city)</webMaster>
+      <lastBuildDate>Mon, 15 Jan 2024 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/tags/source-code-analysis/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/array</guid>
+    <title>C++ STL Source Code Analysis: tr1 and std array</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/array</link>
+    <description>An analysis of the C++ STL source code covering tr1 and std array</description>
+    <pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/ebo</guid>
+    <title>EBO (Empty Base Optimization) in STL Design</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/ebo</link>
+    <description>Exploring the Empty Base Optimization (EBO) in the design of the C++ Standard Template Library (STL)</description>
+    <pubDate>Thu, 24 Oct 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/iterator</guid>
+    <title>Implementation of a Simple iterator_category in C++ STL Source Code Analysis</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/iterator</link>
+    <description>An analysis of C++ STL source code to implement a simple iterator_category</description>
+    <pubDate>Mon, 08 Jan 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/list</guid>
+    <title>In-depth Analysis of C++ STL Source Code: Doubly Linked Circular List (list)</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/list</link>
+    <description>In-depth Analysis of C++ STL Source Code: Doubly Linked Circular List (list)</description>
+    <pubDate>Sat, 06 Jan 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/set_multiset</guid>
+    <title>Exploring the C++ STL Source Code: The Story of set and multiset</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/set_multiset</link>
+    <description>Discover the fascinating journey through the C++ STL source code to unravel the secrets behind set and multiset data structures. Gain insightful knowledge of their implementation and optimize your programming skills.</description>
+    <pubDate>Mon, 19 Feb 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/traits</guid>
+    <title>In-depth Analysis of C++ STL Source Code: Traits Programming Technique</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/traits</link>
+    <description>In-depth Analysis of C++ STL Source Code: Traits Programming Technique</description>
+    <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/uorndered_map</guid>
+    <title>Exploring the STL Source Code: Unordered Containers</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/uorndered_map</link>
+    <description>Delve into the implementation details of the STL unordered containers source code. Understand the inner workings and optimizations for efficient usage in C++ programming.</description>
+    <pubDate>Sat, 04 Mar 2023 00:00:00 GMT</pubDate>
+    <author>455954986@qq.com (light-city)</author>
+    <category>C++</category><category>STL</category><category>Source Code Analysis</category>
+  </item>
+
+    </channel>
+  </rss>
