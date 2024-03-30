@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://github.com/Light-City/suno_scan
+
+# Sitemaps
+Sitemap: https://github.com/Light-City/suno_scan/sitemap.xml
