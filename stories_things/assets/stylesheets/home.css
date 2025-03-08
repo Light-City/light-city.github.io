@@ -1,0 +1,57 @@
+/* Center content */
+@media screen and (min-width: 30rem) {
+    .md-content {
+        max-width: 60rem;
+        margin: auto;
+    }
+}
+
+/* Adapted based on the Material for MkDocs homepage stylesheets */
+/* https://github.com/squidfunk/mkdocs-material/blob/master/material/overrides/home.html */
+
+@media screen and (min-width:60em) {
+    .mdx-hero {
+        align-items: stretch;
+        display: flex;
+        height: 15rem;
+        gap: 0;
+    }
+
+    .mdx-hero__content {
+        margin-left: 2rem;
+        margin-top: 3.5rem;
+        max-width: 25rem;
+        padding-bottom: 14vw;
+    }
+
+    .mdx-hero__image {
+        order: 1;
+        width: 38rem;
+    }
+}
+
+/* Homepage settings for logo */
+
+@media screen and (max-width: 45em) {
+    :root {
+        --ext-nype-home-logo-height: 7rem;
+    }
+}
+
+@media screen and (min-width: 45em) {
+    :root {
+        --ext-nype-home-logo-height: 10rem;
+    }
+}
+
+.twemoji.extHomeLogoSVG {
+    height: var(--ext-nype-home-logo-height);
+    width: 100%;
+}
+
+.twemoji.extHomeLogoSVG svg {
+    height: var(--ext-nype-home-logo-height);
+    width: 100%;
+    margin: 0 auto;
+    max-height: unset;
+}

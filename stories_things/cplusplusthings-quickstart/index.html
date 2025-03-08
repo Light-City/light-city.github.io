@@ -7,37 +7,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="探讨《10日 C++ 实战狂练》的核心内容，帮助开发者通过10天系统练习掌握 C++ 基础与进阶知识。从基本语法到继承多态、模板与 STL，再到异常处理和文件流，通过每日实践代码示例，快速提升 C++ 编程能力。">
+        <meta name="description" content="关于C++那些事开源项目的学习，你需要知道的一切。它是什么，它包含哪些内容。">
       
       
         <meta name="author" content="光城">
       
       
-        <link rel="canonical" href="https://light-city.github.io/stories_things/practical-exercises/10-day-practice/ten-day/">
+        <link rel="canonical" href="https://light-city.github.io/stories_things/cplusplusthings-quickstart/">
       
       
-        <link rel="prev" href="../../../tool/string_int/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../../key-exercises/key/">
+        <link rel="next" href="../how-to-compile-and-run-the-cppthings-project/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++实战, 10日狂练, C++语法, 递归, 结构体, 枚举, 函数, 继承, 多态, 虚函数, 抽象类, 运算符重载, 模板, STL, 异常处理, 文件流"> 
-    <meta name="title" content="10日 C++ 实战狂练那些事：从基础语法到高级特性的实践之旅"> 
+    <meta name="keywords" content="C++那些事, C++故事, C++学习, C++开源项目, C++初学者"> 
+    <meta name="title" content="C++学习：初学者指南"> 
 
     
       
-        <title>10日 C++ 实战狂练那些事：从基础语法到高级特性的实践之旅 - C++那些事</title>
+        <title>C++学习：初学者指南 - C++那些事</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,7 +56,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#10c" class="md-skip">
+        <a href="#c-cplusplusthings" class="md-skip">
           跳转至
         </a>
       
@@ -104,9 +104,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
+    <a href=".." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10日 C++ 实战狂练那些事：从基础语法到高级特性的实践之旅
+              C++学习：初学者指南
             
           </span>
         </div>
@@ -238,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -253,9 +253,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../../../cplusplusthings-quickstart/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -272,7 +274,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../how-to-compile-and-run-the-cppthings-project/" class="md-tabs__link">
+      <a href="../how-to-compile-and-run-the-cppthings-project/" class="md-tabs__link">
         
   
     
@@ -291,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cpp-things/const/" class="md-tabs__link">
+        <a href="../cpp-things/const/" class="md-tabs__link">
           
   
     
@@ -311,7 +313,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../stl/array/" class="md-tabs__link">
+        <a href="../stl/array/" class="md-tabs__link">
           
   
     
@@ -331,7 +333,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../idioms/classInitializers/" class="md-tabs__link">
+        <a href="../idioms/classInitializers/" class="md-tabs__link">
           
   
     
@@ -351,7 +353,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../modern-cpp/cpp11/" class="md-tabs__link">
+        <a href="../modern-cpp/cpp11/" class="md-tabs__link">
           
   
     
@@ -371,7 +373,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tool/output/" class="md-tabs__link">
+        <a href="../tool/output/" class="md-tabs__link">
           
   
     
@@ -387,13 +389,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../practical-exercises/10-day-practice/ten-day/" class="md-tabs__link">
           
   
     
@@ -413,7 +413,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../design-pattern/singleton/singleton/" class="md-tabs__link">
+        <a href="../design-pattern/singleton/singleton/" class="md-tabs__link">
           
   
     
@@ -433,7 +433,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../concurrency/concurrency-in-action/concurrency/" class="md-tabs__link">
+        <a href="../concurrency/concurrency-in-action/concurrency/" class="md-tabs__link">
           
   
     
@@ -453,7 +453,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../learn-course/modern-cpp/jiketime/" class="md-tabs__link">
+        <a href="../learn-course/modern-cpp/jiketime/" class="md-tabs__link">
           
   
     
@@ -473,7 +473,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../resources/fs/" class="md-tabs__link">
+        <a href="../resources/fs/" class="md-tabs__link">
           
   
     
@@ -491,7 +491,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../about/" class="md-tabs__link">
+      <a href="../about/" class="md-tabs__link">
         
   
     
@@ -525,9 +525,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
+    <a href=".." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     C++那些事
@@ -554,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,10 +572,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../cplusplusthings-quickstart/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    项目概要
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -585,6 +606,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 项目概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 项目目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 项目内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 项目特色
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 项目资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 参与方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 项目未来规划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 结语
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.关于作者
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -596,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../how-to-compile-and-run-the-cppthings-project/" class="md-nav__link">
+      <a href="../how-to-compile-and-run-the-cppthings-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/const/" class="md-nav__link">
+      <a href="../cpp-things/const/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/static/" class="md-nav__link">
+      <a href="../cpp-things/static/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -752,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/vptr-vtable/" class="md-nav__link">
+      <a href="../cpp-things/vptr-vtable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -774,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/c-polymorphism/" class="md-nav__link">
+      <a href="../cpp-things/c-polymorphism/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/pointer-vs-refer/" class="md-nav__link">
+      <a href="../cpp-things/pointer-vs-refer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/macro/" class="md-nav__link">
+      <a href="../cpp-things/macro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/this/" class="md-nav__link">
+      <a href="../cpp-things/this/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -862,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/inline/" class="md-nav__link">
+      <a href="../cpp-things/inline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/sizeof/" class="md-nav__link">
+      <a href="../cpp-things/sizeof/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/abstract/" class="md-nav__link">
+      <a href="../cpp-things/abstract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -928,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/virtual/" class="md-nav__link">
+      <a href="../cpp-things/virtual/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/volatile/" class="md-nav__link">
+      <a href="../cpp-things/volatile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -972,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/assert/" class="md-nav__link">
+      <a href="../cpp-things/assert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/bit/" class="md-nav__link">
+      <a href="../cpp-things/bit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/extern/" class="md-nav__link">
+      <a href="../cpp-things/extern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/struct/" class="md-nav__link">
+      <a href="../cpp-things/struct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1060,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/struct-vs-class/" class="md-nav__link">
+      <a href="../cpp-things/struct-vs-class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1082,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/union/" class="md-nav__link">
+      <a href="../cpp-things/union/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1104,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/explicit/" class="md-nav__link">
+      <a href="../cpp-things/explicit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1126,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/friend/" class="md-nav__link">
+      <a href="../cpp-things/friend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1148,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/using/" class="md-nav__link">
+      <a href="../cpp-things/using/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/namespace/" class="md-nav__link">
+      <a href="../cpp-things/namespace/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1192,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/enum/" class="md-nav__link">
+      <a href="../cpp-things/enum/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1214,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cpp-things/decltype/" class="md-nav__link">
+      <a href="../cpp-things/decltype/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1316,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/array/" class="md-nav__link">
+      <a href="../stl/array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1338,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/deque/" class="md-nav__link">
+      <a href="../stl/deque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1360,7 +1482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/queue_stack/" class="md-nav__link">
+      <a href="../stl/queue_stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1382,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/list/" class="md-nav__link">
+      <a href="../stl/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1404,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/vector/" class="md-nav__link">
+      <a href="../stl/vector/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1426,7 +1548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/typename/" class="md-nav__link">
+      <a href="../stl/typename/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/traits/" class="md-nav__link">
+      <a href="../stl/traits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1470,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/iterator/" class="md-nav__link">
+      <a href="../stl/iterator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1492,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/ebo/" class="md-nav__link">
+      <a href="../stl/ebo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1514,7 +1636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/rb_tree/" class="md-nav__link">
+      <a href="../stl/rb_tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1536,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/set_multiset/" class="md-nav__link">
+      <a href="../stl/set_multiset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1558,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/map_multimap/" class="md-nav__link">
+      <a href="../stl/map_multimap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1580,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/hashtable/" class="md-nav__link">
+      <a href="../stl/hashtable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1602,7 +1724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/myhashtable/" class="md-nav__link">
+      <a href="../stl/myhashtable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1624,7 +1746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../stl/unordered_map/" class="md-nav__link">
+      <a href="../stl/unordered_map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1706,7 +1828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../idioms/classInitializers/" class="md-nav__link">
+      <a href="../idioms/classInitializers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1728,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../idioms/enumclass/" class="md-nav__link">
+      <a href="../idioms/enumclass/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1750,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../idioms/RAII/" class="md-nav__link">
+      <a href="../idioms/RAII/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1772,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../idioms/copy-swap/" class="md-nav__link">
+      <a href="../idioms/copy-swap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1794,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../idioms/pImpl/" class="md-nav__link">
+      <a href="../idioms/pImpl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1868,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../modern-cpp/cpp11/" class="md-nav__link">
+      <a href="../modern-cpp/cpp11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1950,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tool/output/" class="md-nav__link">
+      <a href="../tool/output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1972,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tool/like_python/" class="md-nav__link">
+      <a href="../tool/like_python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1994,7 +2116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tool/look/" class="md-nav__link">
+      <a href="../tool/look/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2016,7 +2138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tool/C%2B%2B%E7%9A%84Debug%E5%B7%A5%E5%85%B7dbg-macro/" class="md-nav__link">
+      <a href="../tool/C%2B%2B%E7%9A%84Debug%E5%B7%A5%E5%85%B7dbg-macro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2038,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tool/string_int/" class="md-nav__link">
+      <a href="../tool/string_int/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2064,10 +2186,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -2078,22 +2198,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2105,7 +2222,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             实战系列
@@ -2116,19 +2233,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../practical-exercises/10-day-practice/ten-day/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2138,7 +2246,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2151,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../key-exercises/key/" class="md-nav__link">
+      <a href="../practical-exercises/key-exercises/key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2225,7 +2332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design-pattern/singleton/singleton/" class="md-nav__link">
+      <a href="../design-pattern/singleton/singleton/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2301,7 +2408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../concurrency/concurrency-in-action/concurrency/" class="md-nav__link">
+      <a href="../concurrency/concurrency-in-action/concurrency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2323,7 +2430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../concurrency/mutex-threading/thread/" class="md-nav__link">
+      <a href="../concurrency/mutex-threading/thread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2397,7 +2504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../learn-course/modern-cpp/jiketime/" class="md-nav__link">
+      <a href="../learn-course/modern-cpp/jiketime/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2473,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/fs/" class="md-nav__link">
+      <a href="../resources/fs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2495,7 +2602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/video/" class="md-nav__link">
+      <a href="../resources/video/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2524,7 +2631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2558,6 +2665,95 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 项目概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 项目目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 项目内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 项目特色
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 项目资源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 参与方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 项目未来规划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 结语
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.关于作者
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2575,47 +2771,156 @@
   
 
 
-<h1 id="10c">10日c++实战狂练<a class="headerlink" href="#10c" title="Permanent link">&para;</a></h1>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day1">day1</a></li>
+<h1 id="c-cplusplusthings">开源项目C++ 那些事-CPlusPlusThings<a class="headerlink" href="#c-cplusplusthings" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 项目概述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>中文名：<a href="https://github.com/Light-City/CPlusPlusThings"><strong>C++那些事</strong></a></li>
+<li>英文名：<a href="https://github.com/Light-City/CPlusPlusThings"><strong>Stories About C Plus Plus or CPlusPlusThings</strong></a></li>
 </ul>
-<p>基本c++语法</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day2">day2</a></li>
+<p><strong>C++ 那些事</strong> 是一个面向 C++ 初学者和进阶开发者的开源学习项目。该项目旨在帮助学习者从 C++ 的基础入门到高级进阶，涵盖从语法基础、面向对象编程、模板编程、STL 使用，到多线程并发、内存管理、性能优化等高级主题。此外，项目还深入分析了一些经典的开源库和框架的源码，帮助开发者更好地理解 C++ 在实际项目中的应用。</p>
+<h2 id="2">2. 项目目标<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>入门到进阶</strong>：为初学者提供一个系统化的学习路径，帮助他们从零基础逐步掌握 C++ 的核心概念和高级特性。</li>
+<li><strong>面试准备</strong>：为求职者提供常见 C++ 面试题的解析和实战演练，帮助他们在面试中脱颖而出。</li>
+<li><strong>源码分析</strong>：通过分析经典开源项目的源码，帮助开发者深入理解 C++ 的设计模式和实现原理。</li>
+<li><strong>多线程与并发</strong>：深入探讨 C++ 中的多线程编程和并发控制，帮助开发者编写高效、安全的并发程序。</li>
+<li><strong>性能优化</strong>：介绍 C++ 中的性能优化技巧，帮助开发者编写高效的代码。</li>
 </ul>
-<p>递归、结构体、枚举、静态变量等</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day3">day3</a></li>
+<h2 id="3">3. 项目内容<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><strong>C++ 那些事</strong> 项目内容丰富，涵盖了 C++ 的各个方面，主要包括以下几个模块：</p>
+<ul>
+<li><strong>基础进阶</strong>：</li>
+<li><strong>关键字与特性</strong>：如 <code>const</code>、<code>static</code>、<code>this</code>、<code>inline</code>、<code>sizeof</code>、<code>virtual</code>、<code>volatile</code>、<code>explicit</code>、<code>friend</code>、<code>using</code>、<code>::</code>、<code>enum</code>、<code>decltype</code> 等关键字的详细解析。</li>
+<li><strong>函数与指针</strong>：函数指针、纯虚函数和抽象类、<code>vptr_vtable</code> 等。</li>
+<li><strong>数据结构</strong>：<code>struct</code>、<code>union</code>、位域、引用与指针的区别等。</li>
+<li><strong>C 实现 C++ 多态</strong>：通过 C 语言实现 C++ 的多态特性。</li>
+<li>
+<p><strong>宏与断言</strong>：宏的定义与使用、<code>assert</code> 的使用场景。</p>
+</li>
+<li>
+<p><strong>实战系列</strong>：</p>
+</li>
+<li><strong>10 日狂练</strong>：通过 10 天的密集练习，快速提升 C++ 编程能力。</li>
+<li>
+<p><strong>重点实战练习</strong>：针对 C++ 中的重点难点进行实战演练，巩固所学知识。</p>
+</li>
+<li>
+<p><strong>STL 源码剖析</strong>：</p>
+</li>
+<li><strong>容器</strong>：<code>array</code>、<code>deque</code>、<code>queue</code>、<code>stack</code>、<code>list</code>、<code>vector</code>、<code>rb_tree</code>、<code>set</code>、<code>multiset</code>、<code>map</code>、<code>multimap</code>、<code>hashtable</code>、<code>unordered_map</code> 等容器的源码分析。</li>
+<li><strong>迭代器与特性</strong>：<code>iterator</code>、<code>traits</code>、<code>typename</code> 等。</li>
+<li>
+<p><strong>EBO 优化</strong>：STL 设计中的空基类优化（EBO）技术。</p>
+</li>
+<li>
+<p><strong>C++2.0 新特性</strong>：</p>
+</li>
+<li><strong>C++11 新特性</strong>：如自动类型推导、Lambda 表达式、右值引用、智能指针等。</li>
+<li>
+<p><strong>C++14/17/20</strong>：介绍 C++14、C++17 和 C++20 中的新特性与改进(TODO)。</p>
+</li>
+<li>
+<p><strong>设计模式</strong>：</p>
+</li>
+<li>
+<p><strong>常见设计模式</strong>：如单例模式、工厂模式、观察者模式等在 C++ 中的应用。</p>
+</li>
+<li>
+<p><strong>并发编程</strong>：</p>
+</li>
+<li><strong>多线程与多进程</strong>：<code>std::thread</code>、<code>std::async</code>、<code>std::mutex</code>、<code>std::condition_variable</code> 等多线程编程技术。</li>
+<li>
+<p><strong>C++ Concurrency in Action</strong>：深入探讨 C++ 中的并发编程模型与实践。</p>
+</li>
+<li>
+<p><strong>C++ 惯用法</strong>：</p>
+</li>
+<li>
+<p><strong>编程风格与惯用法</strong>：探讨 C++ 中的常见编程风格与惯用法，帮助开发者写出更优雅的代码。</p>
+</li>
+<li>
+<p><strong>学习课程</strong>：</p>
+</li>
+<li>
+<p><strong>极客时间《现代 C++ 实战 30 讲》</strong>：推荐学习资源，帮助开发者系统学习现代 C++。</p>
+</li>
+<li>
+<p><strong>工具篇</strong>：</p>
+</li>
+<li><strong>调试与输出工具</strong>：如 <code>dbg-macro</code>、<code>rr</code> 等调试工具的使用。</li>
+<li><strong>容器快捷输出工具</strong>：简化容器输出的工具。</li>
+<li><strong>观察编译过程</strong>：通过工具观察 C++ 代码的编译过程变化。</li>
 </ul>
-<p>函数</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day4">day4</a></li>
+<h2 id="4">4. 项目特色<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>系统化学习路径</strong>：从基础到进阶，内容循序渐进，适合不同层次的学习者。</li>
+<li><strong>理论与实践结合</strong>：不仅有理论知识的讲解，还有大量的代码示例和实战项目。</li>
+<li><strong>源码深度分析</strong>：通过分析经典开源项目的源码，帮助开发者深入理解 C++ 的设计与实现。</li>
+<li><strong>多线程与并发</strong>：深入探讨 C++ 中的并发编程，帮助开发者编写高效、安全的并发程序。</li>
+<li><strong>面试导向</strong>：提供常见面试题的解析，帮助求职者更好地准备面试。</li>
 </ul>
-<p>函数深入</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day5">day5</a></li>
+<h2 id="5">5. 项目资源<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>在线学习网站</strong>：<a href="https://light-city.github.io/stories_things/">C++那些事</a></li>
+<li><strong>微信公众号</strong>：<a href="https://mp.weixin.qq.com/s/5_Ms8bGbA-PWj5EwmTBaQA">光城</a></li>
+<li><strong>B站视频</strong>：<a href="https://www.bilibili.com/video/BV1Rv4y1H7LB/?vd_source=bb6532dcd5b1d6b26125da900adb618e">未来的光城</a>，项目内容同步至 B站，以视频形式展示，方便学习者观看。</li>
 </ul>
-<p>继承多态</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day6">day6</a></li>
+<h2 id="6">6. 参与方式<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Light-City/CPlusPlusThings"><strong>C++那些事</strong></a>是一个开源项目，欢迎各位开发者参与贡献。你可以通过以下方式参与：</p>
+<ul>
+<li><strong>Star 和 Fork</strong>：如果你觉得项目对你有帮助，欢迎在 GitHub 上 Star 和 Fork 项目。</li>
+<li><strong>提交 PR</strong>：如果你有好的内容或改进建议，欢迎提交 Pull Request。</li>
+<li><strong>反馈与建议</strong>：如果你在使用过程中遇到问题或有任何建议，欢迎在项目的 Issue 区提出。</li>
 </ul>
-<p>虚函数、抽象类</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day7">day7</a></li>
+<h2 id="7">7. 项目未来规划<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>扩展更多高级主题</strong>：如 C++20 新特性、元编程、编译期计算等。</li>
+<li><strong>增加更多实战项目</strong>：通过更多的实战项目，帮助开发者将所学知识应用到实际开发中。</li>
+<li><strong>社区建设</strong>：建立更活跃的社区，鼓励开发者之间的交流与分享。</li>
 </ul>
-<p>运算符重载</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day8">day8</a></li>
+<h2 id="8">8. 结语<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Light-City/CPlusPlusThings"><strong>C++那些事</strong></a>是一个致力于帮助 C++ 学习者从入门到进阶的开源项目。无论你是初学者还是有一定经验的开发者，都可以在这里找到适合自己的学习资源。希望通过这个项目，能够帮助更多的人掌握 C++，并在实际开发中运用自如。</p>
+<p>欢迎各位开发者 Star、Fork、PR，共同推动 C++ 社区的发展！</p>
+<h2 id="9">9.关于作者<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>微信</li>
 </ul>
-<p>模板与STL</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day9">day9</a></li>
+<p>搜索：gcxzhang</p>
+<ul>
+<li>微信公众号</li>
 </ul>
-<p>异常</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/practical_exercises/10_day_practice/day10">day10</a></li>
+<table>
+  <tbody>
+    <tr>
+      <th align="center" style="height=200 width="200">
+          <img src="../assets/images/xq.jpg" height="200" width="200"><br>
+          知识星球
+      </th>
+      <th align="center" style="height=200 width="200">
+          <img src="../assets/images/wechat.jpg" height="200" width="200"><br>
+          微信公众号
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+<li>赞赏我</li>
 </ul>
-<p>文件与流</p>
+<table>
+  <tbody>
+    <tr>
+      <th align="center" style="height=200 width="200">
+          <img src="../assets/images/alipay.jpg" height="200" width="200"><br>
+          支付宝
+      </th>
+      <th align="center" style="height=200 width="200">
+          <img src="../assets/images/wechat.png" height="200" width="200"><br>
+          微信
+      </th>
+    </tr>
+  </tbody>
+</table>
 
 
 
@@ -2710,7 +3015,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../../tool/string_int/" class="md-footer__link md-footer__link--prev" aria-label="上一页: string转int">
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一页: 主页">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2720,20 +3025,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                string转int
+                主页
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../key-exercises/key/" class="md-footer__link md-footer__link--next" aria-label="下一页: 重点实战练习">
+          <a href="../how-to-compile-and-run-the-cppthings-project/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用须知">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                重点实战练习
+                使用须知
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2791,11 +3096,11 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
