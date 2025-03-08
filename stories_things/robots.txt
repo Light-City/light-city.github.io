@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-
-Host: https://light-city.github.io/stories_things
-Sitemap: https://light-city.github.io/stories_things/sitemap.xml
