@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="从0到1讲解C与C++ struct">
+        <meta name="description" content="《C++那些事》(CPlusPlusThings) 中文学习站 — 英文名 Stories About C Plus Plus（stories_things）， 用「C++故事」串联现代 C++11/14/17/20、STL 源码、并发与惯用法与实战练习。 可与 A Tour of C++、C++ Core Guidelines（CppCoreGuidelines）及 coding principles、style guide、 best practices 对照阅读，作为中文场景的 C++ 学习 guidebook。">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++那些事, struct, struct 使用, struct 示例, C与C++中的struct"> 
-    <meta name="title" content="struct那些事：一文搞懂C和C++中struct"> 
+    
+    
 
     
       
-        <title>struct那些事：一文搞懂C和C++中struct - C++那些事</title>
+        <title>C++ struct 结构体 - C++那些事</title>
       
     
     
@@ -55,6 +55,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/article-brand.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#structccstruct" class="md-skip">
+        <a href="#c-struct" class="md-skip">
           跳转至
         </a>
       
@@ -129,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              struct那些事：一文搞懂C和C++中struct
+              C++ struct 结构体
             
           </span>
         </div>
@@ -255,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../cplusplusthings-quickstart/" class="md-tabs__link">
+      <a href="../../cplusplus-things-overview/" class="md-tabs__link">
         
   
     
@@ -272,12 +274,12 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../how-to-compile-and-run-the-cppthings-project/" class="md-tabs__link">
+      <a href="../../how-to-build-cplusplusthings/" class="md-tabs__link">
         
   
     
   
-  使用须知
+  编译与运行指南
 
       </a>
     </li>
@@ -313,7 +315,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../stl/array/" class="md-tabs__link">
+        <a href="../../stl-source-analysis/array/" class="md-tabs__link">
           
   
     
@@ -333,7 +335,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../idioms/classInitializers/" class="md-tabs__link">
+        <a href="../../cpp-idioms/class-initializer-list/" class="md-tabs__link">
           
   
     
@@ -352,6 +354,12 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../../modern-cpp/cpp11/" class="md-tabs__link">
           
@@ -365,6 +373,9 @@
     
   
 
+    
+  
+
       
         
   
@@ -373,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../tool/output/" class="md-tabs__link">
+        <a href="../../cpp-tools/" class="md-tabs__link">
           
   
     
@@ -393,7 +404,87 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-practice/ten-day/" class="md-tabs__link">
+        <a href="../../cpp-memory-debug/" class="md-tabs__link">
+          
+  
+    
+  
+  内存与调试
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-benchmarks/" class="md-tabs__link">
+          
+  
+    
+  
+  性能测评
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-projects/" class="md-tabs__link">
+          
+  
+    
+  
+  项目实战
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-guides/" class="md-tabs__link">
+          
+  
+    
+  
+  阅读与技巧
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
           
   
     
@@ -413,7 +504,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../design-pattern/singleton/singleton/" class="md-tabs__link">
+        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
           
   
     
@@ -433,7 +524,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../concurrency/concurrency-in-action/concurrency/" class="md-tabs__link">
+        <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
     
@@ -453,7 +544,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../learn-course/modern-cpp/jiketime/" class="md-tabs__link">
+        <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-tabs__link">
           
   
     
@@ -473,7 +564,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/fs/" class="md-tabs__link">
+        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
           
   
     
@@ -575,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cplusplusthings-quickstart/" class="md-nav__link">
+      <a href="../../cplusplus-things-overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -596,11 +687,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-compile-and-run-the-cppthings-project/" class="md-nav__link">
+      <a href="../../how-to-build-cplusplusthings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    使用须知
+    编译与运行指南
     
   </span>
   
@@ -620,6 +711,8 @@
   
     
     
+      
+        
       
         
       
@@ -717,7 +810,7 @@
         
   
   <span class="md-ellipsis">
-    const那些事
+    C++ const 常量与修饰
     
   </span>
   
@@ -739,7 +832,7 @@
         
   
   <span class="md-ellipsis">
-    static那些事
+    C++ static 静态成员与生存期
     
   </span>
   
@@ -761,7 +854,7 @@
         
   
   <span class="md-ellipsis">
-    vptr-vtable那些事
+    C++ 虚指针与虚表机制
     
   </span>
   
@@ -783,7 +876,7 @@
         
   
   <span class="md-ellipsis">
-    c实现C++多态那些事
+    C 语言实现 C++ 多态
     
   </span>
   
@@ -801,11 +894,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../pointer-vs-refer/" class="md-nav__link">
+      <a href="../pointer-vs-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    引用与指针那些事
+    C++ 指针与引用
     
   </span>
   
@@ -827,7 +920,7 @@
         
   
   <span class="md-ellipsis">
-    宏那些事
+    C++ 宏与条件编译
     
   </span>
   
@@ -849,7 +942,7 @@
         
   
   <span class="md-ellipsis">
-    this那些事
+    C++ this 指针
     
   </span>
   
@@ -871,7 +964,7 @@
         
   
   <span class="md-ellipsis">
-    inline那些事
+    C++ inline 内联函数
     
   </span>
   
@@ -893,7 +986,7 @@
         
   
   <span class="md-ellipsis">
-    sizeof那些事
+    C++ sizeof 运算符
     
   </span>
   
@@ -915,7 +1008,7 @@
         
   
   <span class="md-ellipsis">
-    纯虚函数和抽象类那些事
+    C++ 纯虚函数与抽象类
     
   </span>
   
@@ -937,7 +1030,7 @@
         
   
   <span class="md-ellipsis">
-    virtual那些事
+    C++ virtual 虚函数
     
   </span>
   
@@ -959,7 +1052,7 @@
         
   
   <span class="md-ellipsis">
-    volatile那些事
+    C++ volatile 关键字
     
   </span>
   
@@ -981,7 +1074,7 @@
         
   
   <span class="md-ellipsis">
-    assert那些事
+    C++ assert 断言
     
   </span>
   
@@ -1003,7 +1096,7 @@
         
   
   <span class="md-ellipsis">
-    位域那些事
+    C++ 位域
     
   </span>
   
@@ -1025,7 +1118,7 @@
         
   
   <span class="md-ellipsis">
-    extern那些事
+    C++ extern 链接说明
     
   </span>
   
@@ -1056,7 +1149,7 @@
           
   
   <span class="md-ellipsis">
-    struct那些事
+    C++ struct 结构体
     
   </span>
   
@@ -1068,7 +1161,7 @@
         
   
   <span class="md-ellipsis">
-    struct那些事
+    C++ struct 结构体
     
   </span>
   
@@ -1089,6 +1182,15 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者：
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1cstruct" class="md-nav__link">
@@ -1152,7 +1254,7 @@
         
   
   <span class="md-ellipsis">
-    struct与class那些事
+    C++ struct 与 class 区别
     
   </span>
   
@@ -1174,7 +1276,7 @@
         
   
   <span class="md-ellipsis">
-    union那些事
+    C++ union 联合体
     
   </span>
   
@@ -1196,7 +1298,7 @@
         
   
   <span class="md-ellipsis">
-    explicit那些事
+    C++ explicit 显式转换
     
   </span>
   
@@ -1218,7 +1320,7 @@
         
   
   <span class="md-ellipsis">
-    friend那些事
+    C++ friend 友元
     
   </span>
   
@@ -1240,7 +1342,7 @@
         
   
   <span class="md-ellipsis">
-    using那些事
+    C++ using 声明与别名
     
   </span>
   
@@ -1262,7 +1364,7 @@
         
   
   <span class="md-ellipsis">
-    作用域那些事
+    C++ 命名空间
     
   </span>
   
@@ -1284,7 +1386,7 @@
         
   
   <span class="md-ellipsis">
-    enum那些事
+    C++ enum 枚举类型
     
   </span>
   
@@ -1306,12 +1408,426 @@
         
   
   <span class="md-ellipsis">
-    decltype那些事
+    C++ decltype 类型推导
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_25" id="__nav_4_25_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    语言机制深入
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_25">
+            <span class="md-nav__icon md-icon"></span>
+            语言机制深入
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-mutable-keyword/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ mutable 关键字
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-const-family/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ const 全家桶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-string-abi-compatibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string ABI 兼容性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../std-ref-wrapper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ ref 与 reference_wrapper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../std-function-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::function 详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-pointer-as-parameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 智能指针作函数参数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../member-initializer-list-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 成员初始化列表注意点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-multiple-return-values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多返回值写法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-vs-rust-destructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 与 Rust 析构对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-iv-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 初始化与赋值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-restrict-optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ restrict 与编译优化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-template-disambiguator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 模板消歧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tail-recursion-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 尾递归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector-resize-reverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ vector resize 与 reverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-dereference-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 解引用运算符 *
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1332,6 +1848,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1404,11 +1926,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/array/" class="md-nav__link">
+      <a href="../../stl-source-analysis/array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    array
+    STL array 源码剖析
     
   </span>
   
@@ -1426,11 +1948,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/deque/" class="md-nav__link">
+      <a href="../../stl-source-analysis/deque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    deque
+    STL deque 源码剖析
     
   </span>
   
@@ -1448,11 +1970,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/queue_stack/" class="md-nav__link">
+      <a href="../../stl-source-analysis/queue-and-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    queue and stack
+    STL queue 与 stack 源码剖析
     
   </span>
   
@@ -1470,11 +1992,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/list/" class="md-nav__link">
+      <a href="../../stl-source-analysis/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    list
+    STL list 源码剖析
     
   </span>
   
@@ -1492,11 +2014,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/vector/" class="md-nav__link">
+      <a href="../../stl-source-analysis/vector/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    vector
+    STL vector 源码剖析
     
   </span>
   
@@ -1514,11 +2036,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/typename/" class="md-nav__link">
+      <a href="../../stl-source-analysis/typename/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    typename
+    STL typename 源码剖析
     
   </span>
   
@@ -1536,11 +2058,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/traits/" class="md-nav__link">
+      <a href="../../stl-source-analysis/traits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    traits
+    STL traits 类型萃取
     
   </span>
   
@@ -1558,11 +2080,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/iterator/" class="md-nav__link">
+      <a href="../../stl-source-analysis/iterator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    iterator
+    STL 迭代器源码剖析
     
   </span>
   
@@ -1580,11 +2102,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/ebo/" class="md-nav__link">
+      <a href="../../stl-source-analysis/ebo-empty-base-optimization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ebo optimization
+    STL 空基类优化 EBO
     
   </span>
   
@@ -1602,11 +2124,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/rb_tree/" class="md-nav__link">
+      <a href="../../stl-source-analysis/rb-tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    rb_tree
+    STL 红黑树实现
     
   </span>
   
@@ -1624,11 +2146,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/set_multiset/" class="md-nav__link">
+      <a href="../../stl-source-analysis/set-and-multiset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    set and multiset
+    STL set 与 multiset
     
   </span>
   
@@ -1646,11 +2168,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/map_multimap/" class="md-nav__link">
+      <a href="../../stl-source-analysis/map-and-multimap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    map and multimap
+    STL map 与 multimap
     
   </span>
   
@@ -1668,11 +2190,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/hashtable/" class="md-nav__link">
+      <a href="../../stl-source-analysis/hashtable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    hashtable
+    STL hashtable 哈希表
     
   </span>
   
@@ -1690,11 +2212,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/myhashtable/" class="md-nav__link">
+      <a href="../../stl-source-analysis/hashtable-custom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    myhashtable
+    STL 手写哈希表实现
     
   </span>
   
@@ -1712,11 +2234,77 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/unordered_map/" class="md-nav__link">
+      <a href="../../stl-source-analysis/unordered_map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    unordered_map
+    STL unordered_map 源码剖析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-deep-dive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL string 深析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-interview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL string 面试题精讲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/stl-iterator-invalidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL 迭代器失效
     
   </span>
   
@@ -1742,6 +2330,24 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1794,11 +2400,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/classInitializers/" class="md-nav__link">
+      <a href="../../cpp-idioms/class-initializer-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    类初始化列表
+    C++ 类初始化列表惯用法
     
   </span>
   
@@ -1816,11 +2422,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/enumclass/" class="md-nav__link">
+      <a href="../../cpp-idioms/enum-class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    枚举类替换命名空间
+    C++ enum class 强类型枚举
     
   </span>
   
@@ -1838,11 +2444,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/RAII/" class="md-nav__link">
+      <a href="../../cpp-idioms/raii/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    RAII
+    C++ RAII 资源管理
     
   </span>
   
@@ -1860,11 +2466,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/copy-swap/" class="md-nav__link">
+      <a href="../../cpp-idioms/copy-swap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    copy and swap
+    C++ copy-and-swap 惯用法
     
   </span>
   
@@ -1882,11 +2488,209 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/pImpl/" class="md-nav__link">
+      <a href="../../cpp-idioms/pimpl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    pImpl
+    C++ Pimpl 惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/mixin-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Mixin 惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/dependency-injection-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 依赖注入
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/trigraphs-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 三字母词
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/avoid-default-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 避免默认构造函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lazy-evaluation-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 延迟计算惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/header-only-vs-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Header-Only 与实现分离
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/class-template-over-function-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 类模板优于函数模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lookup-table-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 查表法惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/member-pointer-type-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 成员指针与类型信息
     
   </span>
   
@@ -1912,6 +2716,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -1955,9 +2763,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../modern-cpp/cpp11/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp11/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     C++11
@@ -1965,7 +2804,797 @@
   </span>
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            C++11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/cpp11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++11 新特性概览
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/cpp-std-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::move 原理与用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/variadic-templates-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 可变参数模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/std-bind-vs-lambda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::bind 与 lambda 对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp17/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++17
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++17
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp17-top-17-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 十七项高级特性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp-string-view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::string_view
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/structured-bindings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 结构化绑定
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/variable-templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 变量模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp-nodiscard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 [[nodiscard]] 属性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp17-pmr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 PMR 内存资源
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/ctad-class-template-argument-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 类模板参数推导 CTAD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/std-variant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/optional-ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 optional_ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/template-auto-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 模板 auto 推导
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp20/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++20
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            C++20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/embrace-cpp20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 新特性导读
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp-coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 协程入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-ranges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Ranges 库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 模块 Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-lambda-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Lambda 表达式（上）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-channel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 channel 实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-span/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 std::span 设计与陷阱
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-endian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 字节序 endian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-constexpr-comma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 constexpr 与逗号表达式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/no-unique-address/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[no_unique_address]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/spaceship-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 三路比较运算符 <=>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Concepts 概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/likely-unlikely-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[likely]] 与 [[unlikely]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1986,6 +3615,34 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2012,8 +3669,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-tools/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     工具篇
@@ -2021,8 +3680,14 @@
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
@@ -2032,17 +3697,19 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../tool/output/" class="md-nav__link">
+      <a href="../../cpp-tools/cmake-essentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    容器快捷输出工具
+    CMake 入门与实战
     
   </span>
   
@@ -2060,11 +3727,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/like_python/" class="md-nav__link">
+      <a href="../../cpp-tools/bazel-build-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    像Python一样玩C/C++
+    Bazel 构建 C++ 项目
     
   </span>
   
@@ -2082,11 +3749,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/look/" class="md-nav__link">
+      <a href="../../cpp-tools/meson-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    观察编译过程变化
+    Meson 构建 C++ 项目
     
   </span>
   
@@ -2104,11 +3771,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/how-to-use-dbg-macro/" class="md-nav__link">
+      <a href="../../cpp-tools/conan-package-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    C++的Debug工具dbg-macro
+    Conan C++ 包管理入门
     
   </span>
   
@@ -2126,11 +3793,275 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/string_int/" class="md-nav__link">
+      <a href="../../cpp-tools/gdb-debugging-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    string转int
+    GDB 调试 C++ 程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/lldb-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLDB 调试 C++ 程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/dbg-macro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ dbg-macro 调试宏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/bazel-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bazel 与 LLDB 联合调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gdb-python-enhancement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB Python 扩展调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/memory-leak-debug-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 内存泄漏排查实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-debug-mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ STL Debug 模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-container-output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ STL 容器快捷输出
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-jupyter-notebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Jupyter Notebook 交互
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-insights/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Insights 编译期观察
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-string-to-int/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string 转 int
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gcc-flags-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GCC 编译选项详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/vscode-cpp-formatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code 格式化 C++ 代码
     
   </span>
   
@@ -2156,6 +4087,12 @@
   
     
     
+      
+        
+          
+        
+      
+        
       
         
       
@@ -2176,24 +4113,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-memory-debug/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    实战系列
+    内存与调试
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            实战系列
+            内存与调试
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2202,11 +4149,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-practice/ten-day/" class="md-nav__link">
+      <a href="../../cpp-memory-debug/address-sanitizer-asan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10日狂练
+    AddressSanitizer 内存检测
     
   </span>
   
@@ -2224,11 +4171,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical-exercises/key-exercises/key/" class="md-nav__link">
+      <a href="../../cpp-memory-debug/cpp-memory-leak-detection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    重点实战练习
+    C++ 内存泄漏检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-memory-debug/valgrind-massif-memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valgrind Massif 内存分析
     
   </span>
   
@@ -2254,6 +4223,14 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
       
         
       
@@ -2272,24 +4249,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-benchmarks/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    设计模式
+    性能测评
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            设计模式
+            性能测评
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2298,11 +4285,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-pattern/singleton/singleton/" class="md-nav__link">
+      <a href="../../cpp-benchmarks/memcpy-vs-std-copy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    单例模式
+    memcpy 与 std::copy 性能对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/cpp-sso-benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string SSO 性能测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/polymorphism-crtp-variant-virtual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多态：虚函数、CRTP 与 variant
     
   </span>
   
@@ -2328,6 +4359,26 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2348,24 +4399,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-projects/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    并发编程
+    项目实战
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2374,11 +4435,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/concurrency-in-action/concurrency/" class="md-nav__link">
+      <a href="../../cpp-projects/modern-cpp-http-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action
+    C++20 协程 HTTP 服务器
     
   </span>
   
@@ -2396,11 +4457,187 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/mutex-threading/thread/" class="md-nav__link">
+      <a href="../../cpp-projects/cpp-short-url-demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Threading In C++
+    C++ 短链接服务 Demo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-grpc-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ gRPC 小项目
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/pybind11-python-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11 加速 Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/google-benchmark-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Benchmark 性能测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-fnonce-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    手撕 C++ FnOnce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-ipc-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 进程间通信实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp17-sqlite-folder-size/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 与 SQLite 统计目录大小
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/protobuf-zerocopy-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protobuf ZeroCopy 序列化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/stack-calculator-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 栈式计算器设计
     
   </span>
   
@@ -2428,6 +4665,20 @@
     
       
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
     
     
@@ -2444,24 +4695,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-guides/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    学习课程
+    阅读与技巧
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            阅读与技巧
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2470,11 +4731,121 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learn-course/modern-cpp/jiketime/" class="md-nav__link">
+      <a href="../../cpp-guides/cpp-string-split-methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    极客时间《现代C++实战30讲》
+    C++ 字符串六种分割方法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/how-to-read-open-source-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何阅读开源 C++ 代码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/print-1-to-100-without-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 无循环打印 1-100
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/interesting-cpp-code-snippet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一段有趣的 C++ 代码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/cpython-extension-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CPython 扩展开发笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/curl-cpp-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libcurl C++ 开发备忘
     
   </span>
   
@@ -2524,7 +4895,7 @@
             
   
   <span class="md-ellipsis">
-    资料
+    实战系列
     
   </span>
   
@@ -2535,7 +4906,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            资料
+            实战系列
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2546,11 +4917,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/fs/" class="md-nav__link">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    知识库
+    C++ 十日速成练习
     
   </span>
   
@@ -2568,11 +4939,609 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/video/" class="md-nav__link">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    视频教程
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-concurrency/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    并发编程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            并发编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-concurrency-in-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Concurrency in Action 导读
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/threading-in-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多线程入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-jthread-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::thread 与 jthread
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-internals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::thread 内核实现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-deadlock-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 死锁排查
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/gdb-multi-thread-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB 多线程 All-Stop 调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/helgrind-concurrency-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helgrind 并发错误检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/false-sharing-cache-line/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ False Sharing 与缓存行
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp17-parallel-stl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 并行 STL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-simd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ SIMD 向量化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/libev-event-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libev 事件循环原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    学习课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            学习课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    极客时间《现代 C++ 实战 30 讲》
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    资料
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            资料
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/feishu-cpp-knowledge-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 学习知识库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/bilibili-cpp-tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B 站 C++ 视频教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/cpp-learning-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 学习资源与书单
     
   </span>
   
@@ -2638,6 +5607,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者：
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1cstruct" class="md-nav__link">
     <span class="md-ellipsis">
       1.C中struct
@@ -2691,6 +5669,7 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+  
                   
 
 
@@ -2698,7 +5677,16 @@
   
 
 
-<h1 id="structccstruct">struct那些事：一文搞懂C和C++中struct<a class="headerlink" href="#structccstruct" title="Permanent link">&para;</a></h1>
+<hr />
+<p>comments: true
+keywords: C++ struct 结构体用法,C++基础
+description: - 在C中struct只单纯的用作数据的复合类型，也就是说，在结构体声明中只能将数据成员放在里面，而不能将函数放在里面。
+title: C++ struct 结构体 | C++那些事</p>
+<hr />
+<h1 id="c-struct">C++ struct 结构体<a class="headerlink" href="#c-struct" title="Permanent link">&para;</a></h1>
+<h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>个人公众号：</p>
+<p><img alt="" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1cstruct">1.C中struct<a class="headerlink" href="#1cstruct" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在C中struct只单纯的用作数据的复合类型，也就是说，在结构体声明中只能将数据成员放在里面，而不能将函数放在里面。 </li>
@@ -2747,7 +5735,7 @@
 <li>C++结构体中可以使用访问修饰符，如：public、protected、private 。</li>
 <li>C++结构体使用可以直接使用不带struct。</li>
 <li>C++继承</li>
-<li>若结构体的名字与函数名相同，可以正常运行且正常的调用！但是定义结构体变量时候只用用带struct的！</li>
+<li>若结构体的名字与函数名相同，可以正常运行且正常的调用！但是定义结构体变量时候只能用带struct的！</li>
 </ul>
 <p>例如：</p>
 <blockquote>
@@ -2757,8 +5745,8 @@
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">};</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Student</span><span class="p">(){}</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">Struct</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">//Student(){}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">  </span><span class="c1">//ok</span>
 </span></code></pre></div>
 <p>添加同名函数后：</p>
@@ -2766,7 +5754,7 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">};</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">Student</span><span class="p">(){}</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">Struct</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w">  </span><span class="c1">//error</span>
 </span></code></pre></div>
 <blockquote>
@@ -2774,15 +5762,14 @@
 </blockquote>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Base1</span><span class="w"> </span><span class="p">{</span><span class="w">         </span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">//    private:   //error!</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w">     </span><span class="c1">//显示声明public</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(){</span><span class="w">       </span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">};</span><span class="w">    </span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span><span class="n">B</span><span class="p">;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">//void B() {}  //error! 符号 &quot;B&quot; 已经被定义为一个 &quot;struct Base1&quot; 的别名</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">v3</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w">     </span><span class="c1">//显示声明public</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(){</span><span class="w">       </span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">};</span><span class="w">    </span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span><span class="n">B</span><span class="p">;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">//void B() {}  //error! 符号 &quot;B&quot; 已经被定义为一个 &quot;struct Base1&quot; 的别名</span>
 </span></code></pre></div>
 <blockquote>
 <p>前三种案例</p>
@@ -2927,71 +5914,33 @@
 
 
 
-  
-  
-
 
 
   
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-          data-repo="Light-City/light-comments"
-          data-repo-id="R_kgDOLcVr-w"
-          data-category="Announcements"
-          data-category-id="DIC_kwDOLcVr-84CdwfH"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
-          crossorigin="anonymous"
-          async>
-  </script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    // Set palette on initial load
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
-
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    // Register event handlers after documented loaded
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
-
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.querySelector(".md-content__inner.md-typeset");
+      if (!root) return;
+      var h1 = root.querySelector("h1");
+      if (!h1 || h1.dataset.brandLogo) return;
+      var img = document.createElement("img");
+      img.src = "../../assets/images/logo.png";
+      img.alt = "C++那些事 | Stories About C Plus Plus";
+      img.className = "article-title-logo";
+      img.loading = "lazy";
+      img.decoding = "async";
+      h1.insertAdjacentElement("afterend", img);
+      h1.dataset.brandLogo = "1";
+    });
+  </script>
+  
+
               </article>
             </div>
           
@@ -3014,7 +5963,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../extern/" class="md-footer__link md-footer__link--prev" aria-label="上一页: extern那些事">
+          <a href="../extern/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ extern 链接说明">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3024,20 +5973,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                extern那些事
+                C++ extern 链接说明
               </div>
             </div>
           </a>
         
         
           
-          <a href="../struct-vs-class/" class="md-footer__link md-footer__link--next" aria-label="下一页: struct与class那些事">
+          <a href="../struct-vs-class/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ struct 与 class 区别">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                struct与class那些事
+                C++ struct 与 class 区别
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3054,7 +6003,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2025 光城
+      Copyright &copy; 2020 - 2026 光城
     </div>
   
 </div>

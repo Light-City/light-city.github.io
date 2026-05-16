@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://light-city.github.io/stories_things/sitemap.xml

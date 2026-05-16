@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="探索C++中的const关键字及其应用，深入理解const修饰符的用法，包括常量、指针、引用等。学习如何在编程中有效使用const来提高代码的安全性和可读性，以及在类设计中的最佳实践。">
+        <meta name="description" content="常类型是指使用类型修饰符**const**说明的类型，常类型的变量或对象的值是不能被更新的。">
       
       
         <meta name="author" content="光城">
@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://light-city.github.io/stories_things/cpp-things/const/">
       
       
-        <link rel="prev" href="../../how-to-compile-and-run-the-cppthings-project/">
+        <link rel="prev" href="../../how-to-build-cplusplusthings/">
       
       
         <link rel="next" href="../static/">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++那些事, const, 常量, const 关键字, const 使用, const 指针, const 引用, c++ 常量表达式"> 
-    <meta name="title" content="const那些事：深入理解常量的使用与最佳实践"> 
+    <meta name="keywords" content="C++ const 常量与修饰用法,C++基础"> 
+    <meta name="title" content="C++ const 常量与修饰 | C++那些事"> 
 
     
       
-        <title>const那些事：深入理解常量的使用与最佳实践 - C++那些事</title>
+        <title>C++ const 常量与修饰 | C++那些事 - C++那些事</title>
       
     
     
@@ -55,6 +55,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/article-brand.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#const" class="md-skip">
+        <a href="#c-const" class="md-skip">
           跳转至
         </a>
       
@@ -129,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              const那些事：深入理解常量的使用与最佳实践
+              C++ const 常量与修饰 | C++那些事
             
           </span>
         </div>
@@ -255,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../cplusplusthings-quickstart/" class="md-tabs__link">
+      <a href="../../cplusplus-things-overview/" class="md-tabs__link">
         
   
     
@@ -272,12 +274,12 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../how-to-compile-and-run-the-cppthings-project/" class="md-tabs__link">
+      <a href="../../how-to-build-cplusplusthings/" class="md-tabs__link">
         
   
     
   
-  使用须知
+  编译与运行指南
 
       </a>
     </li>
@@ -313,7 +315,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../stl/array/" class="md-tabs__link">
+        <a href="../../stl-source-analysis/array/" class="md-tabs__link">
           
   
     
@@ -333,7 +335,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../idioms/classInitializers/" class="md-tabs__link">
+        <a href="../../cpp-idioms/class-initializer-list/" class="md-tabs__link">
           
   
     
@@ -352,6 +354,12 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../../modern-cpp/cpp11/" class="md-tabs__link">
           
@@ -365,6 +373,9 @@
     
   
 
+    
+  
+
       
         
   
@@ -373,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../tool/output/" class="md-tabs__link">
+        <a href="../../cpp-tools/" class="md-tabs__link">
           
   
     
@@ -393,7 +404,87 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-practice/ten-day/" class="md-tabs__link">
+        <a href="../../cpp-memory-debug/" class="md-tabs__link">
+          
+  
+    
+  
+  内存与调试
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-benchmarks/" class="md-tabs__link">
+          
+  
+    
+  
+  性能测评
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-projects/" class="md-tabs__link">
+          
+  
+    
+  
+  项目实战
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-guides/" class="md-tabs__link">
+          
+  
+    
+  
+  阅读与技巧
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
           
   
     
@@ -413,7 +504,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../design-pattern/singleton/singleton/" class="md-tabs__link">
+        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
           
   
     
@@ -433,7 +524,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../concurrency/concurrency-in-action/concurrency/" class="md-tabs__link">
+        <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
     
@@ -453,7 +544,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../learn-course/modern-cpp/jiketime/" class="md-tabs__link">
+        <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-tabs__link">
           
   
     
@@ -473,7 +564,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/fs/" class="md-tabs__link">
+        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
           
   
     
@@ -575,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cplusplusthings-quickstart/" class="md-nav__link">
+      <a href="../../cplusplus-things-overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -596,11 +687,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how-to-compile-and-run-the-cppthings-project/" class="md-nav__link">
+      <a href="../../how-to-build-cplusplusthings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    使用须知
+    编译与运行指南
     
   </span>
   
@@ -620,6 +711,8 @@
   
     
     
+      
+        
       
         
       
@@ -726,7 +819,7 @@
           
   
   <span class="md-ellipsis">
-    const那些事
+    C++ const 常量与修饰
     
   </span>
   
@@ -738,7 +831,7 @@
         
   
   <span class="md-ellipsis">
-    const那些事
+    C++ const 常量与修饰
     
   </span>
   
@@ -759,6 +852,15 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1const" class="md-nav__link">
@@ -843,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    static那些事
+    C++ static 静态成员与生存期
     
   </span>
   
@@ -865,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    vptr-vtable那些事
+    C++ 虚指针与虚表机制
     
   </span>
   
@@ -887,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    c实现C++多态那些事
+    C 语言实现 C++ 多态
     
   </span>
   
@@ -905,11 +1007,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../pointer-vs-refer/" class="md-nav__link">
+      <a href="../pointer-vs-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    引用与指针那些事
+    C++ 指针与引用
     
   </span>
   
@@ -931,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    宏那些事
+    C++ 宏与条件编译
     
   </span>
   
@@ -953,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    this那些事
+    C++ this 指针
     
   </span>
   
@@ -975,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    inline那些事
+    C++ inline 内联函数
     
   </span>
   
@@ -997,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    sizeof那些事
+    C++ sizeof 运算符
     
   </span>
   
@@ -1019,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    纯虚函数和抽象类那些事
+    C++ 纯虚函数与抽象类
     
   </span>
   
@@ -1041,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    virtual那些事
+    C++ virtual 虚函数
     
   </span>
   
@@ -1063,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    volatile那些事
+    C++ volatile 关键字
     
   </span>
   
@@ -1085,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    assert那些事
+    C++ assert 断言
     
   </span>
   
@@ -1107,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    位域那些事
+    C++ 位域
     
   </span>
   
@@ -1129,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    extern那些事
+    C++ extern 链接说明
     
   </span>
   
@@ -1151,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    struct那些事
+    C++ struct 结构体
     
   </span>
   
@@ -1173,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    struct与class那些事
+    C++ struct 与 class 区别
     
   </span>
   
@@ -1195,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    union那些事
+    C++ union 联合体
     
   </span>
   
@@ -1217,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    explicit那些事
+    C++ explicit 显式转换
     
   </span>
   
@@ -1239,7 +1341,7 @@
         
   
   <span class="md-ellipsis">
-    friend那些事
+    C++ friend 友元
     
   </span>
   
@@ -1261,7 +1363,7 @@
         
   
   <span class="md-ellipsis">
-    using那些事
+    C++ using 声明与别名
     
   </span>
   
@@ -1283,7 +1385,7 @@
         
   
   <span class="md-ellipsis">
-    作用域那些事
+    C++ 命名空间
     
   </span>
   
@@ -1305,7 +1407,7 @@
         
   
   <span class="md-ellipsis">
-    enum那些事
+    C++ enum 枚举类型
     
   </span>
   
@@ -1327,12 +1429,426 @@
         
   
   <span class="md-ellipsis">
-    decltype那些事
+    C++ decltype 类型推导
     
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_25" id="__nav_4_25_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    语言机制深入
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_25">
+            <span class="md-nav__icon md-icon"></span>
+            语言机制深入
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-mutable-keyword/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ mutable 关键字
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-const-family/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ const 全家桶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-string-abi-compatibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string ABI 兼容性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../std-ref-wrapper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ ref 与 reference_wrapper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../std-function-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::function 详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-pointer-as-parameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 智能指针作函数参数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../member-initializer-list-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 成员初始化列表注意点
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-multiple-return-values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多返回值写法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-vs-rust-destructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 与 Rust 析构对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-iv-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 初始化与赋值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-restrict-optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ restrict 与编译优化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-template-disambiguator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 模板消歧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tail-recursion-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 尾递归
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector-resize-reverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ vector resize 与 reverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp-dereference-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 解引用运算符 *
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1353,6 +1869,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1425,11 +1947,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/array/" class="md-nav__link">
+      <a href="../../stl-source-analysis/array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    array
+    STL array 源码剖析
     
   </span>
   
@@ -1447,11 +1969,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/deque/" class="md-nav__link">
+      <a href="../../stl-source-analysis/deque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    deque
+    STL deque 源码剖析
     
   </span>
   
@@ -1469,11 +1991,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/queue_stack/" class="md-nav__link">
+      <a href="../../stl-source-analysis/queue-and-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    queue and stack
+    STL queue 与 stack 源码剖析
     
   </span>
   
@@ -1491,11 +2013,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/list/" class="md-nav__link">
+      <a href="../../stl-source-analysis/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    list
+    STL list 源码剖析
     
   </span>
   
@@ -1513,11 +2035,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/vector/" class="md-nav__link">
+      <a href="../../stl-source-analysis/vector/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    vector
+    STL vector 源码剖析
     
   </span>
   
@@ -1535,11 +2057,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/typename/" class="md-nav__link">
+      <a href="../../stl-source-analysis/typename/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    typename
+    STL typename 源码剖析
     
   </span>
   
@@ -1557,11 +2079,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/traits/" class="md-nav__link">
+      <a href="../../stl-source-analysis/traits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    traits
+    STL traits 类型萃取
     
   </span>
   
@@ -1579,11 +2101,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/iterator/" class="md-nav__link">
+      <a href="../../stl-source-analysis/iterator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    iterator
+    STL 迭代器源码剖析
     
   </span>
   
@@ -1601,11 +2123,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/ebo/" class="md-nav__link">
+      <a href="../../stl-source-analysis/ebo-empty-base-optimization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ebo optimization
+    STL 空基类优化 EBO
     
   </span>
   
@@ -1623,11 +2145,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/rb_tree/" class="md-nav__link">
+      <a href="../../stl-source-analysis/rb-tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    rb_tree
+    STL 红黑树实现
     
   </span>
   
@@ -1645,11 +2167,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/set_multiset/" class="md-nav__link">
+      <a href="../../stl-source-analysis/set-and-multiset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    set and multiset
+    STL set 与 multiset
     
   </span>
   
@@ -1667,11 +2189,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/map_multimap/" class="md-nav__link">
+      <a href="../../stl-source-analysis/map-and-multimap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    map and multimap
+    STL map 与 multimap
     
   </span>
   
@@ -1689,11 +2211,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/hashtable/" class="md-nav__link">
+      <a href="../../stl-source-analysis/hashtable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    hashtable
+    STL hashtable 哈希表
     
   </span>
   
@@ -1711,11 +2233,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/myhashtable/" class="md-nav__link">
+      <a href="../../stl-source-analysis/hashtable-custom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    myhashtable
+    STL 手写哈希表实现
     
   </span>
   
@@ -1733,11 +2255,77 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/unordered_map/" class="md-nav__link">
+      <a href="../../stl-source-analysis/unordered_map/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    unordered_map
+    STL unordered_map 源码剖析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-deep-dive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL string 深析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-interview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL string 面试题精讲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/stl-iterator-invalidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL 迭代器失效
     
   </span>
   
@@ -1763,6 +2351,24 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1815,11 +2421,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/classInitializers/" class="md-nav__link">
+      <a href="../../cpp-idioms/class-initializer-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    类初始化列表
+    C++ 类初始化列表惯用法
     
   </span>
   
@@ -1837,11 +2443,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/enumclass/" class="md-nav__link">
+      <a href="../../cpp-idioms/enum-class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    枚举类替换命名空间
+    C++ enum class 强类型枚举
     
   </span>
   
@@ -1859,11 +2465,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/RAII/" class="md-nav__link">
+      <a href="../../cpp-idioms/raii/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    RAII
+    C++ RAII 资源管理
     
   </span>
   
@@ -1881,11 +2487,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/copy-swap/" class="md-nav__link">
+      <a href="../../cpp-idioms/copy-swap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    copy and swap
+    C++ copy-and-swap 惯用法
     
   </span>
   
@@ -1903,11 +2509,209 @@
   
   
     <li class="md-nav__item">
-      <a href="../../idioms/pImpl/" class="md-nav__link">
+      <a href="../../cpp-idioms/pimpl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    pImpl
+    C++ Pimpl 惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/mixin-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Mixin 惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/dependency-injection-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 依赖注入
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/trigraphs-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 三字母词
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/avoid-default-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 避免默认构造函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lazy-evaluation-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 延迟计算惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/header-only-vs-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Header-Only 与实现分离
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/class-template-over-function-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 类模板优于函数模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lookup-table-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 查表法惯用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/member-pointer-type-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 成员指针与类型信息
     
   </span>
   
@@ -1933,6 +2737,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -1976,9 +2784,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../modern-cpp/cpp11/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp11/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     C++11
@@ -1986,7 +2825,797 @@
   </span>
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            C++11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/cpp11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++11 新特性概览
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/cpp-std-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::move 原理与用法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/variadic-templates-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 可变参数模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp11/std-bind-vs-lambda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::bind 与 lambda 对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp17/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++17
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++17
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp17-top-17-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 十七项高级特性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp-string-view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::string_view
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/structured-bindings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 结构化绑定
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/variable-templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 变量模板
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp-nodiscard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 [[nodiscard]] 属性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/cpp17-pmr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 PMR 内存资源
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/ctad-class-template-argument-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 类模板参数推导 CTAD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/std-variant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/optional-ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 optional_ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp17/template-auto-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 模板 auto 推导
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modern-cpp/cpp20/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++20
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            C++20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/embrace-cpp20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 新特性导读
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp-coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 协程入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-ranges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Ranges 库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 模块 Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-lambda-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Lambda 表达式（上）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-channel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 channel 实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-span/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 std::span 设计与陷阱
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-endian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 字节序 endian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-constexpr-comma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 constexpr 与逗号表达式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/no-unique-address/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[no_unique_address]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/spaceship-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 三路比较运算符 <=>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/cpp20-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Concepts 概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp20/likely-unlikely-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[likely]] 与 [[unlikely]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2007,6 +3636,34 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2033,8 +3690,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-tools/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     工具篇
@@ -2042,8 +3701,14 @@
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
@@ -2053,17 +3718,19 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../tool/output/" class="md-nav__link">
+      <a href="../../cpp-tools/cmake-essentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    容器快捷输出工具
+    CMake 入门与实战
     
   </span>
   
@@ -2081,11 +3748,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/like_python/" class="md-nav__link">
+      <a href="../../cpp-tools/bazel-build-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    像Python一样玩C/C++
+    Bazel 构建 C++ 项目
     
   </span>
   
@@ -2103,11 +3770,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/look/" class="md-nav__link">
+      <a href="../../cpp-tools/meson-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    观察编译过程变化
+    Meson 构建 C++ 项目
     
   </span>
   
@@ -2125,11 +3792,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/how-to-use-dbg-macro/" class="md-nav__link">
+      <a href="../../cpp-tools/conan-package-manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    C++的Debug工具dbg-macro
+    Conan C++ 包管理入门
     
   </span>
   
@@ -2147,11 +3814,275 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool/string_int/" class="md-nav__link">
+      <a href="../../cpp-tools/gdb-debugging-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    string转int
+    GDB 调试 C++ 程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/lldb-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLDB 调试 C++ 程序
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/dbg-macro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ dbg-macro 调试宏
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/bazel-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bazel 与 LLDB 联合调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gdb-python-enhancement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB Python 扩展调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/memory-leak-debug-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 内存泄漏排查实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-debug-mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ STL Debug 模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-container-output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ STL 容器快捷输出
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-jupyter-notebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Jupyter Notebook 交互
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-insights/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Insights 编译期观察
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-string-to-int/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string 转 int
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gcc-flags-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GCC 编译选项详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/vscode-cpp-formatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code 格式化 C++ 代码
     
   </span>
   
@@ -2177,6 +4108,12 @@
   
     
     
+      
+        
+          
+        
+      
+        
       
         
       
@@ -2197,24 +4134,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-memory-debug/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    实战系列
+    内存与调试
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            实战系列
+            内存与调试
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2223,11 +4170,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-practice/ten-day/" class="md-nav__link">
+      <a href="../../cpp-memory-debug/address-sanitizer-asan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    10日狂练
+    AddressSanitizer 内存检测
     
   </span>
   
@@ -2245,11 +4192,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../../practical-exercises/key-exercises/key/" class="md-nav__link">
+      <a href="../../cpp-memory-debug/cpp-memory-leak-detection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    重点实战练习
+    C++ 内存泄漏检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-memory-debug/valgrind-massif-memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valgrind Massif 内存分析
     
   </span>
   
@@ -2275,6 +4244,14 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
       
         
       
@@ -2293,24 +4270,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-benchmarks/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    设计模式
+    性能测评
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            设计模式
+            性能测评
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2319,11 +4306,55 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design-pattern/singleton/singleton/" class="md-nav__link">
+      <a href="../../cpp-benchmarks/memcpy-vs-std-copy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    单例模式
+    memcpy 与 std::copy 性能对比
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/cpp-sso-benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string SSO 性能测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/polymorphism-crtp-variant-virtual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多态：虚函数、CRTP 与 variant
     
   </span>
   
@@ -2349,6 +4380,26 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2369,24 +4420,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-projects/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    并发编程
+    项目实战
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2395,11 +4456,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/concurrency-in-action/concurrency/" class="md-nav__link">
+      <a href="../../cpp-projects/modern-cpp-http-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action
+    C++20 协程 HTTP 服务器
     
   </span>
   
@@ -2417,11 +4478,187 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/mutex-threading/thread/" class="md-nav__link">
+      <a href="../../cpp-projects/cpp-short-url-demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Threading In C++
+    C++ 短链接服务 Demo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-grpc-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ gRPC 小项目
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/pybind11-python-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11 加速 Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/google-benchmark-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Benchmark 性能测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-fnonce-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    手撕 C++ FnOnce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-ipc-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 进程间通信实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp17-sqlite-folder-size/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 与 SQLite 统计目录大小
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/protobuf-zerocopy-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protobuf ZeroCopy 序列化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/stack-calculator-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 栈式计算器设计
     
   </span>
   
@@ -2449,6 +4686,20 @@
     
       
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
     
     
@@ -2465,24 +4716,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-guides/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
-    学习课程
+    阅读与技巧
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            阅读与技巧
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -2491,11 +4752,121 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learn-course/modern-cpp/jiketime/" class="md-nav__link">
+      <a href="../../cpp-guides/cpp-string-split-methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    极客时间《现代C++实战30讲》
+    C++ 字符串六种分割方法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/how-to-read-open-source-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何阅读开源 C++ 代码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/print-1-to-100-without-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 无循环打印 1-100
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/interesting-cpp-code-snippet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一段有趣的 C++ 代码
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/cpython-extension-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CPython 扩展开发笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/curl-cpp-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libcurl C++ 开发备忘
     
   </span>
   
@@ -2545,7 +4916,7 @@
             
   
   <span class="md-ellipsis">
-    资料
+    实战系列
     
   </span>
   
@@ -2556,7 +4927,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            资料
+            实战系列
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2567,11 +4938,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/fs/" class="md-nav__link">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    知识库
+    C++ 十日速成练习
     
   </span>
   
@@ -2589,11 +4960,609 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/video/" class="md-nav__link">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    视频教程
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    设计模式
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            设计模式
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-concurrency/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    并发编程
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            并发编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-concurrency-in-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Concurrency in Action 导读
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/threading-in-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 多线程入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-jthread-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::thread 与 jthread
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-internals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ std::thread 内核实现
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-deadlock-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 死锁排查
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/gdb-multi-thread-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB 多线程 All-Stop 调试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/helgrind-concurrency-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helgrind 并发错误检测
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/false-sharing-cache-line/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ False Sharing 与缓存行
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp17-parallel-stl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 并行 STL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-simd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ SIMD 向量化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/libev-event-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libev 事件循环原理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    学习课程
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            学习课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    极客时间《现代 C++ 实战 30 讲》
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    资料
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            资料
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/feishu-cpp-knowledge-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 学习知识库
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/bilibili-cpp-tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    B 站 C++ 视频教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/cpp-learning-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 学习资源与书单
     
   </span>
   
@@ -2657,6 +5626,15 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#1const" class="md-nav__link">
@@ -2733,6 +5711,7 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+  
                   
 
 
@@ -2740,277 +5719,323 @@
   
 
 
-<h1 id="const">const那些事<a class="headerlink" href="#const" title="Permanent link">&para;</a></h1>
+<h1 id="c-const">C++ const 常量与修饰<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
+<h2 id="_1">关于作者<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>微信公众号：</p>
+<p><img alt="" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1const">1.const含义<a class="headerlink" href="#1const" title="Permanent link">&para;</a></h2>
 <p>常类型是指使用类型修饰符**const**说明的类型，常类型的变量或对象的值是不能被更新的。</p>
 <h2 id="2const">2.const作用<a class="headerlink" href="#2const" title="Permanent link">&para;</a></h2>
-<p>（1）可以定义常量</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<ul>
+<li>可以定义常量</li>
+</ul>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 </span></code></pre></div>
-<p>（2）类型检查</p>
-<p>const常量与#define宏定义常量的区别：<sub>~<u><strong>const常量具有类型，编译器可以进行安全检查；#define宏定义没有数据类型，只是简单的字符串替换，不能进行安全检查。</strong></u></sub>~感谢两位大佬指出这里问题，见：</p>
+<ul>
+<li>
+<p>类型检查</p>
+<ul>
+<li>
+<p>const常量与<code>#define</code>宏定义常量的区别：</p>
 <blockquote>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/issues/5">https://github.com/Light-City/CPlusPlusThings/issues/5</a></p>
+<p><strong><s>const常量具有类型，编译器可以进行安全检查；#define宏定义没有数据类型，只是简单的字符串替换，不能进行安全检查。</s></strong>感谢两位大佬指出这里问题，见：<a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
 </blockquote>
-<p><code>const</code> 定义的变量只有类型为整数或枚举，且以常量表达式初始化时才能作为常量表达式。其他情况下它只是一个 <code>const</code> 限定的变量，不要将与常量混淆。</p>
-<p>（3）防止修改，起保护作用，增加程序健壮性</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">//error!</span>
+</li>
+<li>
+<p>const常量支持所有类型。</p>
+</li>
+<li>其他情况下它只是一个 <code>const</code> 限定的变量，不要将与常量混淆。</li>
+</ul>
+</li>
+<li>
+<p>防止修改，起保护作用，增加程序健壮性</p>
+</li>
+</ul>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// error!</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>（4）可以节省空间，避免不必要的内存分配</p>
-<p>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像#define一样给出的是立即数，所以，const定义的常量在程序运行过程中只有一份拷贝，而#define定义的常量在内存中有若干个拷贝。</p>
+<ul>
+<li>
+<p>可以节省空间，避免不必要的内存分配</p>
+<ul>
+<li>const定义常量从汇编的角度来看，只是给出了对应的内存地址，而不是像<code>#define</code>一样给出的是立即数。</li>
+<li>const定义的常量在程序运行过程中只有一份拷贝，而<code>#define</code>定义的常量在内存中有若干个拷贝。</li>
+</ul>
+</li>
+</ul>
 <h2 id="3const">3.const对象默认为文件局部变量<a class="headerlink" href="#3const" title="Permanent link">&para;</a></h2>
 <p><font style="color:red">注意：非const变量默认为extern。要使const变量能够在其他文件中访问，必须在文件中显式地指定它为extern。</font></p>
+
 <blockquote>
 <p>未被const修饰的变量在不同文件的访问</p>
 </blockquote>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// file1.cpp</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">ext</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// file1.cpp</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// file2.cpp</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="cm">/**</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cm"> * by 光城</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="cm"> * compile: g++ -o file file2.cpp file1.cpp</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="cm"> * execute: ./file</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="cm"> */</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ext</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ext</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
 <p>const常量在不同文件的访问</p>
 </blockquote>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">//extern_file1.cpp</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// extern_file1.cpp</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">//extern_file2.cpp</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// extern_file2.cpp</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cm">/**</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cm"> * by 光城</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm"> * compile: g++ -o file const_file2.cpp const_file1.cpp</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="cm"> * execute: ./file</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="cm"> */</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ext</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ext</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><font style="color:red">小结：可以发现未被const修饰的变量不需要extern显式声明！而const常量需要显式声明extern，并且需要做初始化！因为常量在定义后就不能被修改，所以定义时必须初始化。</font></p>
+<blockquote>
+<p>小结：<br>可以发现未被const修饰的变量不需要extern显式声明！而const常量需要显式声明extern，并且需要做初始化！因为常量在定义后就不能被修改，所以定义时必须初始化。</font></p></p>
+</blockquote>
 <h2 id="4">4.定义常量<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// error: assignment of read-only variable ‘b’</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;helloworld&quot;</span><span class="p">;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="c1">// error: uninitialized const ‘i’</span>
 </span></code></pre></div>
-<p>上述有两个错误，第一：b为常量，不可更改！第二：i为常量，必须进行初始化！(因为常量在定义后就不能被修改，所以定义时必须初始化。)</p>
+<p>上述有两个错误：
++ b 为常量，不可更改！
++ i 为常量，必须进行初始化！(因为常量在定义后就不能被修改，所以定义时必须初始化。)</p>
 <h2 id="5const">5.指针与const<a class="headerlink" href="#5const" title="Permanent link">&para;</a></h2>
 <p>与指针相关的const有四种：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//指向const对象的指针或者说指向常量的指针。</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//同上</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//指向类型对象的const指针。或者说常指针、const指针。</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">//指向const对象的const指针。</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的指针或者说指向常量的指针。</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 同上</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向类型对象的const指针。或者说常指针、const指针。</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的const指针。</span>
 </span></code></pre></div>
-<p>小结：如果*const*位于<code>*</code>的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；如果const位于<code>*</code>的右侧，*const*就是修饰指针本身，即指针本身是常量。</p>
+<blockquote>
+<p><strong>小结：</strong> <br>
+如果*const*位于<code>*</code>的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；<br>如果const位于<code>*</code>的右侧，*const*就是修饰指针本身，即指针本身是常量。</p>
+</blockquote>
+<p><strong>另一种解读方式</strong><br>
+利用英文从右边往左边读，并且以to为分界，to之前为描述指针的特性，to之后为描述目标的特性<br>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a pointer to const char</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//同上</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to char</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to const char</span>
+</span></code></pre></div>
+当指针被加上const特性，则指针不可改变指向的地址<br>
+当指向的目标特性为char，则内容可以透过指针被修改，如: *char='y';<br>
+当指向的目标特性为const char，则内容不可透过指针修改<br></p>
 <p>具体使用如下：</p>
-<p>（1）指向常量的指针</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">//error</span>
+<p>（1） <strong>指向常量的指针</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
 <p>ptr是一个指向int类型const对象的指针，const定义的是int类型，也就是ptr所指向的对象类型，而不是ptr本身，所以ptr可以不用赋初始值。但是不能通过ptr去修改所指对象的值。</p>
 <p>除此之外，也不能使用void<code>*</code>指针保存const对象的地址，必须使用const void<code>*</code>类型的指针保存const对象的地址。</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//error</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
 <p>另外一个重点是：<strong>允许把非const对象的地址赋给指向const对象的指针</strong>。</p>
 <p>将非const对象的地址赋给const对象的指针:</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">//ok</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 </span></code></pre></div>
 <p>我们不能通过ptr指针来修改val的值，即使它指向的是非const对象!</p>
 <p>我们不能使用指向const对象的指针修改基础对象，然而如果该指针指向了非const对象，可用其他方式修改其所指的对象。可以修改const指针所指向的值的，但是不能通过const对象指针来进行而已！如下修改：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
-<p><font style="color:red">小结：对于指向常量的指针，不能通过指针来修改对象的值。<br/>也不能使用void`*`指针保存const对象的地址，必须使用const void`*`类型的指针保存const对象的地址。<br/>允许把非const对象的地址赋值给const对象的指针，如果要修改指针所指向的对象值，必须通过其他方式修改，不能直接通过当前指针直接修改。</font></p>
-<p>（2）常指针</p>
-<p>const指针必须进行初始化，且const指针的值不能修改。</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">//const指针必须初始化！且const指针的值不能修改</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">;</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>上述修改ptr指针所指向的值，可以通过非const指针来修改。</p>
-<p>最后，当把一个const常量的地址赋值给ptr时候，由于ptr指向的是一个变量，而不是const常量，所以会报错，出现：const int<code>*</code> -&gt; int <code>*</code>错误！</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<blockquote>
+<p>小结：<br>1.对于指向常量的指针，不能通过指针来修改对象的值。<br>2.不能使用void<code>*</code>指针保存const对象的地址，必须使用const void<code>*</code>类型的指针保存const对象的地址。<br>3.允许把非const对象的地址赋值给const对象的指针，如果要修改指针所指向的对象值，必须通过其他方式修改，不能直接通过当前指针直接修改。</p>
+</blockquote>
+<p>（2） <strong>常指针</strong></p>
+<p>const指针必须进行初始化，且const指针指向的值能修改，但指向不能修改。</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">//error! const int* -&gt; int*</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">}</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// const指针必须初始化！且const指针的指向不能修改</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num1</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const指针不能修改指向！</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>代码出现编译错误：const指针不能修改指向。</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// const指针必须初始化！且const指针的指向不能修改</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>代码无事发生，正常输出1。</p>
+<p>最后，当把一个const常量的地址赋值给ptr时候，由于ptr指向的是一个变量，而不是const常量，所以会报错，出现：const int<code>*</code> -&gt; int <code>*</code>错误！</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const int* -&gt; int*</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>上述若改为 const int <code>*</code>ptr或者改为const int <code>*</code>const ptr，都可以正常！</p>
-<p>（3）指向常量的常指针</p>
+<p>（3）<strong>指向常量的常指针</strong></p>
 <p>理解完前两种情况，下面这个情况就比较好理解了：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
 </span></code></pre></div>
 <p>ptr是一个const指针，然后指向了一个int 类型的const对象。</p>
 <h2 id="6const">6.函数中使用const<a class="headerlink" href="#6const" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>cost修饰函数返回值</p>
+<p>const修饰函数返回值</p>
 </blockquote>
 <p>这个跟const修饰普通变量以及指针的含义基本相同：</p>
-<p>（1）const int</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
+<p>（1）<strong>const int</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
 </span></code></pre></div>
 <p>这个本身无意义，因为参数返回本身就是赋值给其他的变量！</p>
-<p>（2）const int*</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func2</span><span class="p">();</span>
+<p>（2）<strong>const int*</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func2</span><span class="p">();</span>
 </span></code></pre></div>
 <p>指针指向的内容不变。</p>
 <p>（3）int *const</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">func2</span><span class="p">();</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">func2</span><span class="p">();</span>
 </span></code></pre></div>
 <p>指针本身不可变。</p>
 <blockquote>
 <p>const修饰函数参数</p>
 </blockquote>
 <p>（1）传递过来的参数及指针本身在函数内不可变，无意义！</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
 </span></code></pre></div>
 <p>表明参数在函数体内不能被修改，但此处没有任何意义，var本身就是形参，在函数内不会改变。包括传入的形参是指针也是一样。</p>
 <p>输入参数采用“值传递”，由于函数将自动产生临时变量用于复制该参数，该输入参数本来就无需保护，所以不要加const 修饰。</p>
-<p>（2）参数指针所指内容为常量不可变</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+<p>（2）<strong>参数指针所指内容为常量不可变</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 </span></code></pre></div>
 <p>其中src 是输入参数，dst 是输出参数。给src加上const修饰后，如果函数体内的语句试图改动src的内容，编译器将指出错误。这就是加了const的作用之一。</p>
-<p>（3）参数为引用，为了增加效率同时防止修改。</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
+<p>（3）<strong>参数为引用，为了增加效率同时防止修改。</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
-<p>对于非内部数据类型的参数而言，象void func(A a) 这样声明的函数注定效率比较低。因为函数体内将产生A 类型</p>
-<p>的临时对象用于复制参数a，而临时对象的构造、复制、析构过程都将消耗时间。</p>
-<p>为了提高效率，可以将函数声明改为void func(A &amp;a)，因为“引用传递”仅借用一下参数的别名而已，不需要产生临</p>
-<p>时对象。但是函数void func(A &amp;a) 存在一个缺点：</p>
-<p>“引用传递”有可能改变参数a，这是我们不期望的。解决这个问题很容易，加const修饰即可，因此函数最终成为</p>
-<p>void func(const A &amp;a)。</p>
-<p>以此类推，是否应将void func(int x) 改写为void func(const int &amp;x)，以便提高效率？完全没有必要，因为内部数</p>
-<p>据类型的参数不存在构造、析构的过程，而复制也非常快，“值传递”和“引用传递”的效率几乎相当。</p>
-<p><font style="color:red">小结：对于非内部数据类型的输入参数，应该将“值传递”的方式改为“const 引用传递”，目的是提高效率。例如将void func(A a) 改为void func(const A &a)。<br/>对于内部数据类型的输入参数，不要将“值传递”的方式改为“const 引用传递”。否则既达不到提高效率的目的，又降低了函数的可理解性。例如void func(int x) 不应该改为void func(const int &x)。</font></p>
+<p>对于非内部数据类型的参数而言，像void func(A a) 这样声明的函数注定效率比较低。因为函数体内将产生A 类型的临时对象用于复制参数a，而临时对象的构造、复制、析构过程都将消耗时间。</p>
+<p>为了提高效率，可以将函数声明改为void func(A &amp;a)，因为“引用传递”仅借用一下参数的别名而已，不需要产生临
+时对象。</p>
+<blockquote>
+<p>但是函数void func(A &amp;a) 存在一个缺点：<br><br>“引用传递”有可能改变参数a，这是我们不期望的。解决这个问题很容易，加const修饰即可，因此函数最终成为
+void func(const A &amp;a)。</p>
+</blockquote>
+<p>以此类推，是否应将void func(int x) 改写为void func(const int &amp;x)，以便提高效率？完全没有必要，因为内部数据类型的参数不存在构造、析构的过程，而复制也非常快，“值传递”和“引用传递”的效率几乎相当。</p>
+<blockquote>
+<p>小结：<br>1.对于非内部数据类型的输入参数，应该将“值传递”的方式改为“const 引用传递”，目的是提高效率。例如将void func(A a) 改为void func(const A &amp;a)。<br><br>2.对于内部数据类型的输入参数，不要将“值传递”的方式改为“const 引用传递”。否则既达不到提高效率的目的，又降低了函数的可理解性。例如void func(int x) 不应该改为void func(const int &amp;x)。</font></p></p>
+</blockquote>
 <p>以上解决了两个面试问题：</p>
-<p>（1）如果函数需要传入一个指针，是否需要为该指针加上const，把const加在指针不同的位置有什么区别；</p>
-<p>（2）如果写的函数需要传入的参数是一个复杂类型的实例，传入值参数或者引用参数有什么区别，什么时候需要为传入的引用参数加上const。 </p>
+<ul>
+<li>如果函数需要传入一个指针，是否需要为该指针加上const，把const加在指针不同的位置有什么区别；</li>
+<li>如果写的函数需要传入的参数是一个复杂类型的实例，传入值参数或者引用参数有什么区别，什么时候需要为传入的引用参数加上const。 </li>
+</ul>
 <h2 id="7const">7.类中使用const<a class="headerlink" href="#7const" title="Permanent link">&para;</a></h2>
-<p>在一个类中，任何不会修改数据成员的函数都应该声明为const类型。如果在编写const成员函数时，不慎修改</p>
-<p>数据成员，或者调用了其它非const成员函数，编译器将指出错误，这无疑会提高程序的健壮性。使用const关</p>
-<p>字进行说明的成员函数，称为常成员函数。只有常成员函数才有资格操作常量或常对象，没有使用const关键字</p>
-<p>明的成员函数不能用来操作常对象。</p>
+<p>在一个类中，任何不会修改数据成员的函数都应该声明为const类型。如果在编写const成员函数时，不慎修改 数据成员，或者调用了其它非const成员函数，编译器将指出错误，这无疑会提高程序的健壮性。</p>
+<p>使用const关键字进行说明的成员函数，称为常成员函数。只有常成员函数才有资格操作常量或常对象，没有使用const关键字进行说明的成员函数不能用来操作常对象。</p>
 <p>对于类中的const成员变量必须通过初始化列表进行初始化，如下所示：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">{</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">private</span><span class="o">:</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">public</span><span class="o">:</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="p">};</span>
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="p">{</span>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="p">}</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">};</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="p">{</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>const对象只能访问const成员函数,而非const对象可以访问任意的成员函数,包括const成员函数.</p>
 <p>例如：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">//apple.cpp</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">{</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="k">private</span><span class="o">:</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="k">public</span><span class="o">:</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="p">};</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="c1">//main.cpp</span>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="cp">#include</span><span class="cpf">&quot;apple.cpp&quot;</span>
-</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
-</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="p">{</span>
-</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
-</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="p">}</span>
-</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">){</span>
-</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a><span class="p">}</span>
-</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">{</span>
-</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a><span class="p">}</span>
-</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a><span class="kt">void</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a><span class="p">{</span>
-</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;take func &quot;</span><span class="o">&lt;&lt;</span><span class="n">num</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-20-33"><a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a><span class="p">}</span>
-</span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-</span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a><span class="p">{</span>
-</span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a><span class="c1">//    add(); //error</span>
-</span><span id="__span-20-38"><a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-20-39"><a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a><span class="p">}</span>
-</span><span id="__span-20-40"><a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
-</span><span id="__span-20-41"><a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a><span class="w">    </span><span class="n">Apple</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span><span id="__span-20-42"><a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">.</span><span class="n">getCount</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-20-43"><a id="__codelineno-20-43" name="__codelineno-20-43" href="#__codelineno-20-43"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</span><span id="__span-20-44"><a id="__codelineno-20-44" name="__codelineno-20-44" href="#__codelineno-20-44"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-20-45"><a id="__codelineno-20-45" name="__codelineno-20-45" href="#__codelineno-20-45"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-</span><span id="__span-20-46"><a id="__codelineno-20-46" name="__codelineno-20-46" href="#__codelineno-20-46"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-20-47"><a id="__codelineno-20-47" name="__codelineno-20-47" href="#__codelineno-20-47"></a><span class="p">}</span>
-</span><span id="__span-20-48"><a id="__codelineno-20-48" name="__codelineno-20-48" href="#__codelineno-20-48"></a><span class="c1">//编译： g++ -o main main.cpp apple.cpp</span>
-</span><span id="__span-20-49"><a id="__codelineno-20-49" name="__codelineno-20-49" href="#__codelineno-20-49"></a><span class="c1">//结果</span>
-</span><span id="__span-20-50"><a id="__codelineno-20-50" name="__codelineno-20-50" href="#__codelineno-20-50"></a><span class="n">take</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="mi">1</span>
-</span><span id="__span-20-51"><a id="__codelineno-20-51" name="__codelineno-20-51" href="#__codelineno-20-51"></a><span class="mi">2</span>
-</span><span id="__span-20-52"><a id="__codelineno-20-52" name="__codelineno-20-52" href="#__codelineno-20-52"></a><span class="n">take</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="mi">10</span>
-</span><span id="__span-20-53"><a id="__codelineno-20-53" name="__codelineno-20-53" href="#__codelineno-20-53"></a><span class="n">take</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="mi">100</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// apple.cpp</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">{</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">();</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="p">};</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// apple.cpp</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="p">{</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="p">}</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="p">{</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="p">}</span>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="p">{</span>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="p">}</span>
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="kt">void</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="p">{</span>
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;take func &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="p">}</span>
+</span><span id="__span-22-33"><a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-34"><a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="p">{</span>
+</span><span id="__span-22-35"><a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-22-36"><a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="w">    </span><span class="c1">//    add(); // error</span>
+</span><span id="__span-22-37"><a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-22-38"><a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="p">}</span>
+</span><span id="__span-22-39"><a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+</span><span id="__span-22-40"><a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a><span class="p">{</span>
+</span><span id="__span-22-41"><a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="w">    </span><span class="n">Apple</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-22-42"><a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-22-43"><a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-22-44"><a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-22-45"><a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span id="__span-22-46"><a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-47"><a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a><span class="p">}</span>
+</span><span id="__span-22-48"><a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="c1">// main.cpp</span>
 </span></code></pre></div>
-<p>上面getCount()方法中调用了一个add方法，而add方法并非const修饰，所以运行报错。也就是说const对象只能访问const成员函数。</p>
-<p>而add方法又调用了const修饰的take方法，证明了非const对象可以访问任意的成员函数,包括const成员函数。</p>
-<p>除此之外，我们也看到add的一个重载函数，也输出了两个结果，说明const对象默认调用const成员函数。</p>
+<blockquote>
+<p>编译：bazel run basic_content/const/class_const/first_example:main<br></p>
+</blockquote>
+<p>此时报错，上面getCount()方法中调用了一个add方法，而add方法并非const修饰，所以运行报错。也就是说const成员函数只能访问const成员函数。</p>
+<p>当调用改为：</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>b.add(); // error
+</span></code></pre></div>
+此时，可以证明的是const对象只能访问const成员函数。</p>
 <p>我们除了上述的初始化const常量用初始化列表方式外，也可以通过下面方法：</p>
 <p>第一：将常量定义与static结合，也就是：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
 </span></code></pre></div>
 <p>第二：在外面初始化：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
 <p>当然，如果你使用c++11进行编译，直接可以在定义出初始化，可以直接写成：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">或者</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1">// 或者</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
 <p>这两种都在c++11中支持！</p>
 <p>编译的时候加上<code>-std=c++11</code>即可！</p>
 <p>这里提到了static，下面简单的说一下：</p>
 <p>在C++中，static静态成员变量不能在类的内部初始化。在类的内部只是声明，定义必须在类定义体的外部，通常在类的实现文件中初始化。</p>
 <p>在类中声明：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
 </span></code></pre></div>
 <p>在类实现文件中使用：</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
 <p>对于此项，c++11不能进行声明并初始化，也就是上述使用方法。</p>
 
@@ -3085,6 +6110,25 @@
   </script>
 
                 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.querySelector(".md-content__inner.md-typeset");
+      if (!root) return;
+      var h1 = root.querySelector("h1");
+      if (!h1 || h1.dataset.brandLogo) return;
+      var img = document.createElement("img");
+      img.src = "../../assets/images/logo.png";
+      img.alt = "C++那些事 | Stories About C Plus Plus";
+      img.className = "article-title-logo";
+      img.loading = "lazy";
+      img.decoding = "async";
+      h1.insertAdjacentElement("afterend", img);
+      h1.dataset.brandLogo = "1";
+    });
+  </script>
+  
+
               </article>
             </div>
           
@@ -3107,7 +6151,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../how-to-compile-and-run-the-cppthings-project/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用须知">
+          <a href="../../how-to-build-cplusplusthings/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 编译与运行指南">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3117,20 +6161,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                使用须知
+                编译与运行指南
               </div>
             </div>
           </a>
         
         
           
-          <a href="../static/" class="md-footer__link md-footer__link--next" aria-label="下一页: static那些事">
+          <a href="../static/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++ static 静态成员与生存期">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                static那些事
+                C++ static 静态成员与生存期
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3147,7 +6191,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2025 光城
+      Copyright &copy; 2020 - 2026 光城
     </div>
   
 </div>

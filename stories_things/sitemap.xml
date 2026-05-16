@@ -1,251 +1,675 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://light-city.github.io/stories_things/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/about/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/cplusplusthings-quickstart/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cplusplus-things-overview/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/how-to-compile-and-run-the-cppthings-project/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/how-to-build-cplusplusthings/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/concurrency/concurrency-in-action/concurrency/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-benchmarks/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/concurrency/mutex-threading/thread/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-benchmarks/cpp-sso-benchmark/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-benchmarks/polymorphism-crtp-variant-virtual/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/cpp-concurrency-in-action/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/cpp-deadlock-debugging/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/cpp-simd/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/false-sharing-cache-line/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/gdb-multi-thread-debug/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/libev-event-loop/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/std-thread-internals/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/std-thread-jthread-guide/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-concurrency/threading-in-cpp/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-courses/modern-cpp-30-geektime/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/cpp-string-split-methods/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/cpython-extension-notes/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/how-to-read-open-source-cpp/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/interesting-cpp-code-snippet/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-guides/print-1-to-100-without-loop/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/avoid-default-constructor/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/class-initializer-list/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/class-template-over-function-template/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/copy-swap/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/dependency-injection-cpp/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/enum-class/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/header-only-vs-implementation/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/lazy-evaluation-cpp/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/lookup-table-idiom/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/member-pointer-type-info/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/mixin-idiom/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/pimpl/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/raii/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-idioms/trigraphs-cpp/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-memory-debug/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-memory-debug/address-sanitizer-asan/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-memory-debug/cpp-memory-leak-detection/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/cpp-fnonce-implementation/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/cpp-ipc-practice/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/cpp-short-url-demo/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/cpp17-sqlite-folder-size/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/google-benchmark-cpp/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/modern-cpp-http-server/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/protobuf-zerocopy-cpp/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/pybind11-python-cpp/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-projects/stack-calculator-design/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/abstract/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/assert/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/bit/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/c-polymorphism/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/const/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-const-family/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-dereference-operator/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-iv-initialization/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-multiple-return-values/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-mutable-keyword/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-restrict-optimization/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-string-abi-compatibility/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-template-disambiguator/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/cpp-vs-rust-destructor/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/decltype/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/enum/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/explicit/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/extern/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/friend/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/inline/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/macro/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/member-initializer-list-notes/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/namespace/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/cpp-things/pointer-vs-refer/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-things/pointer-vs-reference/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/sizeof/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/smart-pointer-as-parameter/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/static/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/std-function-cpp/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/std-ref-wrapper/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/struct-vs-class/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/struct/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/tail-recursion-cpp/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/this/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/union/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/using/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-things/vector-resize-reverse/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/virtual/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/volatile/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/cpp-things/vptr-vtable/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/design-pattern/singleton/singleton/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/idioms/RAII/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/bazel-build-guide/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/idioms/classInitializers/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/bazel-debugging/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/idioms/copy-swap/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/cmake-essentials/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/idioms/enumclass/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/conan-package-manager/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/idioms/pImpl/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/cpp-insights/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/learn-course/modern-cpp/jiketime/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/cpp-jupyter-notebook/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/cpp-string-to-int/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/dbg-macro/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/gcc-flags-guide/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/gdb-debugging-guide/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/gdb-python-enhancement/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/lldb-debugging/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/meson-build/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/stl-container-output/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/stl-debug-mode/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/cpp-tools/vscode-cpp-formatting/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/design-patterns/singleton-pattern/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
          <loc>https://light-city.github.io/stories_things/modern-cpp/cpp11/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/practical-exercises/10-day-practice/ten-day/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp11/cpp-std-move/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/practical-exercises/key-exercises/key/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp11/cpp11/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/resources/fs/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp11/std-bind-vs-lambda/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/resources/video/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp11/variadic-templates-cpp/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/array/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/deque/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/cpp-nodiscard/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/ebo/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/cpp-string-view/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/hashtable/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/cpp17-pmr/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/iterator/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/cpp17-top-17-features/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/list/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/ctad-class-template-argument-deduction/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/map_multimap/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/myhashtable/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/std-variant/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/queue_stack/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/structured-bindings/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/rb_tree/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/template-auto-deduction/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/set_multiset/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp17/variable-templates/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/traits/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/typename/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp-coroutines/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/unordered_map/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-channel/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/stl/vector/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-concepts/</loc>
+         <lastmod>2026-05-15</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/tool/how-to-use-dbg-macro/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-constexpr-comma/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/tool/like_python/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-endian/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/tool/look/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-lambda-part1/</loc>
+         <lastmod>2026-05-13</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/tool/output/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-modules/</loc>
+         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-         <loc>https://light-city.github.io/stories_things/tool/string_int/</loc>
-         <lastmod>2025-03-19</lastmod>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-ranges/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/cpp20-span/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/embrace-cpp20/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/likely-unlikely-attributes/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/no-unique-address/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/modern-cpp/cpp20/spaceship-operator/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/practical-exercises/10-day-cpp-crash-course/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/practical-exercises/key-cpp-exercises/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/resources/bilibili-cpp-tutorials/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/resources/cpp-learning-resources/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/resources/feishu-cpp-knowledge-base/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/array/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-interview/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/deque/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/ebo-empty-base-optimization/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/hashtable-custom/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/hashtable/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/iterator/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/list/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/map-and-multimap/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/queue-and-stack/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/</loc>
+         <lastmod>2026-05-13</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/</loc>
+         <lastmod>2026-05-15</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/stl-iterator-invalidation/</loc>
+         <lastmod>2026-05-14</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/traits/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/typename/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/unordered_map/</loc>
+         <lastmod>2026-05-16</lastmod>
+    </url>
+    <url>
+         <loc>https://light-city.github.io/stories_things/stl-source-analysis/vector/</loc>
+         <lastmod>2026-05-16</lastmod>
     </url>
 </urlset>

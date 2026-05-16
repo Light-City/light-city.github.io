@@ -1,0 +1,22 @@
+/* Brand banner below article H1 (injected by main.html) */
+.article-title-logo {
+  display: block;
+  max-width: min(420px, 92%);
+  width: 100%;
+  height: auto;
+  margin: 0.75rem auto 1.75rem;
+  border-radius: 8px;
+}
+
+.md-content__inner > h1:first-child {
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+
+/* 嵌套无序列表缩进 */
+.md-typeset ul ul {
+  margin-top: 0.35em;
+  margin-bottom: 0.75em;
+  margin-left: 1.35em;
+  padding-left: 0.25em;
+}
