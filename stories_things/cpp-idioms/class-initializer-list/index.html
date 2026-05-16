@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="《C++那些事》(CPlusPlusThings) 中文学习站 — 英文名 Stories About C Plus Plus（stories_things）， 用「C++故事」串联现代 C++11/14/17/20、STL 源码、并发与惯用法与实战练习。 可与 A Tour of C++、C++ Core Guidelines（CppCoreGuidelines）及 coding principles、style guide、 best practices 对照阅读，作为中文场景的 C++ 学习 guidebook。">
+        <meta name="description" content="const成员的初始化只能在构造函数初始化列表中进行；引用成员的初始化也只能在构造函数初始化列表中进行">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    
-    
+    <meta name="keywords" content="C++惯用法类初始化列表惯用法,std::string,C++惯用法"> 
+    <meta name="title" content="C++ 类初始化列表惯用法 | C++那些事"> 
 
     
       
-        <title>C++ 类初始化列表惯用法 - C++那些事</title>
+        <title>C++ 类初始化列表惯用法 | C++那些事 - C++那些事</title>
       
     
     
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 类初始化列表惯用法
+              C++ 类初始化列表惯用法 | C++那些事
             
           </span>
         </div>
@@ -5626,12 +5626,6 @@
   
 
 
-<hr />
-<p>comments: true
-keywords: C++惯用法类初始化列表惯用法,std::string,C++惯用法
-description: - const成员的初始化只能在构造函数初始化列表中进行
-title: C++ 类初始化列表惯用法 | C++那些事</p>
-<hr />
 <h1 id="c">C++ 类初始化列表惯用法<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <ul>
 <li>const成员的初始化只能在构造函数初始化列表中进行</li>
@@ -5807,12 +5801,69 @@ title: C++ 类初始化列表惯用法 | C++那些事</p>
 
 
 
+  
+  
+
 
 
   
 
 
 
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Light-City/light-comments"
+          data-repo-id="R_kgDOLcVr-w"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOLcVr-84CdwfH"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
   
