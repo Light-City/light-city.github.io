@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。">
+        <meta name="description" content="This section uses the Traits technique from the previous section to study the iterator source code, implement a simple iterator_category, and analyze the source structure of iterator.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="STL STL 迭代器源码剖析源码解析,STL源码"> 
-    <meta name="title" content="STL 迭代器源码剖析 | C++那些事"> 
+    <meta name="keywords" content="STL STL iterator source code analysis source analysis,STL source code"> 
+    <meta name="title" content="STL iterator source code analysis | C++那些事"> 
 
     
       
-        <title>STL 迭代器源码剖析 | C++那些事 - C++那些事</title>
+        <title>STL iterator source code analysis | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/iterator/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/iterator/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/iterator/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/iterator/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL 迭代器源码剖析 | C++那些事">
-      <meta property="og:description" content="本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。">
+      <meta property="og:title" content="STL iterator source code analysis | C++那些事">
+      <meta property="og:description" content="This section uses the Traits technique from the previous section to study the iterator source code, implement a simple iterator_category, and analyze the source structure of iterator.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/iterator/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL 迭代器源码剖析 | C++那些事">
-      <meta name="twitter:description" content="本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。">
+      <meta name="twitter:title" content="STL iterator source code analysis | C++那些事">
+      <meta name="twitter:description" content="This section uses the Traits technique from the previous section to study the iterator source code, implement a simple iterator_category, and analyze the source structure of iterator.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL 迭代器源码剖析 | C++那些事", "description": "本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL 迭代器源码剖析 | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL iterator source code analysis | C++那些事", "description": "This section uses the Traits technique from the previous section to study the iterator source code, implement a simple iterator_category, and analyze the source structure of iterator.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL iterator source code analysis | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#stl" class="md-skip">
-          跳转至
+        <a href="#stl-iterator-source-code-analysis" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STL 迭代器源码剖析 | C++那些事
+              STL iterator source code analysis | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/stl-source-analysis/iterator/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/stl-source-analysis/iterator/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -388,7 +408,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -408,7 +428,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -434,7 +454,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -457,7 +477,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -477,7 +497,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -497,7 +517,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1797,7 +1817,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1808,7 +1828,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1823,7 +1843,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1845,7 +1865,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1867,7 +1887,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1889,7 +1909,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1911,7 +1931,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1933,7 +1953,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -1955,7 +1975,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -1986,7 +2006,7 @@
           
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -1998,7 +2018,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -2007,7 +2027,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -2016,41 +2036,41 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1iterator_category" class="md-nav__link">
+  <a href="#1using-the-traits-extractor-to-implement-simple-iterator_category-recognition" class="md-nav__link">
     <span class="md-ellipsis">
-      1.利用萃取机实现一个简单的iterator_category识别
+      1.Using the traits extractor to implement simple iterator_category recognition
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2stliterator" class="md-nav__link">
+  <a href="#2stl-source-code-analysis-of-iterator" class="md-nav__link">
     <span class="md-ellipsis">
-      2.STL源码剖析Iterator
+      2.STL source code analysis of Iterator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -2076,7 +2096,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2098,7 +2118,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2120,7 +2140,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2142,7 +2162,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2164,7 +2184,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2186,7 +2206,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2208,7 +2228,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2230,7 +2250,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2252,7 +2272,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2274,7 +2294,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2350,7 +2370,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2361,7 +2381,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2376,7 +2396,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2398,7 +2418,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2420,7 +2440,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2442,7 +2462,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2464,7 +2484,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2486,7 +2506,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2508,7 +2528,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2530,7 +2550,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2552,7 +2572,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2574,7 +2594,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2596,7 +2616,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2618,7 +2638,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2640,7 +2660,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2662,7 +2682,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2684,7 +2704,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2736,7 +2756,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2747,7 +2767,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2827,7 +2847,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2849,7 +2869,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2871,7 +2891,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2893,7 +2913,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -3000,7 +3020,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -3044,7 +3064,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -3066,7 +3086,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3088,7 +3108,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3110,7 +3130,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3132,7 +3152,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3198,7 +3218,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3311,7 +3331,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3333,7 +3353,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3355,7 +3375,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3377,7 +3397,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3399,7 +3419,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3421,7 +3441,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3443,7 +3463,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3465,7 +3485,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3487,7 +3507,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3531,7 +3551,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3553,7 +3573,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3575,7 +3595,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3675,7 +3695,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3692,7 +3712,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3709,7 +3729,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3731,7 +3751,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3753,7 +3773,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3775,7 +3795,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3797,7 +3817,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3819,7 +3839,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3841,7 +3861,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3863,7 +3883,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3885,7 +3905,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3907,7 +3927,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -3929,7 +3949,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -3951,7 +3971,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -3973,7 +3993,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -3995,7 +4015,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -4017,7 +4037,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -4039,7 +4059,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -4061,7 +4081,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4083,7 +4103,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4105,7 +4125,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4127,7 +4147,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4185,7 +4205,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4202,7 +4222,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4219,7 +4239,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4241,7 +4261,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4263,7 +4283,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4339,7 +4359,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4356,7 +4376,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4373,7 +4393,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4395,7 +4415,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4417,7 +4437,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4439,7 +4459,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4461,7 +4481,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4483,7 +4503,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4505,7 +4525,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4527,7 +4547,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4549,7 +4569,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4571,7 +4591,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4593,7 +4613,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4615,7 +4635,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4679,7 +4699,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4696,7 +4716,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4713,7 +4733,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4735,7 +4755,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4757,7 +4777,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4779,7 +4799,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4801,7 +4821,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4823,7 +4843,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4897,7 +4917,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -4914,7 +4934,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4931,7 +4951,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -4953,7 +4973,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -4975,7 +4995,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -4997,7 +5017,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5019,7 +5039,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5041,7 +5061,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5063,7 +5083,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5085,7 +5105,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5107,7 +5127,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5129,7 +5149,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5151,7 +5171,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5205,7 +5225,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5216,7 +5236,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5231,7 +5251,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5253,7 +5273,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5275,7 +5295,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5297,7 +5317,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5326,7 +5346,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5349,7 +5369,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5358,41 +5378,41 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1iterator_category" class="md-nav__link">
+  <a href="#1using-the-traits-extractor-to-implement-simple-iterator_category-recognition" class="md-nav__link">
     <span class="md-ellipsis">
-      1.利用萃取机实现一个简单的iterator_category识别
+      1.Using the traits extractor to implement simple iterator_category recognition
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2stliterator" class="md-nav__link">
+  <a href="#2stl-source-code-analysis-of-iterator" class="md-nav__link">
     <span class="md-ellipsis">
-      2.STL源码剖析Iterator
+      2.STL source code analysis of Iterator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5419,26 +5439,26 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="stl">STL 迭代器源码剖析<a class="headerlink" href="#stl" title="Permanent link">&para;</a></h1>
-<h2 id="0">0.导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。</p>
-<p><strong>知其然，知其所以然，源码面前了无秘密！</strong></p>
-<h2 id="1iterator_category">1.利用萃取机实现一个简单的iterator_category识别<a class="headerlink" href="#1iterator_category" title="Permanent link">&para;</a></h2>
-<p>上一节指出了迭代器的作用，依旧如下图所示：</p>
-<p><img alt="rela" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
-<p>迭代器是指向序列元素的指针的一种抽象。通过使用迭代器，我们可以访问序列中的某个元素、改变序列中的某个元素的值、使迭代器向前或向后行走等等。</p>
-<p>迭代器有常见有五种类型: value_type, difference_type, reference_type, pointer_type都比较容易在 traits 和相应偏特化中提取。</p>
-<p>但是，iterator_category一般也有5个，这个相应型别会引发较大规模的写代码工程。</p>
+<h1 id="stl-iterator-source-code-analysis">STL iterator source code analysis<a class="headerlink" href="#stl-iterator-source-code-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="0introduction">0.Introduction<a class="headerlink" href="#0introduction" title="Permanent link">&para;</a></h2>
+<p>This section uses the Traits technique from the previous section to study the iterator source code, implement a simple iterator_category, and analyze the source structure of iterator.</p>
+<p><strong>Know what, and know why — before the source code, no secrets remain!</strong></p>
+<h2 id="1using-the-traits-extractor-to-implement-simple-iterator_category-recognition">1.Using the traits extractor to implement simple iterator_category recognition<a class="headerlink" href="#1using-the-traits-extractor-to-implement-simple-iterator_category-recognition" title="Permanent link">&para;</a></h2>
+<p>The previous section pointed out the role of iterators, shown again in the figure below:</p>
+<p><img alt="rela" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p>An iterator is an abstraction of a pointer to an element of a sequence. Using iterators, we can access some element of the sequence, change the value of some element, move the iterator forward or backward, and so on.</p>
+<p>Iterators commonly have five associated types: value_type, difference_type, reference_type, and pointer_type are all fairly easy to extract via traits and the corresponding partial specializations.</p>
+<p>But there are in general also 5 iterator_categories, and this associated type can trigger a large-scale coding effort.</p>
 <ul>
-<li>单向移动只读迭代器 Input Iterator</li>
-<li>单向移动只写迭代器 Output Iterator</li>
-<li>单向移动读写迭代器 Forward Iterator</li>
-<li>双向移动读写迭代器 Bidirectional Iterator</li>
+<li>Input Iterator: moves one way, read-only</li>
+<li>Output Iterator: moves one way, write-only</li>
+<li>Forward Iterator: moves one way, read-write</li>
+<li>Bidirectional Iterator: moves both ways, read-write</li>
 </ul>
-<p><img alt="iterator" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
-<p>例如：我们实现了 advanceII, advanceBI, advanceRAI 分别代表迭代器类型是Input Iterator，Bidirectional Iterator和Random Access Iterator的对应实现。</p>
+<p><img alt="iterator" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p>For example: suppose we implement advanceII, advanceBI, and advanceRAI as the respective implementations for the iterator types Input Iterator, Bidirectional Iterator, and Random Access Iterator.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_random_access_iterator</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
@@ -5449,13 +5469,13 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">advanceII</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>但这样在执行时期才决定使用哪一个版本，会**影响程序效率**。最好能够在编译期就选择正确的版本。</p>
-<p>而**重载**这个函数机制可以达成这个目标。</p>
-<p>而对于<code>advanceXX()</code>都有两个函数参数，型别都未定(因为都是模板参数)。为了令其同名，形成重载函数，我们必须加上一个型别已确定的函数参数，使函数重载机制得以有效运作起来。</p>
-<p>设计如下：如果**traits**有能力萃取出迭代器的种类，我们便可利用这个"迭代器类型"相应型别作为advancexx的第三个参数，而这个相应型别必须是一个class type，不能只是数值号码类的东西，因为编译器需依赖它来进行**重载决议**。</p>
-<p>下面来进行实现，首先给出一个总体结构图：</p>
-<p><img alt="itera" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
-<p>定义出下面tag：</p>
+<p>But deciding at execution time which version to use <strong>hurts program efficiency</strong>. It would be best to select the correct version at compile time.</p>
+<p>And the <strong>overloading</strong> mechanism of functions can achieve this goal.</p>
+<p>The <code>advanceXX()</code> functions each take two function parameters whose types are undetermined (since they are all template parameters). To give them the same name and form overloaded functions, we must add a function parameter whose type is fixed, so that the function overload mechanism can operate effectively.</p>
+<p>The design is as follows: if <strong>traits</strong> is capable of extracting the category of an iterator, we can use this "iterator category" associated type as the third parameter of advancexx; and this associated type must be a class type, not something like a numeric code, because the compiler relies on it for <strong>overload resolution</strong>.</p>
+<p>Now let's implement it; first, an overall structure diagram:</p>
+<p><img alt="itera" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p>Define the following tags:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">forward_iterator_tag</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
@@ -5464,7 +5484,7 @@
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// 继承的好处就是，当函数需要用 input_iterator_tag 的时候</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">// 假设你传进一个forward_iterator_tag，它会沿继承向上找，知道符合条件</span>
 </span></code></pre></div>
-<p>声明了一些列 tag 之后，我们就可以重载 advance函数，我们把这些函数用下滑线来定义，表示在内部使用，外部不可见。</p>
+<p>After declaring this series of tags, we can overload the advance function. We define these functions with leading underscores to indicate internal use, invisible from the outside.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 继承的好处就是，当函数需要用 input_iterator_tag 的时候</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// 假设你传进一个forward_iterator_tag，它会沿继承向上找，知道符合条件</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">// input iterator</span>
@@ -5503,7 +5523,7 @@
 </span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>
 </span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>定义萃取机：</p>
+<p>Define the traits extractor:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// traits 型别</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">I</span><span class="o">&gt;</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Iterator_traits</span><span class="w"> </span><span class="p">{</span>
@@ -5520,7 +5540,7 @@
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">random_access_iterator_tag</span><span class="w"> </span><span class="n">iterator_category</span><span class="p">;</span>
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>对外暴露接口：</p>
+<p>Expose the external interface:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 对外接口</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Distance</span><span class="o">&gt;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">InputIterator</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Distance</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5529,14 +5549,14 @@
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">__advance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">category</span><span class="p">());</span><span class="w"> </span><span class="c1">// 各型别的重载</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>定义class type：</p>
+<p>Define the class type:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// class type</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Category</span><span class="o">&gt;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">iterator</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">Category</span><span class="w"> </span><span class="n">iterator_category</span><span class="p">;</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>开始测试，我们使用上述定义的class type与原生指针来测试，分别进入萃取机的普通萃取机与偏特化萃取机，看看是否得到相应的Tag。</p>
+<p>Time to test. We use the class type defined above together with native pointers to enter, respectively, the ordinary extractor and the partially-specialized extractor of the traits extractor, and see whether the corresponding Tags are obtained.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">iterator</span><span class="o">&lt;</span><span class="n">input_iterator_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">iterator</span><span class="o">&lt;</span><span class="n">output_iterator_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output</span><span class="p">;</span>
@@ -5553,7 +5573,7 @@
 </span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>输出结果：</p>
+<p>Output:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">input</span><span class="w"> </span><span class="n">tag</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">output</span><span class="w"> </span><span class="n">tag</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">forward</span><span class="w"> </span><span class="n">tag</span>
@@ -5561,9 +5581,9 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">randomaccess</span><span class="w"> </span><span class="n">tag</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">randomaccess</span><span class="w"> </span><span class="n">tag</span>
 </span></code></pre></div>
-<p>一切如我们预期一样，通过萃取机，我们获得了每个迭代器的tag，以及原生指针的tag。</p>
-<p>我们再想得复杂一些，如果我们想知道advance的返回类型，那如何做呢？</p>
-<p>首先修改<code>advance</code>返回：</p>
+<p>Everything is as we expected: through the traits extractor we obtained each iterator's tag, as well as the tag of native pointers.</p>
+<p>Let's think a bit more ambitiously: what if we want to know the return type of advance?</p>
+<p>First, modify <code>advance</code> to return:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 对外接口</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">InputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Distance</span><span class="o">&gt;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Iterator_traits</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">iterator_category</span>
@@ -5573,7 +5593,7 @@
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__advance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">category</span><span class="p">());</span><span class="w"> </span><span class="c1">// 各型别的重载</span>
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>紧接着修改<code>__advance</code>返回：</p>
+<p>Then modify <code>__advance</code> to return:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// input iterator</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">inputIterator</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">distance</span><span class="o">&gt;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Iterator_traits</span><span class="o">&lt;</span><span class="n">inputIterator</span><span class="o">&gt;::</span><span class="n">iterator_category</span>
@@ -5619,8 +5639,8 @@
 </span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">random_access_iterator_tag</span><span class="p">();</span>
 </span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>只需要把<code>void</code>修改为相应的萃取机即可。</p>
-<p>最后测试修改，添加上返回：</p>
+<p>All it takes is changing <code>void</code> to the corresponding traits extractor.</p>
+<p>Finally, modify the test by adding the returns:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">iterator</span><span class="o">&lt;</span><span class="n">input_iterator_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">iterator</span><span class="o">&lt;</span><span class="n">output_iterator_tag</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output</span><span class="p">;</span>
@@ -5637,10 +5657,10 @@
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>至此，一个简单的迭代器类型在编译器判别实现完毕。</p>
-<h2 id="2stliterator">2.STL源码剖析Iterator<a class="headerlink" href="#2stliterator" title="Permanent link">&para;</a></h2>
-<p>在<code>bits/stl_iterator_base_types.h</code>中也是如上述所示(实际上，上面就是STL源码的简单版，很接近)，来我们一起来看。</p>
-<p>（1）<code>tag</code></p>
+<p>With that, a simple iterator category discrimination at compile time is fully implemented.</p>
+<h2 id="2stl-source-code-analysis-of-iterator">2.STL source code analysis of Iterator<a class="headerlink" href="#2stl-source-code-analysis-of-iterator" title="Permanent link">&para;</a></h2>
+<p>In <code>bits/stl_iterator_base_types.h</code> things are as shown above (in fact, the above is a simplified version of the STL source code, quite close to it). Let's look together.</p>
+<p>(1) <code>tag</code></p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w"> </span><span class="c1">///  Marking input iterators.</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
@@ -5658,8 +5678,8 @@
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">  </span><span class="c1">/// iterator operations.</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">random_access_iterator_tag</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">bidirectional_iterator_tag</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-<p>与我上面用的一样。</p>
-<p>（2）<code>iterator_traits</code>萃取机，里面包含五种，而上面只是实现其中的一种：<code>iterator_category</code>。所以在STL中容器与算法之间的桥梁iterator必须包含下面五种 typedef。</p>
+<p>The same ones I used above.</p>
+<p>(2) The <code>iterator_traits</code> extractor contains five associated types, while above we implemented only one of them: <code>iterator_category</code>. So in the STL, the iterator — the bridge between containers and algorithms — must contain the following five typedefs.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">iterator_traits</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">{</span>
@@ -5670,8 +5690,8 @@
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Iterator</span><span class="o">::</span><span class="n">reference</span><span class="w">         </span><span class="n">reference</span><span class="p">;</span>
 </span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>（3）<code>iterator</code></p>
-<p>上面提到的class type为下面的简单版，对比一下，没有啥区别，就是模板参数多了一些，typedef多了。</p>
+<p>(3) <code>iterator</code></p>
+<p>The class type mentioned above is a simplified version of the following; compare them — no real difference, just a few more template parameters and more typedefs.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Category</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">ptrdiff_t</span><span class="p">,</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">       </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Tp</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&amp;&gt;</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">iterator</span>
@@ -5688,19 +5708,19 @@
 </span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Reference</span><span class="w"> </span><span class="n">reference</span><span class="p">;</span>
 </span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>至此，iterator与traits特性分析完毕。欢迎与我共同探讨STL源码奥秘，如侯捷老师所说：<strong>源码面前了无秘密。</strong></p>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>With that, the analysis of iterator and the traits technique is complete. Welcome to explore the mysteries of the STL source code with me. As teacher 侯捷 says: <strong>before the source code, no secrets remain.</strong></p>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
-<li><a href="../cpp-string-deep-dive/">STL string 深析 | C++那些事</a></li>
-<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
-<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
-<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
-<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
-<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
-<li><a href="../list/">STL list 源码剖析 | C++那些事</a></li>
-<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
-<li><a href="../queue-and-stack/">STL queue 与 stack 源码剖析 | C++那些事</a></li>
+<li><a href="../array/">STL array source code analysis | C++那些事</a></li>
+<li><a href="../cpp-string-deep-dive/">STL string deep dive | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string interview questions in depth | C++那些事</a></li>
+<li><a href="../deque/">STL deque source code analysis | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL empty base optimization EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL hand-written hash table implementation | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable hash table | C++那些事</a></li>
+<li><a href="../list/">STL list source code analysis | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map and multimap | C++那些事</a></li>
+<li><a href="../queue-and-stack/">STL queue and stack source code analysis | C++那些事</a></li>
 </ul>
 
 
@@ -5719,7 +5739,7 @@
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -5732,7 +5752,7 @@
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -5803,7 +5823,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -5812,33 +5832,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../traits/" class="md-footer__link md-footer__link--prev" aria-label="上一页: STL traits 类型萃取">
+          <a href="../traits/" class="md-footer__link md-footer__link--prev" aria-label="Previous: STL traits Techniques">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                STL traits 类型萃取
+                STL traits Techniques
               </div>
             </div>
           </a>
         
         
           
-          <a href="../ebo-empty-base-optimization/" class="md-footer__link md-footer__link--next" aria-label="下一页: STL 空基类优化 EBO">
+          <a href="../ebo-empty-base-optimization/" class="md-footer__link md-footer__link--next" aria-label="Next: STL EBO: Empty Base Optimization">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                STL 空基类优化 EBO
+                STL EBO: Empty Base Optimization
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -5896,7 +5916,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   

@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="github上比较火的rpc有grpc、brpc，腾讯内部比较牛逼的trpc等等，这些rpc支持不同的语言、不同平台。今天来聊聊如何使用grpc，从一个简单的demo入手，整个项目使用CMake构建，一个非常标准的rpc项目管理，所有代码…">
+        <meta name="description" content="Popular RPC frameworks on GitHub include gRPC and brpc, along with Tencent's powerful internal trpc and others; these RPC frameworks support different languages and platforms. Today let's talk about how to use gRPC, starting from a simple demo. The whole project is built with CMake — a very standard way to manage an RPC project. All the code…">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++实战gRPC 小项目,std::string,项目实战"> 
-    <meta name="title" content="C++ gRPC 小项目 | C++那些事"> 
+    <meta name="keywords" content="small C++ gRPC project,std::string,project practice"> 
+    <meta name="title" content="A Small C++ gRPC Project | C++那些事"> 
 
     
       
-        <title>C++ gRPC 小项目 | C++那些事 - C++那些事</title>
+        <title>A Small C++ gRPC Project | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/cpp-projects/cpp-grpc-demo/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/cpp-grpc-demo/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-projects/cpp-grpc-demo/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ gRPC 小项目 | C++那些事">
-      <meta property="og:description" content="github上比较火的rpc有grpc、brpc，腾讯内部比较牛逼的trpc等等，这些rpc支持不同的语言、不同平台。今天来聊聊如何使用grpc，从一个简单的demo入手，整个项目使用CMake构建，一个非常标准的rpc项目管理，所有代码…">
+      <meta property="og:title" content="A Small C++ gRPC Project | C++那些事">
+      <meta property="og:description" content="Popular RPC frameworks on GitHub include gRPC and brpc, along with Tencent&#x27;s powerful internal trpc and others; these RPC frameworks support different languages and platforms. Today let&#x27;s talk about how to use gRPC, starting from a simple demo. The whole project is built with CMake — a very standard way to manage an RPC project. All the code…">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ gRPC 小项目 | C++那些事">
-      <meta name="twitter:description" content="github上比较火的rpc有grpc、brpc，腾讯内部比较牛逼的trpc等等，这些rpc支持不同的语言、不同平台。今天来聊聊如何使用grpc，从一个简单的demo入手，整个项目使用CMake构建，一个非常标准的rpc项目管理，所有代码…">
+      <meta name="twitter:title" content="A Small C++ gRPC Project | C++那些事">
+      <meta name="twitter:description" content="Popular RPC frameworks on GitHub include gRPC and brpc, along with Tencent&#x27;s powerful internal trpc and others; these RPC frameworks support different languages and platforms. Today let&#x27;s talk about how to use gRPC, starting from a simple demo. The whole project is built with CMake — a very standard way to manage an RPC project. All the code…">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ gRPC 小项目 | C++那些事", "description": "github上比较火的rpc有grpc、brpc，腾讯内部比较牛逼的trpc等等，这些rpc支持不同的语言、不同平台。今天来聊聊如何使用grpc，从一个简单的demo入手，整个项目使用CMake构建，一个非常标准的rpc项目管理，所有代码…", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "项目实战", "item": "https://light-city.github.io/stories_things/cpp-projects/"}, {"@type": "ListItem", "position": 3, "name": "C++ gRPC 小项目 | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "A Small C++ gRPC Project | C++那些事", "description": "Popular RPC frameworks on GitHub include gRPC and brpc, along with Tencent's powerful internal trpc and others; these RPC frameworks support different languages and platforms. Today let's talk about how to use gRPC, starting from a simple demo. The whole project is built with CMake — a very standard way to manage an RPC project. All the code…", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Hands-on Projects", "item": "https://light-city.github.io/stories_things/cpp-projects/"}, {"@type": "ListItem", "position": 3, "name": "A Small C++ gRPC Project | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-projects/cpp-grpc-demo/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-grpc" class="md-skip">
-          跳转至
+        <a href="#a-small-c-grpc-project" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ gRPC 小项目 | C++那些事
+              A Small C++ gRPC Project | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/cpp-projects/cpp-grpc-demo/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/cpp-projects/cpp-grpc-demo/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -386,7 +406,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -406,7 +426,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -432,7 +452,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -455,7 +475,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -475,7 +495,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -497,7 +517,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1792,7 +1812,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1803,7 +1823,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1818,7 +1838,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1840,7 +1860,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1862,7 +1882,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1884,7 +1904,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1906,7 +1926,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1928,7 +1948,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -1950,7 +1970,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -1972,7 +1992,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -1994,7 +2014,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2016,7 +2036,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2038,7 +2058,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2060,7 +2080,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2082,7 +2102,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2104,7 +2124,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2126,7 +2146,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2148,7 +2168,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2170,7 +2190,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2192,7 +2212,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2268,7 +2288,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2279,7 +2299,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2294,7 +2314,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2316,7 +2336,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2338,7 +2358,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2360,7 +2380,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2382,7 +2402,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2404,7 +2424,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2426,7 +2446,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2448,7 +2468,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2470,7 +2490,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2492,7 +2512,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2514,7 +2534,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2536,7 +2556,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2558,7 +2578,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2580,7 +2600,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2602,7 +2622,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2654,7 +2674,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2665,7 +2685,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2745,7 +2765,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2767,7 +2787,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2789,7 +2809,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2811,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -2918,7 +2938,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -2962,7 +2982,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -2984,7 +3004,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3006,7 +3026,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3028,7 +3048,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3050,7 +3070,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3116,7 +3136,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3229,7 +3249,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3251,7 +3271,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3273,7 +3293,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3295,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3317,7 +3337,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3339,7 +3359,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3361,7 +3381,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3383,7 +3403,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3405,7 +3425,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3449,7 +3469,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3471,7 +3491,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3493,7 +3513,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3593,7 +3613,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3610,7 +3630,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3627,7 +3647,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3649,7 +3669,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3671,7 +3691,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3693,7 +3713,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3715,7 +3735,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3737,7 +3757,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3759,7 +3779,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3781,7 +3801,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3803,7 +3823,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3825,7 +3845,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -3847,7 +3867,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -3869,7 +3889,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -3891,7 +3911,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -3913,7 +3933,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -3935,7 +3955,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -3957,7 +3977,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -3979,7 +3999,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4001,7 +4021,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4023,7 +4043,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4045,7 +4065,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4103,7 +4123,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4120,7 +4140,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4137,7 +4157,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4159,7 +4179,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4181,7 +4201,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4262,7 +4282,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4279,7 +4299,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4296,7 +4316,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4318,7 +4338,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4340,7 +4360,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4362,7 +4382,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4393,7 +4413,7 @@
           
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4405,7 +4425,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4414,7 +4434,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -4423,60 +4443,60 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cgrpcdemo" class="md-nav__link">
+  <a href="#a-small-grpc-demo-from-c" class="md-nav__link">
     <span class="md-ellipsis">
-      C++那些事之grpc小Demo
+      A Small gRPC Demo from C++那些事
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1step-by-step" class="md-nav__link">
+  <a href="#1-step-by-step-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      1.Step by Step 环境
+      1. Step-by-Step Environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2demo" class="md-nav__link">
+  <a href="#2-string-reversal-demo" class="md-nav__link">
     <span class="md-ellipsis">
-      2.反转字符串Demo
+      2. String Reversal Demo
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.反转字符串Demo">
+    <nav class="md-nav" aria-label="2. String Reversal Demo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-the-protocol" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 协议
+      2.1 The Protocol
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-the-client" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 客户端
+      2.2 The Client
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
+  <a href="#23-the-server" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3 服务端
+      2.3 The Server
     </span>
   </a>
   
@@ -4488,18 +4508,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-running" class="md-nav__link">
     <span class="md-ellipsis">
-      3.运行
+      3. Running
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -4525,7 +4545,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4547,7 +4567,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4569,7 +4589,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4591,7 +4611,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4613,7 +4633,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4635,7 +4655,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4657,7 +4677,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4721,7 +4741,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4738,7 +4758,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4755,7 +4775,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4777,7 +4797,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4799,7 +4819,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4821,7 +4841,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4843,7 +4863,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4865,7 +4885,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4939,7 +4959,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -4956,7 +4976,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4973,7 +4993,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -4995,7 +5015,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -5017,7 +5037,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -5039,7 +5059,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5061,7 +5081,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5083,7 +5103,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5105,7 +5125,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5127,7 +5147,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5149,7 +5169,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5171,7 +5191,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5193,7 +5213,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5247,7 +5267,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5258,7 +5278,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5273,7 +5293,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5295,7 +5315,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5317,7 +5337,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5339,7 +5359,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5368,7 +5388,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5391,7 +5411,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5400,60 +5420,60 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cgrpcdemo" class="md-nav__link">
+  <a href="#a-small-grpc-demo-from-c" class="md-nav__link">
     <span class="md-ellipsis">
-      C++那些事之grpc小Demo
+      A Small gRPC Demo from C++那些事
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1step-by-step" class="md-nav__link">
+  <a href="#1-step-by-step-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      1.Step by Step 环境
+      1. Step-by-Step Environment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2demo" class="md-nav__link">
+  <a href="#2-string-reversal-demo" class="md-nav__link">
     <span class="md-ellipsis">
-      2.反转字符串Demo
+      2. String Reversal Demo
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.反转字符串Demo">
+    <nav class="md-nav" aria-label="2. String Reversal Demo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-the-protocol" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 协议
+      2.1 The Protocol
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-the-client" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 客户端
+      2.2 The Client
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
+  <a href="#23-the-server" class="md-nav__link">
     <span class="md-ellipsis">
-      2.3 服务端
+      2.3 The Server
     </span>
   </a>
   
@@ -5465,18 +5485,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-running" class="md-nav__link">
     <span class="md-ellipsis">
-      3.运行
+      3. Running
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5503,21 +5523,21 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-grpc">C++ gRPC 小项目<a class="headerlink" href="#c-grpc" title="Permanent link">&para;</a></h1>
-<h2 id="cgrpcdemo">C++那些事之grpc小Demo<a class="headerlink" href="#cgrpcdemo" title="Permanent link">&para;</a></h2>
-<p>github上比较火的rpc有grpc、brpc，腾讯内部比较牛逼的trpc等等，这些rpc支持不同的语言、不同平台。今天来聊聊如何使用grpc，从一个简单的demo入手，整个项目使用CMake构建，一个非常标准的rpc项目管理，所有代码已更新至星球，获取方式见最后的二维码。</p>
-<h2 id="1step-by-step">1.Step by Step 环境<a class="headerlink" href="#1step-by-step" title="Permanent link">&para;</a></h2>
-<p>如果你的电脑是mac，不好意思，暂时用不了最新版本的grpc，最新版本的grpc用了abseil，编译会有问题，官方暂时未解决，如果大家知道如何解决，可以留言，我这边目前未找到解决方法。</p>
-<p>所以，建议安装低版本的grpc在你的mac上，或者在linux直接安装，linux上可以使用最新版本grpc，一次安装没有任何问题。</p>
-<p>安装方式：</p>
+<h1 id="a-small-c-grpc-project">A Small C++ gRPC Project<a class="headerlink" href="#a-small-c-grpc-project" title="Permanent link">&para;</a></h1>
+<h2 id="a-small-grpc-demo-from-c">A Small gRPC Demo from C++那些事<a class="headerlink" href="#a-small-grpc-demo-from-c" title="Permanent link">&para;</a></h2>
+<p>Popular RPC frameworks on GitHub include gRPC and brpc, along with Tencent's powerful internal trpc and others; these RPC frameworks support different languages and platforms. Today let's talk about how to use gRPC, starting from a simple demo. The whole project is built with CMake — a very standard way to manage an RPC project. All the code has been updated to the Knowledge Planet community; see the QR code at the end for how to get it.</p>
+<h2 id="1-step-by-step-environment">1. Step-by-Step Environment<a class="headerlink" href="#1-step-by-step-environment" title="Permanent link">&para;</a></h2>
+<p>If your computer is a Mac, sorry — for now you cannot use the latest version of gRPC. The latest gRPC uses abseil, and compilation has problems that the official team has not resolved yet. If you know how to solve this, please leave a comment; I have not found a solution so far.</p>
+<p>So, it is recommended to install a lower version of gRPC on your Mac, or install directly on Linux, where the latest gRPC works — installed in one go without any problems.</p>
+<p>Installation:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone -b v1.57.0 git@github.com:grpc/grpc.git
 </span></code></pre></div>
-<p>然后初始化submodule</p>
+<p>Then initialize the submodules:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">--</span><span class="n">init</span>
 </span></code></pre></div>
-<p>cmake编译安装：</p>
+<p>Build and install with CMake:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">cd</span><span class="w"> </span><span class="n">cmake</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">mkdir</span><span class="w"> </span><span class="n">build</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">cd</span><span class="w"> </span><span class="n">build</span>
@@ -5526,14 +5546,14 @@
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">j8</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">j8</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="c1">// root 权限</span>
 </span></code></pre></div>
-<p>大家可以修改上面的安装目录，注意install时需要root权限。</p>
-<p>安装完之后，将你的bin目录配置到path，例如：</p>
+<p>You can change the installation directory above; note that root privileges are required at install time.</p>
+<p>After installation, add its bin directory to your PATH, for example:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>export PATH=/usr/local/grpc/bin:$PATH
 </span></code></pre></div>
-<h2 id="2demo">2.反转字符串Demo<a class="headerlink" href="#2demo" title="Permanent link">&para;</a></h2>
-<p>环境搞定了之后，我们便可以上手搞事了。</p>
-<h3 id="21">2.1 协议<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p>第一件事是确定rpc协议：</p>
+<h2 id="2-string-reversal-demo">2. String Reversal Demo<a class="headerlink" href="#2-string-reversal-demo" title="Permanent link">&para;</a></h2>
+<p>With the environment ready, we can get our hands dirty.</p>
+<h3 id="21-the-protocol">2.1 The Protocol<a class="headerlink" href="#21-the-protocol" title="Permanent link">&para;</a></h3>
+<p>The first thing is to define the RPC protocol:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">syntax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;proto3&quot;</span><span class="p">;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">package</span><span class="w"> </span><span class="n">stringreverse</span><span class="p">;</span>
@@ -5550,9 +5570,9 @@
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">reversed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>非常简单的协议，请求一个字符串，返回一个字符串。</p>
-<h3 id="22">2.2 客户端<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<p>构造rpc请求字符串，然后调用sendRequest接口发送出去即可。</p>
+<p>A very simple protocol: you request with one string and get one string back.</p>
+<h3 id="22-the-client">2.2 The Client<a class="headerlink" href="#22-the-client" title="Permanent link">&para;</a></h3>
+<p>Build the RPC request string, then just call the sendRequest interface to send it out.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello world grpc!&quot;</span><span class="p">;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Original string: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">StringRequest</span><span class="w"> </span><span class="n">request</span><span class="p">;</span>
@@ -5565,8 +5585,8 @@
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">// do something</span>
 </span></code></pre></div>
-<h3 id="23">2.3 服务端<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>通过继承Service实现反转字符串逻辑。</p>
+<h3 id="23-the-server">2.3 The Server<a class="headerlink" href="#23-the-server" title="Permanent link">&para;</a></h3>
+<p>Implement the string reversal logic by inheriting from Service.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ReverseServiceImplementation</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">StringReverse</span><span class="o">::</span><span class="n">Service</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">Status</span><span class="w"> </span><span class="nf">sendRequest</span><span class="p">(</span><span class="n">ServerContext</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">StringRequest</span><span class="o">*</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                     </span><span class="n">StringReply</span><span class="o">*</span><span class="w"> </span><span class="n">reply</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
@@ -5574,13 +5594,13 @@
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p">}</span><span class="w">             </span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>最后注册service即可：</p>
+<p>Finally, just register the service:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">builder</span><span class="p">.</span><span class="n">RegisterService</span><span class="p">(</span><span class="o">&amp;</span><span class="n">service</span><span class="p">);</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Server</span><span class="o">&gt;</span><span class="w"> </span><span class="n">server</span><span class="p">(</span><span class="n">builder</span><span class="p">.</span><span class="n">BuildAndStart</span><span class="p">());</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Server listening on port: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">server_address</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
-<h2 id="3">3.运行<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>创建编译目录：</p>
+<h2 id="3-running">3. Running<a class="headerlink" href="#3-running" title="Permanent link">&para;</a></h2>
+<p>Create a build directory:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mkdir build
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>cmake ..
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a># 输出
@@ -5612,7 +5632,7 @@
 </span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>-- Generating done
 </span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>-- Build files have been written to: /code/stringreverse/build
 </span></code></pre></div>
-<p>make编译：</p>
+<p>Build with make:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[ 10%] Generating stringreverse.pb.cc, stringreverse.pb.h, stringreverse.grpc.pb.cc, stringreverse.grpc.pb.h
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Scanning dependencies of target server
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>[ 20%] Building CXX object CMakeFiles/server.dir/server.cc.o
@@ -5627,26 +5647,26 @@
 </span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>[ 90%] Linking CXX executable client
 </span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>[100%] Built target client
 </span></code></pre></div>
-<p>运行server:</p>
+<p>Run the server:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[light@i-i339drlk build]$ ./server 
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Server listening on port: 0.0.0.0:5000
 </span></code></pre></div>
-<p>运行client:</p>
+<p>Run the client:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">[</span><span class="n">light</span><span class="err">@</span><span class="n">i</span><span class="o">-</span><span class="n">i339drlk</span><span class="w"> </span><span class="n">build</span><span class="p">]</span><span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">client</span><span class="w"> </span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">Original</span><span class="w"> </span><span class="n">string</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="n">grpc</span><span class="o">!</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">Reversed</span><span class="w"> </span><span class="n">string</span><span class="o">:</span><span class="w"> </span><span class="o">!</span><span class="n">cprg</span><span class="w"> </span><span class="n">dlrow</span><span class="w"> </span><span class="n">olleh</span>
 </span></code></pre></div>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../cpp-fnonce-implementation/">手撕 C++ FnOnce | C++那些事</a></li>
-<li><a href="../cpp-ipc-practice/">C++ 进程间通信实战 | C++那些事</a></li>
-<li><a href="../cpp-short-url-demo/">C++ 短链接服务 Demo | C++那些事</a></li>
-<li><a href="../cpp17-sqlite-folder-size/">C++17 与 SQLite 统计目录大小 | C++那些事</a></li>
-<li><a href="../google-benchmark-cpp/">Google Benchmark 性能测试 | C++那些事</a></li>
-<li><a href="../modern-cpp-http-server/">C++20 协程 HTTP 服务器 | C++那些事</a></li>
-<li><a href="../protobuf-zerocopy-cpp/">Protobuf ZeroCopy 序列化 | C++那些事</a></li>
-<li><a href="../pybind11-python-cpp/">pybind11 加速 Python | C++那些事</a></li>
-<li><a href="../stack-calculator-design/">C++ 栈式计算器设计 | C++那些事</a></li>
+<li><a href="../cpp-fnonce-implementation/">Hand-Writing C++ FnOnce | C++那些事</a></li>
+<li><a href="../cpp-ipc-practice/">C++ Inter-Process Communication in Practice | C++那些事</a></li>
+<li><a href="../cpp-short-url-demo/">C++ Short URL Service Demo | C++那些事</a></li>
+<li><a href="../cpp17-sqlite-folder-size/">C++17 and SQLite Folder Size Statistics | C++那些事</a></li>
+<li><a href="../google-benchmark-cpp/">Google Benchmark Performance Testing | C++那些事</a></li>
+<li><a href="../modern-cpp-http-server/">C++20 Coroutine HTTP Server | C++那些事</a></li>
+<li><a href="../protobuf-zerocopy-cpp/">Protobuf ZeroCopy Serialization | C++那些事</a></li>
+<li><a href="../pybind11-python-cpp/">Accelerating Python with pybind11 | C++那些事</a></li>
+<li><a href="../stack-calculator-design/">C++ Stack Calculator Design | C++那些事</a></li>
 </ul>
 
 
@@ -5665,7 +5685,7 @@
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -5678,7 +5698,7 @@
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -5749,7 +5769,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -5758,33 +5778,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cpp-short-url-demo/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 短链接服务 Demo">
+          <a href="../cpp-short-url-demo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: A URL-Shortener Demo">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                C++ 短链接服务 Demo
+                A URL-Shortener Demo
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pybind11-python-cpp/" class="md-footer__link md-footer__link--next" aria-label="下一页: pybind11 加速 Python">
+          <a href="../pybind11-python-cpp/" class="md-footer__link md-footer__link--next" aria-label="Next: Accelerating Python with pybind11">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                pybind11 加速 Python
+                Accelerating Python with pybind11
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -5842,7 +5862,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   

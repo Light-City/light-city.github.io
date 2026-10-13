@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, multimap）.">
+        <meta name="description" content="There are two passages in the STL source code, loosely translated as follows:">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="STL STL 红黑树实现源码解析,std::reverse_iterator,STL源码"> 
-    <meta name="title" content="STL 红黑树实现 | C++那些事"> 
+    <meta name="keywords" content="STL STL red-black tree implementation source analysis,std::reverse_iterator,STL source code"> 
+    <meta name="title" content="STL red-black tree implementation | C++那些事"> 
 
     
       
-        <title>STL 红黑树实现 | C++那些事 - C++那些事</title>
+        <title>STL red-black tree implementation | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/rb-tree/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/rb-tree/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/rb-tree/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL 红黑树实现 | C++那些事">
-      <meta property="og:description" content="STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, multimap）.">
+      <meta property="og:title" content="STL red-black tree implementation | C++那些事">
+      <meta property="og:description" content="There are two passages in the STL source code, loosely translated as follows:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL 红黑树实现 | C++那些事">
-      <meta name="twitter:description" content="STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, multimap）.">
+      <meta name="twitter:title" content="STL red-black tree implementation | C++那些事">
+      <meta name="twitter:description" content="There are two passages in the STL source code, loosely translated as follows:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL 红黑树实现 | C++那些事", "description": "STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, multimap）.", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL 红黑树实现 | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL red-black tree implementation | C++那些事", "description": "There are two passages in the STL source code, loosely translated as follows:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL red-black tree implementation | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/rb-tree/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#stl" class="md-skip">
-          跳转至
+        <a href="#stl-red-black-tree-implementation" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STL 红黑树实现 | C++那些事
+              STL red-black tree implementation | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/stl-source-analysis/rb-tree/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/stl-source-analysis/rb-tree/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -388,7 +408,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -408,7 +428,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -434,7 +454,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -457,7 +477,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -477,7 +497,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -497,7 +517,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1797,7 +1817,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1808,7 +1828,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1823,7 +1843,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1845,7 +1865,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1867,7 +1887,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1889,7 +1909,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1911,7 +1931,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1933,7 +1953,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -1955,7 +1975,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -1977,7 +1997,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -1999,7 +2019,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2030,7 +2050,7 @@
           
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2042,7 +2062,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2051,7 +2071,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -2060,69 +2080,69 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1red-black-tree-node-base-class" class="md-nav__link">
     <span class="md-ellipsis">
-      1.红黑树节点基类
+      1.Red-black tree node base class
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2red-black-tree-node" class="md-nav__link">
     <span class="md-ellipsis">
-      2.红黑树节点
+      2.Red-black tree node
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3red-black-tree-iterator" class="md-nav__link">
     <span class="md-ellipsis">
-      3.红黑树迭代器
+      3.Red-black tree iterator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4red-black-tree-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      4.红黑树操作
+      4.Red-black tree operations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5red-black-tree-insertion" class="md-nav__link">
     <span class="md-ellipsis">
-      5.红黑树插入
+      5.Red-black tree insertion
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.红黑树插入">
+    <nav class="md-nav" aria-label="5.Red-black tree insertion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
+  <a href="#51-the-rotation-process" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1 旋转过程
+      5.1 The rotation process
     </span>
   </a>
   
@@ -2134,27 +2154,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
+  <a href="#52-insertion-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2插入总结
+      5.2 Insertion summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6usage" class="md-nav__link">
     <span class="md-ellipsis">
-      6.使用
+      6.Usage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -2180,7 +2200,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2202,7 +2222,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2224,7 +2244,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2246,7 +2266,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2268,7 +2288,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2290,7 +2310,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2312,7 +2332,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2334,7 +2354,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2410,7 +2430,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2421,7 +2441,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2436,7 +2456,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2458,7 +2478,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2480,7 +2500,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2502,7 +2522,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2524,7 +2544,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2546,7 +2566,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2568,7 +2588,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2590,7 +2610,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2612,7 +2632,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2634,7 +2654,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2656,7 +2676,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2678,7 +2698,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2700,7 +2720,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2722,7 +2742,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2744,7 +2764,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2796,7 +2816,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2807,7 +2827,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2887,7 +2907,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2909,7 +2929,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2931,7 +2951,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2953,7 +2973,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -3060,7 +3080,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -3104,7 +3124,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -3126,7 +3146,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3148,7 +3168,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3170,7 +3190,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3192,7 +3212,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3258,7 +3278,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3371,7 +3391,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3393,7 +3413,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3415,7 +3435,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3437,7 +3457,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3459,7 +3479,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3481,7 +3501,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3503,7 +3523,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3525,7 +3545,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3547,7 +3567,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3591,7 +3611,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3613,7 +3633,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3635,7 +3655,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3735,7 +3755,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3752,7 +3772,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3769,7 +3789,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3791,7 +3811,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3813,7 +3833,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3835,7 +3855,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3857,7 +3877,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3879,7 +3899,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3901,7 +3921,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3923,7 +3943,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3945,7 +3965,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3967,7 +3987,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -3989,7 +4009,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -4011,7 +4031,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -4033,7 +4053,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -4055,7 +4075,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -4077,7 +4097,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -4099,7 +4119,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -4121,7 +4141,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4143,7 +4163,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4165,7 +4185,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4187,7 +4207,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4245,7 +4265,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4262,7 +4282,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4279,7 +4299,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4301,7 +4321,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4323,7 +4343,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4399,7 +4419,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4416,7 +4436,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4433,7 +4453,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4455,7 +4475,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4477,7 +4497,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4499,7 +4519,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4521,7 +4541,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4543,7 +4563,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4565,7 +4585,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4587,7 +4607,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4609,7 +4629,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4631,7 +4651,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4653,7 +4673,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4675,7 +4695,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4739,7 +4759,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4756,7 +4776,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4773,7 +4793,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4795,7 +4815,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4817,7 +4837,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4839,7 +4859,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4861,7 +4881,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4883,7 +4903,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4957,7 +4977,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -4974,7 +4994,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4991,7 +5011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -5013,7 +5033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -5035,7 +5055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -5057,7 +5077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5079,7 +5099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5101,7 +5121,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5123,7 +5143,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5145,7 +5165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5167,7 +5187,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5189,7 +5209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5211,7 +5231,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5265,7 +5285,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5276,7 +5296,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5291,7 +5311,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5313,7 +5333,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5335,7 +5355,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5357,7 +5377,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5386,7 +5406,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5409,7 +5429,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5418,69 +5438,69 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1red-black-tree-node-base-class" class="md-nav__link">
     <span class="md-ellipsis">
-      1.红黑树节点基类
+      1.Red-black tree node base class
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2red-black-tree-node" class="md-nav__link">
     <span class="md-ellipsis">
-      2.红黑树节点
+      2.Red-black tree node
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3red-black-tree-iterator" class="md-nav__link">
     <span class="md-ellipsis">
-      3.红黑树迭代器
+      3.Red-black tree iterator
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4red-black-tree-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      4.红黑树操作
+      4.Red-black tree operations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#5red-black-tree-insertion" class="md-nav__link">
     <span class="md-ellipsis">
-      5.红黑树插入
+      5.Red-black tree insertion
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.红黑树插入">
+    <nav class="md-nav" aria-label="5.Red-black tree insertion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
+  <a href="#51-the-rotation-process" class="md-nav__link">
     <span class="md-ellipsis">
-      5.1 旋转过程
+      5.1 The rotation process
     </span>
   </a>
   
@@ -5492,27 +5512,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
+  <a href="#52-insertion-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2插入总结
+      5.2 Insertion summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6usage" class="md-nav__link">
     <span class="md-ellipsis">
-      6.使用
+      6.Usage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5539,30 +5559,27 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="stl">STL 红黑树实现<a class="headerlink" href="#stl" title="Permanent link">&para;</a></h1>
-<h2 id="0">0.导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>在STL源码中有两段话，简单翻译后如下：</p>
-<p>STL中Red-black tree（红黑树）class,用来当做SLT关系式容器（如set,multiset,map, 
-multimap）.里面所用的insertion和deletion方法以
-《Introduction to Algorithms》一书为基础,但是有以下两点不同: </p>
-<p>(1)header不仅指向root,也指向红黑树的最左节点,以便用常数时间实现begin(),并且也指向红黑树的最右边节点,以便 
-set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
-<p>(2)当要删除的节点有两个子节点时，其后继节点连接到其位置，而不是被复制，因此，唯一使无效的迭代器是引用已删除节点的迭代器。</p>
-<p>上述话翻译成图，如下，相比于普通的红黑树多了一个header节点，并且为红色。普通的红黑树是以100节点开始的，且满足下面五条性质：
-- 每个节点或是红色的,或是黑色的.
-- 根节点是黑色的.
-- 每个叶节点（NULL）是黑色的.
-- 如果一个节点是红色的，则它的两个孩子节点都是黑色的.
-- 对每个节点，从该节点到其所有后代叶节点的简单路径上，均包含相同数目的黑色节点.</p>
-<p>当然这里的rb_tree也是一样满足这几条性质，迭代器的begin指向红黑树根节点，也就是header的父亲，而end指向header节点。</p>
-<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。
-图中省略号表示节点没有画完，还有其他节点，所以省略。</p>
-<h2 id="1">1.红黑树节点基类<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>红黑树基类，非常简单，在文件开头定义了颜色标记。</p>
-<p>基类中包含了指向自己的指针，分别定义了left、right、parent，同时包含了一个颜色标记常量，而里面有两个核心函数，目的是获取红黑树中最小节点与最大节点。
-我们知道对于二分搜索树获取最小节点就是左子树一直往下搜，最大节点就是右子树一直往下搜即可。</p>
+<h1 id="stl-red-black-tree-implementation">STL red-black tree implementation<a class="headerlink" href="#stl-red-black-tree-implementation" title="Permanent link">&para;</a></h1>
+<h2 id="0introduction">0.Introduction<a class="headerlink" href="#0introduction" title="Permanent link">&para;</a></h2>
+<p>There are two passages in the STL source code, loosely translated as follows:</p>
+<p>The Red-black tree class in the STL is used as the underlying structure of the STL associative containers (such as set, multiset, map, multimap). The insertion and deletion methods used inside are based on the book 《Introduction to Algorithms》, but with the following two differences:</p>
+<p>(1) The header points not only to the root, but also to the leftmost node of the red-black tree, so that begin() can be implemented in constant time; it also points to the rightmost node of the red-black tree, so that set-related generic algorithms (such as set_union and so on) can achieve linear time performance.</p>
+<p>(2) When the node to be deleted has two children, its successor node is linked into its position rather than copied; consequently, the only invalidated iterators are those referencing the deleted node.</p>
+<p>The above, translated into a picture, is as follows: compared with an ordinary red-black tree there is an extra header node, and it is red. An ordinary red-black tree starts at node 100 and satisfies the following five properties:
+- Every node is either red or black.
+- The root is black.
+- Every leaf (NULL) is black.
+- If a node is red, then both its children are black.
+- For each node, all simple paths from the node to its descendant leaves contain the same number of black nodes.</p>
+<p>Of course, this rb_tree likewise satisfies these properties; the iterator's begin points to the red-black tree's root — that is, the header's parent — while end points to the header node.</p>
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />.
+The ellipsis in the figure means the nodes were not all drawn — other nodes exist, hence the omission.</p>
+<h2 id="1red-black-tree-node-base-class">1.Red-black tree node base class<a class="headerlink" href="#1red-black-tree-node-base-class" title="Permanent link">&para;</a></h2>
+<p>The red-black tree base class is very simple; a color flag is defined at the start of the file.</p>
+<p>The base class contains pointers to itself, defining left, right, and parent respectively, plus a color flag constant; inside there are two core functions whose purpose is to obtain the minimum and maximum nodes of the red-black tree.
+We know that for a binary search tree, obtaining the minimum node means searching down the left subtree continuously, and the maximum means searching down the right subtree.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 颜色标记</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">enum</span><span class="w"> </span><span class="nc">_Rb_tree_color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_S_red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">_S_black</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -5599,8 +5616,8 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="2">2.红黑树节点<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>红黑树节点继承自红黑树基类。
+<h2 id="2red-black-tree-node">2.Red-black tree node<a class="headerlink" href="#2red-black-tree-node" title="Permanent link">&para;</a></h2>
+<p>The red-black tree node inherits from the red-black tree base class.
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Val</span><span class="o">&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_node</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span>
@@ -5608,10 +5625,10 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">_Value</span><span class="w"> </span><span class="n">_M_value_field</span><span class="p">;</span><span class="c1">//节点数据域,即关键字</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">};</span>
 </span></code></pre></div></p>
-<h2 id="3">3.红黑树迭代器<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>红黑树迭代器里面有一个红黑树基类成员，然后通过该成员进行迭代器的相关操作。
-同时，我们可以知道该迭代器属于<code>bidirectional_iterator_tag</code>。</p>
-<p>里面也包含了萃取机相关需要的typedef。</p>
+<h2 id="3red-black-tree-iterator">3.Red-black tree iterator<a class="headerlink" href="#3red-black-tree-iterator" title="Permanent link">&para;</a></h2>
+<p>Inside the red-black tree iterator there is a red-black tree base class member, through which the iterator's related operations are performed.
+At the same time, we can tell that this iterator is a <code>bidirectional_iterator_tag</code>.</p>
+<p>It also contains the typedefs needed by the traits extractor.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">_Rb_tree_iterator</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
@@ -5629,7 +5646,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">_Base_ptr</span><span class="w"> </span><span class="n">_M_node</span><span class="p">;</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">};</span><span class="w">   </span>
 </span></code></pre></div>
-<p>获取数据</p>
+<p>Getting the data</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">reference</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_M_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">_M_valptr</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
@@ -5638,7 +5655,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">_M_node</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">_M_valptr</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<p>重载++操作符</p>
+<p>Overloading the ++ operator</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">_Self</span><span class="o">&amp;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">{</span>
@@ -5646,7 +5663,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
 </span></code></pre></div>
-而<code>_Rb_tree_increment</code>底层是<code>local_Rb_tree_increment</code>，如下实现：</p>
+And <code>_Rb_tree_increment</code> is backed by <code>local_Rb_tree_increment</code>, implemented as follows:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">static</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nf">local_Rb_tree_increment</span><span class="p">(</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="o">*</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="p">()</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">{</span>
@@ -5670,7 +5687,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">__x</span><span class="p">);</span>
 </span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">}</span>
 </span></code></pre></div>
-重载--操作符：</p>
+Overloading the -- operator:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">_Self</span><span class="o">&amp;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">operator</span><span class="o">--</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
@@ -5678,7 +5695,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
 </span></code></pre></div>
-同理，而<code>_Rb_tree_decrement</code>底层是<code>local_Rb_tree_decrement</code>，如下实现：</p>
+Similarly, <code>_Rb_tree_decrement</code> is backed by <code>local_Rb_tree_decrement</code>, implemented as follows:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">static</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nf">local_Rb_tree_decrement</span><span class="p">(</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">__x</span><span class="w"> </span><span class="p">)</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">throw</span><span class="w"> </span><span class="p">()</span>
@@ -5709,7 +5726,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="p">(</span><span class="n">__x</span><span class="p">);</span>
 </span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>重载==与!=操作符，直接判断节点指针是否相等。</p>
+<p>Overloading the == and != operators: just compare whether the node pointers are equal.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">bool</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_M_node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__x</span><span class="p">.</span><span class="n">_M_node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -5718,7 +5735,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_M_node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">__x</span><span class="p">.</span><span class="n">_M_node</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<p>其他重要函数，黑节点统计：</p>
+<p>Another important function, counting black nodes:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nf">_Rb_tree_black_count</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__node</span><span class="p">,</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">                     </span><span class="k">const</span><span class="w"> </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__root</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5735,9 +5752,9 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">__sum</span><span class="p">;</span>
 </span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="p">}</span>
 </span></code></pre></div>
-后面来阐述最重要的插入操作。</p>
-<h2 id="4">4.红黑树操作<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>比较重要的是，里面使用节点基类来声明了一个指针。还包含了一个<code>_Rb_tree_impl</code>用来对红黑树初始化操作与内存管理操作。里面还包含了两种迭代器，一个rbtree，另一个是reverse，说明支持rbegin,rend操作。
+Later we will explain the most important operation, insertion.</p>
+<h2 id="4red-black-tree-operations">4.Red-black tree operations<a class="headerlink" href="#4red-black-tree-operations" title="Permanent link">&para;</a></h2>
+<p>Quite importantly, inside, a pointer is declared using the node base class. There is also a <code>_Rb_tree_impl</code> for the red-black tree's initialization and memory-management operations. It also contains two kinds of iterators, one rbtree and the other reverse, which shows that rbegin and rend operations are supported.
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Key</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Val</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_KeyOfValue</span><span class="p">,</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">           </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Compare</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Val</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">_Rb_tree</span>
@@ -5783,10 +5800,10 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a><span class="p">};</span>
 </span></code></pre></div></p>
 <blockquote>
-<p>获取红黑树根节点、最左与最右节点</p>
+<p>Getting the red-black tree's root, leftmost, and rightmost nodes</p>
 </blockquote>
-<p>回到一开始的图：
-<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。</p>
+<p>Back to the figure from the beginning:
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 图中100 节点</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -5813,14 +5830,14 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="nf">_M_end</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">_Link_type</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_header</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-我们再看代码是不是非常清晰！</p>
-<h2 id="5">5.红黑树插入<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51">5.1 旋转过程<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
-<p>左旋转是将该节点的右节点设置为它的父节点，该节点将变成刚才右节点的左孩子</p>
-<p>直接看源码中的图与代码对比即可。</p>
-<p>在<code>tree.cc</code>源码中实现函数为<code>local_Rb_tree_rotate_left</code>与<code>local_Rb_tree_rotate_right</code>。
-下面我们将源码进行剖析成比较容易理解的代码，具体见注释。
-大家会发现函数名与变量名与源码不同，是因为下面是当时自己实现的，但是不影响源码阅读，就直接拿来对比了。</p>
+Looking at the code again — isn't everything crystal clear!</p>
+<h2 id="5red-black-tree-insertion">5.Red-black tree insertion<a class="headerlink" href="#5red-black-tree-insertion" title="Permanent link">&para;</a></h2>
+<h3 id="51-the-rotation-process">5.1 The rotation process<a class="headerlink" href="#51-the-rotation-process" title="Permanent link">&para;</a></h3>
+<p>A left rotation sets the node's right child as its parent, and the node becomes the left child of that former right child.</p>
+<p>Just compare the figure in the source code with the code directly.</p>
+<p>In the <code>tree.cc</code> source the implementing functions are <code>local_Rb_tree_rotate_left</code> and <code>local_Rb_tree_rotate_right</code>.
+Below we dissect the source into easier-to-understand code; see the comments for details.
+You will notice the function and variable names differ from the source — that is because the code below was my own implementation at the time, but it does not hinder reading the source, so it is used directly for comparison.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/**</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="cm">* 当前节点的左旋转过程</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="cm">* 将该节点的右节点设置为它的父节点，该节点将变成刚才右节点的左孩子</span>
@@ -5856,7 +5873,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span><span class="w">    </span><span class="c1">// _x的父亲是_y</span>
 </span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>同理，右旋转如下：
+<p>Similarly, the right rotation is as follows:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">//        _x                      _y</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1">//      /   \     右旋转         /  \</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1">//     _y    T2 -------------&gt;  T0  _x</span>
@@ -5885,14 +5902,14 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">    </span><span class="n">_x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_y</span><span class="p">;</span><span class="w">    </span><span class="c1">// _x的父亲是_y</span>
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>case 1.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
+<p>case 1.1: The parent is red and its uncle is also red; then set the parent and uncle to black, and the grandparent to red.</p>
 <p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
-<p>case 1.2 若无叔叔节点或者其叔叔节点为黑色分为下面两种：</p>
-<p>情况1.2.1：x的叔叔节点y是黑色且x是一个右孩子</p>
+<p>case 1.2 If there is no uncle, or the uncle is black, it splits into the following two:</p>
+<p>Situation 1.2.1: x's uncle y is black and x is a right child</p>
 <p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
-<p>情况1.2.2：x的叔叔节点y是黑色且x是一个左孩子</p>
+<p>Situation 1.2.2: x's uncle y is black and x is a left child</p>
 <p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
-<p>对应源代码中：
+<p>Corresponding to this in the source code:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">{</span>
@@ -5914,12 +5931,12 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span><span class="n">local_Rb_tree_rotate_right</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">      </span><span class="c1">// 以祖父节点右旋转</span>
 </span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<p>另外一个是上述对称过程：</p>
-<p>case 2.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
+<p>The other one is the symmetric process of the above:</p>
+<p>case 2.1: The parent is red and its uncle is also red; then set the parent and uncle to black, and the grandparent to red.</p>
 <p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
-<p>case 2.2 若无叔叔节点或者其叔叔节点为黑色</p>
+<p>case 2.2 If there is no uncle, or the uncle is black</p>
 <p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
-<p>情况2.2.1：x的叔叔节点y是黑色且x是一个左孩子</p>
+<p>Situation 2.2.1: x's uncle y is black and x is a left child</p>
 <p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
@@ -5937,7 +5954,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span><span class="n">local_Rb_tree_rotate_left</span><span class="p">(</span><span class="n">__xpp</span><span class="p">,</span><span class="w"> </span><span class="n">__root</span><span class="p">);</span><span class="w">   </span><span class="c1">// 左旋转</span>
 </span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><code>_Rb_tree_insert_and_rebalance</code>完整解析：</p>
+<p>Full dissection of <code>_Rb_tree_insert_and_rebalance</code>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nf">_Rb_tree_insert_and_rebalance</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">__insert_left</span><span class="p">,</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">                              </span><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="n">__x</span><span class="p">,</span>
@@ -6022,39 +6039,39 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-16-82"><a id="__codelineno-16-82" name="__codelineno-16-82" href="#__codelineno-16-82"></a><span class="w">    </span><span class="n">__root</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span>
 </span><span id="__span-16-83"><a id="__codelineno-16-83" name="__codelineno-16-83" href="#__codelineno-16-83"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="52">5.2插入总结<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
-<p>根据上述插入过程与源码分析，我们得出下面三种：
-假设P代码父亲节点，N代表当前新插入节点，U代表叔叔节点，G代表祖父节点。</p>
-<p>case 1:U为红色，P、N也都为红色，则可以通过改变颜色，自底向上递归调整，下次N就变味G，往上判断即可。如果碰巧将根节点染成了红色, 可以在算法的最后强制root改为黑。</p>
+<h2 id="52-insertion-summary">5.2 Insertion summary<a class="headerlink" href="#52-insertion-summary" title="Permanent link">&para;</a></h2>
+<p>From the insertion process and source analysis above, we derive the following three cases:
+Let P stand for the parent node, N for the newly inserted node, U for the uncle, and G for the grandparent.</p>
+<p>case 1: U is red, and P and N are also red; then, by changing colors and adjusting recursively bottom-up, next time N becomes G, and we just keep judging upward. If the root happens to get colored red, the algorithm can force root back to black at the very end.</p>
 <p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
-<p>case 2:U为黑色，考虑N是P的左孩子还是右孩子。</p>
-<p>case2.1 如果是右孩子,先进行左旋转，再进入下一种情况。</p>
+<p>case 2: U is black; consider whether N is P's left or right child.</p>
+<p>case2.1 If it is a right child, first do a left rotation, then move on to the next case.</p>
 <p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
-<p>case2.2 可能是上述情况变化而来，但不一定是！策略为：右旋转，改变颜色。</p>
+<p>case2.2 May have evolved from the case above, but not necessarily! The strategy: rotate right and change colors.</p>
 <p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
-<p>经过上述源码的分析得知，红黑树插入为镜像变换，另一种情况刚好相反。</p>
-<p>删除操作，比较复杂，这里就暂时没分析了，后面补上。。。</p>
-<h2 id="6">6.使用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>前面说了那么多，如何使用呢？</p>
-<p>引入头文件：
+<p>From the source analysis above we learn that red-black tree insertion is a mirror transformation; the other case is exactly the reverse.</p>
+<p>The deletion operation is rather complex, so it is not analyzed here for now; to be added later...</p>
+<h2 id="6usage">6.Usage<a class="headerlink" href="#6usage" title="Permanent link">&para;</a></h2>
+<p>After all that, how do we use it?</p>
+<p>Include the header:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>#include&lt;map&gt;或者&lt;set&gt;
 </span></code></pre></div>
-类定义：
+Class definition:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>_Rb_tree&lt;int, int, _Identity&lt;int&gt;, less&lt;int&gt;&gt; itree;
 </span></code></pre></div>
-然后调用相应函数即可。</p>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+Then just call the corresponding functions.</p>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
-<li><a href="../cpp-string-deep-dive/">STL string 深析 | C++那些事</a></li>
-<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
-<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
-<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
-<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
-<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
-<li><a href="../iterator/">STL 迭代器源码剖析 | C++那些事</a></li>
-<li><a href="../list/">STL list 源码剖析 | C++那些事</a></li>
-<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
+<li><a href="../array/">STL array source code analysis | C++那些事</a></li>
+<li><a href="../cpp-string-deep-dive/">STL string deep dive | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string interview questions in depth | C++那些事</a></li>
+<li><a href="../deque/">STL deque source code analysis | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL empty base optimization EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL hand-written hash table implementation | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable hash table | C++那些事</a></li>
+<li><a href="../iterator/">STL iterator source code analysis | C++那些事</a></li>
+<li><a href="../list/">STL list source code analysis | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map and multimap | C++那些事</a></li>
 </ul>
 
 
@@ -6073,7 +6090,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -6086,7 +6103,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -6157,7 +6174,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -6166,33 +6183,33 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ebo-empty-base-optimization/" class="md-footer__link md-footer__link--prev" aria-label="上一页: STL 空基类优化 EBO">
+          <a href="../ebo-empty-base-optimization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: STL EBO: Empty Base Optimization">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                STL 空基类优化 EBO
+                STL EBO: Empty Base Optimization
               </div>
             </div>
           </a>
         
         
           
-          <a href="../set-and-multiset/" class="md-footer__link md-footer__link--next" aria-label="下一页: STL set 与 multiset">
+          <a href="../set-and-multiset/" class="md-footer__link md-footer__link--next" aria-label="Next: STL set &amp; multiset">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                STL set 与 multiset
+                STL set & multiset
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6250,7 +6267,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   

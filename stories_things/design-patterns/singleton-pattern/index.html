@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="相信大家面试都逃不开设计模式话题，本节将阐述面试中的最常用的设计模式(单例模式)，从分类，线程安全，不基于C++11标准的角度与基于C++11标准的角度，有哪些解决线程安全的单例模式方案，相信认真看完本篇文章，在以后面试中就不用担忧了。">
+        <meta name="description" content="Design patterns are an inescapable interview topic. This section covers the design pattern most frequently asked in interviews — the singleton pattern — including its classifications, thread safety, and thread-safe singleton solutions both from a pre-C++11 perspective and from a C++11-based perspective. Read this article carefully and you won't need to worry about it in future interviews.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++教程 单例模式,std::mutex,设计模式"> 
-    <meta name="title" content="C++ 单例模式 | C++那些事"> 
+    <meta name="keywords" content="C++ singleton pattern tutorial,std::mutex,design patterns"> 
+    <meta name="title" content="The C++ Singleton Pattern | C++那些事"> 
 
     
       
-        <title>C++ 单例模式 | C++那些事 - C++那些事</title>
+        <title>The C++ Singleton Pattern | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/design-patterns/singleton-pattern/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/design-patterns/singleton-pattern/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/design-patterns/singleton-pattern/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ 单例模式 | C++那些事">
-      <meta property="og:description" content="相信大家面试都逃不开设计模式话题，本节将阐述面试中的最常用的设计模式(单例模式)，从分类，线程安全，不基于C++11标准的角度与基于C++11标准的角度，有哪些解决线程安全的单例模式方案，相信认真看完本篇文章，在以后面试中就不用担忧了。">
+      <meta property="og:title" content="The C++ Singleton Pattern | C++那些事">
+      <meta property="og:description" content="Design patterns are an inescapable interview topic. This section covers the design pattern most frequently asked in interviews — the singleton pattern — including its classifications, thread safety, and thread-safe singleton solutions both from a pre-C++11 perspective and from a C++11-based perspective. Read this article carefully and you won&#x27;t need to worry about it in future interviews.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/design-patterns/singleton-pattern/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ 单例模式 | C++那些事">
-      <meta name="twitter:description" content="相信大家面试都逃不开设计模式话题，本节将阐述面试中的最常用的设计模式(单例模式)，从分类，线程安全，不基于C++11标准的角度与基于C++11标准的角度，有哪些解决线程安全的单例模式方案，相信认真看完本篇文章，在以后面试中就不用担忧了。">
+      <meta name="twitter:title" content="The C++ Singleton Pattern | C++那些事">
+      <meta name="twitter:description" content="Design patterns are an inescapable interview topic. This section covers the design pattern most frequently asked in interviews — the singleton pattern — including its classifications, thread safety, and thread-safe singleton solutions both from a pre-C++11 perspective and from a C++11-based perspective. Read this article carefully and you won&#x27;t need to worry about it in future interviews.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 单例模式 | C++那些事", "description": "相信大家面试都逃不开设计模式话题，本节将阐述面试中的最常用的设计模式(单例模式)，从分类，线程安全，不基于C++11标准的角度与基于C++11标准的角度，有哪些解决线程安全的单例模式方案，相信认真看完本篇文章，在以后面试中就不用担忧了。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "惯用法", "item": "https://light-city.github.io/stories_things/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "C++ 单例模式 | C++那些事", "item": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "The C++ Singleton Pattern | C++那些事", "description": "Design patterns are an inescapable interview topic. This section covers the design pattern most frequently asked in interviews — the singleton pattern — including its classifications, thread safety, and thread-safe singleton solutions both from a pre-C++11 perspective and from a C++11-based perspective. Read this article carefully and you won't need to worry about it in future interviews.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Idioms", "item": "https://light-city.github.io/stories_things/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "The C++ Singleton Pattern | C++那些事", "item": "https://light-city.github.io/stories_things/design-patterns/singleton-pattern/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
-          跳转至
+        <a href="#the-c-singleton-pattern" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 单例模式 | C++那些事
+              The C++ Singleton Pattern | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/design-patterns/singleton-pattern/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/design-patterns/singleton-pattern/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -386,7 +406,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -408,7 +428,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -434,7 +454,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -457,7 +477,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -477,7 +497,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -497,7 +517,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1792,7 +1812,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1803,7 +1823,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1818,7 +1838,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1840,7 +1860,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1862,7 +1882,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1884,7 +1904,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1906,7 +1926,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1928,7 +1948,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -1950,7 +1970,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -1972,7 +1992,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -1994,7 +2014,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2016,7 +2036,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2038,7 +2058,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2060,7 +2080,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2082,7 +2102,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2104,7 +2124,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2126,7 +2146,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2148,7 +2168,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2170,7 +2190,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2192,7 +2212,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2273,7 +2293,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2284,7 +2304,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2299,7 +2319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2321,7 +2341,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2343,7 +2363,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2365,7 +2385,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2387,7 +2407,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2409,7 +2429,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2431,7 +2451,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2453,7 +2473,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2475,7 +2495,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2497,7 +2517,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2519,7 +2539,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2541,7 +2561,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2563,7 +2583,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2585,7 +2605,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2616,7 +2636,7 @@
           
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2628,7 +2648,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2637,7 +2657,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -2646,113 +2666,113 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0-introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0. Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-the-well-known-singleton" class="md-nav__link">
     <span class="md-ellipsis">
-      1.众所周知的单例
+      1. The Well-Known Singleton
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-lazy-and-eager-initialization" class="md-nav__link">
     <span class="md-ellipsis">
-      2.懒汉与饿汉
+      2. Lazy and Eager Initialization
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-locking-for-multiple-threads" class="md-nav__link">
     <span class="md-ellipsis">
-      3.多线程加锁
+      3. Locking for Multiple Threads
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-double-checked-locking-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      4.双重检查锁模式
+      4. Double-Checked Locking Pattern
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5memory-barrier" class="md-nav__link">
+  <a href="#5-the-memory-barrier-instruction" class="md-nav__link">
     <span class="md-ellipsis">
-      5.memory barrier指令
+      5. The memory barrier Instruction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6-static-local-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      6.静态局部变量
+      6. Static Local Variables
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      9.总结
+      9. Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#10-references" class="md-nav__link">
     <span class="md-ellipsis">
-      10.参考资料
+      10. References
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#a-reusable-thread-safe-singleton-template-class" class="md-nav__link">
     <span class="md-ellipsis">
-      可复用的线程安全单例模板类
+      A Reusable Thread-Safe Singleton Template Class
     </span>
   </a>
   
@@ -2808,7 +2828,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2819,7 +2839,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2899,7 +2919,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2921,7 +2941,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2943,7 +2963,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2965,7 +2985,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -3072,7 +3092,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -3116,7 +3136,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -3138,7 +3158,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3160,7 +3180,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3182,7 +3202,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3204,7 +3224,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3270,7 +3290,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3383,7 +3403,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3405,7 +3425,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3427,7 +3447,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3449,7 +3469,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3471,7 +3491,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3493,7 +3513,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3515,7 +3535,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3537,7 +3557,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3559,7 +3579,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3603,7 +3623,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3625,7 +3645,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3647,7 +3667,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3747,7 +3767,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3764,7 +3784,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3781,7 +3801,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3803,7 +3823,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3825,7 +3845,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3847,7 +3867,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3869,7 +3889,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3891,7 +3911,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3913,7 +3933,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3935,7 +3955,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3957,7 +3977,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3979,7 +3999,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -4001,7 +4021,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -4023,7 +4043,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -4045,7 +4065,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -4067,7 +4087,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -4089,7 +4109,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -4111,7 +4131,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -4133,7 +4153,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4155,7 +4175,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4177,7 +4197,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4199,7 +4219,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4257,7 +4277,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4274,7 +4294,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4291,7 +4311,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4313,7 +4333,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4335,7 +4355,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4411,7 +4431,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4428,7 +4448,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4445,7 +4465,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4467,7 +4487,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4489,7 +4509,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4511,7 +4531,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4533,7 +4553,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4555,7 +4575,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4577,7 +4597,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4599,7 +4619,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4621,7 +4641,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4643,7 +4663,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4665,7 +4685,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4687,7 +4707,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4751,7 +4771,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4768,7 +4788,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4785,7 +4805,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4807,7 +4827,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4829,7 +4849,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4851,7 +4871,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4873,7 +4893,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4895,7 +4915,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4969,7 +4989,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -4986,7 +5006,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5003,7 +5023,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -5025,7 +5045,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -5047,7 +5067,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -5069,7 +5089,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5091,7 +5111,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5113,7 +5133,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5135,7 +5155,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5157,7 +5177,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5179,7 +5199,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5201,7 +5221,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5223,7 +5243,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5277,7 +5297,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5288,7 +5308,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5303,7 +5323,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5325,7 +5345,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5347,7 +5367,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5369,7 +5389,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5398,7 +5418,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5421,7 +5441,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5430,113 +5450,113 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0-introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0. Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#1-the-well-known-singleton" class="md-nav__link">
     <span class="md-ellipsis">
-      1.众所周知的单例
+      1. The Well-Known Singleton
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2-lazy-and-eager-initialization" class="md-nav__link">
     <span class="md-ellipsis">
-      2.懒汉与饿汉
+      2. Lazy and Eager Initialization
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#3-locking-for-multiple-threads" class="md-nav__link">
     <span class="md-ellipsis">
-      3.多线程加锁
+      3. Locking for Multiple Threads
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#4-double-checked-locking-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      4.双重检查锁模式
+      4. Double-Checked Locking Pattern
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5memory-barrier" class="md-nav__link">
+  <a href="#5-the-memory-barrier-instruction" class="md-nav__link">
     <span class="md-ellipsis">
-      5.memory barrier指令
+      5. The memory barrier Instruction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
+  <a href="#6-static-local-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      6.静态局部变量
+      6. Static Local Variables
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
+  <a href="#9-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      9.总结
+      9. Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#10-references" class="md-nav__link">
     <span class="md-ellipsis">
-      10.参考资料
+      10. References
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#a-reusable-thread-safe-singleton-template-class" class="md-nav__link">
     <span class="md-ellipsis">
-      可复用的线程安全单例模板类
+      A Reusable Thread-Safe Singleton Template Class
     </span>
   </a>
   
@@ -5563,13 +5583,13 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c">C++ 单例模式<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
-<h2 id="0">0.导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>相信大家面试都逃不开设计模式话题，本节将阐述面试中的最常用的设计模式(单例模式)，从分类，线程安全，不基于C++11标准的角度与基于C++11标准的角度，有哪些解决线程安全的单例模式方案，相信认真看完本篇文章，在以后面试中就不用担忧了。</p>
-<h2 id="1">1.众所周知的单例<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>在一般书籍中或者大家比较是熟知的单例模式是下面这样：</p>
+<h1 id="the-c-singleton-pattern">The C++ Singleton Pattern<a class="headerlink" href="#the-c-singleton-pattern" title="Permanent link">&para;</a></h1>
+<h2 id="0-introduction">0. Introduction<a class="headerlink" href="#0-introduction" title="Permanent link">&para;</a></h2>
+<p>Design patterns are an inescapable interview topic. This section covers the design pattern most frequently asked in interviews — the singleton pattern — including its classifications, thread safety, and thread-safe singleton solutions both from a pre-C++11 perspective and from a C++11-based perspective. Read this article carefully and you won't need to worry about it in future interviews.</p>
+<h2 id="1-the-well-known-singleton">1. The Well-Known Singleton<a class="headerlink" href="#1-the-well-known-singleton" title="Permanent link">&para;</a></h2>
+<p>In most books, or as commonly known, the singleton pattern looks like this:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5586,17 +5606,17 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>这是一个非常简单的实现，将构造函数声明为private或protect防止被外部函数实例化，内部有一个静态的类指针保存唯一的实例，实例的实现由一个public方法来实现，该方法返回该类的唯一实例。</p>
-<p>当然这个代码只适合在单线程下，当多线程时，是不安全的。考虑两个线程同时首次调用instance方法且同时检测到p是nullptr，则两个线程会同时构造一个实例给p，这将违反了单例的准则。</p>
-<h2 id="2">2.懒汉与饿汉<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>单例分为两种实现方法：</p>
+<p>This is a very simple implementation: the constructor is declared private or protected to prevent external functions from instantiating the class; inside, a static class pointer holds the unique instance; the instantiation is realized by a public method, which returns the sole instance of the class.</p>
+<p>Of course this code is only suitable for single-threaded use; with multiple threads it is unsafe. Consider two threads calling instance for the first time at the same moment and both observing p as nullptr: both threads would construct an instance for p at the same time, which violates the rule of the singleton.</p>
+<h2 id="2-lazy-and-eager-initialization">2. Lazy and Eager Initialization<a class="headerlink" href="#2-lazy-and-eager-initialization" title="Permanent link">&para;</a></h2>
+<p>Singletons come in two implementation styles:</p>
 <ul>
-<li>懒汉</li>
-<li>第一次用到类实例的时候才会去实例化，上述就是懒汉实现。</li>
-<li>饿汉</li>
-<li>单例类定义的时候就进行了实例化。</li>
+<li>Lazy initialization</li>
+<li>The instance is created the first time it is needed; the code above is the lazy implementation.</li>
+<li>Eager initialization</li>
+<li>The instance is created at the time the singleton class is defined.</li>
 </ul>
-<p>这里也给出饿汉的实现：</p>
+<p>Here is the eager implementation as well:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5610,9 +5630,9 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>当然这个是线程安全的，对于我们通常阐述的线程不安全，为懒汉模式，下面会阐述懒汉模式的线程安全代码优化。</p>
-<h2 id="3">3.多线程加锁<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>在C++中加锁有个类实现原理采用RAII，不用手动管理unlock，那就是lock_guard，这里采用其进行加锁。</p>
+<p>This one is of course thread-safe. The thread-unsafe variant we usually speak of is the lazy style; below we will go through thread-safe code optimizations for the lazy pattern.</p>
+<h2 id="3-locking-for-multiple-threads">3. Locking for Multiple Threads<a class="headerlink" href="#3-locking-for-multiple-threads" title="Permanent link">&para;</a></h2>
+<p>In C++ there is a class for locking whose implementation principle is RAII, so you don't have to manage unlock manually — lock_guard; we use it here to lock.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5631,11 +5651,11 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>这种写法不会出现上面两个线程都执行到p=nullptr里面的情况，当线程A在执行<code>p = new Singleton()</code>的时候，线程B如果调用了<code>instance()</code>，一定会被阻塞在加锁处，等待线程A执行结束后释放这个锁。从而是线程安全的。</p>
-<p>但是这种写法性能非常低下，因为每次调用<code>instance()</code>都会加锁释放锁，而这个步骤只有在第一次<code>new Singleton()</code>才是有必要的，只要<code>p</code>被创建出来了，不管多少线程同时访问，使用<code>if (p == nullptr)</code>进行判断都是足够的（只是读操作，不需要加锁），没有线程安全问题，加了锁之后反而存在性能问题。</p>
-<p>因此引出DCL。</p>
-<h2 id="4">4.双重检查锁模式<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>上面写法是不管任何情况都会去加锁，然后释放锁，而对于读操作是不存在线程安全的，故只需要在第一次实例创建的时候加锁，以后不需要。下面先看一下DCLP的实现：</p>
+<p>With this version, the situation above — both threads executing into the p == nullptr branch — cannot happen. While thread A executes <code>p = new Singleton()</code>, if thread B calls <code>instance()</code>, it will definitely block at the lock and wait until thread A finishes and releases the lock. Hence it is thread-safe.</p>
+<p>But this version performs very poorly, because every call to <code>instance()</code> acquires and releases the lock, while that step is only necessary for the first <code>new Singleton()</code>. Once <code>p</code> has been created, no matter how many threads access it concurrently, judging with <code>if (p == nullptr)</code> is enough (it is only a read operation, no lock needed); there is no thread-safety problem, and after adding the lock there is instead a performance problem.</p>
+<p>This leads to DCL.</p>
+<h2 id="4-double-checked-locking-pattern">4. Double-Checked Locking Pattern<a class="headerlink" href="#4-double-checked-locking-pattern" title="Permanent link">&para;</a></h2>
+<p>The version above always acquires the lock and then releases it no matter what, while for read operations there is no thread-safety concern, so locking is needed only when the instance is first created, and never afterwards. First, let's look at the DCLP implementation:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">singleton</span><span class="o">*</span><span class="w"> </span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 第一次检查</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">;</span>
@@ -5646,7 +5666,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>基于上述，我们可以写出双重检查锁+自动回收</p>
+<p>Building on the above, we can write double-checked locking + automatic reclamation</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5682,29 +5702,29 @@
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>DCLP的关键在于，大多数对instance的调用会看到p是非空的，因此甚至不用尝试去初始化它。因此，DCLP在尝试获取锁之前检查p是否为空。只有当检查成功（也就是p还没有被初始化）时才会去获得锁，然后再次检查p是否仍然为空（因此命名为双重检查锁）。<strong>第二次检查是必要，因为就像我们刚刚看到的，很有可能另一个线程偶然在第一次检查之后，获得锁成功之前初始化p。</strong></p>
-<p>看起来上述代码非常美好，可是过了相当一段时间后，才发现这个漏洞，原因是：<strong>内存读写的乱序执行(编译器问题)</strong>。</p>
-<p>再次考虑初始化<code>p</code>的那一行：</p>
+<p>The key point of DCLP is that most calls to instance will see p as non-null, so they don't even try to initialize it. DCLP therefore checks whether p is null before attempting to acquire the lock. Only when that check succeeds (that is, p has not yet been initialized) does it acquire the lock, and then checks again whether p is still null (hence the name double-checked locking). <strong>The second check is necessary because, as we have just seen, another thread may well have initialized p after the first check and before the lock is successfully acquired.</strong></p>
+<p>The code above looks wonderful, yet quite some time passed before this flaw was discovered. The reason: <strong>out-of-order memory reads/writes (a compiler issue)</strong>.</p>
+<p>Consider again the line that initializes <code>p</code>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
 </span></code></pre></div>
-<p>这条语句会导致三个事情的发生：</p>
+<p>This statement causes three things to happen:</p>
 <ol>
-<li>分配能够存储<code>singleton</code>对象的内存；</li>
-<li>在被分配的内存中构造一个<code>singleton</code>对象；</li>
-<li>让<code>p</code>指向这块被分配的内存。</li>
+<li>Allocate memory able to store the <code>singleton</code> object;</li>
+<li>Construct a <code>singleton</code> object in that allocated memory;</li>
+<li>Make <code>p</code> point to that allocated memory.</li>
 </ol>
-<p>可能会认为这三个步骤是按顺序执行的，但实际上只能确定步骤<code>1</code>是最先执行的，步骤<code>2</code>，<code>3</code>却不一定。问题就出现在这。</p>
+<p>You might think these three steps execute in order, but in reality only step <code>1</code> is guaranteed to run first; steps <code>2</code> and <code>3</code> are not. That's where the problem lies.</p>
 <ul>
-<li>线程A调用instance，执行第一次p的测试，获得锁，按照1,3,执行，然后被挂起。此时p是非空的，但是p指向的内存中还没有Singleton对象被构造。</li>
-<li>线程B调用instance，判定p非空， 将其返回给instance的调用者。调用者对指针解引用以获得singleton，噢，一个还没有被构造出的对象。bug就出现了。</li>
+<li>Thread A calls instance, performs the first test of p, acquires the lock, executes steps 1 and 3, and is then suspended. At this moment p is non-null, but no Singleton object has been constructed yet in the memory p points to.</li>
+<li>Thread B calls instance, sees p as non-null, and returns it to instance's caller. The caller dereferences the pointer to get the singleton — oops, an object that has not been constructed yet. There's the bug.</li>
 </ul>
-<p>DCLP能够良好的工作仅当步骤一和二在步骤三之前被执行，但是并没有方法在C或C++中表达这种限制。这就像是插在DCLP心脏上的一把匕首：我们需要在相对指令顺序上定义限制，但是我们的语言没有给出表达这种限制的方法。</p>
-<h2 id="5memory-barrier">5.memory barrier指令<a class="headerlink" href="#5memory-barrier" title="Permanent link">&para;</a></h2>
-<p>DCLP问题在C++11中，这个问题得到了解决。</p>
-<p>因为新的C++11规定了新的内存模型，保证了执行上述3个步骤的时候不会发生线程切换，相当这个初始化过程是“原子性”的的操作，DCL又可以正确使用了，不过在C++11下却有更简洁的多线程singleton写法了，这个留在后面再介绍。</p>
-<p>C++11之前解决方法是barrier指令。要使其正确执行的话，就得在步骤2、3直接加上一道memory barrier。强迫CPU执行的时候按照1、2、3的步骤来运行。</p>
-<p><strong>第一种实现：</strong></p>
-<p>基于operator new+placement new，遵循1,2,3执行顺序依次编写代码。</p>
+<p>DCLP works well only when steps one and two are executed before step three, but there is no way to express that constraint in C or C++. It's like a dagger stuck in DCLP's heart: we need to define constraints on the relative order of instructions, but our language gives no way to express such constraints.</p>
+<h2 id="5-the-memory-barrier-instruction">5. The memory barrier Instruction<a class="headerlink" href="#5-the-memory-barrier-instruction" title="Permanent link">&para;</a></h2>
+<p>The DCLP problem was solved in C++11.</p>
+<p>Because the new C++11 specifies a new memory model, it is guaranteed that no thread switch happens while the three steps above execute — the initialization is effectively an "atomic" operation — and DCL can be used correctly again. However, under C++11 there is an even more concise way to write a multithreaded singleton, which we will introduce later.</p>
+<p>Before C++11 the solution was the barrier instruction. To make it execute correctly, a memory barrier has to be inserted between steps 2 and 3, forcing the CPU to run in the order 1, 2, 3.</p>
+<p><strong>First implementation:</strong></p>
+<p>Based on operator new + placement new, written following the 1, 2, 3 execution order.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// method 1 operator new + placement new
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>singleton *instance() {
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    if (p == nullptr) {
@@ -5718,8 +5738,8 @@
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    return p;
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>}
 </span></code></pre></div>
-<p><strong>第二种实现：</strong></p>
-<p>基于直接嵌入ASM汇编指令mfence，uninx的barrier宏也是通过该指令实现的。</p>
+<p><strong>Second implementation:</strong></p>
+<p>Based on directly embedding the ASM instruction mfence; Unix's barrier macro is also implemented through this instruction.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define barrier() __asm__ volatile (&quot;lwsync&quot;)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">singleton</span><span class="w"> </span><span class="o">*</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5732,31 +5752,31 @@
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>通常情况下是调用cpu提供的一条指令，这条指令的作用是会阻止cpu将该指令之前的指令交换到该指令之后，这条指令也通常被叫做barrier。 上面代码中的**asm**表示这个是一条汇编指令，volatile是可选的，如果用了它，则表示向编译器声明不允许对该汇编指令进行优化。lwsync是POWERPC提供的barrier指令。</p>
-<h2 id="6">6.静态局部变量<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>Scott Meyer在《Effective C++》中提出了一种简洁的singleton写法</p>
+<p>Usually this is an instruction provided by the CPU, and its role is to prevent the CPU from swapping instructions that come before it to after it; such an instruction is commonly called a barrier. In the code above, <strong>asm</strong> marks this as an assembly instruction; volatile is optional — if used, it declares to the compiler that this assembly instruction must not be optimized. lwsync is the barrier instruction provided by POWERPC.</p>
+<h2 id="6-static-local-variables">6. Static Local Variables<a class="headerlink" href="#6-static-local-variables" title="Permanent link">&para;</a></h2>
+<p>Scott Meyers proposed a concise singleton writing style in Effective C++</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">singleton</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>单线程下，正确。</li>
-<li>C++11及以后的版本（如C++14）的多线程下，正确。</li>
-<li>C++11之前的多线程下，不一定正确。</li>
+<li>In single-threaded use, correct.</li>
+<li>Under multithreading in C++11 and later versions (e.g. C++14), correct.</li>
+<li>Under multithreading before C++11, not necessarily correct.</li>
 </ul>
-<p>原因在于在C++11之前的标准中并没有规定local static变量的内存模型。于是乎它就是不是线程安全的了。但是在C++11却是线程安全的，这是因为新的C++标准规定了当一个线程正在初始化一个变量的时候，其他线程必须得等到该初始化完成以后才能访问它。</p>
-<p>上述使用的内存序：</p>
+<p>The reason is that the standards before C++11 did not specify a memory model for local static variables, so it was not thread-safe. In C++11, however, it is thread-safe, because the new C++ standard stipulates that while one thread is initializing a variable, other threads must wait until that initialization completes before they can access it.</p>
+<p>The memory orders used above:</p>
 <ul>
-<li>memory_order_relaxed：松散内存序，只用来保证对原子对象的操作是原子的</li>
-<li>memory_order_acquire：获得操作，在读取某原子对象时，当前线程的任何后面的读写操作都不允许重排到这个操作的前面去，并且其他线程在对同一个原子对象释放之前的所有内存写入都在当前线程可见</li>
-<li>memory_order_release：释放操作，在写入某原子对象时，当前线程的任何前面的读写操作都不允许重排到这个操作的后面去，并且当前线程的所有内存写入都在对同一个原子对象进行获取的其他线程可见</li>
+<li>memory_order_relaxed: relaxed memory order; only guarantees that operations on the atomic object are atomic</li>
+<li>memory_order_acquire: an acquire operation; when reading an atomic object, no later reads or writes of the current thread may be reordered before this operation, and all memory writes by other threads before releasing the same atomic object become visible to the current thread</li>
+<li>memory_order_release: a release operation; when writing an atomic object, no earlier reads or writes of the current thread may be reordered after this operation, and all memory writes of the current thread become visible to other threads that acquire the same atomic object</li>
 </ul>
-<h2 id="7atomic">7.Atomic<a class="headerlink" href="#7atomic" title="Permanent link">&para;</a></h2>
-<p>在C++11之前的版本下，除了通过锁实现线程安全的Singleton外，还可以利用各个编译器内置的atomic operation来实现。</p>
-<p><code>java</code>和<code>c#</code>发现乱序问题后，就加了一个关键字<code>volatile</code>，在声明<code>p</code>变量的时候，要加上<code>volatile</code>修饰，编译器看到之后，就知道这个地方不能够reorder（一定要先分配内存，在执行构造器，都完成之后再赋值）。</p>
-<p>而对于<code>c++</code>标准却一直没有改正，所以<code>VC++</code>在<code>2005</code>版本也加入了这个关键字，但是这并不能够跨平台（只支持微软平台）。</p>
-<p>而到了<code>c++ 11</code>版本，为了从根本上消除这些漏洞，引入了适合多线程的内存模型。终于有了这样的机制帮助我们实现跨平台的方案。</p>
+<h2 id="7-atomic">7. Atomic<a class="headerlink" href="#7-atomic" title="Permanent link">&para;</a></h2>
+<p>In versions before C++11, besides implementing a thread-safe Singleton with locks, you can also make use of the atomic operations built into various compilers.</p>
+<p>After discovering the reordering problem, <code>java</code> and <code>c#</code> added a keyword <code>volatile</code>: when declaring the variable <code>p</code>, it must be qualified with <code>volatile</code>, and once the compiler sees that, it knows this place must not be reordered (memory must be allocated first, then the constructor executed, and the assignment made only after everything is done).</p>
+<p>The <code>c++</code> standard, however, was never fixed, so <code>VC++</code> also added this keyword in its <code>2005</code> release, but this is not portable (it only supports Microsoft platforms).</p>
+<p>Then, with <code>c++ 11</code>, a memory model suitable for multithreading was introduced to eliminate these holes at the root. Finally there is such a mechanism to help us implement a portable solution.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">mutex</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">lock_</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">atomic</span><span class="o">&lt;</span><span class="n">singleton</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -5780,18 +5800,18 @@
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>值得注意的是，上述代码使用两个比较关键的术语，获得与释放：</p>
+<p>Notably, the code above uses two fairly key terms, acquire and release:</p>
 <ul>
-<li>获得是一个对内存的读操作，当前线程的任何后面的读写操作都不允许重排到这个操作的前面去。</li>
-<li>释放是一个对内存的写操作，当前线程的任何前面的读写操作都不允许重排到这个操作的后面去。</li>
+<li>Acquire is a read operation on memory; no later reads or writes of the current thread may be reordered before it.</li>
+<li>Release is a write operation on memory; no earlier reads or writes of the current thread may be reordered after it.</li>
 </ul>
-<p>acquire 和 release 通常都是配对出现的，目的是保证如果对同一个原子对象的 release 发生在 acquire 之前的话，release 之前发生的内存修改能够被 acquire 之后的内存读取全部看到。</p>
-<h2 id="8pthread_once">8.pthread_once<a class="headerlink" href="#8pthread_once" title="Permanent link">&para;</a></h2>
-<p>如果是在unix平台的话，除了使用atomic operation外，在不适用C++11的情况下，还可以通过pthread_once来实现Singleton。</p>
-<p>原型如下：</p>
+<p>acquire and release usually appear in pairs, with the goal of guaranteeing that if a release on the same atomic object happens before an acquire, the memory modifications that happened before the release can all be seen by the memory reads after the acquire.</p>
+<h2 id="8-pthread_once">8. pthread_once<a class="headerlink" href="#8-pthread_once" title="Permanent link">&para;</a></h2>
+<p>On Unix platforms, besides using atomic operations, if C++11 is not an option you can also implement the Singleton through pthread_once.</p>
+<p>The prototype is as follows:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>int pthread_once(pthread_once_t once_control, void (init_routine) (void))；
 </span></code></pre></div>
-<p>实现：</p>
+<p>Implementation:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">();</span><span class="w"> </span><span class="c1">//私有构造函数，不允许使用者自己生成对象</span>
@@ -5812,17 +5832,17 @@
 </span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="9">9.总结<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
-<p>本文讲解了几种单例模式，并讲解了线程安全的单例模式，以及不用C++11实现的几种线程安全的单例模式：memory barrier，静态局部变量，pthread_once方式，C++11的atomic实现等。</p>
-<p>最后值得注意的是，针对上述单例类的析构函数请参考双重锁检查模式+自动回收实现，必须在类中声明一个静态局部变量，静态局部变量可以理解为全局变量，在程序结束时，自动调用该静态局部变量的析构函数，这就是为什么要在类中声明与定义嵌套类，而不是直接编写单例的析构函数。</p>
-<h2 id="10">10.参考资料<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h2 id="9-summary">9. Summary<a class="headerlink" href="#9-summary" title="Permanent link">&para;</a></h2>
+<p>This article covered several singleton patterns, explained thread-safe singleton patterns, and covered several thread-safe singleton implementations that do not use C++11: memory barrier, static local variables, the pthread_once approach, the C++11 atomic implementation, and so on.</p>
+<p>Finally, note that for the destructor of the singleton classes above, refer to the double-checked locking + automatic reclamation implementation: you must declare a static local variable inside the class. A static local variable can be understood as a global variable; when the program ends, the destructor of that static local variable is called automatically. This is why a nested class is declared and defined inside the class instead of directly writing the singleton's destructor.</p>
+<h2 id="10-references">10. References<a class="headerlink" href="#10-references" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><a href="https://thorns.cn/2019/03/09/DCLP.html">https://thorns.cn/2019/03/09/DCLP.html</a></p>
 <p><a href="https://www.cnblogs.com/liyuan989/p/4264889.html">https://www.cnblogs.com/liyuan989/p/4264889.html</a></p>
 <p><a href="https://segmentfault.com/a/1190000015950693">https://segmentfault.com/a/1190000015950693</a></p>
 </blockquote>
-<h2 id="_1">可复用的线程安全单例模板类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>回应 <a href="https://github.com/Light-City/CPlusPlusThings/issues/303">issue #303</a> 的需求：参考 boost::container::singleton_default 的思路，一个 CRTP 模板基类可以让任意类一行变成线程安全单例（完整代码见 <a href="https://github.com/Light-City/CPlusPlusThings/blob/master/design_pattern/singleton/singleton_default.hpp">singleton_default.hpp</a>，已含并发测试）：</p>
+<h2 id="a-reusable-thread-safe-singleton-template-class">A Reusable Thread-Safe Singleton Template Class<a class="headerlink" href="#a-reusable-thread-safe-singleton-template-class" title="Permanent link">&para;</a></h2>
+<p>Answering the request in <a href="https://github.com/Light-City/CPlusPlusThings/issues/303">issue #303</a>: following the idea of boost::container::singleton_default, a CRTP template base class can turn any class into a thread-safe singleton in a single line (see <a href="https://github.com/Light-City/CPlusPlusThings/blob/master/design_pattern/singleton/singleton_default.hpp">singleton_default.hpp</a> for the complete code, which includes concurrency tests):</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">public</span><span class="o">:</span>
@@ -5864,7 +5884,7 @@
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -5877,7 +5897,7 @@
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -5948,7 +5968,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -5957,33 +5977,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../cpp-idioms/member-pointer-type-info/" class="md-footer__link md-footer__link--prev" aria-label="上一页: C++ 成员指针与类型信息">
+          <a href="../../cpp-idioms/member-pointer-type-info/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Member Pointers &amp; Type Info">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                C++ 成员指针与类型信息
+                Member Pointers & Type Info
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../modern-cpp/cpp11/" class="md-footer__link md-footer__link--next" aria-label="下一页: C++11 · 文章索引 | C++那些事">
+          <a href="../../modern-cpp/cpp11/" class="md-footer__link md-footer__link--next" aria-label="Next: C++11 · Article Index | C++那些事">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                C++11 · 文章索引 | C++那些事
+                C++11 · Article Index | C++那些事
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6041,7 +6061,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   

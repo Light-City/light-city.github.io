@@ -20,3 +20,45 @@
   margin-left: 1.35em;
   padding-left: 0.25em;
 }
+
+/* ── Language switcher pill (overrides/partials/alternate.html) ── */
+.md-lang__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0.35rem 0.25rem;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  color: var(--md-primary-bg-color);
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  transition: background-color 0.25s, opacity 0.25s;
+}
+.md-lang__btn:hover,
+.md-lang__btn:focus {
+  opacity: 0.85;
+  outline: none;
+}
+.md-lang__btn:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+.md-lang__name {
+  max-width: 7.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.md-lang .md-select__inner {
+  min-width: 8.5rem;
+}
+@media screen and (max-width: 76.1875em) {
+  .md-lang__btn {
+    font-size: 0.68rem;
+    padding: 0.18rem 0.55rem;
+    gap: 4px;
+  }
+}

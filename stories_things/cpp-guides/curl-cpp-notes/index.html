@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="代码风格统一有助于团队协作与代码review，业界用的比较多的是google的风格，本节来点不一样的，看看咱们平时用的比较多的工具curl团队的代码规范是什么样子的。">
+        <meta name="description" content="A unified code style helps team collaboration and code review. The industry mostly uses Google's style; this section offers something different — let's see what the code conventions of the curl team look like, a tool most of us use a lot.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++教程 libcurl C++ 开发备忘,C++技巧"> 
-    <meta name="title" content="libcurl C++ 开发备忘 | C++那些事"> 
+    <meta name="keywords" content="libcurl C++ development notes,C++ tips"> 
+    <meta name="title" content="libcurl C++ Development Notes | C++那些事"> 
 
     
       
-        <title>libcurl C++ 开发备忘 | C++那些事 - C++那些事</title>
+        <title>libcurl C++ Development Notes | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/cpp-guides/curl-cpp-notes/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-guides/curl-cpp-notes/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-guides/curl-cpp-notes/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="libcurl C++ 开发备忘 | C++那些事">
-      <meta property="og:description" content="代码风格统一有助于团队协作与代码review，业界用的比较多的是google的风格，本节来点不一样的，看看咱们平时用的比较多的工具curl团队的代码规范是什么样子的。">
+      <meta property="og:title" content="libcurl C++ Development Notes | C++那些事">
+      <meta property="og:description" content="A unified code style helps team collaboration and code review. The industry mostly uses Google&#x27;s style; this section offers something different — let&#x27;s see what the code conventions of the curl team look like, a tool most of us use a lot.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="libcurl C++ 开发备忘 | C++那些事">
-      <meta name="twitter:description" content="代码风格统一有助于团队协作与代码review，业界用的比较多的是google的风格，本节来点不一样的，看看咱们平时用的比较多的工具curl团队的代码规范是什么样子的。">
+      <meta name="twitter:title" content="libcurl C++ Development Notes | C++那些事">
+      <meta name="twitter:description" content="A unified code style helps team collaboration and code review. The industry mostly uses Google&#x27;s style; this section offers something different — let&#x27;s see what the code conventions of the curl team look like, a tool most of us use a lot.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "libcurl C++ 开发备忘 | C++那些事", "description": "代码风格统一有助于团队协作与代码review，业界用的比较多的是google的风格，本节来点不一样的，看看咱们平时用的比较多的工具curl团队的代码规范是什么样子的。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "阅读与技巧", "item": "https://light-city.github.io/stories_things/cpp-guides/"}, {"@type": "ListItem", "position": 3, "name": "libcurl C++ 开发备忘 | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "libcurl C++ Development Notes | C++那些事", "description": "A unified code style helps team collaboration and code review. The industry mostly uses Google's style; this section offers something different — let's see what the code conventions of the curl team look like, a tool most of us use a lot.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Reading & Tips", "item": "https://light-city.github.io/stories_things/cpp-guides/"}, {"@type": "ListItem", "position": 3, "name": "libcurl C++ Development Notes | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-guides/curl-cpp-notes/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#libcurl-c" class="md-skip">
-          跳转至
+        <a href="#libcurl-c-development-notes" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              libcurl C++ 开发备忘 | C++那些事
+              libcurl C++ Development Notes | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/cpp-guides/curl-cpp-notes/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/cpp-guides/curl-cpp-notes/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -386,7 +406,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -406,7 +426,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -432,7 +452,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -455,7 +475,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -475,7 +495,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -495,7 +515,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1792,7 +1812,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1803,7 +1823,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1818,7 +1838,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1840,7 +1860,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1862,7 +1882,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1884,7 +1904,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1906,7 +1926,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1928,7 +1948,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -1950,7 +1970,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -1972,7 +1992,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -1994,7 +2014,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2016,7 +2036,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2038,7 +2058,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2060,7 +2080,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2082,7 +2102,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2104,7 +2124,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2126,7 +2146,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2148,7 +2168,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2170,7 +2190,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2192,7 +2212,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2268,7 +2288,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2279,7 +2299,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2294,7 +2314,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2316,7 +2336,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2338,7 +2358,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2360,7 +2380,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2382,7 +2402,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2404,7 +2424,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2426,7 +2446,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2448,7 +2468,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2470,7 +2490,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2492,7 +2512,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2514,7 +2534,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2536,7 +2556,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2558,7 +2578,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2580,7 +2600,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2602,7 +2622,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2654,7 +2674,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2665,7 +2685,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2745,7 +2765,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2767,7 +2787,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2789,7 +2809,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2811,7 +2831,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -2918,7 +2938,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -2962,7 +2982,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -2984,7 +3004,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3006,7 +3026,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3028,7 +3048,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3050,7 +3070,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3116,7 +3136,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3229,7 +3249,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3251,7 +3271,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3273,7 +3293,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3295,7 +3315,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3317,7 +3337,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3339,7 +3359,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3361,7 +3381,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3383,7 +3403,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3405,7 +3425,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3449,7 +3469,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3471,7 +3491,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3493,7 +3513,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3593,7 +3613,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3610,7 +3630,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3627,7 +3647,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3649,7 +3669,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3671,7 +3691,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3693,7 +3713,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3715,7 +3735,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3737,7 +3757,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3759,7 +3779,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3781,7 +3801,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3803,7 +3823,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3825,7 +3845,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -3847,7 +3867,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -3869,7 +3889,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -3891,7 +3911,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -3913,7 +3933,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -3935,7 +3955,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -3957,7 +3977,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -3979,7 +3999,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4001,7 +4021,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4023,7 +4043,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4045,7 +4065,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4103,7 +4123,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4120,7 +4140,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4137,7 +4157,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4159,7 +4179,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4181,7 +4201,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4257,7 +4277,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4274,7 +4294,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4291,7 +4311,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4313,7 +4333,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4335,7 +4355,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4357,7 +4377,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4379,7 +4399,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4401,7 +4421,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4423,7 +4443,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4445,7 +4465,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4467,7 +4487,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4489,7 +4509,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4511,7 +4531,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4533,7 +4553,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4602,7 +4622,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4619,7 +4639,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4636,7 +4656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4658,7 +4678,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4680,7 +4700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4702,7 +4722,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4724,7 +4744,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4755,7 +4775,7 @@
           
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4767,7 +4787,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4776,7 +4796,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -4785,158 +4805,158 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#naming" class="md-nav__link">
     <span class="md-ellipsis">
-      命名
+      Naming
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#indentation" class="md-nav__link">
     <span class="md-ellipsis">
-      缩进
+      Indentation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#comments" class="md-nav__link">
     <span class="md-ellipsis">
-      注释
+      Comments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#long-lines" class="md-nav__link">
     <span class="md-ellipsis">
-      长行
+      Long Lines
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#braces" class="md-nav__link">
     <span class="md-ellipsis">
-      大括号
+      Braces
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#else" class="md-nav__link">
+  <a href="#else-on-the-next-line" class="md-nav__link">
     <span class="md-ellipsis">
-      'else' 在下一行
+      'else' on the Next Line
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#no-space-before-parentheses" class="md-nav__link">
     <span class="md-ellipsis">
-      括号前不加空格
+      No Space Before Parentheses
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#use-boolean-conditions" class="md-nav__link">
     <span class="md-ellipsis">
-      使用布尔条件
+      Use Boolean Conditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#no-assignments-in-conditions" class="md-nav__link">
     <span class="md-ellipsis">
-      条件中不要赋值
+      No Assignments in Conditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#new-block-on-a-new-line" class="md-nav__link">
     <span class="md-ellipsis">
-      新块在新行上
+      New Block on a New Line
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#spaces-around-operators" class="md-nav__link">
     <span class="md-ellipsis">
-      运算符周围加空格
+      Spaces Around Operators
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#no-parentheses-around-return-values" class="md-nav__link">
     <span class="md-ellipsis">
-      返回值不加括号
+      No Parentheses Around Return Values
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sizeof" class="md-nav__link">
+  <a href="#parenthesize-the-sizeof-argument" class="md-nav__link">
     <span class="md-ellipsis">
-      sizeof 参数加括号
+      Parenthesize the sizeof Argument
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#column-alignment" class="md-nav__link">
     <span class="md-ellipsis">
-      列对齐
+      Column Alignment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#platform-specific-code" class="md-nav__link">
     <span class="md-ellipsis">
-      平台相关代码
+      Platform-Specific Code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typedef" class="md-nav__link">
+  <a href="#do-not-typedef-structs" class="md-nav__link">
     <span class="md-ellipsis">
-      不要 typedef 结构体
+      Do Not typedef Structs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5014,7 +5034,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -5031,7 +5051,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5048,7 +5068,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -5070,7 +5090,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -5092,7 +5112,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -5114,7 +5134,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5136,7 +5156,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5158,7 +5178,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5180,7 +5200,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5202,7 +5222,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5224,7 +5244,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5246,7 +5266,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5268,7 +5288,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5322,7 +5342,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5333,7 +5353,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5348,7 +5368,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5370,7 +5390,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5392,7 +5412,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5414,7 +5434,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5443,7 +5463,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5466,7 +5486,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5475,158 +5495,158 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#naming" class="md-nav__link">
     <span class="md-ellipsis">
-      命名
+      Naming
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#indentation" class="md-nav__link">
     <span class="md-ellipsis">
-      缩进
+      Indentation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#comments" class="md-nav__link">
     <span class="md-ellipsis">
-      注释
+      Comments
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#long-lines" class="md-nav__link">
     <span class="md-ellipsis">
-      长行
+      Long Lines
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#braces" class="md-nav__link">
     <span class="md-ellipsis">
-      大括号
+      Braces
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#else" class="md-nav__link">
+  <a href="#else-on-the-next-line" class="md-nav__link">
     <span class="md-ellipsis">
-      'else' 在下一行
+      'else' on the Next Line
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#no-space-before-parentheses" class="md-nav__link">
     <span class="md-ellipsis">
-      括号前不加空格
+      No Space Before Parentheses
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#use-boolean-conditions" class="md-nav__link">
     <span class="md-ellipsis">
-      使用布尔条件
+      Use Boolean Conditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#no-assignments-in-conditions" class="md-nav__link">
     <span class="md-ellipsis">
-      条件中不要赋值
+      No Assignments in Conditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#new-block-on-a-new-line" class="md-nav__link">
     <span class="md-ellipsis">
-      新块在新行上
+      New Block on a New Line
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#spaces-around-operators" class="md-nav__link">
     <span class="md-ellipsis">
-      运算符周围加空格
+      Spaces Around Operators
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#no-parentheses-around-return-values" class="md-nav__link">
     <span class="md-ellipsis">
-      返回值不加括号
+      No Parentheses Around Return Values
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sizeof" class="md-nav__link">
+  <a href="#parenthesize-the-sizeof-argument" class="md-nav__link">
     <span class="md-ellipsis">
-      sizeof 参数加括号
+      Parenthesize the sizeof Argument
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#column-alignment" class="md-nav__link">
     <span class="md-ellipsis">
-      列对齐
+      Column Alignment
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#platform-specific-code" class="md-nav__link">
     <span class="md-ellipsis">
-      平台相关代码
+      Platform-Specific Code
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#typedef" class="md-nav__link">
+  <a href="#do-not-typedef-structs" class="md-nav__link">
     <span class="md-ellipsis">
-      不要 typedef 结构体
+      Do Not typedef Structs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5653,54 +5673,54 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="libcurl-c">libcurl C++ 开发备忘<a class="headerlink" href="#libcurl-c" title="Permanent link">&para;</a></h1>
-<p>代码风格统一有助于团队协作与代码review，业界用的比较多的是google的风格，本节来点不一样的，看看咱们平时用的比较多的工具curl团队的代码规范是什么样子的。</p>
-<p>curl简单说一下，它在命令行或脚本中传输数据非常有用，大家也肯定用过，其源码实现可以在github上查看</p>
+<h1 id="libcurl-c-development-notes">libcurl C++ Development Notes<a class="headerlink" href="#libcurl-c-development-notes" title="Permanent link">&para;</a></h1>
+<p>A unified code style helps team collaboration and code review. The industry mostly uses Google's style; this section offers something different — let's see what the code conventions of the curl team look like, a tool most of us use a lot.</p>
+<p>To say a few words about curl: it is very useful for transferring data on the command line or in scripts, and you have surely used it. Its source implementation can be viewed on GitHub:</p>
 <blockquote>
 <p><a href="https://github.com/curl/curl">https://github.com/curl/curl</a></p>
 </blockquote>
-<p>下面我们来从几个方面看看curl的C语言开发规范。</p>
-<h2 id="_1">命名<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>新的函数和变量名称应该是逻辑的、可理解的，并且根据它们的用途进行命名。</p>
-<p>文件局部函数应该被声明为静态的，建议是小写字母名称。</p>
-<h2 id="_2">缩进<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>只使用空格进行缩进，不使用制表符。每个新的开放大括号使用两个空格。</p>
+<p>Below let's look at curl's C language development conventions from several aspects.</p>
+<h2 id="naming">Naming<a class="headerlink" href="#naming" title="Permanent link">&para;</a></h2>
+<p>New function and variable names should be logical, understandable, and named according to their purpose.</p>
+<p>File-local functions should be declared static; lowercase names are recommended.</p>
+<h2 id="indentation">Indentation<a class="headerlink" href="#indentation" title="Permanent link">&para;</a></h2>
+<p>Use only spaces for indentation, never tabs. Use two spaces for each new open brace.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>if(something_is_true) {
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  while(second_statement == fine) {
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    moo();
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  }
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>}
 </span></code></pre></div>
-<h2 id="_3">注释<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>由于编写的是 C89 代码，不允许使用 <strong>//</strong> 注释。它们直到 C99 标准才被引入。只使用 <strong>/* 注释 */</strong>。</p>
+<h2 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2>
+<p>Since C89 code is being written, <strong>//</strong> comments are not allowed. They were not introduced until the C99 standard. Use only <strong>/* comments */</strong>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/* 这是一个注释 */
 </span></code></pre></div>
-<h2 id="_4">长行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>curl 中的源代码永远不应该超过 79 列，即使在现代大屏幕和高分辨率屏幕时代，仍然有两个原因要保持这一点：</p>
+<h2 id="long-lines">Long Lines<a class="headerlink" href="#long-lines" title="Permanent link">&para;</a></h2>
+<p>Source code in curl should never exceed 79 columns. Even in this age of modern large screens and high resolutions, there are still two reasons to keep this:</p>
 <ol>
-<li>较窄的列比较宽的列更容易阅读。有一个原因是报纸几十年甚至几个世纪来一直使用列。</li>
-<li>较窄的列允许开发人员更容易地在不同的窗口中并排显示多个代码片段。它允许在同一个屏幕上并排显示两个或三个源代码窗口 - 以及多个终端和调试窗口。</li>
+<li>Narrow columns are easier to read than wide ones. There is a reason newspapers have used columns for decades and even centuries.</li>
+<li>Narrower columns make it easier for developers to display multiple code snippets side by side in different windows. It allows two or three source code windows to be shown side by side on the same screen — along with multiple terminal and debug windows.</li>
 </ol>
-<h2 id="_5">大括号<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>在 if/while/do/for 表达式中，我们将开放大括号写在与关键字同一行，然后将闭合大括号设置在与初始关键字相同缩进级别的同一行。就像这样：</p>
+<h2 id="braces">Braces<a class="headerlink" href="#braces" title="Permanent link">&para;</a></h2>
+<p>In if/while/do/for expressions, we write the open brace on the same line as the keyword, and then put the closing brace on a line at the same indentation level as the initial keyword. Like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>if(age &lt; 40) {
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  /* 显然是年轻人 */
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>}
 </span></code></pre></div>
-<p>如果它们只包含一个一行语句，则可以省略大括号：</p>
+<p>If they contain only a single one-line statement, the braces can be omitted:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>if(!x)
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  continue;
 </span></code></pre></div>
-<p>对于函数，开放大括号应该写在单独的一行上：</p>
+<p>For functions, the open brace should be written on its own line:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>int main(int argc, char **argv)
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  return 1;
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>}
 </span></code></pre></div>
-<h2 id="else">'else' 在下一行<a class="headerlink" href="#else" title="Permanent link">&para;</a></h2>
-<p>在使用大括号添加 <strong>else</strong> 子句到条件表达式时，我们将其添加到关闭大括号后的新行。就像这样：</p>
+<h2 id="else-on-the-next-line">'else' on the Next Line<a class="headerlink" href="#else-on-the-next-line" title="Permanent link">&para;</a></h2>
+<p>When adding an <strong>else</strong> clause to a conditional expression using braces, we add it on a new line after the closing brace. Like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>if(age &lt; 40) {
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  /* 显然是年轻人 */
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>}
@@ -5708,44 +5728,44 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  /* 可能是脾气暴躁的 */
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
 </span></code></pre></div>
-<h2 id="_6">括号前不加空格<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>在使用 if/while/do/for 表达式时，关键字与开放括号之间不应有空格。就像这样：</p>
+<h2 id="no-space-before-parentheses">No Space Before Parentheses<a class="headerlink" href="#no-space-before-parentheses" title="Permanent link">&para;</a></h2>
+<p>When using if/while/do/for expressions, there should be no space between the keyword and the open parenthesis. Like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>while(1) {
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  /* 永远循环 */
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>}
 </span></code></pre></div>
-<h2 id="_7">使用布尔条件<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>在 if/while 条件中，我们更喜欢测试条件值，如布尔值与 TRUE 或 FALSE、指针与 NULL 或 != NULL 以及整数与零或非零，而不是：</p>
+<h2 id="use-boolean-conditions">Use Boolean Conditions<a class="headerlink" href="#use-boolean-conditions" title="Permanent link">&para;</a></h2>
+<p>In if/while conditions we prefer testing the condition's value — booleans against TRUE or FALSE, pointers against NULL or != NULL, and integers against zero or non-zero — rather than:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>result = do_something();
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>if(!result) {
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  /* 出现了问题 */
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  return result;
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>}
 </span></code></pre></div>
-<h2 id="_8">条件中不要赋值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>为了增加可读性并减少条件的复杂性，避免在 if/while 条件中进行变量赋值。不赞成这种风格：</p>
+<h2 id="no-assignments-in-conditions">No Assignments in Conditions<a class="headerlink" href="#no-assignments-in-conditions" title="Permanent link">&para;</a></h2>
+<p>For readability and to reduce the complexity of conditions, avoid assigning variables inside if/while conditions. This style is frowned upon:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>if((ptr = malloc(100)) == NULL)
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  return NULL;
 </span></code></pre></div>
-<p>而是鼓励更清晰地表达：</p>
+<p>Instead, expressing it more clearly is encouraged:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ptr = malloc(100);
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>if(!ptr)
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  return NULL;
 </span></code></pre></div>
-<h2 id="_9">新块在新行上<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>永远不会在同一行上写多个语句，即使是短的 if() 条件也不例外。</p>
+<h2 id="new-block-on-a-new-line">New Block on a New Line<a class="headerlink" href="#new-block-on-a-new-line" title="Permanent link">&para;</a></h2>
+<p>Multiple statements are never written on the same line — not even short if() conditions are an exception.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>if(a)
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  return TRUE;
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>else if(b)
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  return FALSE;
 </span></code></pre></div>
-<p>永远不要这样：</p>
+<p>Never like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>if(a) return TRUE;
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>else if(b) return FALSE;
 </span></code></pre></div>
-<h2 id="_10">运算符周围加空格<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>请在 C 表达式中运算符的两侧使用空格。后缀 <strong>(), [], -&gt;, ., ++, --</strong> 和一元 <strong>+, -, !, ~, &amp;</strong> 操作符除外，它们不应该有空格。</p>
-<p>示例：</p>
+<h2 id="spaces-around-operators">Spaces Around Operators<a class="headerlink" href="#spaces-around-operators" title="Permanent link">&para;</a></h2>
+<p>Please use spaces on both sides of operators in C expressions. Exceptions are the postfix <strong>(), [], -&gt;, ., ++, --</strong> and unary <strong>+, -, !, ~, &amp;</strong> operators, which should have no spaces.</p>
+<p>Examples:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bla = func();
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>who = name[0];
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>age += 1;
@@ -5760,20 +5780,20 @@
 </span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>complement = ~bits;
 </span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>empty = (!*string) ? TRUE : FALSE;
 </span></code></pre></div>
-<h2 id="_11">返回值不加括号<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>在 'return' 语句中不加额外的括号：</p>
+<h2 id="no-parentheses-around-return-values">No Parentheses Around Return Values<a class="headerlink" href="#no-parentheses-around-return-values" title="Permanent link">&para;</a></h2>
+<p>Do not add extra parentheses in 'return' statements:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>int works(void)
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>{
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  return TRUE;
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>}
 </span></code></pre></div>
-<h2 id="sizeof">sizeof 参数加括号<a class="headerlink" href="#sizeof" title="Permanent link">&para;</a></h2>
-<p>在代码中使用 sizeof 运算符时，我们更喜欢在其参数周围加上括号：</p>
+<h2 id="parenthesize-the-sizeof-argument">Parenthesize the sizeof Argument<a class="headerlink" href="#parenthesize-the-sizeof-argument" title="Permanent link">&para;</a></h2>
+<p>When using the sizeof operator in code, we prefer parentheses around its argument:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>int size = sizeof(int);
 </span></code></pre></div>
-<h2 id="_12">列对齐<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
-<p>一些语句不能在单行上完成，因为行太长、语句太难读，或者是由于上述其他风格指南。在这种情况下，语句跨越多行。</p>
-<p>如果一个连续行是表达式或子表达式的一部分，那么你应该在适当的列上对齐，以便能够清楚地知道它是语句的哪一部分。运算符不应该起始于连续行。在其他情况下，遵循 2 个空格的缩进指南。以下是来自 libcurl 的一些示例：</p>
+<h2 id="column-alignment">Column Alignment<a class="headerlink" href="#column-alignment" title="Permanent link">&para;</a></h2>
+<p>Some statements cannot be completed on a single line — because the line is too long, the statement is too hard to read, or because of the other style guidelines above. In such cases the statement spans multiple lines.</p>
+<p>If a continuation line is part of an expression or sub-expression, you should align it at the appropriate column so it is clear which part of the statement it belongs to. Operators should not start continuation lines. In other cases, follow the 2-space indentation guideline. Here are some examples from libcurl:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>if(Curl_pipeline_wanted(handle-&gt;multi, CURLPIPE_HTTP1) &amp;&amp;
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>   (handle-&gt;set.httpversion != CURL_HTTP_VERSION_1_0) &amp;&amp;
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>   (handle-&gt;set.httpreq == HTTPREQ_GET ||
@@ -5781,11 +5801,11 @@
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  /* 没有要求 HTTP/1.0 并且是 GET 或 HEAD 请求 */
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  return TRUE;
 </span></code></pre></div>
-<p>如果没有括号，使用默认缩进：</p>
+<p>Without parentheses, use the default indentation:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>data-&gt;set.http_disable_hostname_check_before_authentication =
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  (0 != va_arg(param, long)) ? TRUE : FALSE;
 </span></code></pre></div>
-<p>函数调用时使用开放括号：</p>
+<p>For function calls, use the open parenthesis:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>if(option) {
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  result = parse_login_details(option, strlen(option),
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>                               (userp ? &amp;user : NULL),
@@ -5793,14 +5813,14 @@
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>                               NULL);
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>}
 </span></code></pre></div>
-<p>与 "current open" 括号对齐：</p>
+<p>Aligned with the "currently open" parenthesis:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>DEBUGF(infof(data, &quot;Curl_pp_readresp_ %d bytes of trailing &quot;
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>             &quot;server response left\n&quot;,
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>             (int)clipamount));
 </span></code></pre></div>
-<h2 id="_13">平台相关代码<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<p>使用 <strong>#ifdef HAVE_FEATURE</strong> 进行条件代码。我们避免在 #ifdef 行中检查特定操作系统或硬件。HAVE_FEATURE 应该由 configure 脚本为类 Unix 系统生成，并且它们在其他系统的 <code>config-[system].h</code> 文件中硬编码。</p>
-<p>我们还鼓励在 libcurl 构建时，使用可能为空或定义为常量的宏/函数，以使代码无缝。就像这个例子，其中 <strong>magic()</strong> 函数根据构建时的条件不同而工作：</p>
+<h2 id="platform-specific-code">Platform-Specific Code<a class="headerlink" href="#platform-specific-code" title="Permanent link">&para;</a></h2>
+<p>Use <strong>#ifdef HAVE_FEATURE</strong> for conditional code. We avoid checking for specific operating systems or hardware in #ifdef lines. HAVE_FEATURE should be generated by the configure script for Unix-like systems, and they are hardcoded in the <code>config-[system].h</code> files on other systems.</p>
+<p>We also encourage using macros/functions that may be empty or defined as constants when libcurl is built, to make the code seamless. Like this example, where the <strong>magic()</strong> function works differently depending on build-time conditions:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#ifdef HAVE_MAGIC
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>void magic(int a)
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>{
@@ -5812,33 +5832,33 @@
 </span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>int content = magic(3);
 </span></code></pre></div>
-<h2 id="typedef">不要 typedef 结构体<a class="headerlink" href="#typedef" title="Permanent link">&para;</a></h2>
-<p>尽管可以使用结构体，但不要对其进行 typedef。使用 <code>struct name</code> 的方式来标识它们：</p>
+<h2 id="do-not-typedef-structs">Do Not typedef Structs<a class="headerlink" href="#do-not-typedef-structs" title="Permanent link">&para;</a></h2>
+<p>Although structs can be used, do not typedef them. Refer to them using the <code>struct name</code> form:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>struct something {
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>   void *valid;
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>   size_t way_to_write;
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>};
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>struct something instance;
 </span></code></pre></div>
-<p><strong>不要这样</strong>：</p>
+<p><strong>Not like this</strong>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>typedef struct {
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>   void *wrong;
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>   size_t way_to_write;
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>} something;
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>something instance;
 </span></code></pre></div>
-<p>本文翻译自：<a href="https://curl.se/dev/code-style.html">https://curl.se/dev/code-style.html</a></p>
+<p>This article is translated from: <a href="https://curl.se/dev/code-style.html">https://curl.se/dev/code-style.html</a></p>
 <div class="admonition note">
-<p class="admonition-title">说明</p>
-<p>本文为开发备忘，建议结合官方 libcurl 文档与具体项目错误码排查。</p>
+<p class="admonition-title">Note</p>
+<p>This article is a development memo; it is recommended to consult the official libcurl documentation together with your project's specific error codes for troubleshooting.</p>
 </div>
-<h2 id="_14">相关主题<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../cpp-string-split-methods/">C++ 字符串六种分割方法 | C++那些事</a></li>
-<li><a href="../cpython-extension-notes/">CPython 扩展开发笔记 | C++那些事</a></li>
-<li><a href="../how-to-read-open-source-cpp/">如何阅读开源 C++ 代码 | C++那些事</a></li>
-<li><a href="../interesting-cpp-code-snippet/">一段有趣的 C++ 代码 | C++那些事</a></li>
-<li><a href="../print-1-to-100-without-loop/">C++ 无循环打印 1-100 | C++那些事</a></li>
+<li><a href="../cpp-string-split-methods/">Six Ways to Split Strings in C++ | C++那些事</a></li>
+<li><a href="../cpython-extension-notes/">CPython Extension Development Notes | C++那些事</a></li>
+<li><a href="../how-to-read-open-source-cpp/">How to Read Open Source C++ Code | C++那些事</a></li>
+<li><a href="../interesting-cpp-code-snippet/">An Interesting Piece of C++ Code | C++那些事</a></li>
+<li><a href="../print-1-to-100-without-loop/">Printing 1-100 in C++ Without Loops | C++那些事</a></li>
 </ul>
 
 
@@ -5857,7 +5877,7 @@
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -5870,7 +5890,7 @@
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -5941,7 +5961,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -5950,33 +5970,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cpython-extension-notes/" class="md-footer__link md-footer__link--prev" aria-label="上一页: CPython 扩展开发笔记">
+          <a href="../cpython-extension-notes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CPython Extension Notes">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                CPython 扩展开发笔记
+                CPython Extension Notes
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../cpp-concurrency/" class="md-footer__link md-footer__link--next" aria-label="下一页: 并发编程 · 文章索引 | C++那些事">
+          <a href="../../cpp-concurrency/" class="md-footer__link md-footer__link--next" aria-label="Next: Concurrency Programming · Article Index | C++那些事">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                并发编程 · 文章索引 | C++那些事
+                Concurrency Programming · Article Index | C++那些事
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6034,7 +6054,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   

@@ -1,13 +1,13 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="vector的数据安排以及操作方式，与array非常相似。两者的唯一差别在于空间的运用的灵活性，array是静态的，一旦配置了就不能改变，而 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。下面一起来看一下…">
+        <meta name="description" content="vector's data layout and the way it operates are very similar to array. The only difference between the two lies in the flexibility of space usage: array is static — once allocated it cannot change — whereas vector is dynamic space; as elements are added, its internal mechanism automatically expands the space to hold the new elements. Let's take a look together…">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="STL STL vector 源码剖析源码解析,std::allocator_traits,STL源码"> 
-    <meta name="title" content="STL vector 源码剖析 | C++那些事"> 
+    <meta name="keywords" content="STL STL vector source code analysis source analysis,std::allocator_traits,STL source code"> 
+    <meta name="title" content="STL vector source code analysis | C++那些事"> 
 
     
       
-        <title>STL vector 源码剖析 | C++那些事 - C++那些事</title>
+        <title>STL vector source code analysis | C++那些事 - C++那些事</title>
       
     
     
@@ -75,21 +75,21 @@
     
     
     
-  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/vector/">
+  <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/vector/">
-      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/vector/">
+      <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/vector/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/vector/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL vector 源码剖析 | C++那些事">
-      <meta property="og:description" content="vector的数据安排以及操作方式，与array非常相似。两者的唯一差别在于空间的运用的灵活性，array是静态的，一旦配置了就不能改变，而 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。下面一起来看一下…">
+      <meta property="og:title" content="STL vector source code analysis | C++那些事">
+      <meta property="og:description" content="vector&#x27;s data layout and the way it operates are very similar to array. The only difference between the two lies in the flexibility of space usage: array is static — once allocated it cannot change — whereas vector is dynamic space; as elements are added, its internal mechanism automatically expands the space to hold the new elements. Let&#x27;s take a look together…">
       <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/vector/">
       <meta property="og:site_name" content="C++那些事">
-      <meta property="og:locale" content="zh_CN">
-      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:locale:alternate" content="zh_CN">
       <meta property="og:locale:alternate" content="ja_JP">
       <meta property="og:locale:alternate" content="es_ES">
       <meta property="og:locale:alternate" content="ru_RU">
@@ -100,13 +100,12 @@
       <meta property="og:image:height" content="630">
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
-      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL vector 源码剖析 | C++那些事">
-      <meta name="twitter:description" content="vector的数据安排以及操作方式，与array非常相似。两者的唯一差别在于空间的运用的灵活性，array是静态的，一旦配置了就不能改变，而 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。下面一起来看一下…">
+      <meta name="twitter:title" content="STL vector source code analysis | C++那些事">
+      <meta name="twitter:description" content="vector&#x27;s data layout and the way it operates are very similar to array. The only difference between the two lies in the flexibility of space usage: array is static — once allocated it cannot change — whereas vector is dynamic space; as elements are added, its internal mechanism automatically expands the space to hold the new elements. Let&#x27;s take a look together…">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL vector 源码剖析 | C++那些事", "description": "vector的数据安排以及操作方式，与array非常相似。两者的唯一差别在于空间的运用的灵活性，array是静态的，一旦配置了就不能改变，而 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。下面一起来看一下…", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/vector/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/vector/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL vector 源码剖析 | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/vector/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL vector source code analysis | C++那些事", "description": "vector's data layout and the way it operates are very similar to array. The only difference between the two lies in the flexibility of space usage: array is static — once allocated it cannot change — whereas vector is dynamic space; as elements are added, its internal mechanism automatically expands the space to hold the new elements. Let's take a look together…", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/stl-source-analysis/vector/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/vector/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL vector source code analysis | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/vector/"}]}</script>
   </head>
   
   
@@ -124,8 +123,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#stl-vector" class="md-skip">
-          跳转至
+        <a href="#stl-vector-source-code-analysis" class="md-skip">
+          Skip to content
         </a>
       
     </div>
@@ -137,7 +136,7 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
   <img src="../../assets/images/logo.svg" alt="logo">
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STL vector 源码剖析 | C++那些事
+              STL vector source code analysis | C++那些事
             
           </span>
         </div>
@@ -175,24 +174,45 @@
     
     
     
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+      
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<div class="md-header__option">
+  <div class="md-select md-lang">
+    <button class="md-header__button md-lang__btn" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+        <path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2zm-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.9 7.9 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+      </svg>
+      <span class="md-lang__name">Language</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
+        <path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/>
+      </svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
-              简体中文
+            <a href="./" hreflang="en" class="md-select__link">
+              English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../en/stl-source-analysis/vector/" hreflang="en" class="md-select__link">
-              English
+            <a href="../../zh/stl-source-analysis/vector/" hreflang="zh" class="md-select__link">
+              简体中文
             </a>
           </li>
         
@@ -240,21 +260,21 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -267,7 +287,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -278,7 +298,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -299,7 +319,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -313,7 +333,7 @@
   
     
   
-  主页
+  Home
 
       </a>
     </li>
@@ -330,7 +350,7 @@
   
     
   
-  项目概要
+  Project Overview
 
       </a>
     </li>
@@ -347,7 +367,7 @@
   
     
   
-  编译与运行指南
+  Build & Run Guide
 
       </a>
     </li>
@@ -366,7 +386,7 @@
   
     
   
-  基础进阶
+  Fundamentals & Beyond
 
         </a>
       </li>
@@ -388,7 +408,7 @@
   
     
   
-  源码剖析
+  Source-Code Analysis
 
         </a>
       </li>
@@ -408,7 +428,7 @@
   
     
   
-  惯用法
+  Idioms
 
         </a>
       </li>
@@ -434,7 +454,7 @@
   
     
   
-  现代C++
+  Modern C++
 
         </a>
       </li>
@@ -457,7 +477,7 @@
   
     
   
-  工具篇
+  Tools
 
         </a>
       </li>
@@ -477,7 +497,7 @@
   
     
   
-  性能测评
+  Benchmarks
 
         </a>
       </li>
@@ -497,7 +517,7 @@
   
     
   
-  项目实战
+  Hands-on Projects
 
         </a>
       </li>
@@ -517,7 +537,7 @@
   
     
   
-  阅读与技巧
+  Reading & Tips
 
         </a>
       </li>
@@ -537,7 +557,7 @@
   
     
   
-  并发编程
+  Concurrency
 
         </a>
       </li>
@@ -557,7 +577,7 @@
   
     
   
-  学习资源
+  Learning Resources
 
         </a>
       </li>
@@ -575,7 +595,7 @@
   
     
   
-  联系作者
+  Contact the Author
 
       </a>
     </li>
@@ -602,7 +622,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
@@ -613,7 +633,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Light-City/CPlusPlusThings" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -637,7 +657,7 @@
         
   
   <span class="md-ellipsis">
-    主页
+    Home
     
   </span>
   
@@ -658,7 +678,7 @@
         
   
   <span class="md-ellipsis">
-    项目概要
+    Project Overview
     
   </span>
   
@@ -679,7 +699,7 @@
         
   
   <span class="md-ellipsis">
-    编译与运行指南
+    Build & Run Guide
     
   </span>
   
@@ -767,7 +787,7 @@
             
   
   <span class="md-ellipsis">
-    基础进阶
+    Fundamentals & Beyond
     
   </span>
   
@@ -778,7 +798,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            基础进阶
+            Fundamentals & Beyond
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -793,7 +813,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 常量与修饰
+    C++ const Constants & Qualifiers
     
   </span>
   
@@ -815,7 +835,7 @@
         
   
   <span class="md-ellipsis">
-    C++ static 静态成员与生存期
+    C++ static Members & Lifetime
     
   </span>
   
@@ -837,7 +857,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 虚指针与虚表机制
+    C++ vptr & vtable
     
   </span>
   
@@ -859,7 +879,7 @@
         
   
   <span class="md-ellipsis">
-    C 语言实现 C++ 多态
+    C-Style Polymorphism in C++
     
   </span>
   
@@ -881,7 +901,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 指针与引用
+    C++ Pointers & References
     
   </span>
   
@@ -903,7 +923,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 宏与条件编译
+    C++ Macros & Conditional Compilation
     
   </span>
   
@@ -925,7 +945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ this 指针
+    The C++ this Pointer
     
   </span>
   
@@ -947,7 +967,7 @@
         
   
   <span class="md-ellipsis">
-    C++ inline 内联函数
+    C++ inline Functions
     
   </span>
   
@@ -969,7 +989,7 @@
         
   
   <span class="md-ellipsis">
-    C++ sizeof 运算符
+    The C++ sizeof Operator
     
   </span>
   
@@ -991,7 +1011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 纯虚函数与抽象类
+    Pure Virtual Functions & Abstract Classes
     
   </span>
   
@@ -1013,7 +1033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ virtual 虚函数
+    C++ virtual Functions
     
   </span>
   
@@ -1035,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ volatile 关键字
+    The C++ volatile Keyword
     
   </span>
   
@@ -1057,7 +1077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ assert 断言
+    C++ Assertions
     
   </span>
   
@@ -1079,7 +1099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 位域
+    C++ Bit Fields
     
   </span>
   
@@ -1101,7 +1121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ extern 链接说明
+    C++ extern & Linkage
     
   </span>
   
@@ -1123,7 +1143,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 结构体
+    C++ struct
     
   </span>
   
@@ -1145,7 +1165,7 @@
         
   
   <span class="md-ellipsis">
-    C++ struct 与 class 区别
+    struct vs class
     
   </span>
   
@@ -1167,7 +1187,7 @@
         
   
   <span class="md-ellipsis">
-    C++ union 联合体
+    C++ union
     
   </span>
   
@@ -1189,7 +1209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ explicit 显式转换
+    The C++ explicit Keyword
     
   </span>
   
@@ -1211,7 +1231,7 @@
         
   
   <span class="md-ellipsis">
-    C++ friend 友元
+    C++ friend
     
   </span>
   
@@ -1233,7 +1253,7 @@
         
   
   <span class="md-ellipsis">
-    C++ using 声明与别名
+    C++ using Declarations & Aliases
     
   </span>
   
@@ -1255,7 +1275,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 命名空间
+    C++ Namespaces
     
   </span>
   
@@ -1277,7 +1297,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum 枚举类型
+    C++ enum
     
   </span>
   
@@ -1299,7 +1319,7 @@
         
   
   <span class="md-ellipsis">
-    C++ decltype 类型推导
+    C++ decltype
     
   </span>
   
@@ -1368,7 +1388,7 @@
             
   
   <span class="md-ellipsis">
-    语言机制深入
+    Deeper Language Mechanics
     
   </span>
   
@@ -1379,7 +1399,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_25">
             <span class="md-nav__icon md-icon"></span>
-            语言机制深入
+            Deeper Language Mechanics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1394,7 +1414,7 @@
         
   
   <span class="md-ellipsis">
-    C++ mutable 关键字
+    The C++ mutable Keyword
     
   </span>
   
@@ -1416,7 +1436,7 @@
         
   
   <span class="md-ellipsis">
-    C++ const 全家桶
+    The const Family in C++
     
   </span>
   
@@ -1438,7 +1458,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string ABI 兼容性
+    C++ string ABI Compatibility
     
   </span>
   
@@ -1460,7 +1480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ ref 与 reference_wrapper
+    C++ ref & reference_wrapper
     
   </span>
   
@@ -1482,7 +1502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::function 详解
+    std::function Deep Dive
     
   </span>
   
@@ -1504,7 +1524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 智能指针作函数参数
+    Smart Pointers as Parameters
     
   </span>
   
@@ -1526,7 +1546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员初始化列表注意点
+    Member Initializer List Pitfalls
     
   </span>
   
@@ -1548,7 +1568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多返回值写法
+    Multiple Return Values
     
   </span>
   
@@ -1570,7 +1590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 与 Rust 析构对比
+    C++ vs Rust Destructors
     
   </span>
   
@@ -1592,7 +1612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 初始化与赋值
+    Initialization vs Assignment
     
   </span>
   
@@ -1614,7 +1634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ restrict 与编译优化
+    restrict & Compiler Optimization
     
   </span>
   
@@ -1636,7 +1656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 模板消歧
+    Template Disambiguation
     
   </span>
   
@@ -1658,7 +1678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 尾递归
+    Tail Recursion in C++
     
   </span>
   
@@ -1680,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ vector resize 与 reverse
+    vector resize vs reverse
     
   </span>
   
@@ -1702,7 +1722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 解引用运算符 *
+    The Dereference Operator *
     
   </span>
   
@@ -1797,7 +1817,7 @@
             
   
   <span class="md-ellipsis">
-    源码剖析
+    Source-Code Analysis
     
   </span>
   
@@ -1808,7 +1828,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            源码剖析
+            Source-Code Analysis
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1823,7 +1843,7 @@
         
   
   <span class="md-ellipsis">
-    STL array 源码剖析
+    STL Source-Code Analysis: array
     
   </span>
   
@@ -1845,7 +1865,7 @@
         
   
   <span class="md-ellipsis">
-    STL deque 源码剖析
+    STL Source-Code Analysis: deque
     
   </span>
   
@@ -1867,7 +1887,7 @@
         
   
   <span class="md-ellipsis">
-    STL queue 与 stack 源码剖析
+    STL Source-Code Analysis: queue & stack
     
   </span>
   
@@ -1889,7 +1909,7 @@
         
   
   <span class="md-ellipsis">
-    STL list 源码剖析
+    STL Source-Code Analysis: list
     
   </span>
   
@@ -1920,7 +1940,7 @@
           
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1932,7 +1952,7 @@
         
   
   <span class="md-ellipsis">
-    STL vector 源码剖析
+    STL Source-Code Analysis: vector
     
   </span>
   
@@ -1941,7 +1961,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -1950,14 +1970,14 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
@@ -1992,9 +2012,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-vector" class="md-nav__link">
+  <a href="#13-vectors-memory-management" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 vector的内存管理
+      1.3 vector's memory management
     </span>
   </a>
   
@@ -2006,28 +2026,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2vector" class="md-nav__link">
+  <a href="#2vector-iterators" class="md-nav__link">
     <span class="md-ellipsis">
-      2.vector迭代器
+      2.vector iterators
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.vector迭代器">
+    <nav class="md-nav" aria-label="2.vector iterators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-forward" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 正向
+      2.1 Forward
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-reverse" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 反向
+      2.2 Reverse
     </span>
   </a>
   
@@ -2039,18 +2059,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3vector" class="md-nav__link">
+  <a href="#3vectors-data-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      3.vector的数据结构
+      3.vector's data structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4vector" class="md-nav__link">
+  <a href="#4vector-construction-and-destruction" class="md-nav__link">
     <span class="md-ellipsis">
-      4.vector构造与析构
+      4.vector construction and destruction
     </span>
   </a>
   
@@ -2066,9 +2086,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -2094,7 +2114,7 @@
         
   
   <span class="md-ellipsis">
-    STL typename 源码剖析
+    STL Source-Code Analysis: typename
     
   </span>
   
@@ -2116,7 +2136,7 @@
         
   
   <span class="md-ellipsis">
-    STL traits 类型萃取
+    STL traits Techniques
     
   </span>
   
@@ -2138,7 +2158,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器源码剖析
+    STL Source-Code Analysis: iterators
     
   </span>
   
@@ -2160,7 +2180,7 @@
         
   
   <span class="md-ellipsis">
-    STL 空基类优化 EBO
+    STL EBO: Empty Base Optimization
     
   </span>
   
@@ -2182,7 +2202,7 @@
         
   
   <span class="md-ellipsis">
-    STL 红黑树实现
+    STL Red-Black Tree
     
   </span>
   
@@ -2204,7 +2224,7 @@
         
   
   <span class="md-ellipsis">
-    STL set 与 multiset
+    STL set & multiset
     
   </span>
   
@@ -2226,7 +2246,7 @@
         
   
   <span class="md-ellipsis">
-    STL map 与 multimap
+    STL map & multimap
     
   </span>
   
@@ -2248,7 +2268,7 @@
         
   
   <span class="md-ellipsis">
-    STL hashtable 哈希表
+    STL hashtable
     
   </span>
   
@@ -2270,7 +2290,7 @@
         
   
   <span class="md-ellipsis">
-    STL 手写哈希表实现
+    Hand-Writing a Hash Table
     
   </span>
   
@@ -2292,7 +2312,7 @@
         
   
   <span class="md-ellipsis">
-    STL unordered_map 源码剖析
+    STL Source-Code Analysis: unordered_map
     
   </span>
   
@@ -2314,7 +2334,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 深析
+    std::string Deep Dive
     
   </span>
   
@@ -2336,7 +2356,7 @@
         
   
   <span class="md-ellipsis">
-    STL string 面试题精讲
+    std::string Interview Questions
     
   </span>
   
@@ -2358,7 +2378,7 @@
         
   
   <span class="md-ellipsis">
-    STL 迭代器失效
+    STL Iterator Invalidation
     
   </span>
   
@@ -2434,7 +2454,7 @@
             
   
   <span class="md-ellipsis">
-    惯用法
+    Idioms
     
   </span>
   
@@ -2445,7 +2465,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            惯用法
+            Idioms
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2460,7 +2480,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类初始化列表惯用法
+    The Class Initializer List Idiom
     
   </span>
   
@@ -2482,7 +2502,7 @@
         
   
   <span class="md-ellipsis">
-    C++ enum class 强类型枚举
+    enum class: Scoped Enums
     
   </span>
   
@@ -2504,7 +2524,7 @@
         
   
   <span class="md-ellipsis">
-    C++ RAII 资源管理
+    RAII Resource Management
     
   </span>
   
@@ -2526,7 +2546,7 @@
         
   
   <span class="md-ellipsis">
-    C++ copy-and-swap 惯用法
+    The copy-and-swap Idiom
     
   </span>
   
@@ -2548,7 +2568,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Pimpl 惯用法
+    The Pimpl Idiom
     
   </span>
   
@@ -2570,7 +2590,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Mixin 惯用法
+    The Mixin Idiom
     
   </span>
   
@@ -2592,7 +2612,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 依赖注入
+    Dependency Injection in C++
     
   </span>
   
@@ -2614,7 +2634,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 三字母词
+    Trigraphs in C++
     
   </span>
   
@@ -2636,7 +2656,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 避免默认构造函数
+    Avoiding Default Constructors
     
   </span>
   
@@ -2658,7 +2678,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 延迟计算惯用法
+    Lazy Evaluation Idiom
     
   </span>
   
@@ -2680,7 +2700,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Header-Only 与实现分离
+    Header-Only vs Implementation Split
     
   </span>
   
@@ -2702,7 +2722,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 类模板优于函数模板
+    Class Templates over Function Templates
     
   </span>
   
@@ -2724,7 +2744,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 查表法惯用法
+    The Lookup-Table Idiom
     
   </span>
   
@@ -2746,7 +2766,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 成员指针与类型信息
+    Member Pointers & Type Info
     
   </span>
   
@@ -2768,7 +2788,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 单例模式
+    The Singleton Pattern
     
   </span>
   
@@ -2820,7 +2840,7 @@
             
   
   <span class="md-ellipsis">
-    现代C++
+    Modern C++
     
   </span>
   
@@ -2831,7 +2851,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            现代C++
+            Modern C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2911,7 +2931,7 @@
         
   
   <span class="md-ellipsis">
-    C++11 新特性概览
+    C++11 Features Overview
     
   </span>
   
@@ -2933,7 +2953,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::move 原理与用法
+    std::move: How It Works
     
   </span>
   
@@ -2955,7 +2975,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 可变参数模板
+    Variadic Templates
     
   </span>
   
@@ -2977,7 +2997,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::bind 与 lambda 对比
+    std::bind vs lambda
     
   </span>
   
@@ -3084,7 +3104,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 十七项高级特性
+    17 Advanced C++17 Features
     
   </span>
   
@@ -3128,7 +3148,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 结构化绑定
+    C++17 Structured Bindings
     
   </span>
   
@@ -3150,7 +3170,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 变量模板
+    C++17 Variable Templates
     
   </span>
   
@@ -3172,7 +3192,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 [[nodiscard]] 属性
+    C++17 [[nodiscard]]
     
   </span>
   
@@ -3194,7 +3214,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 PMR 内存资源
+    C++17 PMR Memory Resources
     
   </span>
   
@@ -3216,7 +3236,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 类模板参数推导 CTAD
+    C++17 CTAD
     
   </span>
   
@@ -3282,7 +3302,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 模板 auto 推导
+    C++17 auto Template Deduction
     
   </span>
   
@@ -3395,7 +3415,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 新特性导读
+    A Guide to C++20 Features
     
   </span>
   
@@ -3417,7 +3437,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程入门
+    Introduction to C++20 Coroutines
     
   </span>
   
@@ -3439,7 +3459,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Ranges 库
+    The C++20 Ranges Library
     
   </span>
   
@@ -3461,7 +3481,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 模块 Modules
+    C++20 Modules
     
   </span>
   
@@ -3483,7 +3503,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Lambda 表达式（上）
+    C++20 Lambdas (Part 1)
     
   </span>
   
@@ -3505,7 +3525,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 channel 实战
+    C++20 Channels in Practice
     
   </span>
   
@@ -3527,7 +3547,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 std::span 设计与陷阱
+    std::span: Design & Pitfalls
     
   </span>
   
@@ -3549,7 +3569,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 字节序 endian
+    C++20 std::endian
     
   </span>
   
@@ -3571,7 +3591,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 constexpr 与逗号表达式
+    C++20 constexpr & the Comma Operator
     
   </span>
   
@@ -3615,7 +3635,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 三路比较运算符 <=>
+    The <=> Operator
     
   </span>
   
@@ -3637,7 +3657,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 Concepts 概念
+    C++20 Concepts
     
   </span>
   
@@ -3659,7 +3679,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 [[likely]] 与 [[unlikely]]
+    C++20 [[likely]] & [[unlikely]]
     
   </span>
   
@@ -3759,7 +3779,7 @@
               
   
   <span class="md-ellipsis">
-    工具篇
+    Tools
     
   </span>
   
@@ -3776,7 +3796,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            工具篇
+            Tools
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3793,7 +3813,7 @@
         
   
   <span class="md-ellipsis">
-    CMake 入门与实战
+    CMake Essentials
     
   </span>
   
@@ -3815,7 +3835,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 构建 C++ 项目
+    Building C++ with Bazel
     
   </span>
   
@@ -3837,7 +3857,7 @@
         
   
   <span class="md-ellipsis">
-    Meson 构建 C++ 项目
+    Building C++ with Meson
     
   </span>
   
@@ -3859,7 +3879,7 @@
         
   
   <span class="md-ellipsis">
-    Conan C++ 包管理入门
+    Getting Started with Conan
     
   </span>
   
@@ -3881,7 +3901,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 调试 C++ 程序
+    Debugging C++ with GDB
     
   </span>
   
@@ -3903,7 +3923,7 @@
         
   
   <span class="md-ellipsis">
-    LLDB 调试 C++ 程序
+    Debugging C++ with LLDB
     
   </span>
   
@@ -3925,7 +3945,7 @@
         
   
   <span class="md-ellipsis">
-    C++ dbg-macro 调试宏
+    The dbg-macro Debugging Tool
     
   </span>
   
@@ -3947,7 +3967,7 @@
         
   
   <span class="md-ellipsis">
-    Bazel 与 LLDB 联合调试
+    Bazel + LLDB Debugging
     
   </span>
   
@@ -3969,7 +3989,7 @@
         
   
   <span class="md-ellipsis">
-    GDB Python 扩展调试
+    GDB Python Extensions
     
   </span>
   
@@ -3991,7 +4011,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏排查实战
+    Hunting Memory Leaks in Practice
     
   </span>
   
@@ -4013,7 +4033,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL Debug 模式
+    STL Debug Mode
     
   </span>
   
@@ -4035,7 +4055,7 @@
         
   
   <span class="md-ellipsis">
-    C++ STL 容器快捷输出
+    Quick STL Container Output
     
   </span>
   
@@ -4057,7 +4077,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Jupyter Notebook 交互
+    C++ in Jupyter Notebooks
     
   </span>
   
@@ -4079,7 +4099,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Insights 编译期观察
+    C++ Insights: Compile-Time View
     
   </span>
   
@@ -4101,7 +4121,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string 转 int
+    Converting string to int
     
   </span>
   
@@ -4123,7 +4143,7 @@
         
   
   <span class="md-ellipsis">
-    GCC 编译选项详解
+    GCC Options Explained
     
   </span>
   
@@ -4145,7 +4165,7 @@
         
   
   <span class="md-ellipsis">
-    VS Code 格式化 C++ 代码
+    Formatting C++ in VS Code
     
   </span>
   
@@ -4167,7 +4187,7 @@
         
   
   <span class="md-ellipsis">
-    AddressSanitizer 内存检测
+    AddressSanitizer
     
   </span>
   
@@ -4189,7 +4209,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 内存泄漏检测
+    Detecting Memory Leaks
     
   </span>
   
@@ -4211,7 +4231,7 @@
         
   
   <span class="md-ellipsis">
-    Valgrind Massif 内存分析
+    Valgrind Massif Analysis
     
   </span>
   
@@ -4269,7 +4289,7 @@
               
   
   <span class="md-ellipsis">
-    性能测评
+    Benchmarks
     
   </span>
   
@@ -4286,7 +4306,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            性能测评
+            Benchmarks
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4303,7 +4323,7 @@
         
   
   <span class="md-ellipsis">
-    memcpy 与 std::copy 性能对比
+    memcpy vs std::copy
     
   </span>
   
@@ -4325,7 +4345,7 @@
         
   
   <span class="md-ellipsis">
-    C++ string SSO 性能测试
+    std::string SSO Benchmarks
     
   </span>
   
@@ -4347,7 +4367,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多态：虚函数、CRTP 与 variant
+    Polymorphism: virtual vs CRTP vs variant
     
   </span>
   
@@ -4423,7 +4443,7 @@
               
   
   <span class="md-ellipsis">
-    项目实战
+    Hands-on Projects
     
   </span>
   
@@ -4440,7 +4460,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            项目实战
+            Hands-on Projects
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4457,7 +4477,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 十日速成练习
+    10-Day C++ Crash Course
     
   </span>
   
@@ -4479,7 +4499,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 重点实战练习
+    Key C++ Exercises
     
   </span>
   
@@ -4501,7 +4521,7 @@
         
   
   <span class="md-ellipsis">
-    C++20 协程 HTTP 服务器
+    A C++20 Coroutine HTTP Server
     
   </span>
   
@@ -4523,7 +4543,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 短链接服务 Demo
+    A URL-Shortener Demo
     
   </span>
   
@@ -4545,7 +4565,7 @@
         
   
   <span class="md-ellipsis">
-    C++ gRPC 小项目
+    A Small gRPC Project
     
   </span>
   
@@ -4567,7 +4587,7 @@
         
   
   <span class="md-ellipsis">
-    pybind11 加速 Python
+    Accelerating Python with pybind11
     
   </span>
   
@@ -4589,7 +4609,7 @@
         
   
   <span class="md-ellipsis">
-    Google Benchmark 性能测试
+    Google Benchmark
     
   </span>
   
@@ -4611,7 +4631,7 @@
         
   
   <span class="md-ellipsis">
-    手撕 C++ FnOnce
+    Implementing FnOnce by Hand
     
   </span>
   
@@ -4633,7 +4653,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 进程间通信实战
+    IPC in Practice
     
   </span>
   
@@ -4655,7 +4675,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 与 SQLite 统计目录大小
+    C++17 + SQLite: Directory Sizes
     
   </span>
   
@@ -4677,7 +4697,7 @@
         
   
   <span class="md-ellipsis">
-    Protobuf ZeroCopy 序列化
+    Protobuf Zero-Copy Serialization
     
   </span>
   
@@ -4699,7 +4719,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 栈式计算器设计
+    Designing a Stack Calculator
     
   </span>
   
@@ -4763,7 +4783,7 @@
               
   
   <span class="md-ellipsis">
-    阅读与技巧
+    Reading & Tips
     
   </span>
   
@@ -4780,7 +4800,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            阅读与技巧
+            Reading & Tips
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4797,7 +4817,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 字符串六种分割方法
+    Six Ways to Split a String
     
   </span>
   
@@ -4819,7 +4839,7 @@
         
   
   <span class="md-ellipsis">
-    如何阅读开源 C++ 代码
+    How to Read Open-Source C++
     
   </span>
   
@@ -4841,7 +4861,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 无循环打印 1-100
+    Printing 1-100 Without Loops
     
   </span>
   
@@ -4863,7 +4883,7 @@
         
   
   <span class="md-ellipsis">
-    一段有趣的 C++ 代码
+    A Fun C++ Snippet
     
   </span>
   
@@ -4885,7 +4905,7 @@
         
   
   <span class="md-ellipsis">
-    CPython 扩展开发笔记
+    CPython Extension Notes
     
   </span>
   
@@ -4907,7 +4927,7 @@
         
   
   <span class="md-ellipsis">
-    libcurl C++ 开发备忘
+    libcurl with C++: Notes
     
   </span>
   
@@ -4981,7 +5001,7 @@
               
   
   <span class="md-ellipsis">
-    并发编程
+    Concurrency
     
   </span>
   
@@ -4998,7 +5018,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
-            并发编程
+            Concurrency
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5015,7 +5035,7 @@
         
   
   <span class="md-ellipsis">
-    C++ Concurrency in Action 导读
+    Reading C++ Concurrency in Action
     
   </span>
   
@@ -5037,7 +5057,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 多线程入门
+    Getting Started with Threads
     
   </span>
   
@@ -5059,7 +5079,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 与 jthread
+    std::thread & jthread
     
   </span>
   
@@ -5081,7 +5101,7 @@
         
   
   <span class="md-ellipsis">
-    C++ std::thread 内核实现
+    std::thread Internals
     
   </span>
   
@@ -5103,7 +5123,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 死锁排查
+    Debugging Deadlocks
     
   </span>
   
@@ -5125,7 +5145,7 @@
         
   
   <span class="md-ellipsis">
-    GDB 多线程 All-Stop 调试
+    GDB Multi-Thread All-Stop
     
   </span>
   
@@ -5147,7 +5167,7 @@
         
   
   <span class="md-ellipsis">
-    Helgrind 并发错误检测
+    Helgrind Concurrency Checks
     
   </span>
   
@@ -5169,7 +5189,7 @@
         
   
   <span class="md-ellipsis">
-    C++ False Sharing 与缓存行
+    False Sharing & Cache Lines
     
   </span>
   
@@ -5191,7 +5211,7 @@
         
   
   <span class="md-ellipsis">
-    C++17 并行 STL
+    C++17 Parallel STL
     
   </span>
   
@@ -5213,7 +5233,7 @@
         
   
   <span class="md-ellipsis">
-    C++ SIMD 向量化
+    C++ SIMD Vectorization
     
   </span>
   
@@ -5235,7 +5255,7 @@
         
   
   <span class="md-ellipsis">
-    libev 事件循环原理
+    How the libev Event Loop Works
     
   </span>
   
@@ -5289,7 +5309,7 @@
             
   
   <span class="md-ellipsis">
-    学习资源
+    Learning Resources
     
   </span>
   
@@ -5300,7 +5320,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习资源
+            Learning Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5315,7 +5335,7 @@
         
   
   <span class="md-ellipsis">
-    极客时间《现代 C++ 实战 30 讲》
+    Modern C++ in 30 Lectures (GeekTime)
     
   </span>
   
@@ -5337,7 +5357,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习知识库
+    C++ Knowledge Base
     
   </span>
   
@@ -5359,7 +5379,7 @@
         
   
   <span class="md-ellipsis">
-    B 站 C++ 视频教程
+    C++ Video Tutorials on Bilibili
     
   </span>
   
@@ -5381,7 +5401,7 @@
         
   
   <span class="md-ellipsis">
-    C++ 学习资源与书单
+    C++ Resources & Book List
     
   </span>
   
@@ -5410,7 +5430,7 @@
         
   
   <span class="md-ellipsis">
-    联系作者
+    Contact the Author
     
   </span>
   
@@ -5433,7 +5453,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -5442,14 +5462,14 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0" class="md-nav__link">
+  <a href="#0introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      0.导语
+      0.Introduction
     </span>
   </a>
   
@@ -5484,9 +5504,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#13-vector" class="md-nav__link">
+  <a href="#13-vectors-memory-management" class="md-nav__link">
     <span class="md-ellipsis">
-      1.3 vector的内存管理
+      1.3 vector's memory management
     </span>
   </a>
   
@@ -5498,28 +5518,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2vector" class="md-nav__link">
+  <a href="#2vector-iterators" class="md-nav__link">
     <span class="md-ellipsis">
-      2.vector迭代器
+      2.vector iterators
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2.vector迭代器">
+    <nav class="md-nav" aria-label="2.vector iterators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#21-forward" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 正向
+      2.1 Forward
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#22-reverse" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 反向
+      2.2 Reverse
     </span>
   </a>
   
@@ -5531,18 +5551,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3vector" class="md-nav__link">
+  <a href="#3vectors-data-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      3.vector的数据结构
+      3.vector's data structure
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4vector" class="md-nav__link">
+  <a href="#4vector-construction-and-destruction" class="md-nav__link">
     <span class="md-ellipsis">
-      4.vector构造与析构
+      4.vector construction and destruction
     </span>
   </a>
   
@@ -5558,9 +5578,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      相关主题
+      Related Topics
     </span>
   </a>
   
@@ -5587,71 +5607,71 @@
 
 
 <blockquote>
-<p><strong>最后更新：2026-10-12</strong></p>
+<p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="stl-vector">STL vector 源码剖析<a class="headerlink" href="#stl-vector" title="Permanent link">&para;</a></h1>
-<h2 id="0">0.导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>vector的数据安排以及操作方式，与array非常相似。两者的唯一差别在于空间的运用的灵活性，array是静态的，一旦配置了就不能改变，而 vector是动态空间，随着元素的加入，它的内部机制会自行扩充空间以容纳新元素。下面一起来看一下vector的"内部机制"，怎么来实现空间配置策略的。</p>
+<h1 id="stl-vector-source-code-analysis">STL vector source code analysis<a class="headerlink" href="#stl-vector-source-code-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="0introduction">0.Introduction<a class="headerlink" href="#0introduction" title="Permanent link">&para;</a></h2>
+<p>vector's data layout and the way it operates are very similar to array. The only difference between the two lies in the flexibility of space usage: array is static — once allocated it cannot change — whereas vector is dynamic space; as elements are added, its internal mechanism automatically expands the space to hold the new elements. Let's take a look together at vector's "internal mechanism" and how it implements its space allocation strategy.</p>
 <h2 id="1vector">1.vector<a class="headerlink" href="#1vector" title="Permanent link">&para;</a></h2>
-<p>在<code>_Vector_base</code>中开头有两行比较难理解，下面一个一个分析：</p>
+<p>At the beginning of <code>_Vector_base</code> there are two hard-to-understand lines; let's analyze them one by one:</p>
 <h3 id="11-_tp_alloc_type">1.1 _Tp_alloc_type<a class="headerlink" href="#11-_tp_alloc_type" title="Permanent link">&para;</a></h3>
-<p>开头处定义：
+<p>Defined at the start:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a> typedef typename __gnu_cxx::__alloc_traits&lt;_Alloc&gt;::template rebind&lt;_Tp&gt;::other _Tp_alloc_type;
 </span></code></pre></div></p>
-<p>在<code>__gnu_cxx::__alloc_traits</code>中：对应文件为：<code>ext/alloc_traits.h</code></p>
+<p>In <code>__gnu_cxx::__alloc_traits</code>, whose corresponding file is <code>ext/alloc_traits.h</code>:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w"> </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="o">&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">rebind</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Base_type</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
 </span></code></pre></div>
-等价于
+is equivalent to
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>typename __gnu_cxx::__alloc_traits&lt;_Alloc&gt;::template rebind&lt;_Tp&gt;::other 
 </span></code></pre></div>
-等价于：</p>
+equivalent to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">typename</span><span class="w"> </span><span class="nc">_Base_type</span><span class="o">::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span>
 </span></code></pre></div>
-<p>而<code>_Base_type</code>是：</p>
+<p>And <code>_Base_type</code> is:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">_Alloc</span><span class="o">&gt;</span><span class="w">           </span><span class="n">_Base_type</span><span class="p">;</span>
 </span></code></pre></div>
-<p>所以上述等价于：</p>
+<p>So the above is equivalent to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span>
 </span></code></pre></div>
-<p>继续到<code>allocator_traits</code>中寻找</p>
-<p>找到了：</p>
+<p>Continue searching in <code>allocator_traits</code></p>
+<p>Found it:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Up</span><span class="o">&gt;</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Up</span><span class="o">&gt;</span><span class="p">;</span>
 </span></code></pre></div>
-<p>于是：</p>
+<p>Therefore:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span>
 </span></code></pre></div>
-<p>等价于：</p>
+<p>is equivalent to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span>
 </span></code></pre></div>
 <blockquote>
-<p>小结</p>
+<p>Summary</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">__gnu_cxx</span><span class="o">::</span><span class="n">__alloc_traits</span><span class="o">&lt;</span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;::</span><span class="n">other</span><span class="w"> </span><span class="n">_Tp_alloc_type</span><span class="p">;</span>
 </span></code></pre></div>
-<p>等价于：</p>
+<p>is equivalent to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_Tp_alloc_type</span>
 </span></code></pre></div>
 <h3 id="12-pointer">1.2 pointer<a class="headerlink" href="#12-pointer" title="Permanent link">&para;</a></h3>
-<p>而<code>pointer</code>：</p>
+<p>And <code>pointer</code>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">__gnu_cxx</span><span class="o">::</span><span class="n">__alloc_traits</span><span class="o">&lt;</span><span class="n">_Tp_alloc_type</span><span class="o">&gt;::</span><span class="n">pointer</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>等价于：</p>
+<p>is equivalent to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">__gnu_cxx</span><span class="o">::</span><span class="n">__alloc_traits</span><span class="o">&lt;</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;&gt;::</span><span class="n">pointer</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">        </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>根据下面两行：</p>
+<p>Based on the following two lines:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">_Alloc</span><span class="o">&gt;</span><span class="w">           </span><span class="n">_Base_type</span><span class="p">;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Base_type</span><span class="o">::</span><span class="n">pointer</span><span class="w">            </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>又等价于：</p>
+<p>equivalent again to:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a> typedef std::allocator_traits&lt;_Alloc&gt;::pointer
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>        pointer;
 </span></code></pre></div>
-<p>在<code>allocator_traits</code>中找到下面：</p>
+<p>In <code>allocator_traits</code> we find the following:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">  </span><span class="cm">/**</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="cm">   * @brief   The allocator&#39;s pointer type.</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="cm">   *</span>
@@ -5659,9 +5679,9 @@
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="cm">  */</span>
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">__pointer</span><span class="w"> </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>注释中说了如果存在就是<code>Alloc::pointer</code>，否则为<code>value_type *</code>。</p>
+<p>The comment says that if it exists it is <code>Alloc::pointer</code>, otherwise <code>value_type *</code>.</p>
 <blockquote>
-<p>小结</p>
+<p>Summary</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">__gnu_cxx</span><span class="o">::</span><span class="n">__alloc_traits</span><span class="o">&lt;</span><span class="n">_Tp_alloc_type</span><span class="o">&gt;::</span><span class="n">pointer</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">        </span><span class="n">pointer</span><span class="p">;</span>
@@ -5669,7 +5689,7 @@
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">__gnu_cxx</span><span class="o">::</span><span class="n">__alloc_traits</span><span class="o">&lt;</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;&gt;::</span><span class="n">pointer</span>
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>等价于</p>
+<p>is equivalent to</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/**</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="cm">* @brief   The allocator&#39;s pointer type.</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="cm">*</span>
@@ -5677,18 +5697,18 @@
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="cm">*/</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">typedef</span><span class="w"> </span><span class="n">__pointer</span><span class="w"> </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>如果存在<code>_Tp_alloc_type::pointer</code>也就是<code>allocator&lt;_Tp&gt;</code>存在就是<code>allocator&lt;_Tp&gt;::pointer</code>，</p>
-<p>这个看<code>allocator.h</code>源码：</p>
+<p>If <code>_Tp_alloc_type::pointer</code> exists — that is, if it exists in <code>allocator&lt;_Tp&gt;</code> — it is <code>allocator&lt;_Tp&gt;::pointer</code>.</p>
+<p>See the <code>allocator.h</code> source:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="o">*</span><span class="w">       </span><span class="n">pointer</span><span class="p">;</span>
 </span></code></pre></div>
-<p>否则为<code>value_type*</code>。而<code>value_type</code>为：</p>
+<p>Otherwise it is <code>value_type*</code>. And <code>value_type</code> is:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">::</span><span class="n">value_type</span><span class="w"> </span><span class="n">value_type</span><span class="p">;</span>
 </span></code></pre></div>
-<p>所以<code>value_type*</code>推导出为：</p>
+<p>So <code>value_type*</code> deduces to:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">_Tp</span><span class="o">::</span><span class="n">value_type</span><span class="o">*</span>
 </span></code></pre></div>
-<h3 id="13-vector">1.3 vector的内存管理<a class="headerlink" href="#13-vector" title="Permanent link">&para;</a></h3>
-<p><code>_Vector_base</code>中有一个**内存管理器**<code>_Vector_impl</code>类，该结构体继承<code>allocator</code>(根据上述1.1等价条件得出)。</p>
+<h3 id="13-vectors-memory-management">1.3 vector's memory management<a class="headerlink" href="#13-vectors-memory-management" title="Permanent link">&para;</a></h3>
+<p><code>_Vector_base</code> contains a <strong>memory manager</strong>, the <code>_Vector_impl</code> class; this struct inherits <code>allocator</code> (deduced from the 1.1 equivalence above).</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">_Vector_base</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="c1">//__alloc_traits -&gt; allocator_traits</span>
@@ -5808,13 +5828,13 @@
 </span><span id="__span-21-117"><a id="__codelineno-21-117" name="__codelineno-21-117" href="#__codelineno-21-117"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-21-118"><a id="__codelineno-21-118" name="__codelineno-21-118" href="#__codelineno-21-118"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>小结：<code>_Vector_base</code>专门负责<code>vector</code>的内存管理，内部类<code>_M_impl</code>通过继承<code>_Tp_alloc_type</code>(也就是allocator)得到内存分配释放的功能，_M_allocate和_M_deallocate分别分配和释放vector所用内存，vector只需要负责元素构造和析构。</p>
-<p>在vector中，默认内存分配器为<code>std::allocator&lt;_Tp&gt;</code>
+<p>Summary: <code>_Vector_base</code> is solely responsible for <code>vector</code>'s memory management; the inner class <code>_M_impl</code> obtains the memory allocation/deallocation functionality by inheriting <code>_Tp_alloc_type</code> (which is allocator). _M_allocate and _M_deallocate respectively allocate and free the memory used by vector, and vector itself only needs to handle element construction and destruction.</p>
+<p>In vector, the default memory allocator is <code>std::allocator&lt;_Tp&gt;</code>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;&gt;</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">vector</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">protected</span><span class="w"> </span><span class="n">_Vector_base</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">}</span>
 </span></code></pre></div>
-vector代码中使用基类的内存函数及typedef等：
+The vector code uses the base class's memory functions and typedefs:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;&gt;</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">vector</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">protected</span><span class="w"> </span><span class="n">_Vector_base</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">_Vector_base</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_Base</span><span class="p">;</span>
@@ -5828,18 +5848,18 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">_Base</span><span class="o">::</span><span class="n">_M_get_Tp_allocator</span><span class="p">;</span>
 </span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<h2 id="2vector">2.vector迭代器<a class="headerlink" href="#2vector" title="Permanent link">&para;</a></h2>
-<p>在vector中使用了两种迭代器，分别是正向<code>__normal_iterator</code>与反向迭代器<code>reverse_iterator</code>:</p>
-<p>正向：</p>
+<h2 id="2vector-iterators">2.vector iterators<a class="headerlink" href="#2vector-iterators" title="Permanent link">&para;</a></h2>
+<p>vector uses two kinds of iterators: the forward <code>__normal_iterator</code> and the reverse iterator <code>reverse_iterator</code>:</p>
+<p>Forward:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">__gnu_cxx</span><span class="o">::</span><span class="n">__normal_iterator</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pointer</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iterator</span><span class="p">;</span>
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">__gnu_cxx</span><span class="o">::</span><span class="n">__normal_iterator</span><span class="w"> </span><span class="o">&lt;</span><span class="n">const_pointer</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">const_iterator</span><span class="p">;</span>
 </span></code></pre></div>
-反向：
+Reverse:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">reverse_iterator</span><span class="o">&lt;</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">const_reverse_iterator</span><span class="p">;</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">reverse_iterator</span><span class="o">&lt;</span><span class="n">iterator</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reverse_iterator</span><span class="p">;</span>
 </span></code></pre></div></p>
-<p><code>__normal_iterator</code>与<code>reverse_iterator</code>都定义于stl_iterator.h，封装了vector元素的指针。</p>
-<h3 id="21">2.1 正向<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><code>__normal_iterator</code> and <code>reverse_iterator</code> are both defined in stl_iterator.h, wrapping pointers to vector elements.</p>
+<h3 id="21-forward">2.1 Forward<a class="headerlink" href="#21-forward" title="Permanent link">&para;</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Iterator</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Container</span><span class="o">&gt;</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">__normal_iterator</span>
 </span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">{</span>
@@ -5940,9 +5960,9 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-26-98"><a id="__codelineno-26-98" name="__codelineno-26-98" href="#__codelineno-26-98"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_M_current</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-26-99"><a id="__codelineno-26-99" name="__codelineno-26-99" href="#__codelineno-26-99"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>_M_current是指向迭代器位置的指针，这是一个随机访问型指针，operator+和operator-等移动操作可以直接移动到目的地，非随机访问型指针只能一步步移动。</p>
-<h3 id="22">2.2 反向<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<p>vector还会使用reverse_iterator，即逆序迭代器，顾名思义，其移动方向与普通迭代器相反</p>
+<p>_M_current is a pointer to the iterator's position; it is a random-access pointer, so move operations like operator+ and operator- can jump straight to the destination, whereas a non-random-access pointer can only move step by step.</p>
+<h3 id="22-reverse">2.2 Reverse<a class="headerlink" href="#22-reverse" title="Permanent link">&para;</a></h3>
+<p>vector also uses reverse_iterator, i.e. the reverse-order iterator; as the name suggests, it moves in the direction opposite to an ordinary iterator</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">reverse_iterator</span>
 </span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">iterator</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">iterator_traits</span><span class="o">&lt;</span><span class="n">_Iterator</span><span class="o">&gt;::</span><span class="n">iterator_category</span><span class="p">,</span>
@@ -6045,8 +6065,8 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-27-100"><a id="__codelineno-27-100" name="__codelineno-27-100" href="#__codelineno-27-100"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">__n</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-27-101"><a id="__codelineno-27-101" name="__codelineno-27-101" href="#__codelineno-27-101"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="3vector">3.vector的数据结构<a class="headerlink" href="#3vector" title="Permanent link">&para;</a></h2>
-<p>vector内存由_M_impl中的M_start，_M_finish，_M_end_of_storage三个指针管理，所有关于地址，容量大小等操作都需要用到这三个指针：</p>
+<h2 id="3vectors-data-structure">3.vector's data structure<a class="headerlink" href="#3vectors-data-structure" title="Permanent link">&para;</a></h2>
+<p>vector's memory is managed by the three pointers _M_start, _M_finish, and _M_end_of_storage inside _M_impl; every operation involving addresses, capacity size, and so on needs these three pointers:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">iterator</span><span class="w"> </span><span class="nf">begin</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
 </span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">iterator</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_start</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">iterator</span><span class="w"> </span><span class="nf">end</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -6063,7 +6083,7 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <img alt="vector_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/vector_1.png" /></p>
-<p>_M_finish和_M_end_of_storage之间的空间没有数据，有时候这是一种浪费，c++11提供了一个很有用的函数shrink_to_fit()，将这段未使用空间释放，主要调用了下面代码，</p>
+<p>The space between _M_finish and _M_end_of_storage holds no data, which is sometimes a waste. C++11 provides a very useful function, shrink_to_fit(), that releases this unused space; it mainly calls the following code,</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;::</span>
 </span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">_M_shrink_to_fit</span><span class="p">()</span>
@@ -6093,9 +6113,9 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_end_of_storage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_S_nword</span><span class="p">(</span><span class="n">__n</span><span class="p">);</span>
 </span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="p">}</span>
 </span></code></pre></div>
-而<code>_M_copy_aligned</code>通过两个std::copy实现:</p>
-<p>第一次swap把<code>__first</code>的指针与<code>__last</code>的指针之间的数据拷贝到<code>__result</code>指针所指向的起始位置。
-第二次swap获得<code>__last</code>的指针对应的迭代器。</p>
+And <code>_M_copy_aligned</code> is implemented with two std::copy calls:</p>
+<p>The first swap copies the data between the <code>__first</code> and <code>__last</code> pointers to the starting position pointed to by the <code>__result</code> pointer.
+The second swap obtains the iterator corresponding to the <code>__last</code> pointer.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">iterator</span>
 </span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nf">_M_copy_aligned</span><span class="p">(</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">__first</span><span class="p">,</span><span class="w"> </span><span class="n">const_iterator</span><span class="w"> </span><span class="n">__last</span><span class="p">,</span>
 </span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">        </span><span class="n">iterator</span><span class="w"> </span><span class="n">__result</span><span class="p">)</span>
@@ -6106,8 +6126,8 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">            </span><span class="n">iterator</span><span class="p">(</span><span class="n">__q</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
 </span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="p">}</span>
 </span></code></pre></div>
-先分配size()大小的内存空间，用于存储<code>begin()</code>与<code>end()</code>之间的数据，释放原来的vector空间，新的vector只包含size()数量的数据，并修改<code>_M_start</code>与<code>_M_end_of_storage</code>指向。</p>
-<h2 id="4vector">4.vector构造与析构<a class="headerlink" href="#4vector" title="Permanent link">&para;</a></h2>
+It first allocates memory of size size() to hold the data between <code>begin()</code> and <code>end()</code>, frees the original vector's space, so that the new vector contains only size() elements, and updates the <code>_M_start</code> and <code>_M_end_of_storage</code> pointers.</p>
+<h2 id="4vector-construction-and-destruction">4.vector construction and destruction<a class="headerlink" href="#4vector-construction-and-destruction" title="Permanent link">&para;</a></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1">//使用默认内存分配器</span>
 </span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">vector</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_Base</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
 </span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="c1">//指定内存分配器</span>
@@ -6147,7 +6167,7 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-32-37"><a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">_Destroy</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_start</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_finish</span><span class="p">,</span><span class="n">_M_get_Tp_allocator</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="5vector">5.vector<a class="headerlink" href="#5vector" title="Permanent link">&para;</a></h2>
-<p>插入涉及到内存分配，动态调整，与一开始提到的vector与array区别，就在下面体现出：</p>
+<p>Insertion involves memory allocation and dynamic adjustment; the difference between vector and array mentioned at the very beginning shows up here:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">typename</span><span class="w"> </span><span class="nc">vector</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="n">iterator</span>
 </span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="n">insert</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">__position</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span>
 </span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="p">{</span>
@@ -6166,7 +6186,7 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">iterator</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_impl</span><span class="p">.</span><span class="n">_M_start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">__n</span><span class="p">);</span>
 </span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="p">}</span>
 </span></code></pre></div>
-其中<code>_M_insert_aux</code>实现：
+Where <code>_M_insert_aux</code> is implemented as:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="p">,</span><span class="w"> </span><span class="n">_Alloc</span><span class="o">&gt;::</span><span class="n">_M_insert_aux</span><span class="p">(</span><span class="n">iterator</span><span class="w"> </span><span class="n">__position</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">_Tp</span><span class="o">&amp;</span><span class="w"> </span><span class="n">__x</span><span class="p">)</span>
 </span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">{</span><span class="w">   </span>
@@ -6236,7 +6256,7 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-34-67"><a id="__codelineno-34-67" name="__codelineno-34-67" href="#__codelineno-34-67"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-34-68"><a id="__codelineno-34-68" name="__codelineno-34-68" href="#__codelineno-34-68"></a><span class="p">}</span>
 </span></code></pre></div>
-其中<code>_M_check_len</code>：</p>
+Where <code>_M_check_len</code>:</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">size_type</span>
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nf">_M_check_len</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">__n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">__s</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="p">{</span>
@@ -6247,24 +6267,24 @@ vector代码中使用基类的内存函数及typedef等：
 </span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">__len</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">__len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_size</span><span class="p">())</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">max_size</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">__len</span><span class="p">;</span>
 </span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="p">}</span>
 </span></code></pre></div>
-内存分配策略并不是简单的加倍，如果n小于当前size，内存加倍，否则内存增长n。</p>
-<p>学习资料：</p>
+The memory allocation strategy is not a simple doubling: if n is smaller than the current size, memory doubles; otherwise memory grows by n.</p>
+<p>Study materials:</p>
 <blockquote>
 <p>侯捷《STL源码剖析》</p>
 <p><a href="https://www.cnblogs.com/coderkian/p/3888429.html">https://www.cnblogs.com/coderkian/p/3888429.html</a></p>
 </blockquote>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
-<li><a href="../cpp-string-deep-dive/">STL string 深析 | C++那些事</a></li>
-<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
-<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
-<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
-<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
-<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
-<li><a href="../iterator/">STL 迭代器源码剖析 | C++那些事</a></li>
-<li><a href="../list/">STL list 源码剖析 | C++那些事</a></li>
-<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
+<li><a href="../array/">STL array source code analysis | C++那些事</a></li>
+<li><a href="../cpp-string-deep-dive/">STL string deep dive | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string interview questions in depth | C++那些事</a></li>
+<li><a href="../deque/">STL deque source code analysis | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL empty base optimization EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL hand-written hash table implementation | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable hash table | C++那些事</a></li>
+<li><a href="../iterator/">STL iterator source code analysis | C++那些事</a></li>
+<li><a href="../list/">STL list source code analysis | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map and multimap | C++那些事</a></li>
 </ul>
 
 
@@ -6283,7 +6303,7 @@ vector代码中使用基类的内存函数及typedef等：
 
 
 
-  <h2 id="__comments">评论</h2>
+  <h2 id="__comments">Comments</h2>
   <!-- Insert generated snippet here -->
   <script src="https://giscus.app/client.js"
           data-repo="Light-City/light-comments"
@@ -6296,7 +6316,7 @@ vector代码中使用基类的内存函数及typedef等：
           data-emit-metadata="0"
           data-input-position="bottom"
           data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
+          data-lang="en"
           crossorigin="anonymous"
           async>
   </script>
@@ -6367,7 +6387,7 @@ vector代码中使用基类的内存函数及typedef等：
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -6376,33 +6396,33 @@ vector代码中使用基类的内存函数及typedef等：
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../list/" class="md-footer__link md-footer__link--prev" aria-label="上一页: STL list 源码剖析">
+          <a href="../list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: STL Source-Code Analysis: list">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                STL list 源码剖析
+                STL Source-Code Analysis: list
               </div>
             </div>
           </a>
         
         
           
-          <a href="../typename/" class="md-footer__link md-footer__link--next" aria-label="下一页: STL typename 源码剖析">
+          <a href="../typename/" class="md-footer__link md-footer__link--next" aria-label="Next: STL Source-Code Analysis: typename">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                STL typename 源码剖析
+                STL Source-Code Analysis: typename
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6460,7 +6480,7 @@ vector代码中使用基类的内存函数及typedef等：
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
   
