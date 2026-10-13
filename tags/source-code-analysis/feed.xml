@@ -1,12 +1,12 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>CPlusPlusThings</title>
+      <title>光城 | Light City</title>
       <link>https://light-city.github.io/blog</link>
-      <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
+      <description>光城（Light City）的个人博客：C++ 教程《C++那些事》、开源项目 CPlusPlusThings、工程实践与技术写作，覆盖 C++ 基础到源码剖析、现代 C++ 与并发编程。</description>
       <language>en-us</language>
-      <managingEditor>455954986@qq.com (light-city)</managingEditor>
-      <webMaster>455954986@qq.com (light-city)</webMaster>
+      <managingEditor>455954986@qq.com (光城 Light City)</managingEditor>
+      <webMaster>455954986@qq.com (光城 Light City)</webMaster>
       <lastBuildDate>Sat, 09 Aug 2025 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://light-city.github.io/tags/source-code-analysis/feed.xml" rel="self" type="application/rss+xml"/>
       
@@ -16,7 +16,7 @@
     <link>https://light-city.github.io/blog/array</link>
     <description>An analysis of the C++ STL source code covering tr1 and std array</description>
     <pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -26,7 +26,7 @@
     <link>https://light-city.github.io/blog/ebo</link>
     <description>Exploring the Empty Base Optimization (EBO) in the design of the C++ Standard Template Library (STL)</description>
     <pubDate>Sat, 09 Aug 2025 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -36,7 +36,7 @@
     <link>https://light-city.github.io/blog/iterator</link>
     <description>An analysis of C++ STL source code to implement a simple iterator_category</description>
     <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -46,7 +46,7 @@
     <link>https://light-city.github.io/blog/list</link>
     <description>In-depth Analysis of C++ STL Source Code: Doubly Linked Circular List (list)</description>
     <pubDate>Sat, 02 Aug 2025 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -56,7 +56,7 @@
     <link>https://light-city.github.io/blog/set_multiset</link>
     <description>Discover the fascinating journey through the C++ STL source code to unravel the secrets behind set and multiset data structures. Gain insightful knowledge of their implementation and optimize your programming skills.</description>
     <pubDate>Mon, 19 Feb 2024 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -66,7 +66,7 @@
     <link>https://light-city.github.io/blog/traits</link>
     <description>In-depth Analysis of C++ STL Source Code: Traits Programming Technique</description>
     <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 
@@ -76,7 +76,7 @@
     <link>https://light-city.github.io/blog/uorndered_map</link>
     <description>Delve into the implementation details of the STL unordered containers source code. Understand the inner workings and optimizations for efficient usage in C++ programming.</description>
     <pubDate>Sat, 04 Mar 2023 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>C++</category><category>STL</category><category>Source Code Analysis</category>
   </item>
 

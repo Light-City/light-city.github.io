@@ -1,12 +1,12 @@
 
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>CPlusPlusThings</title>
+      <title>光城 | Light City</title>
       <link>https://light-city.github.io/blog</link>
-      <description>CPlusPlusThings provides a comprehensive C++ tutorial suitable for beginners to advanced learners. It addresses interview problems, in-depth source code analysis, multi-thread concurrency, and more.</description>
+      <description>光城（Light City）的个人博客：C++ 教程《C++那些事》、开源项目 CPlusPlusThings、工程实践与技术写作，覆盖 C++ 基础到源码剖析、现代 C++ 与并发编程。</description>
       <language>en-us</language>
-      <managingEditor>455954986@qq.com (light-city)</managingEditor>
-      <webMaster>455954986@qq.com (light-city)</webMaster>
+      <managingEditor>455954986@qq.com (光城 Light City)</managingEditor>
+      <webMaster>455954986@qq.com (光城 Light City)</webMaster>
       <lastBuildDate>Sat, 02 Mar 2024 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://light-city.github.io/tags/lldb/feed.xml" rel="self" type="application/rss+xml"/>
       
@@ -16,7 +16,7 @@
     <link>https://light-city.github.io/blog/lldb_debug</link>
     <description>Learn how to effectively debug a simple program using LLDB with this comprehensive step-by-step guide. Find out how to troubleshoot errors and optimize your code.</description>
     <pubDate>Sat, 02 Mar 2024 00:00:00 GMT</pubDate>
-    <author>455954986@qq.com (light-city)</author>
+    <author>455954986@qq.com (光城 Light City)</author>
     <category>lldb</category><category>debug</category>
   </item>
 
