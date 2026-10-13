@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Polymorphism: virtual vs CRTP vs variant">
+      <meta property="og:title" content="C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事">
       <meta property="og:description" content="Polymorphism is an important concept in object-oriented programming: it lets a single interface stand for different types. C++ offers several ways to implement polymorphism; this article discusses three polymorphism scenarios:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Polymorphism: virtual vs CRTP vs variant">
+      <meta name="twitter:title" content="C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事">
       <meta name="twitter:description" content="Polymorphism is an important concept in object-oriented programming: it lets a single interface stand for different types. C++ offers several ways to implement polymorphism; this article discusses three polymorphism scenarios:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Polymorphism: virtual vs CRTP vs variant", "description": "Polymorphism is an important concept in object-oriented programming: it lets a single interface stand for different types. C++ offers several ways to implement polymorphism; this article discusses three polymorphism scenarios:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/en/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Polymorphism: virtual vs CRTP vs variant", "item": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事", "description": "Polymorphism is an important concept in object-oriented programming: it lets a single interface stand for different types. C++ offers several ways to implement polymorphism; this article discusses three polymorphism scenarios:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/en/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事", "item": "https://light-city.github.io/stories_things/en/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
   </head>
   
   
@@ -5482,9 +5482,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>Result 1: compiled with gcc. virtual and std::variant perform about the same, but both differ greatly from CRTP.</p>
-<p><img alt="gcc bm" alt="Polymorphism: virtual vs CRTP vs variant" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img alt="gcc bm" alt="C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>Result 2: compiled with clang. The overall trend is similar to the gcc build, except that CRTP + std::variant clearly regresses, which may also be due to the use of std::visit here.</p>
-<p><img alt="clang bm" alt="Polymorphism: virtual vs CRTP vs variant" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img alt="clang bm" alt="C++ Polymorphism: Virtual Functions, CRTP, and variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>The book A Tour of C++ puts it like this:</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ''potentially faster'' should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

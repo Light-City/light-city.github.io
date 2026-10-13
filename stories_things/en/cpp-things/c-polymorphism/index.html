@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/c-polymorphism/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C-Style Polymorphism in C++">
+      <meta property="og:title" content="Implementing C++ Polymorphism in C | C++那些事">
       <meta property="og:description" content="Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C-Style Polymorphism in C++">
+      <meta name="twitter:title" content="Implementing C++ Polymorphism in C | C++那些事">
       <meta name="twitter:description" content="Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C-Style Polymorphism in C++", "description": "Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/en/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C-Style Polymorphism in C++", "item": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Implementing C++ Polymorphism in C | C++那些事", "description": "Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/en/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Implementing C++ Polymorphism in C | C++那些事", "item": "https://light-city.github.io/stories_things/en/cpp-things/c-polymorphism/"}]}</script>
   </head>
   
   
@@ -5422,7 +5422,7 @@
 <h1 id="implementing-c-polymorphism-in-c">Implementing C++ Polymorphism in C<a class="headerlink" href="#implementing-c-polymorphism-in-c" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>WeChat official account:</p>
-<p><img alt="wechat" alt="C-Style Polymorphism in C++" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="Implementing C++ Polymorphism in C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1-a-c-implementation-example">1. A C++ Implementation Example<a class="headerlink" href="#1-a-c-implementation-example" title="Permanent link">&para;</a></h2>
 <p>Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.</p>
 <p>If a base class pointer or reference calls a virtual function of the base class, that base class pointer looks up the function address in its own virtual function table. If the base class pointer or reference points to a derived class object, and that derived class has overridden the base class's virtual function, then the pointer calls the derived class's overridden virtual function.</p>

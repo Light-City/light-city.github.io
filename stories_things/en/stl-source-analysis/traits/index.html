@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/traits/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL traits Techniques">
+      <meta property="og:title" content="STL traits type extraction | C++那些事">
       <meta property="og:description" content="In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/stl-source-analysis/traits/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL traits Techniques">
+      <meta name="twitter:title" content="STL traits type extraction | C++那些事">
       <meta name="twitter:description" content="In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL traits Techniques", "description": "In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL traits Techniques", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL traits type extraction | C++那些事", "description": "In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL traits type extraction | C++那些事", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/traits/"}]}</script>
   </head>
   
   
@@ -5437,7 +5437,7 @@
 <h1 id="stl-traits-type-extraction">STL traits type extraction<a class="headerlink" href="#stl-traits-type-extraction" title="Permanent link">&para;</a></h1>
 <h2 id="0introduction">0.Introduction<a class="headerlink" href="#0introduction" title="Permanent link">&para;</a></h2>
 <p>In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:</p>
-<p><img alt="rela" alt="STL traits Techniques" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="rela" alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
 <p>The figure above shows that the goal of the STL is to separate data from algorithms, design each of them independently, and then glue the two back together through something called an iterator.</p>
 <p>In design patterns, iterator is described as: <strong>a way to access each element of a container sequentially without exposing the container's internal representation. And type extraction (traits) technology exists precisely to solve problems related to iterators.</strong></p>
 <p>To apply generic algorithms (find, count, find_if) to a container, the most important thing is to provide the algorithm with a tool for accessing the container's elements, and the iterator plays this important role.</p>
@@ -5574,7 +5574,7 @@
 </span></code></pre></div>
 <p><strong>(2) Adding an intermediate layer</strong></p>
 <p>What is Traits in the STL? Look at the figure below:</p>
-<p><img alt="trai" alt="STL traits Techniques" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="trai" alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
 <p>Using an intermediate layer <code>iterator_traits</code> fixes the form of <code>func</code>, eliminating a large amount of duplicated code; the only thing left to do is slightly specialize iterator_tartis so that it supports pointer and const pointer:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

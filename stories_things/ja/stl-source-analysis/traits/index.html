@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/traits/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL traits 技法">
+      <meta property="og:title" content="STL traits 型の抽出 | C++那些事">
       <meta property="og:description" content="STL プログラミングでは、コンテナとアルゴリズムは独立に設計されています。すなわち、データ構造とアルゴリズムが独立に設計されており、コンテナとアルゴリズムをつなぐ橋がイテレータです。イテレータによってこの独立した設計が可能になっています。下図に示す通りです：">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL traits 技法">
+      <meta name="twitter:title" content="STL traits 型の抽出 | C++那些事">
       <meta name="twitter:description" content="STL プログラミングでは、コンテナとアルゴリズムは独立に設計されています。すなわち、データ構造とアルゴリズムが独立に設計されており、コンテナとアルゴリズムをつなぐ橋がイテレータです。イテレータによってこの独立した設計が可能になっています。下図に示す通りです：">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL traits 技法", "description": "STL プログラミングでは、コンテナとアルゴリズムは独立に設計されています。すなわち、データ構造とアルゴリズムが独立に設計されており、コンテナとアルゴリズムをつなぐ橋がイテレータです。イテレータによってこの独立した設計が可能になっています。下図に示す通りです：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "ソースコード解析", "item": "https://light-city.github.io/stories_things/ja/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL traits 技法", "item": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL traits 型の抽出 | C++那些事", "description": "STL プログラミングでは、コンテナとアルゴリズムは独立に設計されています。すなわち、データ構造とアルゴリズムが独立に設計されており、コンテナとアルゴリズムをつなぐ橋がイテレータです。イテレータによってこの独立した設計が可能になっています。下図に示す通りです：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "ソースコード解析", "item": "https://light-city.github.io/stories_things/ja/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL traits 型の抽出 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/stl-source-analysis/traits/"}]}</script>
   </head>
   
   
@@ -5437,7 +5437,7 @@
 <h1 id="stl-traits">STL traits 型の抽出<a class="headerlink" href="#stl-traits" title="Permanent link">&para;</a></h1>
 <h2 id="0">0.はじめに<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p>STL プログラミングでは、コンテナとアルゴリズムは独立に設計されています。すなわち、データ構造とアルゴリズムが独立に設計されており、コンテナとアルゴリズムをつなぐ橋がイテレータです。イテレータによってこの独立した設計が可能になっています。下図に示す通りです：</p>
-<p><img alt="rela" alt="STL traits 技法" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="rela" alt="STL traits 型の抽出 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
 <p>上図が示すのは、STL の目標がデータとアルゴリズムを分離してそれぞれ設計し、その後 iterator という名のものによって両者を再び接着することです。</p>
 <p>デザインパターンにおける iterator の説明は次の通りです：<strong>コンテナ内の各要素に順番にアクセスする方法であり、この方法を使ってもコンテナ内部の表現方法は露出しない。型の抽出（traits）技術は、まさに iterator に関わる問題を解決するためのものです。</strong></p>
 <p>汎用アルゴリズム（find, count, find_if）を何らかのコンテナに対して使うには、最も重要なのはアルゴリズムにコンテナ要素へアクセスする道具を提供することであり、iterator がこの重要な役割を担っています。</p>
@@ -5574,7 +5574,7 @@
 </span></code></pre></div>
 <p><strong>（2）中間層を入れる</strong></p>
 <p>STL における Traits とは何でしょうか？下図を見てください：</p>
-<p><img alt="trai" alt="STL traits 技法" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="trai" alt="STL traits 型の抽出 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
 <p>中間層<code>iterator_traits</code>を利用して<code>func</code>の形式を固定し、重複したコードを大幅に減らしています。しなしなければならないのは、iterator_traits を少し特殊化して pointer と const pointer をサポートすることだけです:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Polimorfismo: virtual, CRTP e variant">
+      <meta property="og:title" content="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事">
       <meta property="og:description" content="Polimorfismo é um conceito importante da programação orientada a objetos: permite que uma única interface represente tipos diferentes. O C++ oferece várias formas de implementar polimorfismo; este artigo discutirá o polimorfismo em três cenários:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Polimorfismo: virtual, CRTP e variant">
+      <meta name="twitter:title" content="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事">
       <meta name="twitter:description" content="Polimorfismo é um conceito importante da programação orientada a objetos: permite que uma única interface represente tipos diferentes. O C++ oferece várias formas de implementar polimorfismo; este artigo discutirá o polimorfismo em três cenários:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Polimorfismo: virtual, CRTP e variant", "description": "Polimorfismo é um conceito importante da programação orientada a objetos: permite que uma única interface represente tipos diferentes. O C++ oferece várias formas de implementar polimorfismo; este artigo discutirá o polimorfismo em três cenários:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Polimorfismo: virtual, CRTP e variant", "item": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事", "description": "Polimorfismo é um conceito importante da programação orientada a objetos: permite que uma única interface represente tipos diferentes. O C++ oferece várias formas de implementar polimorfismo; este artigo discutirá o polimorfismo em três cenários:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
   </head>
   
   
@@ -5482,9 +5482,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>Resultado do teste 1: compilado com gcc, vê-se que virtual e std::variant têm desempenho pouco diferente entre si, mas diferem muito de crtp.</p>
-<p><img alt="gcc bm" alt="Polimorfismo: virtual, CRTP e variant" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img alt="gcc bm" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>Resultado do teste 2: compilado com clang, a tendência geral é semelhante à da compilação com gcc; apenas crtp + std::variant apresenta regressão clara de desempenho, o que possivelmente se deve ao uso de std::visit aqui.</p>
-<p><img alt="clang bm" alt="Polimorfismo: virtual, CRTP e variant" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img alt="clang bm" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>No livro A Tour of C++, menciona-se:</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ‘‘potentially faster’’ should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

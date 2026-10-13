@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/cpp-sso-benchmark/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/cpp-sso-benchmark/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Benchmarks de SSO en std::string">
+      <meta property="og:title" content="Prueba de rendimiento del SSO de string en C++ | C++那些事">
       <meta property="og:description" content="Hoy quiero plantearos dos preguntas:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Benchmarks de SSO en std::string">
+      <meta name="twitter:title" content="Prueba de rendimiento del SSO de string en C++ | C++那些事">
       <meta name="twitter:description" content="Hoy quiero plantearos dos preguntas:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Benchmarks de SSO en std::string", "description": "Hoy quiero plantearos dos preguntas:", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Benchmarks de SSO en std::string", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Prueba de rendimiento del SSO de string en C++ | C++那些事", "description": "Hoy quiero plantearos dos preguntas:", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Prueba de rendimiento del SSO de string en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/cpp-sso-benchmark/"}]}</script>
   </head>
   
   
@@ -5442,7 +5442,7 @@
 <p>Puede verse que la diferencia de rendimiento es enorme: ¡un solo carácter provoca una variación de rendimiento tan grande en std::string!</p>
 <p>En el fondo, esto se debe al SSO local buffer comentado antes.</p>
 <p>Prueba de rendimiento: <a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="Benchmarks de SSO en std::string" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img alt="gcc short long" alt="Prueba de rendimiento del SSO de string en C++ | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>De forma análoga, tomamos como referencia llvm-14; para ver el código completo, consulta la siguiente dirección de github; aquí se extrae el código esencial.</p>
 <blockquote>
@@ -5479,14 +5479,14 @@
 <p>En cuanto al SSO, el búfer local almacena no más de 22 caracteres; al superar los 22 caracteres, la asignación pasa al heap.</p>
 <p>Por eso, al aplicar en clang el mismo código de prueba que en gcc, obtuvimos resultados bastante distintos: el rendimiento de la cadena long difiere poco del de la cadena short. La razón es que los casos de prueba de gcc estaban todos por debajo de 22 caracteres, todos eran cadenas cortas.</p>
 <p>Prueba de rendimiento: <a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="Benchmarks de SSO en std::string" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img alt="llvm short long no" alt="Prueba de rendimiento del SSO de string en C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>Cuando probamos cadenas realmente largas y cortas, el rendimiento cambia de forma notable, con una tendencia coincidente con gcc.</p>
 <ul>
 <li>El contenido de la prueba con cadena corta es: "hello world hello worl", 22 caracteres en total.</li>
 <li>El contenido de la prueba con cadena larga es: "hello world hello world", 23 caracteres en total.</li>
 </ul>
 <p>Prueba de rendimiento: <a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="Benchmarks de SSO en std::string" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img alt="llvm short long" alt="Prueba de rendimiento del SSO de string en C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">Comparación de rendimiento: memcpy frente a std::copy | C++那些事</a></li>

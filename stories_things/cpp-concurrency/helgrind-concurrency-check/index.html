@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Helgrind 并发错误检测">
+      <meta property="og:title" content="Helgrind 并发错误检测 | C++那些事">
       <meta property="og:description" content="答案是有的，我们可以使用valgrind的helgrind工具检测这两个问题，为了使本文讲解的更加丝滑，引出了几个例子。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Helgrind 并发错误检测">
+      <meta name="twitter:title" content="Helgrind 并发错误检测 | C++那些事">
       <meta name="twitter:description" content="答案是有的，我们可以使用valgrind的helgrind工具检测这两个问题，为了使本文讲解的更加丝滑，引出了几个例子。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind 并发错误检测", "description": "答案是有的，我们可以使用valgrind的helgrind工具检测这两个问题，为了使本文讲解的更加丝滑，引出了几个例子。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Helgrind 并发错误检测", "item": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind 并发错误检测 | C++那些事", "description": "答案是有的，我们可以使用valgrind的helgrind工具检测这两个问题，为了使本文讲解的更加丝滑，引出了几个例子。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Helgrind 并发错误检测 | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
   
@@ -5447,7 +5447,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img alt="deadlock" alt="Helgrind 并发错误检测" src="../../assets/images/2024/img/deadlock.png" /></p>
+<p><img alt="deadlock" alt="Helgrind 并发错误检测 | C++那些事" src="../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="_2">数据竞争<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>假设有一个共享变量，我们在多线程对它增加10w次，这个结果是多少呢？</p>
 <p>很明显这里产生了多线程竞争全局变量的问题，最终的结果不一致，使用helgrind检测方法同上。</p>
@@ -5460,7 +5460,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>此时，我们可以看到data race的行数是哪一行，然后去解决问题。</p>
-<p><img alt="datarace" alt="Helgrind 并发错误检测" src="../../assets/images/2024/img/datarace.png" /></p>
+<p><img alt="datarace" alt="Helgrind 并发错误检测 | C++那些事" src="../../assets/images/2024/img/datarace.png" /></p>
 <p>最后，留几个问题吧：</p>
 <p>1.上面这两个有问题的代码，如何修复？</p>
 <p>2.除了上面工具，还有其他办法？</p>

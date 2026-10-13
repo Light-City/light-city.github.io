@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/iterator/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Análise STL: iteradores">
+      <meta property="og:title" content="Análise do código-fonte dos iteradores da STL | C++那些事">
       <meta property="og:description" content="Nesta seção, usando as características de Traits da seção anterior, estudamos o código-fonte do iterator para implementar um iterator_category simples e, ao mesmo tempo, analisamos a estrutura do código-fonte do iterator.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Análise STL: iteradores">
+      <meta name="twitter:title" content="Análise do código-fonte dos iteradores da STL | C++那些事">
       <meta name="twitter:description" content="Nesta seção, usando as características de Traits da seção anterior, estudamos o código-fonte do iterator para implementar um iterator_category simples e, ao mesmo tempo, analisamos a estrutura do código-fonte do iterator.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Análise STL: iteradores", "description": "Nesta seção, usando as características de Traits da seção anterior, estudamos o código-fonte do iterator para implementar um iterator_category simples e, ao mesmo tempo, analisamos a estrutura do código-fonte do iterator.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Análise do código-fonte", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "Análise STL: iteradores", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Análise do código-fonte dos iteradores da STL | C++那些事", "description": "Nesta seção, usando as características de Traits da seção anterior, estudamos o código-fonte do iterator para implementar um iterator_category simples e, ao mesmo tempo, analisamos a estrutura do código-fonte do iterator.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Análise do código-fonte", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "Análise do código-fonte dos iteradores da STL | C++那些事", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/"}]}</script>
   </head>
   
   
@@ -5422,7 +5422,7 @@
 <p><strong>Conhecer o fato e conhecer o porquê do fato: diante do código-fonte, não há segredos!</strong></p>
 <h2 id="1-usando-o-extrator-para-implementar-um-reconhecimento-simples-de-iterator_category">1. Usando o extrator para implementar um reconhecimento simples de iterator_category<a class="headerlink" href="#1-usando-o-extrator-para-implementar-um-reconhecimento-simples-de-iterator_category" title="Permanent link">&para;</a></h2>
 <p>A seção anterior apontou o papel dos iteradores, conforme a figura abaixo:</p>
-<p><img alt="rela" alt="Análise STL: iteradores" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="rela" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
 <p>Um iterador é uma abstração de um ponteiro para elementos de uma sequência. Ao usar iteradores, podemos acessar determinado elemento da sequência, alterar o valor de determinado elemento da sequência, fazer o iterador avançar ou retroceder, e assim por diante.</p>
 <p>Os iteradores comumente têm cinco tipos associados: value_type, difference_type, reference_type e pointer_type são relativamente fáceis de extrair com traits e as especializações parciais correspondentes.</p>
 <p>Mas iterator_category também costuma ter 5, e esse tipo associado desperta um esforço de escrita de código de grande escala.</p>
@@ -5432,7 +5432,7 @@
 <li>Forward Iterator: iterador de movimento unidirecional de leitura e escrita</li>
 <li>Bidirectional Iterator: iterador de movimento bidirecional de leitura e escrita</li>
 </ul>
-<p><img alt="iterator" alt="Análise STL: iteradores" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="iterator" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
 <p>Por exemplo: implementamos advanceII, advanceBI e advanceRAI, representando, respectivamente, as implementações correspondentes quando o tipo do iterador é Input Iterator, Bidirectional Iterator e Random Access Iterator.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5449,7 +5449,7 @@
 <p>Quanto aos <code>advanceXX()</code>, ambos têm dois parâmetros de função, com tipos indeterminados (pois todos são parâmetros de template). Para que tenham o mesmo nome e formem funções sobrecarregadas, devemos acrescentar um parâmetro de função com tipo já determinado, para que o mecanismo de sobrecarga de funções possa operar de forma eficaz.</p>
 <p>O desenho é o seguinte: se o <strong>traits</strong> for capaz de extrair a categoria do iterador, podemos usar esse tipo associado "tipo do iterador" como terceiro parâmetro de advancexx; e esse tipo associado deve ser um class type, não pode ser algo como um número, pois o compilador depende dele para fazer a <strong>resolução de sobrecarga</strong>.</p>
 <p>Vamos implementar; primeiro, o diagrama geral da estrutura:</p>
-<p><img alt="itera" alt="Análise STL: iteradores" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="itera" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
 <p>Definimos as tags abaixo:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

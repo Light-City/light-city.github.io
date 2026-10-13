@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/extern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/extern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ extern e linkage">
+      <meta property="og:title" content="O especificador de ligação extern em C++ | C++那些事">
       <meta property="og:description" content="Em C++, é comum ver a expressão extern &quot;C&quot; modificando funções em arquivos de cabeçalho; qual é a sua função? Ela serve para o C++ vincular funções definidas em módulos escritos em linguagem C.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/extern/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ extern e linkage">
+      <meta name="twitter:title" content="O especificador de ligação extern em C++ | C++那些事">
       <meta name="twitter:description" content="Em C++, é comum ver a expressão extern &quot;C&quot; modificando funções em arquivos de cabeçalho; qual é a sua função? Ela serve para o C++ vincular funções definidas em módulos escritos em linguagem C.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ extern e linkage", "description": "Em C++, é comum ver a expressão extern \"C\" modificando funções em arquivos de cabeçalho; qual é a sua função? Ela serve para o C++ vincular funções definidas em módulos escritos em linguagem C.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ extern e linkage", "item": "https://light-city.github.io/stories_things/pt/cpp-things/extern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "O especificador de ligação extern em C++ | C++那些事", "description": "Em C++, é comum ver a expressão extern \"C\" modificando funções em arquivos de cabeçalho; qual é a sua função? Ela serve para o C++ vincular funções definidas em módulos escritos em linguagem C.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "O especificador de ligação extern em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/extern/"}]}</script>
   </head>
   
   
@@ -5440,7 +5440,7 @@
 <h1 id="o-especificador-de-ligacao-extern-em-c">O especificador de ligação extern em C++<a class="headerlink" href="#o-especificador-de-ligacao-extern-em-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor:<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
 <p>Conta oficial do WeChat:</p>
-<p><img alt="wechat" alt="C++ extern e linkage" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="O especificador de ligação extern em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1diferencas-de-compilacao-entre-c-e-c">1.Diferenças de compilação entre C++ e C<a class="headerlink" href="#1diferencas-de-compilacao-entre-c-e-c" title="Permanent link">&para;</a></h2>
 <p>Em C++, é comum ver a expressão extern "C" modificando funções em arquivos de cabeçalho; qual é a sua função? Ela serve para o C++ vincular funções definidas em módulos escritos em linguagem C.</p>
 <p>Embora o C++ seja compatível com C, os símbolos gerados após a compilação de funções em arquivos C++ são diferentes dos gerados pela linguagem C. Como o C++ suporta sobrecarga de funções, os símbolos gerados na compilação de funções C++ carregam informações sobre os tipos dos parâmetros da função, o que não ocorre em C.</p>

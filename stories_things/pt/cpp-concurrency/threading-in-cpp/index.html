@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/threading-in-cpp/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Primeiros passos com threads">
+      <meta property="og:title" content="Introdução a multi-thread em C++ | C++那些事">
       <meta property="og:description" content="Todo o código deste artigo está no repositório de C++那些事.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Primeiros passos com threads">
+      <meta name="twitter:title" content="Introdução a multi-thread em C++ | C++那些事">
       <meta name="twitter:description" content="Todo o código deste artigo está no repositório de C++那些事.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Primeiros passos com threads", "description": "Todo o código deste artigo está no repositório de C++那些事.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concorrência", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Primeiros passos com threads", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Introdução a multi-thread em C++ | C++那些事", "description": "Todo o código deste artigo está no repositório de C++那些事.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concorrência", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Introdução a multi-thread em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/"}]}</script>
   </head>
   
   
@@ -5861,7 +5861,7 @@ A saída típica do código acima é sum igual a 20000000. Como existe uma condi
 <h3 id="43-como-garantir-que-apenas-um-thread-por-vez-acesse-a-variavel-global">4.3 Como garantir que apenas um thread por vez acesse a variável global?<a class="headerlink" href="#43-como-garantir-que-apenas-um-thread-por-vez-acesse-a-variavel-global" title="Permanent link">&para;</a></h3>
 <p>Se um thread está atualmente na seção crítica, queremos que o outro espere até o primeiro terminar. Para isso, podemos usar um <strong>mutex</strong> (abreviação de mutual exclusion, exclusão mútua).</p>
 <p>Metáfora visual do mutex:</p>
-<p><img alt="bg2013042408" alt="Primeiros passos com threads" src="http://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg" /></p>
+<p><img alt="bg2013042408" alt="Introdução a multi-thread em C++ | C++那些事" src="http://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg" /></p>
 <p>Uma maneira simples de impedir a entrada de outros é colocar uma tranca na porta. A primeira pessoa a chegar tranca a porta; quem chega depois vê a porta trancada e espera na fila até a tranca abrir para entrar. Isso se chama <a href="http://zh.wikipedia.org/wiki/互斥锁">"mutex"</a> (Mutual exclusion, abreviado Mutex), e evita que vários threads leiam e escrevam simultaneamente a mesma região de memória.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">m</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>

@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/memcpy-vs-std-copy/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/memcpy-vs-std-copy/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="memcpy と std::copy の比較">
+      <meta property="og:title" content="memcpy と std::copy のパフォーマンス比較 | C++那些事">
       <meta property="og:description" content="最近パフォーマンス最適化を進めるなかで、std::copy を使うコードと memcpy を使うコードがありました。両者は機能的にほぼ同じですが、パフォーマンスへの影響はどう違うのでしょうか？">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="memcpy と std::copy の比較">
+      <meta name="twitter:title" content="memcpy と std::copy のパフォーマンス比較 | C++那些事">
       <meta name="twitter:description" content="最近パフォーマンス最適化を進めるなかで、std::copy を使うコードと memcpy を使うコードがありました。両者は機能的にほぼ同じですが、パフォーマンスへの影響はどう違うのでしょうか？">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "memcpy と std::copy の比較", "description": "最近パフォーマンス最適化を進めるなかで、std::copy を使うコードと memcpy を使うコードがありました。両者は機能的にほぼ同じですが、パフォーマンスへの影響はどう違うのでしょうか？", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "memcpy と std::copy の比較", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "memcpy と std::copy のパフォーマンス比較 | C++那些事", "description": "最近パフォーマンス最適化を進めるなかで、std::copy を使うコードと memcpy を使うコードがありました。両者は機能的にほぼ同じですが、パフォーマンスへの影響はどう違うのでしょうか？", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "memcpy と std::copy のパフォーマンス比較 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/"}]}</script>
   </head>
   
   
@@ -5408,7 +5408,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="memcpy と std::copy の比較" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img alt="copy memcpy" alt="memcpy と std::copy のパフォーマンス比較 | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="_1">どう選ぶか？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>実際のプロジェクトで <code>memcpy</code> と <code>std::copy</code> のどちらを選ぶかは、要件次第です。POD 型を扱っていて柔軟性を保ちたいなら、<code>std::copy</code> を選ぶのがより賢明です。多くのシナリオでは、<code>std::copy</code> の方がより汎用的で安全なデータコピー方法を提供します。</p>
 <p>一方、極限のパフォーマンスを追求する場合は、特に大規模データを扱う場面で <code>memcpy</code> を検討できます。ただし選択にあたっては、実際のユースケースに合わせて、プロファイリングツールを使って丁寧に計測・最適化してください。</p>

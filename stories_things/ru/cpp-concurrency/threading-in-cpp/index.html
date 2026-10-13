@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/threading-in-cpp/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/threading-in-cpp/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Начало работы с потоками">
+      <meta property="og:title" content="Введение в многопоточность C++ | C++那些事">
       <meta property="og:description" content="Весь код из этой статьи находится в репозитории «C++那些事».">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Начало работы с потоками">
+      <meta name="twitter:title" content="Введение в многопоточность C++ | C++那些事">
       <meta name="twitter:description" content="Весь код из этой статьи находится в репозитории «C++那些事».">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Начало работы с потоками", "description": "Весь код из этой статьи находится в репозитории «C++那些事».", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Многопоточность", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Начало работы с потоками", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Введение в многопоточность C++ | C++那些事", "description": "Весь код из этой статьи находится в репозитории «C++那些事».", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Многопоточность", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Введение в многопоточность C++ | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/"}]}</script>
   </head>
   
   
@@ -5861,7 +5861,7 @@
 <h3 id="43">4.3 Как гарантировать, что только один поток одновременно обращается к глобальной переменной?<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
 <p>Если один поток сейчас находится в критической секции, мы хотим, чтобы другой поток ждал, пока первый завершит. Для этого можно использовать <strong>мьютекс</strong> (сокращение от «взаимное исключение»).</p>
 <p>Наглядная метафора мьютекса:</p>
-<p><img alt="bg2013042408" alt="Начало работы с потоками" src="http://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg" /></p>
+<p><img alt="bg2013042408" alt="Введение в многопоточность C++ | C++那些事" src="http://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg" /></p>
 <p>Простой способ не пустить других внутрь — повесить на дверь замок. Пришедший первым запирает дверь, пришедшие позже видят замок и выстраиваются у двери, дожидаясь, когда замок откроют. Это и называется <a href="http://zh.wikipedia.org/wiki/互斥锁">"мьютексом"</a> (Mutual exclusion, сокращённо Mutex) — он не даёт нескольким потокам одновременно читать и писать одну область памяти.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">m</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>

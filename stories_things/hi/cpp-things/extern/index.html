@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/extern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/extern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ extern लिंकेज">
+      <meta property="og:title" content="C++ extern linkage declaration | C++那些事">
       <meta property="og:description" content="C++ में header फ़ाइलों में अक्सर extern &quot;C&quot; से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।">
       <meta property="og:url" content="https://light-city.github.io/stories_things/hi/cpp-things/extern/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ extern लिंकेज">
+      <meta name="twitter:title" content="C++ extern linkage declaration | C++那些事">
       <meta name="twitter:description" content="C++ में header फ़ाइलों में अक्सर extern &quot;C&quot; से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ extern लिंकेज", "description": "C++ में header फ़ाइलों में अक्सर extern \"C\" से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "मूल बातें और आगे", "item": "https://light-city.github.io/stories_things/hi/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ extern लिंकेज", "item": "https://light-city.github.io/stories_things/hi/cpp-things/extern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ extern linkage declaration | C++那些事", "description": "C++ में header फ़ाइलों में अक्सर extern \"C\" से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "मूल बातें और आगे", "item": "https://light-city.github.io/stories_things/hi/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ extern linkage declaration | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-things/extern/"}]}</script>
   </head>
   
   
@@ -5440,7 +5440,7 @@
 <h1 id="c-extern-linkage-declaration">C++ extern linkage declaration<a class="headerlink" href="#c-extern-linkage-declaration" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>व्यक्तिगत WeChat सार्वजनिक अकाउंट:</p>
-<p><img alt="wechat" alt="C++ extern लिंकेज" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="C++ extern linkage declaration | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1c-c-compile">1.C++ और C के compile में अंतर<a class="headerlink" href="#1c-c-compile" title="Permanent link">&para;</a></h2>
 <p>C++ में header फ़ाइलों में अक्सर extern "C" से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।</p>
 <p>C++ भले C के साथ compatible है, लेकिन C++ फ़ाइल में फ़ंक्शन compile होने के बाद बनने वाला symbol C भाषा से बनने वाले से अलग होता है। क्योंकि C++ function overloading सपोर्ट करता है, C++ फ़ंक्शन compile होने के बाद बनने वाले symbol में फ़ंक्शन पैरामीटर टाइप की जानकारी होती है, जबकि C में नहीं।</p>

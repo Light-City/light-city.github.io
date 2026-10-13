@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/c-polymorphism/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Polimorfismo estilo C para C++">
+      <meta property="og:title" content="Implementando polimorfismo de C++ em linguagem C | C++那些事">
       <meta property="og:description" content="Polimorfismo em C++: o C++ mantém uma tabela de funções virtuais e, pelas regras de compatibilidade de atribuição, sabemos que um ponteiro ou referência da classe base pode apontar para um objeto da classe derivada.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Polimorfismo estilo C para C++">
+      <meta name="twitter:title" content="Implementando polimorfismo de C++ em linguagem C | C++那些事">
       <meta name="twitter:description" content="Polimorfismo em C++: o C++ mantém uma tabela de funções virtuais e, pelas regras de compatibilidade de atribuição, sabemos que um ponteiro ou referência da classe base pode apontar para um objeto da classe derivada.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Polimorfismo estilo C para C++", "description": "Polimorfismo em C++: o C++ mantém uma tabela de funções virtuais e, pelas regras de compatibilidade de atribuição, sabemos que um ponteiro ou referência da classe base pode apontar para um objeto da classe derivada.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Polimorfismo estilo C para C++", "item": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Implementando polimorfismo de C++ em linguagem C | C++那些事", "description": "Polimorfismo em C++: o C++ mantém uma tabela de funções virtuais e, pelas regras de compatibilidade de atribuição, sabemos que um ponteiro ou referência da classe base pode apontar para um objeto da classe derivada.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Implementando polimorfismo de C++ em linguagem C | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/c-polymorphism/"}]}</script>
   </head>
   
   
@@ -5422,7 +5422,7 @@
 <h1 id="implementando-polimorfismo-de-c-em-linguagem-c">Implementando polimorfismo de C++ em linguagem C<a class="headerlink" href="#implementando-polimorfismo-de-c-em-linguagem-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor:<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
 <p>Conta oficial do WeChat:</p>
-<p><img alt="wechat" alt="Polimorfismo estilo C para C++" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="Implementando polimorfismo de C++ em linguagem C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1exemplo-de-implementacao-em-c">1.Exemplo de implementação em C++<a class="headerlink" href="#1exemplo-de-implementacao-em-c" title="Permanent link">&para;</a></h2>
 <p>Polimorfismo em C++: o C++ mantém uma tabela de funções virtuais e, pelas regras de compatibilidade de atribuição, sabemos que um ponteiro ou referência da classe base pode apontar para um objeto da classe derivada.</p>
 <p>Se um ponteiro ou referência da classe base chama uma função virtual da classe base, esse ponteiro da classe base procura o endereço da função em sua própria tabela de funções virtuais; se esse ponteiro ou referência da classe base aponta para um objeto da classe derivada, e essa classe derivada sobrescreveu a função virtual da classe base, então o ponteiro chamará a função virtual já sobrescrita na classe derivada.</p>

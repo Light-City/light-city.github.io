@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/traits/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Técnicas de traits na STL">
+      <meta property="og:title" content="STL traits extração de tipos | C++那些事">
       <meta property="og:description" content="Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Técnicas de traits na STL">
+      <meta name="twitter:title" content="STL traits extração de tipos | C++那些事">
       <meta name="twitter:description" content="Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Técnicas de traits na STL", "description": "Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Análise do código-fonte", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "Técnicas de traits na STL", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL traits extração de tipos | C++那些事", "description": "Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Análise do código-fonte", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL traits extração de tipos | C++那些事", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/traits/"}]}</script>
   </head>
   
   
@@ -5437,7 +5437,7 @@
 <h1 id="stl-traits-extracao-de-tipos">STL traits extração de tipos<a class="headerlink" href="#stl-traits-extracao-de-tipos" title="Permanent link">&para;</a></h1>
 <h2 id="0-introducao">0. Introdução<a class="headerlink" href="#0-introducao" title="Permanent link">&para;</a></h2>
 <p>Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:</p>
-<p><img alt="rela" alt="Técnicas de traits na STL" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="rela" alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
 <p>A figura acima mostra que o objetivo da STL é separar dados e algoritmos, projetando cada um por si, e depois, por meio de algo chamado iterator, colar os dois de volta juntos.</p>
 <p>Nos design patterns, a descrição do iterator é: <strong>um método que permite acessar sequencialmente cada elemento de um contêiner sem expor a representação interna do contêiner. E a técnica de extração de tipos (traits) existe justamente para resolver problemas relacionados a iteradores.</strong></p>
 <p>Ao aplicar algoritmos genéricos (find, count, find_if) a um contêiner, o mais importante é fornecer ao algoritmo uma ferramenta para acessar os elementos do contêiner, e é o iterator que desempenha esse papel essencial.</p>
@@ -5574,7 +5574,7 @@
 </span></code></pre></div>
 <p><strong>（2）Acrescentando a camada intermediária</strong></p>
 <p>O que é Traits na STL? Veja a figura abaixo:</p>
-<p><img alt="trai" alt="Técnicas de traits na STL" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="trai" alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
 <p>Usando uma camada intermediária <code>iterator_traits</code>, fixamos a forma de <code>func</code>, o que reduz drasticamente o código repetido; tudo o que resta é especializar um pouco o iterator_traits para que suporte pointer e const pointer:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

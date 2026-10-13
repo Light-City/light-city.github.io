@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/extern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/extern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ extern とリンケージ">
+      <meta property="og:title" content="C++ extern リンケージ指定 | C++那些事">
       <meta property="og:description" content="C++ではヘッダファイルでextern &quot;C&quot;と修飾された関数をよく見かけますが、何の役割があるのでしょうか？ C言語モジュールで定義された関数をC++からリンクするためのものです。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/extern/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ extern とリンケージ">
+      <meta name="twitter:title" content="C++ extern リンケージ指定 | C++那些事">
       <meta name="twitter:description" content="C++ではヘッダファイルでextern &quot;C&quot;と修飾された関数をよく見かけますが、何の役割があるのでしょうか？ C言語モジュールで定義された関数をC++からリンクするためのものです。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ extern とリンケージ", "description": "C++ではヘッダファイルでextern \"C\"と修飾された関数をよく見かけますが、何の役割があるのでしょうか？ C言語モジュールで定義された関数をC++からリンクするためのものです。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ extern とリンケージ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/extern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ extern リンケージ指定 | C++那些事", "description": "C++ではヘッダファイルでextern \"C\"と修飾された関数をよく見かけますが、何の役割があるのでしょうか？ C言語モジュールで定義された関数をC++からリンクするためのものです。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/extern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/extern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ extern リンケージ指定 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/extern/"}]}</script>
   </head>
   
   
@@ -5440,7 +5440,7 @@
 <h1 id="c-extern">C++ extern リンケージ指定<a class="headerlink" href="#c-extern" title="Permanent link">&para;</a></h1>
 <h2 id="_1">著者について：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>個人公式アカウント：</p>
-<p><img alt="wechat" alt="C++ extern とリンケージ" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="C++ extern リンケージ指定 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1cc">1.C++とCのコンパイルの違い<a class="headerlink" href="#1cc" title="Permanent link">&para;</a></h2>
 <p>C++ではヘッダファイルでextern "C"と修飾された関数をよく見かけますが、何の役割があるのでしょうか？ C言語モジュールで定義された関数をC++からリンクするためのものです。</p>
 <p>C++はCと互換性がありますが、C++ファイルの関数をコンパイルして生成されるシンボルは、C言語が生成するものと異なります。C++は関数のオーバーロードをサポートしており、C++の関数をコンパイルして生成されるシンボルには関数の引数型の情報が含まれますが、Cには含まれません。</p>

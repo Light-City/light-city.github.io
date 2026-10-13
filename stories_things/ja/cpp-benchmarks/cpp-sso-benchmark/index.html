@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/cpp-sso-benchmark/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/cpp-sso-benchmark/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="std::string SSO 計測">
+      <meta property="og:title" content="C++ string SSO パフォーマンステスト | C++那些事">
       <meta property="og:description" content="今日は皆さんに2つの質問があります：">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="std::string SSO 計測">
+      <meta name="twitter:title" content="C++ string SSO パフォーマンステスト | C++那些事">
       <meta name="twitter:description" content="今日は皆さんに2つの質問があります：">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "std::string SSO 計測", "description": "今日は皆さんに2つの質問があります：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "std::string SSO 計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ string SSO パフォーマンステスト | C++那些事", "description": "今日は皆さんに2つの質問があります：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "C++ string SSO パフォーマンステスト | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/cpp-sso-benchmark/"}]}</script>
   </head>
   
   
@@ -5442,7 +5442,7 @@
 <p>パフォーマンスの差が非常に大きいことがわかります。わずか1文字の違いで std::string のパフォーマンスがここまで変わるのです！</p>
 <p>本質は前述の SSO ローカルバッファです。</p>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="std::string SSO 計測" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img alt="gcc short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>同様に llvm-14 を例にとります。完全なコードを見たい場合は下の GitHub アドレスをご覧ください。ここでは核心部分を抜粋します。</p>
 <blockquote>
@@ -5479,14 +5479,14 @@
 <p>SSO については、ローカルバッファに格納できる文字数は 22 文字までで、22 文字を超えると heap 上に確保されます。</p>
 <p>そのため、gcc と同じテストコードを clang に適用すると、少し違う結果が得られます。つまり、long 文字列と short 文字列のパフォーマンスの差が大きくありません。理由は、gcc のテストケースがどちらも 22 文字以内、つまりすべて短い文字列だったためです。</p>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="std::string SSO 計測" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img alt="llvm short long no" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>本当に長い文字列と短い文字列をテストすると、パフォーマンスは明確に変化し、傾向は gcc と一致します。</p>
 <ul>
 <li>短い文字列のテスト内容："hello world hello worl"、合計 22 文字。</li>
 <li>長い文字列のテスト内容："hello world hello world"、合計 23 文字。</li>
 </ul>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="std::string SSO 計測" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img alt="llvm short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">memcpy と std::copy のパフォーマンス比較 | C++那些事</a></li>

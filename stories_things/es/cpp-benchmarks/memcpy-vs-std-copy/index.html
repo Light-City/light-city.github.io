@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/memcpy-vs-std-copy/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/memcpy-vs-std-copy/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="memcpy frente a std::copy">
+      <meta property="og:title" content="Comparación de rendimiento: memcpy frente a std::copy | C++那些事">
       <meta property="og:description" content="Últimamente, al hacer optimización de rendimiento, he visto que algo de código usa std::copy y otro tanto usa memcpy; en lo funcional los dos son de hecho parecidos, ¿cuál es su impacto en el rendimiento?">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="memcpy frente a std::copy">
+      <meta name="twitter:title" content="Comparación de rendimiento: memcpy frente a std::copy | C++那些事">
       <meta name="twitter:description" content="Últimamente, al hacer optimización de rendimiento, he visto que algo de código usa std::copy y otro tanto usa memcpy; en lo funcional los dos son de hecho parecidos, ¿cuál es su impacto en el rendimiento?">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "memcpy frente a std::copy", "description": "Últimamente, al hacer optimización de rendimiento, he visto que algo de código usa std::copy y otro tanto usa memcpy; en lo funcional los dos son de hecho parecidos, ¿cuál es su impacto en el rendimiento?", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "memcpy frente a std::copy", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Comparación de rendimiento: memcpy frente a std::copy | C++那些事", "description": "Últimamente, al hacer optimización de rendimiento, he visto que algo de código usa std::copy y otro tanto usa memcpy; en lo funcional los dos son de hecho parecidos, ¿cuál es su impacto en el rendimiento?", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Benchmarks", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "Comparación de rendimiento: memcpy frente a std::copy | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/"}]}</script>
   </head>
   
   
@@ -5408,7 +5408,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="memcpy frente a std::copy" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img alt="copy memcpy" alt="Comparación de rendimiento: memcpy frente a std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="como-elegir">¿Cómo elegir?<a class="headerlink" href="#como-elegir" title="Permanent link">&para;</a></h2>
 <p>En proyectos reales, la elección entre <code>memcpy</code> y <code>std::copy</code> depende de las necesidades concretas. Si se procesan tipos POD y se quiere mantener la flexibilidad, <code>std::copy</code> es la opción más sensata. Para la mayoría de los escenarios de aplicación, <code>std::copy</code> ofrece una forma de copia de datos más genérica y segura.</p>
 <p>Sin embargo, cuando se persigue el máximo rendimiento, puede considerarse <code>memcpy</code>, sobre todo al procesar grandes volúmenes de datos. Pero al decidir, asegúrate de tener en cuenta el escenario de aplicación real y de apoyarte en herramientas de análisis de rendimiento para hacer pruebas y optimización detalladas.</p>

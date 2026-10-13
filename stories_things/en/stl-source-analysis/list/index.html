@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/list/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/list/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL Source-Code Analysis: list">
+      <meta property="og:title" content="STL list source code analysis | C++那些事">
       <meta property="og:description" content="The source code corresponds to gcc-4.9.1">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/stl-source-analysis/list/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL Source-Code Analysis: list">
+      <meta name="twitter:title" content="STL list source code analysis | C++那些事">
       <meta name="twitter:description" content="The source code corresponds to gcc-4.9.1">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL Source-Code Analysis: list", "description": "The source code corresponds to gcc-4.9.1", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL Source-Code Analysis: list", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL list source code analysis | C++那些事", "description": "The source code corresponds to gcc-4.9.1", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL list source code analysis | C++那些事", "item": "https://light-city.github.io/stories_things/en/stl-source-analysis/list/"}]}</script>
   </head>
   
   
@@ -5565,7 +5565,7 @@
 <p>The source code corresponds to <strong>gcc-4.9.1</strong></p>
 <h3 id="1list">1.list<a class="headerlink" href="#1list" title="Permanent link">&para;</a></h3>
 <p>list is a doubly linked circular list, with the following structure:</p>
-<p><img alt="list 1" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
+<p><img alt="list 1" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
 <p>A figure I drew myself:</p>
 <p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
 <p>The doubly linked circular list starts inserting from the node with value 3; the red box marks the last node (the node pointed to by end()). The yellow lines point to predecessor nodes, and the black lines point to successor nodes.</p>
@@ -5763,17 +5763,17 @@
 <p><code>__last</code> represents the red-box node, which is the node pointed to by <code>end()</code>; we do not need that node, so in the processing below it gets removed from the whole list.</p>
 <p><code>__first</code> represents the node with value 3 in the figure.</p>
 <p><strong>Step 1: First, make the last valid node — that is, the node before the red box — have its next pointer point to the specified node 8.</strong></p>
-<p><img alt="step1" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
+<p><img alt="step1" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>__last-&gt;_M_prev-&gt;_M_next  = this;   
 </span></code></pre></div>
 <p><strong>Step 2: <code>_last</code>'s next pointer points to itself.</strong></p>
-<p><img alt="step2" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
+<p><img alt="step2" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>__first-&gt;_M_prev-&gt;_M_next = __last;
 </span></code></pre></div>
 <p><strong>Step 3: Make the node before the specified iterator have its next point to the original list's first node (<code>__first</code>).</strong></p>
-<p><img alt="step3" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
+<p><img alt="step3" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>this-&gt;_M_prev-&gt;_M_next    = __first;
 </span></code></pre></div>
@@ -5781,17 +5781,17 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>_List_node_base* const __tmp = this-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 5: The specified iterator's predecessor node points to the original list's actual last node (the node before end()).</strong></p>
-<p><img alt="step5" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
+<p><img alt="step5" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>this-&gt;_M_prev                = __last-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 6: Make the original list's last node's (the node pointed to by end()) prev point to itself.</strong></p>
-<p><img alt="step6" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
+<p><img alt="step6" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>__last-&gt;_M_prev              = __first-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 7: Make the original list's first node's prev point to the node saved in step 4.</strong></p>
-<p><img alt="step7" alt="STL Source-Code Analysis: list" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
+<p><img alt="step7" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>__first-&gt;_M_prev             = __tmp;
 </span></code></pre></div>

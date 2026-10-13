@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="多態: 仮想関数・CRTP・variant">
+      <meta property="og:title" content="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事">
       <meta property="og:description" content="ポリモーフィズムはオブジェクト指向プログラミングの重要な概念で、単一のインターフェースで異なる型を表現できます。C++ にはいくつかのポリモーフィズム実現方法があり、本記事では3つのシナリオのポリモーフィズムを議論します：">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="多態: 仮想関数・CRTP・variant">
+      <meta name="twitter:title" content="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事">
       <meta name="twitter:description" content="ポリモーフィズムはオブジェクト指向プログラミングの重要な概念で、単一のインターフェースで異なる型を表現できます。C++ にはいくつかのポリモーフィズム実現方法があり、本記事では3つのシナリオのポリモーフィズムを議論します：">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "多態: 仮想関数・CRTP・variant", "description": "ポリモーフィズムはオブジェクト指向プログラミングの重要な概念で、単一のインターフェースで異なる型を表現できます。C++ にはいくつかのポリモーフィズム実現方法があり、本記事では3つのシナリオのポリモーフィズムを議論します：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "多態: 仮想関数・CRTP・variant", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事", "description": "ポリモーフィズムはオブジェクト指向プログラミングの重要な概念で、単一のインターフェースで異なる型を表現できます。C++ にはいくつかのポリモーフィズム実現方法があり、本記事では3つのシナリオのポリモーフィズムを議論します：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "パフォーマンス計測", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-benchmarks/polymorphism-crtp-variant-virtual/"}]}</script>
   </head>
   
   
@@ -5482,9 +5482,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>テスト結果1：gcc コンパイルでは、virtual と std::variant のパフォーマンス差は大きくありませんが、crtp との差は非常に大きいことがわかります。</p>
-<p><img alt="gcc bm" alt="多態: 仮想関数・CRTP・variant" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img alt="gcc bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>テスト結果2：clang コンパイルでは全体傾向は gcc と同様で、crtp + std::variant のパフォーマンスだけが明らかに低下しています。これは std::visit を使っているためかもしれません。</p>
-<p><img alt="clang bm" alt="多態: 仮想関数・CRTP・variant" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img alt="clang bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>A Tour of C++ の書籍には次のように書かれています：</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ''potentially faster'' should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

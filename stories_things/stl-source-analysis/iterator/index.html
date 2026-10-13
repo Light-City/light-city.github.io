@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/iterator/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/iterator/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="STL 迭代器源码剖析">
+      <meta property="og:title" content="STL 迭代器源码剖析 | C++那些事">
       <meta property="og:description" content="本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/iterator/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="STL 迭代器源码剖析">
+      <meta name="twitter:title" content="STL 迭代器源码剖析 | C++那些事">
       <meta name="twitter:description" content="本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL 迭代器源码剖析", "description": "本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL 迭代器源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL 迭代器源码剖析 | C++那些事", "description": "本节使用上节Traits特性，研究iterator源码，来实现一个简单的iterator_category，同时对iterator的源码结构进行分析。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL 迭代器源码剖析 | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/iterator/"}]}</script>
   </head>
   
   
@@ -5422,7 +5422,7 @@
 <p><strong>知其然，知其所以然，源码面前了无秘密！</strong></p>
 <h2 id="1iterator_category">1.利用萃取机实现一个简单的iterator_category识别<a class="headerlink" href="#1iterator_category" title="Permanent link">&para;</a></h2>
 <p>上一节指出了迭代器的作用，依旧如下图所示：</p>
-<p><img alt="rela" alt="STL 迭代器源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="rela" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
 <p>迭代器是指向序列元素的指针的一种抽象。通过使用迭代器，我们可以访问序列中的某个元素、改变序列中的某个元素的值、使迭代器向前或向后行走等等。</p>
 <p>迭代器有常见有五种类型: value_type, difference_type, reference_type, pointer_type都比较容易在 traits 和相应偏特化中提取。</p>
 <p>但是，iterator_category一般也有5个，这个相应型别会引发较大规模的写代码工程。</p>
@@ -5432,7 +5432,7 @@
 <li>单向移动读写迭代器 Forward Iterator</li>
 <li>双向移动读写迭代器 Bidirectional Iterator</li>
 </ul>
-<p><img alt="iterator" alt="STL 迭代器源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="iterator" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
 <p>例如：我们实现了 advanceII, advanceBI, advanceRAI 分别代表迭代器类型是Input Iterator，Bidirectional Iterator和Random Access Iterator的对应实现。</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5449,7 +5449,7 @@
 <p>而对于<code>advanceXX()</code>都有两个函数参数，型别都未定(因为都是模板参数)。为了令其同名，形成重载函数，我们必须加上一个型别已确定的函数参数，使函数重载机制得以有效运作起来。</p>
 <p>设计如下：如果**traits**有能力萃取出迭代器的种类，我们便可利用这个"迭代器类型"相应型别作为advancexx的第三个参数，而这个相应型别必须是一个class type，不能只是数值号码类的东西，因为编译器需依赖它来进行**重载决议**。</p>
 <p>下面来进行实现，首先给出一个总体结构图：</p>
-<p><img alt="itera" alt="STL 迭代器源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="itera" alt="STL 迭代器源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
 <p>定义出下面tag：</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

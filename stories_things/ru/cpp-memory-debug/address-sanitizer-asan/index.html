@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-memory-debug/address-sanitizer-asan/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="AddressSanitizer">
+      <meta property="og:title" content="Проверка памяти с помощью AddressSanitizer | C++那些事">
       <meta property="og:description" content="C и C++ — очень небезопасные и подверженные ошибкам языки программирования. Address Sanitizer — разработанный Google инструмент для обнаружения ошибок доступа к памяти, таких как использование после освобождения (use-after-free) и утечки памяти. Он встроен в GCC версии &gt;= 4.8 и применим к коду на C и C+…">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="AddressSanitizer">
+      <meta name="twitter:title" content="Проверка памяти с помощью AddressSanitizer | C++那些事">
       <meta name="twitter:description" content="C и C++ — очень небезопасные и подверженные ошибкам языки программирования. Address Sanitizer — разработанный Google инструмент для обнаружения ошибок доступа к памяти, таких как использование после освобождения (use-after-free) и утечки памяти. Он встроен в GCC версии &gt;= 4.8 и применим к коду на C и C+…">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AddressSanitizer", "description": "C и C++ — очень небезопасные и подверженные ошибкам языки программирования. Address Sanitizer — разработанный Google инструмент для обнаружения ошибок доступа к памяти, таких как использование после освобождения (use-after-free) и утечки памяти. Он встроен в GCC версии >= 4.8 и применим к коду на C и C+…", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Инструменты", "item": "https://light-city.github.io/stories_things/ru/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "AddressSanitizer", "item": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Проверка памяти с помощью AddressSanitizer | C++那些事", "description": "C и C++ — очень небезопасные и подверженные ошибкам языки программирования. Address Sanitizer — разработанный Google инструмент для обнаружения ошибок доступа к памяти, таких как использование после освобождения (use-after-free) и утечки памяти. Он встроен в GCC версии >= 4.8 и применим к коду на C и C+…", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Инструменты", "item": "https://light-city.github.io/stories_things/ru/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Проверка памяти с помощью AddressSanitizer | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-memory-debug/address-sanitizer-asan/"}]}</script>
   </head>
   
   
@@ -5534,7 +5534,7 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 Запустите полученный bin-файл — получим следующий результат.</p>
-<p><img alt="heap use after free" alt="AddressSanitizer" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
+<p><img alt="heap use after free" alt="Проверка памяти с помощью AddressSanitizer | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
 <h2 id="2-heap-buffer-overflow">2. heap buffer overflow<a class="headerlink" href="#2-heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Сначала с помощью ключевого слова <code>new</code> в куче выделяется массив из двух целых чисел, и его начальный адрес присваивается указателю <code>arr</code>. Затем программа пытается сохранить значение 10 в третьей позиции массива (индекс 2), что выходит за допустимые границы массива и приводит к ошибке переполнения буфера в куче.</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;

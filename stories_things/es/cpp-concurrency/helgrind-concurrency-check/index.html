@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Detección con Helgrind">
+      <meta property="og:title" content="Detección de errores de concurrencia con Helgrind | C++那些事">
       <meta property="og:description" content="Normalmente, al escribir programas multihilo, solemos toparnos fácilmente con dos problemas:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Detección con Helgrind">
+      <meta name="twitter:title" content="Detección de errores de concurrencia con Helgrind | C++那些事">
       <meta name="twitter:description" content="Normalmente, al escribir programas multihilo, solemos toparnos fácilmente con dos problemas:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detección con Helgrind", "description": "Normalmente, al escribir programas multihilo, solemos toparnos fácilmente con dos problemas:", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concurrencia", "item": "https://light-city.github.io/stories_things/es/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Detección con Helgrind", "item": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detección de errores de concurrencia con Helgrind | C++那些事", "description": "Normalmente, al escribir programas multihilo, solemos toparnos fácilmente con dos problemas:", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concurrencia", "item": "https://light-city.github.io/stories_things/es/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Detección de errores de concurrencia con Helgrind | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
   
@@ -5447,7 +5447,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img alt="deadlock" alt="Detección con Helgrind" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img alt="deadlock" alt="Detección de errores de concurrencia con Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="carrera-de-datos">Carrera de datos<a class="headerlink" href="#carrera-de-datos" title="Permanent link">&para;</a></h2>
 <p>Supongamos que hay una variable compartida que incrementamos 100 000 veces desde varios hilos: ¿cuál será el resultado?</p>
 <p>Está claro que aquí se produce el problema de varios hilos compitiendo por una variable global y de que el resultado final es inconsistente; el método de detección con helgrind es el mismo que antes.</p>
@@ -5460,7 +5460,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Con esto podemos ver en qué línea se produce la carrera de datos (data race) y así ir a resolver el problema.</p>
-<p><img alt="datarace" alt="Detección con Helgrind" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img alt="datarace" alt="Detección de errores de concurrencia con Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
 <p>Para terminar, dejo un par de preguntas:</p>
 <p>1.¿Cómo reparar estos dos fragmentos de código defectuosos?</p>
 <p>2.Aparte de las herramientas anteriores, ¿hay alguna otra forma?</p>

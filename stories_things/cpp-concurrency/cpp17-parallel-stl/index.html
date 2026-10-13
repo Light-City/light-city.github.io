@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/cpp17-parallel-stl/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/cpp17-parallel-stl/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++17 并行 STL">
+      <meta property="og:title" content="C++17 并行 STL | C++那些事">
       <meta property="og:description" content="可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++17 并行 STL">
+      <meta name="twitter:title" content="C++17 并行 STL | C++那些事">
       <meta name="twitter:description" content="可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++17 并行 STL", "description": "可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "C++17 并行 STL", "item": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++17 并行 STL | C++那些事", "description": "可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "C++17 并行 STL | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/"}]}</script>
   </head>
   
   
@@ -5441,9 +5441,9 @@
 <p><a href="https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features">https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features</a></p>
 </blockquote>
 <p>可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。</p>
-<p><img alt="fea" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/fea.png" /></p>
+<p><img alt="fea" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/fea.png" /></p>
 <p>其支持的算法包括：</p>
-<p><img alt="all std" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/all_std.png" /></p>
+<p><img alt="all std" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/all_std.png" /></p>
 <blockquote>
 <p><a href="https://en.cppreference.com/w/cpp/experimental/parallelism">https://en.cppreference.com/w/cpp/experimental/parallelism</a></p>
 </blockquote>
@@ -5453,7 +5453,7 @@
 <p><a href="https://gcc.gnu.org/gcc-9/changes.html">https://gcc.gnu.org/gcc-9/changes.html</a></p>
 </blockquote>
 <p>其中，提到一个非常重要的信息：<strong>需要tbb支持</strong>。</p>
-<p><img alt="tbb req" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/tbb_req.png" /></p>
+<p><img alt="tbb req" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/tbb_req.png" /></p>
 <p>TBB是由英特尔（Intel）公司开发的一个用于并行编程的 C++ 库。TBB 旨在简化多核处理器上的并行软件开发，提供了一套抽象和模型，使程序员能够更容易地实现并行算法。</p>
 <p>1.C++17当中使用并行算法库的前提必须得安装tbb，那如果不安装tbb会怎样呢？</p>
 <p>我自己实测就是可以编译与运行，只是没有任何加速，跟原来非并行跑出来的结果是一样的。</p>
@@ -5518,11 +5518,11 @@
 </span></code></pre></div>
 <p>下面的测试结果将采用tbb默认线程调度策略。</p>
 <p><strong>对比组1：并行Sort/串行Sort详细数据与加速比</strong></p>
-<p><img alt="sort parallel" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
-<p><img alt="sort parallel sp" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
+<p><img alt="sort parallel" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
+<p><img alt="sort parallel sp" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
 <p><strong>对比组2：并行Merge/串行Merge详细数据与加速比</strong></p>
-<p><img alt="merge parallel" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
-<p><img alt="merge parallel sp" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
+<p><img alt="merge parallel" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
+<p><img alt="merge parallel sp" alt="C++17 并行 STL | C++那些事" src="../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
 <p>tbb文档：</p>
 <blockquote>
 <p><a href="https://oneapi-src.github.io/oneTBB/index.html">https://oneapi-src.github.io/oneTBB/index.html</a></p>

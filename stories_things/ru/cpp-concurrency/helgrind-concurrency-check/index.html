@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Поиск ошибок через Helgrind">
+      <meta property="og:title" content="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事">
       <meta property="og:description" content="При написании многопоточных программ мы обычно легко сталкиваемся с двумя проблемами:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/">
       <meta property="og:site_name" content="C++那些事">
@@ -97,11 +97,11 @@
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Поиск ошибок через Helgrind">
+      <meta name="twitter:title" content="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事">
       <meta name="twitter:description" content="При написании многопоточных программ мы обычно легко сталкиваемся с двумя проблемами:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Поиск ошибок через Helgrind", "description": "При написании многопоточных программ мы обычно легко сталкиваемся с двумя проблемами:", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Многопоточность", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Поиск ошибок через Helgrind", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事", "description": "При написании многопоточных программ мы обычно легко сталкиваемся с двумя проблемами:", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Многопоточность", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
   
@@ -5447,7 +5447,7 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<img alt="deadlock" alt="Поиск ошибок через Helgrind" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<img alt="deadlock" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="_2">Гонка данных<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Предположим, есть разделяемая переменная, которую мы в нескольких потоках увеличиваем 100 тысяч раз — каким будет результат?</p>
 <p>Очевидно, здесь возникает проблема конкуренции нескольких потоков за глобальную переменную: итоговый результат оказывается некорректным. Способ обнаружения с помощью helgrind тот же, что и выше.</p>
@@ -5460,7 +5460,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 Теперь мы можем увидеть, на какой строке происходит data race, и затем устранить проблему.</p>
-<p><img alt="datarace" alt="Поиск ошибок через Helgrind" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img alt="datarace" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
 <p>Напоследок оставлю несколько вопросов:</p>
 <p>1.Как исправить эти два проблемных фрагмента кода?</p>
 <p>2.Кроме описанного выше инструмента, есть ли другие способы?</p>
