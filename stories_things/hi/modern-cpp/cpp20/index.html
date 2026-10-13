@@ -1,0 +1,5535 @@
+
+<!doctype html>
+<html lang="hi" class="no-js">
+  <head>
+    
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="C++20 से संबंधित लेखों की सूची, विषय के अनुसार देखें।">
+      
+      
+        <meta name="author" content="光城">
+      
+      
+        <link rel="canonical" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/">
+      
+      
+        <link rel="prev" href="../cpp17/template-auto-deduction/">
+      
+      
+        <link rel="next" href="embrace-cpp20/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    <meta name="keywords" content="C++20 लेखों की सूची,C++那些事"> 
+    <meta name="title" content="C++20 · लेख सूची | C++那些事"> 
+
+    
+      
+        <title>C++20 · लेख सूची | C++那些事 - C++那些事</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/article-brand.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-9LC7S6B5J9"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-9LC7S6B5J9",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-9LC7S6B5J9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/modern-cpp/cpp20/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="C++20 · लेख सूची | C++那些事">
+      <meta property="og:description" content="C++20 से संबंधित लेखों की सूची, विषय के अनुसार देखें।">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="hi_IN">
+      <meta property="og:locale:alternate" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="C++20 · लेख सूची | C++那些事">
+      <meta name="twitter:description" content="C++20 से संबंधित लेखों की सूची, विषय के अनुसार देखें।">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++20 · लेख सूची | C++那些事", "description": "C++20 से संबंधित लेखों की सूची, विषय के अनुसार देखें।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++20", "item": "https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/"}, {"@type": "ListItem", "position": 3, "name": "मॉडर्न C++", "item": "https://light-city.github.io/stories_things/hi/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "C++20 · लेख सूची | C++那些事", "item": "https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="dracula" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c20" class="md-skip">
+          विषय पर बढ़ें
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="शीर्षक">
+    <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            C++那些事
+          </span>
+          ——
+          <span class="md-ellipsis">
+            <a href="https://light-city.github.io/" target="_blank">
+              光城的实验室
+            </a>
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C++20 · लेख सूची | C++那些事
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="भाषा चुनें">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../modern-cpp/cpp20/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/modern-cpp/cpp20/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/modern-cpp/cpp20/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../es/modern-cpp/cpp20/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ru/modern-cpp/cpp20/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../pt/modern-cpp/cpp20/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="hi" class="md-select__link">
+              हिन्दी
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="खोज" placeholder="खोज" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="खोजें">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="शेयर करें" aria-label="शेयर करें" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="हटा दें" aria-label="हटा दें" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            खोज शुरू करें
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Light-City/CPlusPlusThings" title="रिपॉजिटरी पर जाएं" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Light-City/CPlusPlusThings
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="टैब" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  होम
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cplusplus-things-overview/" class="md-tabs__link">
+        
+  
+    
+  
+  प्रोजेक्ट परिचय
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../how-to-build-cplusplusthings/" class="md-tabs__link">
+        
+  
+    
+  
+  बिल्ड और रन गाइड
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-things/const/" class="md-tabs__link">
+          
+  
+    
+  
+  मूल बातें और आगे
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stl-source-analysis/array/" class="md-tabs__link">
+          
+  
+    
+  
+  सोर्स-कोड विश्लेषण
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-idioms/class-initializer-list/" class="md-tabs__link">
+          
+  
+    
+  
+  आइडियम
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cpp11/" class="md-tabs__link">
+          
+  
+    
+  
+  मॉडर्न C++
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-tools/" class="md-tabs__link">
+          
+  
+    
+  
+  टूल्स
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-benchmarks/" class="md-tabs__link">
+          
+  
+    
+  
+  बेंचमार्क
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-projects/" class="md-tabs__link">
+          
+  
+    
+  
+  प्रैक्टिकल प्रोजेक्ट
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-guides/" class="md-tabs__link">
+          
+  
+    
+  
+  पढ़ना और टिप्स
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-concurrency/" class="md-tabs__link">
+          
+  
+    
+  
+  कॉनकरेंसी
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-tabs__link">
+          
+  
+    
+  
+  शैक्षिक संसाधन
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  लेखक से संपर्क
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="नैविगेशन" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    C++那些事
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Light-City/CPlusPlusThings" title="रिपॉजिटरी पर जाएं" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Light-City/CPlusPlusThings
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    होम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cplusplus-things-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    प्रोजेक्ट परिचय
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-build-cplusplusthings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    बिल्ड और रन गाइड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    मूल बातें और आगे
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            मूल बातें और आगे
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/const/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ const कॉन्स्टेंट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ static सदस्य और लाइफटाइम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/vptr-vtable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ vptr और vtable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/c-polymorphism/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C भाषा में C++ बहुरूपता
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/pointer-vs-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ पॉइंटर और रेफरेंस
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/macro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ मैक्रो और कंडीशनल कंपाइल
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ this पॉइंटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/inline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ inline फंक्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/sizeof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ sizeof ऑपरेटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/abstract/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    प्योर वर्चुअल और एब्स्ट्रैक्ट क्लास
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/virtual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ virtual फंक्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/volatile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ volatile कीवर्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/assert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ assert
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/bit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ बिट फील्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/extern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ extern लिंकेज
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/struct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ struct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/struct-vs-class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct बनाम class
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/union/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ union
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/explicit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ explicit कीवर्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/friend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ friend
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/using/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ using डिक्लेरेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/namespace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ नेमस्पेस
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/enum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ enum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/decltype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ decltype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_25" id="__nav_4_25_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    भाषा की गहराई
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_25">
+            <span class="md-nav__icon md-icon"></span>
+            भाषा की गहराई
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-mutable-keyword/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ mutable कीवर्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-const-family/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ const परिवार
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-string-abi-compatibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ string ABI कम्पैटिबिलिटी
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/std-ref-wrapper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ ref और reference_wrapper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/std-function-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::function विस्तार से
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/smart-pointer-as-parameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    स्मार्ट पॉइंटर पैरामीटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/member-initializer-list-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मेंबर इनिशियलाइज़र लिस्ट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-multiple-return-values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मल्टीपल रिटर्न वैल्यू
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-vs-rust-destructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ बनाम Rust डिस्ट्रक्टर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-iv-initialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    इनिशियलाइज़ेशन बनाम असाइनमेंट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-restrict-optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    restrict और ऑप्टिमाइज़ेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-template-disambiguator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    टेम्पलेट डिसैम्बिगुएशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/tail-recursion-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ टेल रिकर्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/vector-resize-reverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vector resize और reverse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-things/cpp-dereference-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    डिरेफरेंस ऑपरेटर *
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    सोर्स-कोड विश्लेषण
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            सोर्स-कोड विश्लेषण
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/deque/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: deque
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/queue-and-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: queue और stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: list
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/vector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: vector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/typename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: typename
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/traits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL traits तकनीक
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/iterator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: इटरेटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/ebo-empty-base-optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL EBO ऑप्टिमाइज़ेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/rb-tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL रेड-ब्लैक ट्री
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/set-and-multiset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL set और multiset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/map-and-multimap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL map और multimap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/hashtable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL hashtable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/hashtable-custom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    हैश टेबल स्वयं लिखें
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/unordered_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL विश्लेषण: unordered_map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-deep-dive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::string गहराई से
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/cpp-string-interview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::string इंटरव्यू प्रश्न
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl-source-analysis/stl-iterator-invalidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL इटरेटर इनवैलिडेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    आइडियम
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            आइडियम
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/class-initializer-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    क्लास इनिशियलाइज़र लिस्ट आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/enum-class/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    enum class स्कोप्ड एनम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/raii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAII रिसोर्स मैनेजमेंट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/copy-swap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    copy-and-swap आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/pimpl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pimpl आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/mixin-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mixin आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/dependency-injection-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ डिपेंडेंसी इंजेक्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/trigraphs-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ ट्राइग्राफ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/avoid-default-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    डिफ़ॉल्ट कंस्ट्रक्टर से बचें
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lazy-evaluation-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    लेज़ी इवैल्यूएशन आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/header-only-vs-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Header-Only बनाम इम्प्लीमेंटेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/class-template-over-function-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    क्लास टेम्पलेट बनाम फंक्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/lookup-table-idiom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    लुकअप-टेबल आइडियम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-idioms/member-pointer-type-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मेंबर पॉइंटर और टाइप इन्फो
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    सिंगलटन पैटर्न
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    मॉडर्न C++
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            मॉडर्न C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../cpp11/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++11
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_1" id="__nav_7_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            C++11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp11/cpp11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++11 फीचर्स परिचय
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp11/cpp-std-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::move सिद्धांत और उपयोग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp11/variadic-templates-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    वैरिएडिक टेम्पलेट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp11/std-bind-vs-lambda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::bind बनाम lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../cpp17/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    C++17
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2" id="__nav_7_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++17
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/cpp17-top-17-features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 के 17 एडवांस्ड फीचर्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/cpp-string-view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::string_view
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/structured-bindings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 स्ट्रक्चर्ड बाइंडिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/variable-templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 वैरिएबल टेम्पलेट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/cpp-nodiscard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 [[nodiscard]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/cpp17-pmr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 PMR मेमोरी रिसोर्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/ctad-class-template-argument-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 CTAD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/std-variant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 std::variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/optional-ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 optional_ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpp17/template-auto-deduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 टेम्पलेट auto डिडक्शन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    C++20
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            C++20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="embrace-cpp20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 फीचर्स गाइड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp-coroutines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 कोरूटीन परिचय
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-ranges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 Ranges लाइब्रेरी
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 मॉड्यूल
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-lambda-part1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 लैम्ब्डा (भाग 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-channel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 चैनल प्रैक्टिस
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-span/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::span डिज़ाइन और जोखिम
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-endian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 एंडियन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-constexpr-comma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 constexpr और कॉमा ऑपरेटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="no-unique-address/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[no_unique_address]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spaceship-operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <=> ऑपरेटर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp20-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 कॉन्सेप्ट्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="likely-unlikely-attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 [[likely]] और [[unlikely]]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    टूल्स
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            टूल्स
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cmake-essentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CMake एसेंशियल्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/bazel-build-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bazel से C++ बिल्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/meson-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meson से C++ बिल्ड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/conan-package-manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conan पैकेज मैनेजर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gdb-debugging-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB से C++ डिबगिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/lldb-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLDB से C++ डिबगिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/dbg-macro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dbg-macro डिबगिंग टूल
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/bazel-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bazel + LLDB डिबगिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gdb-python-enhancement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB पायथन एक्सटेंशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/memory-leak-debug-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मेमोरी लीक हंटिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-debug-mode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL डिबग मोड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/stl-container-output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STL कंटेनर आउटपुट टूल
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-jupyter-notebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter में C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-insights/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Insights कंपाइल-टाइम व्यू
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/cpp-string-to-int/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    string से int बदलना
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/gcc-flags-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GCC ऑप्शन्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-tools/vscode-cpp-formatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VS Code में C++ फॉर्मैट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-memory-debug/address-sanitizer-asan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AddressSanitizer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-memory-debug/cpp-memory-leak-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मेमोरी लीक पहचान
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-memory-debug/valgrind-massif-memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valgrind Massif विश्लेषण
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-benchmarks/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    बेंचमार्क
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            बेंचमार्क
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/memcpy-vs-std-copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    memcpy बनाम std::copy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/cpp-sso-benchmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::string SSO बेंचमार्क
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-benchmarks/polymorphism-crtp-variant-virtual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    बहुरूपता: virtual, CRTP, variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-projects/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    प्रैक्टिकल प्रोजेक्ट
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            प्रैक्टिकल प्रोजेक्ट
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10-दिन C++ क्रैश कोर्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मुख्य C++ अभ्यास
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/modern-cpp-http-server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++20 कोरूटीन HTTP सर्वर
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-short-url-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URL-शॉर्टनर डेमो
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-grpc-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    एक छोटा gRPC प्रोजेक्ट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/pybind11-python-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pybind11 से पायथन तेज़
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/google-benchmark-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Benchmark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-fnonce-implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FnOnce स्वयं लागू करें
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp-ipc-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPC प्रैक्टिस
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/cpp17-sqlite-folder-size/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 + SQLite डायरेक्टरी साइज़
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/protobuf-zerocopy-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protobuf ZeroCopy सीरियलाइज़ेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-projects/stack-calculator-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    स्टैक कैलकुलेटर डिज़ाइन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-guides/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    पढ़ना और टिप्स
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            पढ़ना और टिप्स
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/cpp-string-split-methods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    स्ट्रिंग विभाजन के छह तरीके
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/how-to-read-open-source-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ओपन-सोर्स C++ कैसे पढ़ें
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/print-1-to-100-without-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    बिना लूप 1-100 प्रिंट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/interesting-cpp-code-snippet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    एक रोचक C++ स्निपेट
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/cpython-extension-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CPython एक्सटेंशन नोट्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-guides/curl-cpp-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libcurl C++ नोट्स
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpp-concurrency/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    कॉनकरेंसी
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            कॉनकरेंसी
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-concurrency-in-action/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ Concurrency in Action गाइड
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/threading-in-cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मल्टीथ्रेडिंग परिचय
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-jthread-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::thread और jthread
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/std-thread-internals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    std::thread की आंतरिक कार्यप्रणाली
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-deadlock-debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    डेडलॉक डिबगिंग
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/gdb-multi-thread-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDB मल्टी-थ्रेड All-Stop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/helgrind-concurrency-check/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helgrind कॉनकरेंसी जांच
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/false-sharing-cache-line/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    फाल्स शेयरिंग और कैश लाइन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp17-parallel-stl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++17 पैरेलल STL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/cpp-simd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ SIMD वेक्टराइज़ेशन
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-concurrency/libev-event-loop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libev इवेंट लूप
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    शैक्षिक संसाधन
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            शैक्षिक संसाधन
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp-courses/modern-cpp-30-geektime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    मॉडर्न C++ 30 व्याख्यान (GeekTime)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/feishu-cpp-knowledge-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ नॉलेज बेस
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/bilibili-cpp-tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bilibili पर C++ वीडियो
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/cpp-learning-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ संसाधन और किताबें
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    लेखक से संपर्क
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="विषय - सूची">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<blockquote>
+<p><strong>अंतिम अद्यतन：2026-10-12</strong></p>
+</blockquote>
+<h1 id="c20">C++20 · लेख सूची<a class="headerlink" href="#c20" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>विषय के अनुसार देखें</p>
+</blockquote>
+<ul>
+<li><a href="cpp-coroutines/">C++20 coroutines परिचय</a></li>
+<li><a href="cpp20-channel/">C++20 channel व्यवहारिक उपयोग</a></li>
+<li><a href="cpp20-concepts/">C++20 Concepts अवधारणा</a></li>
+<li><a href="cpp20-constexpr-comma/">C++20 constexpr और comma एक्सप्रेशन</a></li>
+<li><a href="cpp20-endian/">C++20 byte order endian</a></li>
+<li><a href="cpp20-lambda-part1/">C++20 Lambda एक्सप्रेशन (भाग 1)</a></li>
+<li><a href="cpp20-modules/">C++20 Modules मॉड्यूल</a></li>
+<li><a href="cpp20-ranges/">C++20 Ranges लाइब्रेरी</a></li>
+<li><a href="cpp20-span/">C++20 std::span डिज़ाइन और जाल</a></li>
+<li><a href="embrace-cpp20/">C++20 नई विशेषताओं की जानकारी</a></li>
+<li><a href="likely-unlikely-attributes/">C++20 [[likely]] और [[unlikely]]</a></li>
+<li><a href="no-unique-address/">C++20 [[no_unique_address]]</a></li>
+<li><a href="spaceship-operator/">C++20 थ्री-वे comparison ऑपरेटर &lt;=&gt;</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+  <h2 id="__comments">टिप्पणियाँ</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Light-City/light-comments"
+          data-repo-id="R_kgDOLcVr-w"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOLcVr-84CdwfH"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="hi"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.querySelector(".md-content__inner.md-typeset");
+      if (!root) return;
+      var h1 = root.querySelector("h1");
+      if (!h1 || h1.dataset.brandLogo) return;
+      var img = document.createElement("img");
+      img.src = "../../../assets/images/logo.png";
+      img.alt = "C++那些事 | Stories About C Plus Plus";
+      img.className = "article-title-logo";
+      img.loading = "lazy";
+      img.decoding = "async";
+      h1.insertAdjacentElement("afterend", img);
+      h1.dataset.brandLogo = "1";
+    });
+  </script>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  शीर्षभाग पर लौटें
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="फुटर" >
+        
+          
+          <a href="../cpp17/template-auto-deduction/" class="md-footer__link md-footer__link--prev" aria-label="पिछला: C++17 टेम्पलेट auto डिडक्शन">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                पिछला
+              </span>
+              <div class="md-ellipsis">
+                C++17 टेम्पलेट auto डिडक्शन
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="embrace-cpp20/" class="md-footer__link md-footer__link--next" aria-label="आगामी: C++20 फीचर्स गाइड">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                आगामी
+              </span>
+              <div class="md-ellipsis">
+                C++20 फीचर्स गाइड
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2026 光城
+    </div>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Light-City/CPlusPlusThings" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/lightcityfran" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u0915\u094d\u0932\u093f\u092a\u092c\u094b\u0930\u094d\u0921 \u092a\u0930 \u0915\u0949\u092a\u0940 \u0915\u0930 \u0926\u093f\u092f\u093e \u0917\u092f\u093e", "clipboard.copy": "\u0915\u094d\u0932\u093f\u092a\u092c\u094b\u0930\u094d\u0921 \u092a\u0930 \u0915\u0949\u092a\u0940 \u0915\u0930\u0947\u0902", "search.result.more.one": "1 \u0914\u0930 \u0907\u0938 \u092a\u0943\u0937\u094d\u0920 \u092a\u0930", "search.result.more.other": "# \u0914\u0930 \u0907\u0938 \u092a\u0943\u0937\u094d\u0920 \u092a\u0930", "search.result.none": "\u0915\u094b\u0908 \u092e\u093f\u0932\u093e\u0928 \u0921\u0949\u0915\u094d\u092f\u0942\u092e\u0947\u0902\u091f \u0928\u0939\u0940\u0902", "search.result.one": "1 \u092e\u093f\u0932\u093e\u0928 \u0921\u0949\u0915\u094d\u092f\u0942\u092e\u0947\u0902\u091f", "search.result.other": "# \u092e\u093f\u0932\u093e\u0928 \u0921\u093e\u0915\u094d\u092f\u0942\u092e\u0947\u0902\u091f\u094d\u0938", "search.result.placeholder": "\u0916\u094b\u091c \u0936\u0941\u0930\u0942 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u091f\u093e\u0907\u092a \u0915\u0930\u0947\u0902", "search.result.term.missing": "\u095a\u093e\u092f\u092c", "select.version": "\u0935\u0930\u094d\u0936\u0928 \u091a\u0941\u0928\u0947\u0902"}}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
+
+  </body>
+</html>

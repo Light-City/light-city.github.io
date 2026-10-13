@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="工具篇：内存泄漏排查实战。">
+        <meta name="description" content="一次真实的数据库内核内存破坏排查：从 aset 的 bad single-chunk WARNING 入手，用 gdb 条件断点加硬件 watchpoint 定位越界写入，完整会话实录与思路讲解。">
       
       
         <meta name="author" content="光城">
@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-tools/memory-leak-debug-session/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-tools/memory-leak-debug-session/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="C++ 内存泄漏排查实战">
+      <meta property="og:description" content="一次真实的数据库内核内存破坏排查：从 aset 的 bad single-chunk WARNING 入手，用 gdb 条件断点加硬件 watchpoint 定位越界写入，完整会话实录与思路讲解。">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="C++ 内存泄漏排查实战">
+      <meta name="twitter:description" content="一次真实的数据库内核内存破坏排查：从 aset 的 bad single-chunk WARNING 入手，用 gdb 条件断点加硬件 watchpoint 定位越界写入，完整会话实录与思路讲解。">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 内存泄漏排查实战", "description": "一次真实的数据库内核内存破坏排查：从 aset 的 bad single-chunk WARNING 入手，用 gdb 条件断点加硬件 watchpoint 定位越界写入，完整会话实录与思路讲解。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "工具篇", "item": "https://light-city.github.io/stories_things/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "C++ 内存泄漏排查实战", "item": "https://light-city.github.io/stories_things/cpp-tools/memory-leak-debug-session/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/cpp-tools/memory-leak-debug-session/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/cpp-tools/memory-leak-debug-session/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/cpp-tools/memory-leak-debug-session/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/cpp-tools/memory-leak-debug-session/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/cpp-tools/memory-leak-debug-session/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/cpp-tools/memory-leak-debug-session/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -404,26 +468,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -484,46 +528,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2259,6 +2243,8 @@
       
         
       
+        
+      
     
     
       
@@ -2591,6 +2577,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3556,6 +3564,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3817,6 +3831,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    C++ 内存泄漏排查实战
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3827,6 +3853,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      复盘
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3987,76 +4050,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4161,7 +4154,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4178,14 +4171,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4299,6 +4292,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4311,7 +4308,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4328,19 +4325,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4607,7 +4648,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4624,14 +4665,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4788,178 +4829,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -4997,7 +4866,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5014,14 +4883,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5289,6 +5158,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5301,14 +5176,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5316,10 +5191,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5344,62 +5219,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5515,6 +5334,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      复盘
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5533,7 +5378,13 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="c">C++ 内存泄漏排查实战<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<p>最近在排查一个数据库内核（Greenplum/PostgreSQL 系）的内存问题时，拿到了一串非常经典的 WARNING：<code>problem in alloc set ExecutorState: bad single-chunk</code>。这条日志的含义是：内存池（alloc set）在校验时发现某个 chunk 的头部信息被破坏了——十有八九是某处代码越界写，把隔壁 chunk 的元数据踩了。</p>
+<p>这类问题的难点在于：<strong>报错的地方不是出错的地方</strong>。WARNING 是在内存被释放、校验时才打出来的，而越界写可能发生在很久之前的任意一段代码里。下面就把当时的完整排查过程贴出来，一起看看怎么用 gdb 把"案发现场"找回来。</p>
+<p><strong>现场信息先读一遍：</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>regression=# SELECT t1.a, t1.c, t2.b, t2.c FROM prt1_e t1, prt2_e t2 WHERE (t1.a + t1.b)/2 = (t2.b + t2.a)/2 AND t1.c = 0 ORDER BY t1.a, t2.b;
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>WARNING:  problem in alloc set ExecutorState: bad single-chunk 0x7cfdd48 in block 0x7cfc580  (seg1 slice1 127.0.1.1:7003 pid=4295)
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>WARNING:  problem in alloc set ExecutorState: found inconsistent memory block 0x7cfc580  (seg1 slice1 127.0.1.1:7003 pid=4295)
@@ -5548,6 +5399,12 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>WARNING:  problem in alloc set ExecutorState: found inconsistent memory block 0x87f6e00  (seg0 slice1 127.0.1.1:7002 pid=4294)
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>WARNING:  problem in alloc set ExecutorState: found inconsistent memory block 0x7d3ae00  (seg2 slice1 127.0.1.1:7004 pid=4296)
 </span></code></pre></div>
+<p>从 WARNING 里能拿到几个关键信息：</p>
+<p>（1）坏 chunk 的地址是确定的：<code>0x7cfdd48</code>（bad single-chunk 指向它）；</p>
+<p>（2）它所在的 block 是 <code>0x7cfc580</code>，同一 block 里"found inconsistent memory block"说明整个 block 的链式校验也挂了；</p>
+<p>（3）多个 segment（seg0/seg1/seg2）同时报，说明不是环境抖动，是确定性的逻辑 bug。</p>
+<p>有了确切地址，思路就非常直接了：在内存分配器（aset.c 的 AllocSetAlloc）上打**条件断点**，拦下"分配时返回这个地址"的那一次调用，然后对这个地址下**硬件 watchpoint**，谁写它，谁就是凶手。</p>
+<p><strong>gdb 会话如下：</strong></p>
 <p>调试：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(gdb) b aset.c:1109 if chunk=0x7cfdd48
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Breakpoint 1 at 0x105d420: file aset.c, line 1109.
@@ -5573,6 +5430,27 @@
 </span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>(gdb) d 1
 </span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>(gdb) c
 </span></code></pre></div>
+<h2 id="_1">复盘<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>这个 case 的套路可以直接迁移到任何 C/C++ 项目的内存破坏排查：</p>
+<p>（1）先从报错日志里提取**确切的地址**，这是唯一可靠的锚点；</p>
+<p>（2）条件断点 <code>b aset.c:1109 if chunk=0x7cfdd48</code> 拦住分配现场，确认这个地址给了谁；</p>
+<p>（3）<code>watch (*(Size*)0x7cfdd48)</code> 硬件 watchpoint 等凶手现身——硬件断点不改写内存、不影响程序行为，对内存破坏类问题最可靠；</p>
+<p>（4）跑起来之后 watchpoint 命中时的调用栈就是越界写入的完整现场。</p>
+<p>值得注意的是第一步里 <code>p chunk-&gt;size</code> 打出来是 <code>9187201950435737471</code>（0x7F7F7F7F7F7F7F7F）——一堆 0x7F，这是被写花的典型特征，说明踩内存的代码在写一堆标志位/填充值，顺着这个值在代码里全局搜，往往还能直接搜到元凶。</p>
+<p>留一个问题：如果越界写发生在 fork 出的子进程、而你在父进程调试，上面的流程要怎么调整？欢迎留言区讨论。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../bazel-build-guide/">Bazel 构建 C++ 项目 | C++那些事</a></li>
+<li><a href="../bazel-debugging/">Bazel 与 LLDB 联合调试 | C++那些事</a></li>
+<li><a href="../cmake-essentials/">CMake 入门与实战 | C++那些事</a></li>
+<li><a href="../conan-package-manager/">Conan C++ 包管理入门 | C++那些事</a></li>
+<li><a href="../cpp-insights/">C++ Insights 编译期观察 | C++那些事</a></li>
+<li><a href="../cpp-jupyter-notebook/">C++ Jupyter Notebook 交互 | C++那些事</a></li>
+<li><a href="../cpp-string-to-int/">C++ string 转 int | C++那些事</a></li>
+<li><a href="../dbg-macro/">C++ dbg-macro 调试宏 | C++那些事</a></li>
+<li><a href="../gcc-flags-guide/">GCC 编译选项详解 | C++那些事</a></li>
+<li><a href="../gdb-debugging-guide/">GDB 调试 C++ 程序 | C++那些事</a></li>
+</ul>
 
 
 

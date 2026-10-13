@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="源码对应的版本为gcc-4.9.1">
+        <meta name="description" content="双向环状链表从节点值为3开始插入，红色框表示最后一个节点end指向的节点。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。">
       
       
         <meta name="author" content="光城">
@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/list/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/list/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="STL list 源码剖析">
+      <meta property="og:description" content="双向环状链表从节点值为3开始插入，红色框表示最后一个节点end指向的节点。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/list/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="STL list 源码剖析">
+      <meta name="twitter:description" content="双向环状链表从节点值为3开始插入，红色框表示最后一个节点end指向的节点。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL list 源码剖析", "description": "双向环状链表从节点值为3开始插入，红色框表示最后一个节点end指向的节点。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/list/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/list/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL list 源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/list/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/stl-source-analysis/list/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/stl-source-analysis/list/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/stl-source-analysis/list/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/stl-source-analysis/list/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/stl-source-analysis/list/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/stl-source-analysis/list/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -404,26 +468,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -484,46 +528,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2043,6 +2027,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2404,6 +2397,8 @@
       
         
       
+        
+      
     
     
       
@@ -2736,6 +2731,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3699,6 +3716,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -4117,76 +4140,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4291,7 +4244,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4308,14 +4261,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4429,6 +4382,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4441,7 +4398,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4458,19 +4415,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4737,7 +4738,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4754,14 +4755,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4918,178 +4919,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -5127,7 +4956,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5144,14 +4973,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5419,6 +5248,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5431,14 +5266,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5446,10 +5281,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5474,62 +5309,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5750,6 +5529,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5770,12 +5558,15 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="stl-list">STL list 源码剖析<a class="headerlink" href="#stl-list" title="Permanent link">&para;</a></h1>
 <h2 id="0">0. 导语<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p>源码对应的版本为**gcc-4.9.1**</p>
 <h3 id="1list">1.list<a class="headerlink" href="#1list" title="Permanent link">&para;</a></h3>
 <p>list为双向环形链表，其结构为：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
+<p><img alt="list 1" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
 <p>自己绘制的图如下：</p>
 <p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
 <p>双向环状链表从节点值为3开始插入，红色框表示最后一个节点(end()指向的节点)。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。</p>
@@ -5973,17 +5764,17 @@
 <p><code>__last</code>代表的是红色框节点，该节点为<code>end()</code>指向的节点，我们是不需要该节点的，所以在后面处理中，会把该节点从整个list中去除掉。</p>
 <p><code>__first</code>代表的是图中节点值为3的节点。</p>
 <p><strong>第一步：先将最后一个有效节点，也就是红色框的前一个节点的next指针指向指定的节点8。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
+<p><img alt="step1" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
 <p>对应代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>__last-&gt;_M_prev-&gt;_M_next  = this;   
 </span></code></pre></div>
 <p><strong>第二步：<code>_last</code>的next指针指向自己。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
+<p><img alt="step2" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>__first-&gt;_M_prev-&gt;_M_next = __last;
 </span></code></pre></div>
 <p><strong>第三步：让指定迭代器之前的节点的nex指向原先list的第一个节点(<code>__first</code>)。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
+<p><img alt="step3" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>this-&gt;_M_prev-&gt;_M_next    = __first;
 </span></code></pre></div>
@@ -5991,17 +5782,17 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>_List_node_base* const __tmp = this-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第五步：指定迭代器的前驱节点指向原list中实际最后一个节点(end()前一节点)。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
+<p><img alt="step5" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>this-&gt;_M_prev                = __last-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第六步：让原list的最后一个节点(end()指向的节点)的prev指向自己。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
+<p><img alt="step6" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>__last-&gt;_M_prev              = __first-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第七步：让原list第一个节点的prev指向第四步保存的节点。</strong></p>
-<p><img alt="" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
+<p><img alt="step7" alt="STL list 源码剖析" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>__first-&gt;_M_prev             = __tmp;
 </span></code></pre></div>
@@ -6796,6 +6587,19 @@
 </span><span id="__span-62-28"><a id="__codelineno-62-28" name="__codelineno-62-28" href="#__codelineno-62-28"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace detail</span>
 </span></code></pre></div>
 <p>迭代器在设计的时候,总是保持前闭后开原则,例如iter-&gt;begin()指向第一个元素,iter-&gt;end()指向实际最后一个元素的下一个元素,故最后的设计刻意在环形list尾部加一个空白结点,用以符合STL前闭后开原则.</p>
+<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
+<li><a href="../cpp-string-deep-dive/">STL string 深析 | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
+<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
+<li><a href="../iterator/">STL 迭代器源码剖析 | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
+<li><a href="../queue-and-stack/">STL queue 与 stack 源码剖析 | C++那些事</a></li>
+</ul>
 
 
 

@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/cpp-string-deep-dive/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/cpp-string-deep-dive/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="STL string 深析">
+      <meta property="og:description" content="当我们使用C++时，&lt;string&gt;库的基础知识比较熟悉，尤其是在C++中创建字符串时使用的std::string。这无疑是对旧的C风格“字符串”（使用以空字符结尾的字符数组）的一种改进。然而，C++标准库在C++17和C++20中引入了…">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="STL string 深析">
+      <meta name="twitter:description" content="当我们使用C++时，&lt;string&gt;库的基础知识比较熟悉，尤其是在C++中创建字符串时使用的std::string。这无疑是对旧的C风格“字符串”（使用以空字符结尾的字符数组）的一种改进。然而，C++标准库在C++17和C++20中引入了…">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL string 深析", "description": "当我们使用C++时，<string>库的基础知识比较熟悉，尤其是在C++中创建字符串时使用的std::string。这无疑是对旧的C风格“字符串”（使用以空字符结尾的字符数组）的一种改进。然而，C++标准库在C++17和C++20中引入了…", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL string 深析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/cpp-string-deep-dive/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/stl-source-analysis/cpp-string-deep-dive/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/stl-source-analysis/cpp-string-deep-dive/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/stl-source-analysis/cpp-string-deep-dive/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/stl-source-analysis/cpp-string-deep-dive/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/stl-source-analysis/cpp-string-deep-dive/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/stl-source-analysis/cpp-string-deep-dive/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -404,26 +468,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -484,46 +528,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2253,6 +2237,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2321,6 +2314,8 @@
   
     
     
+      
+        
       
         
       
@@ -2682,6 +2677,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3645,6 +3662,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -4063,76 +4086,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4237,7 +4190,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4254,14 +4207,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4375,6 +4328,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4387,7 +4344,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4404,19 +4361,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4683,7 +4684,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4700,14 +4701,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4864,178 +4865,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -5073,7 +4902,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5090,14 +4919,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5365,6 +5194,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5377,14 +5212,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5392,10 +5227,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5420,62 +5255,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5642,6 +5421,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5662,6 +5450,9 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="stl-string">STL string 深析<a class="headerlink" href="#stl-string" title="Permanent link">&para;</a></h1>
 <p>当我们使用C++时，<string>库的基础知识比较熟悉，尤其是在C++中创建字符串时使用的std::string。这无疑是对旧的C风格“字符串”（使用以空字符结尾的字符数组）的一种改进。然而，C++标准库在C++17和C++20中引入了更有用的组件，可以帮助你编写更高效的代码。</p>
 <p>在<string>头文件中，std::basic_string类是一个模板类，为各种字符串类型提供了特化，包括常见字符串的std::string（即std::basic_string<char>）和宽字符串的std::wstring（即std::basic_string<wchar_t>）。</p>
@@ -5758,6 +5549,19 @@
 </blockquote>
 <h3 id="_1">结论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>在处理新的C++代码中的字符串时，应考虑使代码尽可能灵活和内存高效。使用<string_view>可以极大地帮助这些努力。此外，考虑使用最新的字符串成员函数，如starts_with和ends_with，以获得可读且易于实现的字符串解析代码。而C++23使得contains计算更加简单，越来越现代化了。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
+<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
+<li><a href="../iterator/">STL 迭代器源码剖析 | C++那些事</a></li>
+<li><a href="../list/">STL list 源码剖析 | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
+<li><a href="../queue-and-stack/">STL queue 与 stack 源码剖析 | C++那些事</a></li>
+</ul>
 
 
 

@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/set-and-multiset/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/set-and-multiset/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="STL set 与 multiset">
+      <meta property="og:description" content="set/multiset以rb_tree为底层结构，因此有元素自动排序特性。排序的依据是key，而set/multiset元素的value和key合二为一：value就是key。">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="STL set 与 multiset">
+      <meta name="twitter:description" content="set/multiset以rb_tree为底层结构，因此有元素自动排序特性。排序的依据是key，而set/multiset元素的value和key合二为一：value就是key。">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "STL set 与 multiset", "description": "set/multiset以rb_tree为底层结构，因此有元素自动排序特性。排序的依据是key，而set/multiset元素的value和key合二为一：value就是key。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析", "item": "https://light-city.github.io/stories_things/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "STL set 与 multiset", "item": "https://light-city.github.io/stories_things/stl-source-analysis/set-and-multiset/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/stl-source-analysis/set-and-multiset/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/stl-source-analysis/set-and-multiset/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/stl-source-analysis/set-and-multiset/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/stl-source-analysis/set-and-multiset/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/stl-source-analysis/set-and-multiset/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/stl-source-analysis/set-and-multiset/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -404,26 +468,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -484,46 +528,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2116,6 +2100,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2294,6 +2287,8 @@
   
     
     
+      
+        
       
         
       
@@ -2655,6 +2650,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3618,6 +3635,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -4036,76 +4059,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4210,7 +4163,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4227,14 +4180,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4348,6 +4301,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4360,7 +4317,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4377,19 +4334,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4656,7 +4657,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4673,14 +4674,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4837,178 +4838,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -5046,7 +4875,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5063,14 +4892,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5338,6 +5167,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5350,14 +5185,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5365,10 +5200,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5393,62 +5228,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5588,6 +5367,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5608,6 +5396,9 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="stl-set-multiset">STL set 与 multiset<a class="headerlink" href="#stl-set-multiset" title="Permanent link">&para;</a></h1>
 <p>set/multiset以rb_tree为底层结构，因此有元素自动排序特性。排序的依据是key，而set/multiset元素的value和key合二为一：value就是key。</p>
 <p>我们无法使用set/multiset的iterators改变元素值(因为key有其严谨排列规则)。
@@ -5787,6 +5578,19 @@ set/multiset的iterator是其底部RB tree的const-iterator，就是为了禁止
 </span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">}</span>
 </span></code></pre></div>
 我们对比multiset与set的这几个函数发现，返回的pair有着显著的差异，之前的set需要返回最终是否插入成功，因为key不可重复，而multiset不需要返回是否插入成功，所以pair中不存在bool类型，故它是直接返回的插入点所构成的pair，因此，与之前相比较而言，不管你有多少个key，重复如何，都可以插入进去。</p>
+<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../array/">STL array 源码剖析 | C++那些事</a></li>
+<li><a href="../cpp-string-deep-dive/">STL string 深析 | C++那些事</a></li>
+<li><a href="../cpp-string-interview/">STL string 面试题精讲 | C++那些事</a></li>
+<li><a href="../deque/">STL deque 源码剖析 | C++那些事</a></li>
+<li><a href="../ebo-empty-base-optimization/">STL 空基类优化 EBO | C++那些事</a></li>
+<li><a href="../hashtable-custom/">STL 手写哈希表实现 | C++那些事</a></li>
+<li><a href="../hashtable/">STL hashtable 哈希表 | C++那些事</a></li>
+<li><a href="../iterator/">STL 迭代器源码剖析 | C++那些事</a></li>
+<li><a href="../list/">STL list 源码剖析 | C++那些事</a></li>
+<li><a href="../map-and-multimap/">STL map 与 multimap | C++那些事</a></li>
+</ul>
 
 
 

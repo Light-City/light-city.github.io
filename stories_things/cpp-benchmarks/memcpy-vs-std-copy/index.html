@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-benchmarks/memcpy-vs-std-copy/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-benchmarks/memcpy-vs-std-copy/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="memcpy 与 std::copy 性能对比">
+      <meta property="og:description" content="最近在做性能优化时，发现有一些代码用了std::copy，还有一些用了memcpy，两者在功能上其实类似，那么它们对性能影响是怎样的呢？">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="memcpy 与 std::copy 性能对比">
+      <meta name="twitter:description" content="最近在做性能优化时，发现有一些代码用了std::copy，还有一些用了memcpy，两者在功能上其实类似，那么它们对性能影响是怎样的呢？">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "memcpy 与 std::copy 性能对比", "description": "最近在做性能优化时，发现有一些代码用了std::copy，还有一些用了memcpy，两者在功能上其实类似，那么它们对性能影响是怎样的呢？", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "性能测评", "item": "https://light-city.github.io/stories_things/cpp-benchmarks/"}, {"@type": "ListItem", "position": 3, "name": "memcpy 与 std::copy 性能对比", "item": "https://light-city.github.io/stories_things/cpp-benchmarks/memcpy-vs-std-copy/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/cpp-benchmarks/memcpy-vs-std-copy/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -398,26 +462,6 @@
         
   
   
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
     
   
   
@@ -484,46 +528,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2259,6 +2243,8 @@
       
         
       
+        
+      
     
     
       
@@ -2591,6 +2577,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3554,6 +3562,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3972,76 +3986,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4151,7 +4095,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
           
@@ -4168,14 +4112,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4250,6 +4194,15 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       如何选择？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
     </span>
   </a>
   
@@ -4348,6 +4301,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4360,7 +4317,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4377,19 +4334,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4656,7 +4657,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4673,14 +4674,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4837,178 +4838,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -5046,7 +4875,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5063,14 +4892,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5338,6 +5167,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5350,14 +5185,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5365,10 +5200,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5393,62 +5228,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5588,6 +5367,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5608,6 +5396,9 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="memcpy-stdcopy">memcpy 与 std::copy 性能对比<a class="headerlink" href="#memcpy-stdcopy" title="Permanent link">&para;</a></h1>
 <p>最近在做性能优化时，发现有一些代码用了std::copy，还有一些用了memcpy，两者在功能上其实类似，那么它们对性能影响是怎样的呢？</p>
 <p>于是本篇文章将会探讨这两者的一些使用场景。</p>
@@ -5618,11 +5409,16 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="" src="../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img alt="copy memcpy" alt="memcpy 与 std::copy 性能对比" src="../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="_1">如何选择？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在实际项目中，如何选择<code>memcpy</code>还是<code>std::copy</code>取决于具体的需求。如果处理的是POD类型，而且希望保持灵活性，那么选择<code>std::copy</code>是更为明智的选择。对于大多数应用场景，<code>std::copy</code>提供了更通用、更安全的数据拷贝方式。</p>
 <p>然而，在追求极致性能的情况下，可以考虑使用<code>memcpy</code>，尤其是在处理大规模数据时。但在做出选择时，务必结合实际应用场景，并借助性能分析工具进行详细测试和优化。</p>
 <p>总的来说，<code>memcpy</code>和<code>std::copy</code>都有各自的优势和劣势，我们需要根据项目的具体要求，在性能和灵活性之间做出权衡。在实践中，通常选择更安全和通用的<code>std::copy</code>是一个更可靠的选择。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../cpp-sso-benchmark/">C++ string SSO 性能测试 | C++那些事</a></li>
+<li><a href="../polymorphism-crtp-variant-virtual/">C++ 多态：虚函数、CRTP 与 variant | C++那些事</a></li>
+</ul>
 
 
 

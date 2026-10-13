@@ -3,3 +3,4 @@ Allow: /
 
 Host: https://light-city.github.io
 Sitemap: https://light-city.github.io/sitemap.xml
+Sitemap: https://light-city.github.io/stories_things/sitemap.xml

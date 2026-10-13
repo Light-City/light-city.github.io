@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="But the optional discussion started again, so I just wanted to *really* quickly share my raw thoughts on the topic. In…">
+        <meta name="description" content="std::optional<T&> 为什么不合法？译述 foonathan 的经典分析：optional 引用与指针的三个本质差异、rebind 还是 assign-through 的争议，以及 C++26 为什么最终选择了 ref。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++17 optional_ref教程,std::optional"> 
+    <meta name="keywords" content="C++17 optional_ref教程,std::optional,std::optional引用"> 
     <meta name="title" content="C++17 optional_ref | C++那些事"> 
 
     
@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/modern-cpp/cpp17/optional-ref/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp17/optional-ref/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="C++17 optional_ref">
+      <meta property="og:description" content="std::optional&lt;T&amp;&gt; 为什么不合法？译述 foonathan 的经典分析：optional 引用与指针的三个本质差异、rebind 还是 assign-through 的争议，以及 C++26 为什么最终选择了 ref。">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="C++17 optional_ref">
+      <meta name="twitter:description" content="std::optional&lt;T&amp;&gt; 为什么不合法？译述 foonathan 的经典分析：optional 引用与指针的三个本质差异、rebind 还是 assign-through 的争议，以及 C++26 为什么最终选择了 ref。">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++17 optional_ref", "description": "std::optional<T&> 为什么不合法？译述 foonathan 的经典分析：optional 引用与指针的三个本质差异、rebind 还是 assign-through 的争议，以及 C++26 为什么最终选择了 ref。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/", "mainEntityOfPage": "https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++17", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp17/"}, {"@type": "ListItem", "position": 3, "name": "现代C++", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "C++17 optional_ref", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp17/optional-ref/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/modern-cpp/cpp17/optional-ref/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/modern-cpp/cpp17/optional-ref/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../es/modern-cpp/cpp17/optional-ref/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ru/modern-cpp/cpp17/optional-ref/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../pt/modern-cpp/cpp17/optional-ref/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../hi/modern-cpp/cpp17/optional-ref/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -406,26 +470,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -486,46 +530,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../../cpp-concurrency/" class="md-tabs__link">
           
   
@@ -551,27 +555,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2261,6 +2245,8 @@
       
         
       
+        
+      
     
     
       
@@ -2593,6 +2579,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3141,96 +3149,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-is-stdoptionalt-the-same-as-a-pointer" class="md-nav__link">
+  <a href="#1stdoptional" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Is std::optional&lt;T&amp;&gt; the same as a pointer?
+      1.问题：std::optional 为什么编译不过？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-do-we-need-stdoptionalt" class="md-nav__link">
+  <a href="#2optional" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Do we need std::optional&lt;T&amp;&gt;?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Do we need std::optional&lt;T&amp;&gt;?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getter-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getter Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lvalue-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      LValue Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#range-based-for-loops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Range-based for loops
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lifetime-extension-when-calling-a-function-experts-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifetime extension when calling a function (experts only):
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-should-the-assignment-operator-rebind-or-assign-through" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Should the assignment operator rebind or assign through?
+      2.optional 引用不是指针
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-should-it-even-have-an-assignment-operator" class="md-nav__link">
+  <a href="#3rebind-assign-through" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Should it even have an assignment operator?
+      3.rebind 还是 assign-through
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      4.小结
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
     </span>
   </a>
   
@@ -3709,6 +3666,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -4127,76 +4090,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4301,7 +4194,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4318,14 +4211,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4439,6 +4332,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4451,7 +4348,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4468,19 +4365,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4747,7 +4688,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4764,14 +4705,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4928,178 +4869,6 @@
     
       
         
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
         
       
@@ -5137,7 +4906,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
           
@@ -5154,14 +4923,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5429,6 +5198,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5441,14 +5216,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5456,10 +5231,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5484,62 +5259,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5662,96 +5381,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-is-stdoptionalt-the-same-as-a-pointer" class="md-nav__link">
+  <a href="#1stdoptional" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Is std::optional&lt;T&amp;&gt; the same as a pointer?
+      1.问题：std::optional 为什么编译不过？
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-do-we-need-stdoptionalt" class="md-nav__link">
+  <a href="#2optional" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Do we need std::optional&lt;T&amp;&gt;?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Do we need std::optional&lt;T&amp;&gt;?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Function Parameters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#getter-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getter Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lvalue-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      LValue Functions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#range-based-for-loops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Range-based for loops
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lifetime-extension-when-calling-a-function-experts-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lifetime extension when calling a function (experts only):
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-should-the-assignment-operator-rebind-or-assign-through" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Should the assignment operator rebind or assign through?
+      2.optional 引用不是指针
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-should-it-even-have-an-assignment-operator" class="md-nav__link">
+  <a href="#3rebind-assign-through" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Should it even have an assignment operator?
+      3.rebind 还是 assign-through
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      4.小结
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
     </span>
   </a>
   
@@ -5777,104 +5445,56 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="c17-optional_ref">C++17 optional_ref<a class="headerlink" href="#c17-optional_ref" title="Permanent link">&para;</a></h1>
-<p>This should have been part 2 of my <a href="https://www.foonathan.net/blog/2018/06/20/equivalence-relations.html">comparison series</a>, and I have almost finished it, but due to university stuff I just haven’t found the time to polish it.</p>
-<p>But the optional discussion started again, so I just wanted to <em>really</em> quickly share my raw thoughts on the topic. In case you are lucky and don’t know what I mean: <code>std::optional&lt;T&amp;&gt;</code> doesn’t compile right now, because the behavior of assignment wasn’t clear (even though it actually is). There are basically four questions in the discussion I want to answer:</p>
-<ol>
-<li>Is <code>std::optional&lt;T&amp;&gt;</code> the same as a pointer?</li>
-<li>Do we need <code>std::optional&lt;T&amp;&gt;</code>?</li>
-<li>Should the assignment operator rebind or assign through?</li>
-<li>Should it even have an assignment operator?</li>
-</ol>
-<p>tl;dr: no, I don’t, rebind, no.</p>
-<h2 id="1-is-stdoptionalt-the-same-as-a-pointer">1. Is <code>std::optional&lt;T&amp;&gt;</code> the same as a pointer?<a class="headerlink" href="#1-is-stdoptionalt-the-same-as-a-pointer" title="Permanent link">&para;</a></h2>
-<p>What does it even mean to have an “optional <code>T&amp;</code>”? Well, it is a <code>T&amp;</code> that can also be <code>nullptr</code>.</p>
-<p>So a pointer, a <code>T*</code>?</p>
-<p>No, not really.</p>
-<p>There is a more important difference between <code>T&amp;</code> and <code>T*</code> besides the nullability: A <code>T&amp;</code> has implicit creation and access, a <code>T*</code> explicit creation and access.</p>
-<p>If you have an object, you can just silently bind a reference to it. And if you have a reference, you can just treat it <em>as if</em> it was the object. Whereas for pointers, you need to explicitly use <code>&amp;obj</code> and <code>*ptr</code>.</p>
-<p>And this difference is huge: It means <code>const T&amp;</code> can be used for function parameters without any additional syntax issues:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">…</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">T</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">print</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<p>本文译述自 foonathan 的博客 <a href="https://www.foonathan.net/2021/07/optional-ref/">optional_ref discussion</a>，原文是关于 <code>std::optional&lt;T&amp;&gt;</code>（optional 引用）为什么最终没进标准的最精彩的一篇讨论。这个问题在 C++26 前夕又被翻出来讨论了一轮，值得把核心论点理一遍。</p>
+<h2 id="1stdoptional">1.问题：std::optional<T&> 为什么编译不过？<a class="headerlink" href="#1stdoptional" title="Permanent link">&para;</a></h2>
+<p><code>std::optional&lt;int&gt;</code>、<code>std::optional&lt;std::string&gt;</code> 都没问题，但 <code>std::optional&lt;int&amp;&gt;</code> 直接编译报错。原因说起来有点"历史遗留"：标准制定时对它的**赋值语义**没有达成共识，于是干脆在标准里写明 <code>T</code> 为引用类型时行为未定义。</p>
+<p>那一个"可能为空的引用"到底有什么难的？作者提炼了四个问题：</p>
+<p>（1）<code>optional&lt;T&amp;&gt;</code> 和指针是不是一回事？</p>
+<p>（2）我们真的需要 <code>optional&lt;T&amp;&gt;</code> 吗？</p>
+<p>（3）赋值时应该 rebind（重新绑定到新对象）还是 assign-through（写到所指对象）？</p>
+<p>（4）它到底该不该有赋值运算符？</p>
+<p>作者的 tl;dr 答案：不是、不需要、rebind、不该有。下面看为什么。</p>
+<h2 id="2optional">2.optional 引用不是指针<a class="headerlink" href="#2optional" title="Permanent link">&para;</a></h2>
+<p>直觉上"可能为空的引用"就是指针，但作者指出了一个更本质的差异：</p>
+<ul>
+<li><code>T&amp;</code> 的创建与访问都是**隐式**的：拿到引用就直接用，不需要解引用；</li>
+<li><code>T*</code> 的创建与访问都是**显式**的：要 <code>&amp;x</code> 取地址、要 <code>*p</code> 解引用。</li>
+</ul>
+<p>这个显式性差异是有价值的：指针提醒你"这里可能为空、可能有别名问题"。把 <code>optional&lt;T&amp;&gt;</code> 做成处处隐式转换的"更方便的指针"，恰恰丢掉了这层保护。作者的结论是：<strong>如果你要表达"可能为空"，显式的 <code>T*</code> 反而是更好的文档</strong>。</p>
+<h2 id="3rebind-assign-through">3.rebind 还是 assign-through<a class="headerlink" href="#3rebind-assign-through" title="Permanent link">&para;</a></h2>
+<p>这是整个讨论的核心死结：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// 问题：这句是什么意思？</span>
 </span></code></pre></div>
-<p>You wouldn’t want to use a <code>const T*</code> as now the call side has to do extra work, it has to use the unnecessary <code>&amp;obj</code>. This is just awkward.</p>
-<blockquote>
-<p>It is a different situation if the function might modify the object through the pointer/reference, or store a pointer/reference in a persistent location.</p>
-</blockquote>
-<p>So naturally, if you want to have an optional argument, you wouldn’t want to use a pointer for the same reason: Why now introduce unnecessary syntactic overhead? It shouldn’t matter to the caller.</p>
-<p>So <code>std::optional&lt;T&amp;&gt;</code> is not the same as <code>T*</code>: It would have implicit creation syntax, not explicit.</p>
-<p>What <code>std::optional&lt;T&amp;&gt;</code> cannot have, however, is implicit access. Not only is it not implementable currently, it is also fundamentally impossible: For <code>std::optional&lt;T&amp;&gt;</code> to have implicit access syntax, every operation on it would delegate to the referring object. This includes checking whether it refers to an object! Any <code>.has_value()</code> or <code>!opt</code> would forward to the referring object. This means that an explicit syntax is required, otherwise you’re just checking whether the optional has an object that is null.</p>
-<p>A more thorough analysis can be found in the first twenty minutes of my <a href="https://jonathanmueller.dev/talk/cppnow2018">Rethinking Pointers</a> talk at C++Now earlier this year.</p>
-<h2 id="2-do-we-need-stdoptionalt">2. Do we need <code>std::optional&lt;T&amp;&gt;</code>?<a class="headerlink" href="#2-do-we-need-stdoptionalt" title="Permanent link">&para;</a></h2>
-<p>As <code>std::optional&lt;T&amp;&gt;</code> isn’t the same as <code>T*</code>, we need to look at the situations where we use <code>T&amp;</code> and think about whether we need an optional version there.</p>
-<p>Luckily, I did exactly that in my <a href="https://jonathanmueller.dev/talk/cppnow2018">Rethinking Pointers</a> talk.</p>
-<h3 id="function-parameters">Function Parameters<a class="headerlink" href="#function-parameters" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">);</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">Container</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cont</span><span class="p">);</span>
-</span></code></pre></div>
-<p>Here we want to either avoid a copy, or modify an argument in-place. If we want to have optional arguments, a <code>std::optional&lt;T&amp;&gt;</code> is a solution. However, simply overloading the function works as well.</p>
-<h3 id="getter-functions">Getter Functions<a class="headerlink" href="#getter-functions" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">person::name</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span></code></pre></div>
-<p>Again, we want to avoid a copy.</p>
-<p>If the returned value might not be available, we could just use non-reference <code>std::optional</code>, but have to pay for an additional copy. Or we could narrow the contact and add a precondition requiring the object to be there, but this is less type safe.</p>
-<h3 id="lvalue-functions">LValue Functions<a class="headerlink" href="#lvalue-functions" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">();</span>
-</span></code></pre></div>
-<p>Here we <em>absolutely</em> need an lvalue as a return type. This is the motivation behind references, so we use them. However, optional references wouldn’t work – we’d loose implicit access, which is incompatible with the conventional usage of operators.</p>
-<h3 id="range-based-for-loops">Range-based <code>for</code> loops<a class="headerlink" href="#range-based-for-loops" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">container</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="err">…</span>
-</span></code></pre></div>
-<p>Here optional references are not required.</p>
-<h3 id="lifetime-extension-when-calling-a-function-experts-only">Lifetime extension when calling a function (experts only):<a class="headerlink" href="#lifetime-extension-when-calling-a-function-experts-only" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">name</span><span class="p">();</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// use `name` multiple times</span>
-</span></code></pre></div>
-<p>Lifetime extension only works with normal references.</p>
-<hr />
-<p>That’s it, that are all the situations where you should use a <code>T&amp;</code>. The only situations where it might be feasible to have a <code>std::optional&lt;T&amp;&gt;</code> are function parameters and getters where we want to avoid a copy. This is not such a compelling use-case.</p>
-<h2 id="3-should-the-assignment-operator-rebind-or-assign-through">3. Should the assignment operator rebind or assign through?<a class="headerlink" href="#3-should-the-assignment-operator-rebind-or-assign-through" title="Permanent link">&para;</a></h2>
-<p>Assignment <em>fundamentally</em> is an optimization of copy. It should just do the same thing as “destroy the current object” and “copy a new one over”.</p>
-<p>So when we write <code>opt_a = opt_b</code>, it will modify <code>opt_a</code> so it is a copy of <code>opt_b</code>. This is true for all <code>T</code>, including <code>T&amp;</code>: If <code>opt_b</code> is a reference to <code>my_obj</code>, then <code>opt_a</code> will also be a reference to <code>my_obj</code>, even it was a reference to <code>other_obj</code> before. So the copy assignment operator does a rebind operation.</p>
-<p>Now <code>std::optional</code> also has an assignment operator taking a <code>T</code>: This assignment operator is an optimization of the constructor taking a <code>T</code>.</p>
-<blockquote>
-<p>Read more about assignment as an optimization in <a href="https://www.foonathan.net/blog/2017/10/11/explicit-assignment.html">this blog post</a> I’ve written some time ago.</p>
-</blockquote>
-<p>As such, it will destroy the current object, if there is any, and then create the new object inside it. However, as it is an optimization, it will use <code>T::operator=</code> if the optional has a value already. The assignment operator of <code>T</code> might be more efficient than “destroy” followed by “construct”.</p>
-<p>But note that it only does that, because it assumes that the assignment operator of <code>T</code> is an optimization of copy! If you provide a <code>T</code> where <code>rocket = launch</code> means “launch the rocket” this will fail. But this isn’t optional’s fault, your type is just stupid!</p>
-<p>And one such stupid type is <code>T&amp;</code>: The assignment operator of <code>T&amp;</code> is not an optimization of “destroy” followed by “copy”. This is because references <em>have no assignment operator</em>: Every operation you do on a reference is actually done on the object it refers to. This includes assignment, so the assignment operator will assign the value, it assigns through.</p>
-<p>Now some people think that having that behavior in the <code>operator=</code> of <code>optional&lt;T&amp;&gt;</code> itself is even a possibility they need to consider.</p>
-<p>It isn’t.</p>
-<p>It absolutely isn’t.</p>
-<p>Ignoring any other counter argument, those semantics would lead to confusion as <code>operator=</code> would do completely different things depending on the state of the <code>optional</code>!</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">std</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span><span class="p">;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">T</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// if opt was empty before, it will now refer to obj</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1">// if opt wasn&#39;t empty before, it will now refer to an object with the same value as obj</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">return</span><span class="w"> </span><span class="n">opt</span><span class="p">;</span><span class="w"> </span><span class="c1">// so this is legal only if the optional wasn&#39;t empty before</span>
-</span></code></pre></div>
-<p>There is no precedent for an assignment operator that behaves like this, because an assignment operator shouldn’t behave like this.</p>
-<h2 id="4-should-it-even-have-an-assignment-operator">4. Should it even have an assignment operator?<a class="headerlink" href="#4-should-it-even-have-an-assignment-operator" title="Permanent link">&para;</a></h2>
-<p>Whenever we use a <code>T&amp;</code> we don’t need to modify the reference itself – after all, we can’t. So when we replace the <code>T&amp;</code> with a <code>std::optional&lt;T&amp;&gt;</code> there is no need to mutate the <code>std::optional&lt;T&amp;&gt;</code> either.</p>
-<p>Now the “assign through” people of <code>std::optional&lt;T&amp;&gt;</code> argue that this behavior is consistent with <code>T&amp;</code>.</p>
-<p>It isn’t, as references aren’t assignable.</p>
-<p>Sure, writing <code>ref = obj</code> <em>compiles</em>, but it is not an assignment. It only works because <em>every</em> operation done on a reference is done on the object it refers to.</p>
-<p>Now as I said before, when we have a nullable reference we can’t do that, because then we would have no syntax to check for nullability. So the only way to be truly consistent with <code>T&amp;</code> would be if <code>std::optional&lt;T&amp;&gt;</code> would have no modifying operators. It shouldn’t have an <code>operator=</code>, an <code>emplace()</code> function, etc. After all, <code>T&amp;</code> is immutable, so <code>std::optional&lt;T&amp;&gt;</code> should be as well.</p>
-<p>If you are in a situation where you need to mutate a <code>std::optional&lt;T&amp;&gt;</code>, you didn’t <em>want</em> an <code>std::optional&lt;T&amp;&gt;</code>, you wanted a pointer. Because then you store the optional in a persistent location and should have used an explicit creation syntax to make it obvious. More on that in <a href="https://jonathanmueller.dev/talk/cppnow2018">my talk</a>.</p>
-<p>Note that, if you have a <code>std::optional&lt;T&amp;&gt;</code> without modifiers, it behaves nothing like an <code>std::optional&lt;T&gt;</code> – because a <code>T&amp;</code> behaves nothing like a <code>T</code>. Just like generic code can’t handle <code>T&amp;</code>, it also wouldn’t handle <code>std::optional&lt;T&amp;&gt;</code>.</p>
-<p>So we shouldn’t spell “optional <code>T&amp;</code>” as <code>std::optional&lt;T&amp;&gt;</code>, it should be spelt differently. I’d argue it should be called <code>std::optional_arg&lt;T&gt;</code>, because that reflects the actual use case it’s going to get.</p>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>In my opinion we don’t need <code>std::optional&lt;T&amp;&gt;</code>. It is a weird type with only very few use cases.</p>
-<p>If the committee decides that adding <code>std::optional&lt;T&amp;&gt;</code> is worth the effort, it should be an immutable <code>std::optional</code>, just like references are. For the actual uses cases of <code>std::optional&lt;T&amp;&gt;</code>, just like the use cases of <code>T&amp;</code>, it doesn’t actually matter.</p>
-<p>Note that a type that behaves like a <code>T*</code>, but isn’t, is useful: A <code>T*</code> can do a lot of different things, so it might be a good idea to add a distinct type that explicitly models just one of the things it does. In my <a href="https://github.com/foonathan/type_safe">type_safe</a> library, for example, I have an <code>ts::optional_ref&lt;T&gt;</code>, which is like a <code>T*</code> and not like a nullable <code>T&amp;</code>. However, it definitely shouldn’t be spelled <code>std::optional&lt;T&amp;&gt;</code>, because it is not a <code>T&amp;</code>.</p>
-<p>More details, again, in my <a href="https://jonathanmueller.dev/talk/cppnow2018">Rethinking Pointers</a> talk.</p>
+<p>两种解读：</p>
+<ul>
+<li><strong>rebind</strong>：opt 现在绑定到 b（引用的别名语义，<code>int&amp; ra = a; ra = b;</code> 是把 b 赋给 a……等等，<code>int&amp;</code> 的赋值恰恰是 assign-through！）</li>
+<li><strong>assign-through</strong>：把 b 的值写进 a（普通引用 <code>T&amp;</code> 的语义）。</li>
+</ul>
+<p>矛盾就在这里：如果 optional 引用想对齐 <code>T&amp;</code> 的语义，赋值就该是 assign-through；但一个**可变的 optional**（可以再装别的对象）直觉上又要求 rebind。两个语义都合理，委员会吵不出结果，于是 <code>optional&lt;T&amp;&gt;</code> 就一直没有合法化。</p>
+<p>实践中想要 rebind 语义，社区的解法是自己造 <code>optional_ref&lt;T&gt;</code>：内部存 <code>T*</code>，赋值就是换指针，语义清清楚楚。C++26 的 <code>std::optional_ref</code> 提案走的也是这条路。</p>
+<h2 id="4">4.小结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>（1）<code>optional&lt;T&amp;&gt;</code> 不是指针的语法糖，两者在显式性上有本质分工；</p>
+<p>（2）卡住它的是赋值语义二义性：rebind 与 assign-through 都说得通；</p>
+<p>（3）需要"可空引用"时，显式指针或 <code>optional_ref</code> 都是比"合法化的 optional<T&>"更安全的选择。</p>
+<p>最后留一个思考题：<code>optional&lt;T&amp;&gt;</code> 的 <code>value()</code> 与 <code>*opt</code> 应该返回 <code>T&amp;</code> 还是 <code>const T&amp;</code>？如果捕获为 const 的语义也想表达，模板参数要怎么设计？</p>
+<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../cpp-nodiscard/">C++17 [[nodiscard]] 属性 | C++那些事</a></li>
+<li><a href="../cpp-string-view/">C++17 std::string_view | C++那些事</a></li>
+<li><a href="../cpp17-pmr/">C++17 PMR 内存资源 | C++那些事</a></li>
+<li><a href="../cpp17-top-17-features/">C++17 十七项高级特性 | C++那些事</a></li>
+<li><a href="../ctad-class-template-argument-deduction/">C++17 类模板参数推导 CTAD | C++那些事</a></li>
+<li><a href="../std-variant/">C++17 std::variant | C++那些事</a></li>
+<li><a href="../structured-bindings/">C++17 结构化绑定 | C++那些事</a></li>
+<li><a href="../template-auto-deduction/">C++17 模板 auto 推导 | C++那些事</a></li>
+<li><a href="../variable-templates/">C++17 变量模板 | C++那些事</a></li>
+</ul>
 
 
 

@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="不同编译器对并行算法库的支持，如下：">
+        <meta name="description" content="可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。">
       
       
         <meta name="author" content="光城">
@@ -75,6 +75,34 @@
     
     
     
+  <link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/en/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-concurrency/cpp17-parallel-stl/">
+      <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/cpp17-parallel-stl/">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="C++17 并行 STL">
+      <meta property="og:description" content="可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。">
+      <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/">
+      <meta property="og:site_name" content="C++那些事">
+      <meta property="og:locale" content="zh_CN">
+      <meta property="og:locale:alternate" content="en_US">
+      <meta property="og:locale:alternate" content="ja_JP">
+      <meta property="og:locale:alternate" content="es_ES">
+      <meta property="og:locale:alternate" content="ru_RU">
+      <meta property="og:locale:alternate" content="pt_BR">
+      <meta property="og:locale:alternate" content="hi_IN">
+      <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="C++17 并行 STL">
+      <meta name="twitter:description" content="可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。">
+      <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++17 并行 STL", "description": "可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "C++17 并行 STL", "item": "https://light-city.github.io/stories_things/cpp-concurrency/cpp17-parallel-stl/"}]}</script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2567493227444081" crossorigin="anonymous"></script>
   </head>
   
   
@@ -153,8 +181,44 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/stories_things" hreflang="zh" class="md-select__link">
-              Chinese
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/cpp-concurrency/cpp17-parallel-stl/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/cpp-concurrency/cpp17-parallel-stl/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/cpp-concurrency/cpp17-parallel-stl/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/cpp-concurrency/cpp17-parallel-stl/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt/cpp-concurrency/cpp17-parallel-stl/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../hi/cpp-concurrency/cpp17-parallel-stl/" hreflang="hi" class="md-select__link">
+              हिन्दी
             </a>
           </li>
         
@@ -402,26 +466,6 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cpp-memory-debug/" class="md-tabs__link">
-          
-  
-    
-  
-  内存与调试
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
         <a href="../../cpp-benchmarks/" class="md-tabs__link">
           
   
@@ -478,46 +522,6 @@
         
   
   
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-tabs__link">
-          
-  
-    
-  
-  实战系列
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../design-patterns/singleton-pattern/" class="md-tabs__link">
-          
-  
-    
-  
-  设计模式
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
     
   
   
@@ -549,27 +553,7 @@
   
     
   
-  学习课程
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../resources/feishu-cpp-knowledge-base/" class="md-tabs__link">
-          
-  
-    
-  
-  资料
+  学习资源
 
         </a>
       </li>
@@ -2259,6 +2243,8 @@
       
         
       
+        
+      
     
     
       
@@ -2591,6 +2577,28 @@
   
   <span class="md-ellipsis">
     C++ 成员指针与类型信息
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 单例模式
     
   </span>
   
@@ -3554,6 +3562,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3972,76 +3986,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../cpp-memory-debug/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    内存与调试
-    
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            内存与调试
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
               
                 
   
@@ -4146,7 +4090,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           
@@ -4163,14 +4107,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_10">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             性能测评
           </label>
@@ -4284,6 +4228,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -4296,7 +4244,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           
@@ -4313,19 +4261,63 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             项目实战
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 十日速成练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++ 重点实战练习
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4592,7 +4584,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           
@@ -4609,14 +4601,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             阅读与技巧
           </label>
@@ -4767,178 +4759,6 @@
       
   
   
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    实战系列
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
-            <span class="md-nav__icon md-icon"></span>
-            实战系列
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/10-day-cpp-crash-course/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 十日速成练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../practical-exercises/key-cpp-exercises/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 重点实战练习
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    设计模式
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_14">
-            <span class="md-nav__icon md-icon"></span>
-            设计模式
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design-patterns/singleton-pattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C++ 单例模式
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -4987,7 +4807,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
         
           
           
@@ -5004,14 +4824,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="">
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             并发编程
           </label>
@@ -5285,6 +5105,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5356,6 +5185,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -5368,14 +5203,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    学习课程
+    学习资源
     
   </span>
   
@@ -5383,10 +5218,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_16">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
-            学习课程
+            学习资源
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5411,62 +5246,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
-        
-          
-          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    资料
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_17">
-            <span class="md-nav__icon md-icon"></span>
-            资料
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -5624,6 +5403,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关主题
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5644,6 +5432,9 @@
   
 
 
+<blockquote>
+<p><strong>最后更新：2026-10-12</strong></p>
+</blockquote>
 <h1 id="c17-stl">C++17 并行 STL<a class="headerlink" href="#c17-stl" title="Permanent link">&para;</a></h1>
 <h2 id="1">1.各个编译器支持进度<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>不同编译器对并行算法库的支持，如下：</p>
@@ -5651,9 +5442,9 @@
 <p><a href="https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features">https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features</a></p>
 </blockquote>
 <p>可以看到gcc9之后就支持了，clang目前支持还不完全，自己也本地测了一下确实不支持。</p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/fea.png" /></p>
+<p><img alt="fea" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/fea.png" /></p>
 <p>其支持的算法包括：</p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/all_std.png" /></p>
+<p><img alt="all std" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/all_std.png" /></p>
 <blockquote>
 <p><a href="https://en.cppreference.com/w/cpp/experimental/parallelism">https://en.cppreference.com/w/cpp/experimental/parallelism</a></p>
 </blockquote>
@@ -5663,7 +5454,7 @@
 <p><a href="https://gcc.gnu.org/gcc-9/changes.html">https://gcc.gnu.org/gcc-9/changes.html</a></p>
 </blockquote>
 <p>其中，提到一个非常重要的信息：<strong>需要tbb支持</strong>。</p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/tbb_req.png" /></p>
+<p><img alt="tbb req" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/tbb_req.png" /></p>
 <p>TBB是由英特尔（Intel）公司开发的一个用于并行编程的 C++ 库。TBB 旨在简化多核处理器上的并行软件开发，提供了一套抽象和模型，使程序员能够更容易地实现并行算法。</p>
 <p>1.C++17当中使用并行算法库的前提必须得安装tbb，那如果不安装tbb会怎样呢？</p>
 <p>我自己实测就是可以编译与运行，只是没有任何加速，跟原来非并行跑出来的结果是一样的。</p>
@@ -5728,11 +5519,11 @@
 </span></code></pre></div>
 <p>下面的测试结果将采用tbb默认线程调度策略。</p>
 <p><strong>对比组1：并行Sort/串行Sort详细数据与加速比</strong></p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
+<p><img alt="sort parallel" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
+<p><img alt="sort parallel sp" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
 <p><strong>对比组2：并行Merge/串行Merge详细数据与加速比</strong></p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
-<p><img alt="" src="../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
+<p><img alt="merge parallel" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
+<p><img alt="merge parallel sp" alt="C++17 并行 STL" src="../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
 <p>tbb文档：</p>
 <blockquote>
 <p><a href="https://oneapi-src.github.io/oneTBB/index.html">https://oneapi-src.github.io/oneTBB/index.html</a></p>
@@ -5742,6 +5533,19 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">tbb</span><span class="o">::</span><span class="n">task_scheduler_init</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
 </span></code></pre></div>
+<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../cpp-concurrency-in-action/">C++ Concurrency in Action 导读 | C++那些事</a></li>
+<li><a href="../cpp-deadlock-debugging/">C++ 死锁排查 | C++那些事</a></li>
+<li><a href="../cpp-simd/">C++ SIMD 向量化 | C++那些事</a></li>
+<li><a href="../false-sharing-cache-line/">C++ False Sharing 与缓存行 | C++那些事</a></li>
+<li><a href="../gdb-multi-thread-debug/">GDB 多线程 All-Stop 调试 | C++那些事</a></li>
+<li><a href="../helgrind-concurrency-check/">Helgrind 并发错误检测 | C++那些事</a></li>
+<li><a href="../libev-event-loop/">libev 事件循环原理 | C++那些事</a></li>
+<li><a href="../std-thread-internals/">C++ std::thread 内核实现 | C++那些事</a></li>
+<li><a href="../std-thread-jthread-guide/">C++ std::thread 与 jthread | C++那些事</a></li>
+<li><a href="../threading-in-cpp/">C++ 多线程入门 | C++那些事</a></li>
+</ul>
 
 
 
