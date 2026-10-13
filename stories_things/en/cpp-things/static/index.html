@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The static keyword has different meanings when used with different things. We can use the static keyword for:">
+        <meta name="description" content="When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/static/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ static Members and Lifetime | C++那些事">
-      <meta property="og:description" content="The static keyword has different meanings when used with different things. We can use the static keyword for:">
+      <meta property="og:description" content="When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/cpp-things/static/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ static Members and Lifetime | C++那些事">
-      <meta name="twitter:description" content="The static keyword has different meanings when used with different things. We can use the static keyword for:">
+      <meta name="twitter:description" content="When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static Members and Lifetime | C++那些事", "description": "The static keyword has different meanings when used with different things. We can use the static keyword for:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static Members and Lifetime | C++那些事", "description": "When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/en/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static Members and Lifetime | C++那些事", "item": "https://light-city.github.io/stories_things/en/cpp-things/static/"}]}</script>
   </head>
   
@@ -866,6 +866,15 @@
   <a href="#about-the-author" class="md-nav__link">
     <span class="md-ellipsis">
       About the Author
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-linkage-of-static-restricting-the-scope-of-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Linkage of static (Restricting the Scope of Access)
     </span>
   </a>
   
@@ -5356,6 +5365,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#internal-linkage-of-static-restricting-the-scope-of-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Linkage of static (Restricting the Scope of Access)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
       Related Topics
@@ -5391,15 +5409,15 @@
 <h2 id="about-the-author">About the Author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>WeChat official account:</p>
 <p><img alt="wechat" alt="C++ static Members and Lifetime | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
-<p>The static keyword has different meanings when used with different things. We can use the static keyword for:</p>
+<p>When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:</p>
 <p><strong>Static variables:</strong> variables in a function, variables in a class</p>
 <p><strong>Static class members:</strong> class objects and functions in a class</p>
-<p>Now let's look at each of these uses of static in detail:</p>
-<p><strong>Static Variables</strong></p>
+<p>Now let's look at these uses of static in detail:</p>
+<p><strong>Static variables</strong></p>
 <ul>
 <li>Static variables in a function</li>
 </ul>
-<p>When a variable is declared as static, space for it <strong>is allocated for the lifetime of the program</strong>. Even if the function is called many times, space for the static variable <strong>is allocated only once</strong>, and the variable's value from the previous call carries over to the next call. This is very useful in C / C++ or any other application that needs to store the previous state of a function.</p>
+<p>When a variable is declared static, space <strong>is allocated for the lifetime of the program</strong>. Even if the function is called multiple times, space for the static variable is <strong>allocated only once</strong>, and the value of the variable from the previous call is carried over to the next function call. This is very useful in C / C++ or any other application that needs to store the previous state of a function.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="c1"> </span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
@@ -5426,11 +5444,11 @@
 <p>Output:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>0 1 2 3 4 
 </span></code></pre></div>
-<p>You can see in the program above that the variable count is declared as static. Consequently, its value carries over across function calls. Each time the function is called, the counter variable is not re-initialized.</p>
+<p>You can see in the program above that the variable count is declared static. Therefore, its value is carried across function calls. Each time the function is called, the count variable is not initialized again.</p>
 <ul>
 <li>Static variables in a class</li>
 </ul>
-<p>Because variables declared as static are initialized only once — they are allocated space in separate static storage — static variables in a class <strong>are shared by the objects</strong>. There cannot be multiple copies of the same static variable for different objects. For the same reason, a static variable cannot be initialized using a constructor.</p>
+<p>Since variables declared static are initialized only once — because they are allocated space in separate static storage — static variables in a class <strong>are shared by objects</strong>. There cannot be multiple copies of the same static variable for different objects. It is also for this reason that static variables cannot be initialized using a constructor.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -5456,7 +5474,7 @@
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj1</span><span class="p">.</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot; &quot;</span><span class="o">&lt;&lt;</span><span class="n">obj2</span><span class="p">.</span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span><span class="w"> </span>
 </span></code></pre></div>
-<p>You can see in the program above that we tried to create multiple copies of the static variable i for multiple objects. But that does not happen. Therefore, a static variable in a class should be explicitly initialized by the user outside the class, using the class name and the scope resolution operator, like this:</p>
+<p>You can see in the program above that we tried to create multiple copies of the static variable i for multiple objects. But that did not happen. Therefore, a static variable in a class should be explicitly initialized by the user outside the class, using the class name and the scope resolution operator, as follows:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -5483,12 +5501,12 @@
 <p>Output:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1
 </span></code></pre></div>
-<p><strong>Static Members</strong></p>
+<p><strong>Static members</strong></p>
 <ul>
-<li>Static class objects</li>
+<li>Class objects as static</li>
 </ul>
-<p>Just like variables, objects declared as static also have a scope that lasts until the end of the program's lifetime.</p>
-<p>Consider the following program, where the object is non-static.</p>
+<p>Just like variables, objects declared static also have a scope that lasts until the end of the program's lifetime.</p>
+<p>Consider the following program, in which the object is non-static.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -5522,8 +5540,8 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Inside</span><span class="w"> </span><span class="n">Destructor</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">main</span>
 </span></code></pre></div>
-<p>In the program above, the object is declared non-static inside the if block. Hence, the variable's scope is only within the if block. So when the object is created, the constructor is called, and the destructor is called at the same time the control of the if block passes beyond it, because the object's scope is only inside the if block where it is declared.
-If we declare the object as static, let's see how the output changes.</p>
+<p>In the program above, the object is declared non-static inside the if block. Therefore, the variable's scope is only within the if block. Hence, when the object is created the constructor is called, and the destructor is called at the same moment the control of the if block passes it, because the object's scope is limited to the if block in which it is declared.</p>
+<p>If we declare the object as static, let's now see how the output changes.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
@@ -5557,11 +5575,11 @@ If we declare the object as static, let's see how the output changes.</p>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>End of main
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Inside Destructor
 </span></code></pre></div>
-<p>You can clearly see the change in the output. Now the destructor is called after the end of main. This is because a static object's scope spans the entire lifetime of the program.</p>
+<p>You can clearly see the change in the output. Now, the destructor is called after the end of main. This is because the scope of a static object spans the entire lifetime of the program.</p>
 <ul>
 <li>Static functions in a class</li>
 </ul>
-<p>Just like static data members or static variables in a class, static member functions do not depend on an object of the class. We are allowed to invoke a static member function using an object and the '.' operator. But it is recommended to invoke static members using the class name and the scope resolution operator.</p>
+<p>Just like static data members or static variables in a class, static member functions do not depend on objects of the class. We are allowed to invoke a static member function using an object and '.'. However, it is recommended to invoke static members using the class name and the scope resolution operator.</p>
 <p>Static member functions are allowed to access only static data members or other static member functions; they cannot access the class's non-static data members or member functions.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
@@ -5586,8 +5604,8 @@ If we declare the object as static, let's see how the output changes.</p>
 <p>Output:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Welcome to Apple!
 </span></code></pre></div>
-<p><strong>Restricting Visibility</strong></p>
-<p>static also serves to restrict visibility (similar to an anonymous namespace). From issue: <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">https://github.com/Light-City/CPlusPlusThings/issues/142</a>
+<p><strong>Restricting the scope of access</strong></p>
+<p>static also serves to restrict the scope of access (similar to an anonymous namespace). From issue: <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">https://github.com/Light-City/CPlusPlusThings/issues/142</a></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// source1.cpp</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">();</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -5605,7 +5623,7 @@ If we declare the object as static, let's see how the output changes.</p>
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
 </span></code></pre></div>
-g++ compiles the two files above just fine and prints Hello World!, but if you add static to msg in source1.cpp, you get an "undefined reference to 'msg'" link error:
+<p>g++ compiles the two code files above normally and prints Hello World!, but if you add static to msg in source1.cpp, it causes an 'undefined reference to msg' compilation error:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// source1.cpp</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">();</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -5614,7 +5632,22 @@ g++ compiles the two files above just fine and prints Hello World!, but if you a
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">sayHello</span><span class="p">();</span>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<h2 id="internal-linkage-of-static-restricting-the-scope-of-access">Internal Linkage of static (Restricting the Scope of Access)<a class="headerlink" href="#internal-linkage-of-static-restricting-the-scope-of-access" title="Permanent link">&para;</a></h2>
+<p>Thanks to <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">issue #142</a> for pointing this out: when static qualifies a global variable/function, it also serves to <strong>restrict the scope of access</strong> — it changes its linkage from external linkage to internal linkage, with an effect similar to an anonymous namespace:</p>
+<ul>
+<li>A global variable that is not static: other translation units can access it through an <code>extern</code> declaration;</li>
+<li>A static global variable/function: visible only within the current translation unit; even an <code>extern</code> declaration cannot link to it (undefined reference).</li>
+</ul>
+<p>In modern C++ it is preferable to use an <strong>anonymous namespace</strong> to express "visible only in this file" (it also works for types), but understanding this aspect of static is very important when reading older code.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// file1.cpp</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">          </span><span class="c1">// 内部链接：其他文件 extern 不可见</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 外部链接：其他文件可 extern 访问</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w">                      </span><span class="c1">// 匿名命名空间：等价且更现代的写法</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">also_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ Pure Virtual Functions and Abstract Classes | C++那些事</a></li>

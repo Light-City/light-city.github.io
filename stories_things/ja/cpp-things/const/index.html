@@ -843,7 +843,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      著者について
+      作者について
     </span>
   </a>
   
@@ -870,7 +870,7 @@
         <li class="md-nav__item">
   <a href="#3const" class="md-nav__link">
     <span class="md-ellipsis">
-      3.constオブジェクトはデフォルトでファイルローカル
+      3.constオブジェクトはデフォルトでファイル内ローカル
     </span>
   </a>
   
@@ -5412,7 +5412,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      著者について
+      作者について
     </span>
   </a>
   
@@ -5439,7 +5439,7 @@
         <li class="md-nav__item">
   <a href="#3const" class="md-nav__link">
     <span class="md-ellipsis">
-      3.constオブジェクトはデフォルトでファイルローカル
+      3.constオブジェクトはデフォルトでファイル内ローカル
     </span>
   </a>
   
@@ -5514,14 +5514,14 @@
 <p><strong>最終更新：2026-10-12</strong></p>
 </blockquote>
 <h1 id="c-const">C++ const 定数と修飾<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
-<h2 id="_1">著者について<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">作者について<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>WeChat公式アカウント：</p>
 <p><img alt="wechat" alt="C++ const 定数と修飾 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1const">1.constの意味<a class="headerlink" href="#1const" title="Permanent link">&para;</a></h2>
 <p>const型とは、型修飾子**const**を使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。</p>
 <h2 id="2const">2.constの役割<a class="headerlink" href="#2const" title="Permanent link">&para;</a></h2>
 <ul>
-<li>定数を定義できます</li>
+<li>定数を定義できる</li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5530,19 +5530,19 @@
 <p>型チェック</p>
 <ul>
 <li>
-<p>const定数と<code>#define</code>マクロ定数による定数の違い：</p>
+<p>const定数と<code>#define</code>マクロ定数の違い：</p>
 <blockquote>
-<p><strong><s>const定数は型を持ち、コンパイラが安全チェックを行えます；#defineマクロ定義にはデータ型がなく、単純な文字列置換にすぎないため、安全チェックができません。</s></strong>ここの問題を指摘してくださった2人の皆さんに感謝します。参照：<a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
+<p><strong><s>const定数は型を持ち、コンパイラが安全性のチェックを行えます；#defineマクロ定義にはデータ型がなく、単なる文字列置換なので、安全性のチェックは行えません。</s></strong>ここの問題を指摘してくださった2人の方に感謝します。参照：<a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
 </blockquote>
 </li>
 <li>
 <p>const定数はすべての型をサポートします。</p>
 </li>
-<li>その他の場合、それは単なる <code>const</code> 修飾された変数であり、定数と混同しないでください。</li>
+<li>その他の場合、それはただの <code>const</code> 修飾された変数であり、定数と混同しないでください。</li>
 </ul>
 </li>
 <li>
-<p>変更を防止し、保護の役割を果たし、プログラムの堅牢性を高めます</p>
+<p>変更を防ぎ、保護の役割を果たし、プログラムの堅牢性を高める</p>
 </li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
@@ -5551,15 +5551,16 @@
 </span></code></pre></div>
 <ul>
 <li>
-<p>空間を節約し、不要なメモリ割り当てを避けることができます</p>
+<p>スペースを節約し、不要なメモリ割り当てを避ける</p>
 <ul>
-<li>constによる定数定義は、アセンブリの観点から見ると、対応するメモリアドレスを与えるだけであり、<code>#define</code>のように即値を与えるわけではありません。</li>
-<li>constで定義された定数はプログラムの実行中に1つのコピーしか持ちませんが、<code>#define</code>で定義された定数はメモリ上にいくつものコピーを持ちます。</li>
+<li>整数型/列挙型で定数式により初期化されたconst（すなわち定数式）は、使い方としてコンパイル時定数に近いものです：アドレスを取らず、値だけを使う場合は通常即値に最適化され、<code>#define</code>と同様です；アドレスを取ったり、翻訳単位をまたいでodr-useしたりするときに初めてメモリに置かれ、プログラム全体で1つしか存在しません。</li>
+<li><code>#define</code> はリテラルに展開された後、即値として命令に組み込まれます。命令自体もメモリを占有するため、複数箇所で使えば複数箇所に現れます（<a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue #5</a> の議論を参照）。</li>
+<li>注意：すべてのconst変数が定数式というわけではありません——定数式で初期化された整数/列挙型のものだけがそうであり、それ以外のconst変数はただのconst修飾変数です（浮動小数点型、ユーザー定義型など）。コンパイル時定数を正しく表現するのは <code>constexpr</code> です。</li>
 </ul>
 </li>
 </ul>
-<h2 id="3const">3.constオブジェクトはデフォルトでファイルローカル<a class="headerlink" href="#3const" title="Permanent link">&para;</a></h2>
-<p><font style="color:red">注意：非const変数はデフォルトでexternです。const変数を他のファイルからアクセスできるようにするには、そのファイル中で明示的にexternと指定しなければなりません。</font></p>
+<h2 id="3const">3.constオブジェクトはデフォルトでファイル内ローカル<a class="headerlink" href="#3const" title="Permanent link">&para;</a></h2>
+<p><font style="color:red">注意：非const変数はデフォルトでexternです。const変数を他のファイルからアクセスできるようにするには、そのファイル内で明示的にexternとして指定しなければなりません。</font></p>
 
 <blockquote>
 <p>constで修飾されていない変数の、異なるファイル間でのアクセス</p>
@@ -5587,7 +5588,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>まとめ：<br>constで修飾されていない変数にはexternの明示的宣言が不要なことがわかります！一方、const定数はexternの明示的宣言が必要であり、かつ初期化も必要です！定数は定義後に変更できないため、定義時に初期化しなければなりません。</font></p></p>
+<p>小結：<br>constで修飾されていない変数にはexternの明示的な宣言が不要なことがわかります！一方、const定数はexternの明示的な宣言が必要であり、さらに初期化も必要です！定数は定義後に変更できないため、定義時に必ず初期化しなければなりません。</font></p></p>
 </blockquote>
 <h2 id="4">4.定数の定義<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -5595,9 +5596,9 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;helloworld&quot;</span><span class="p">;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="c1">// error: uninitialized const ‘i’</span>
 </span></code></pre></div>
-<p>上記には2つのエラーがあります：
-+ bは定数であり、変更できません！
-+ iは定数であり、初期化しなければなりません！（定数は定義後に変更できないため、定義時に初期化する必要があります。）</p>
+<p>上のコードには2つのエラーがあります：
++ b は定数であり、変更できません！
++ i は定数であり、初期化しなければなりません！（定数は定義後に変更できないため、定義時に必ず初期化する必要があります。）</p>
 <h2 id="5const">5.ポインタとconst<a class="headerlink" href="#5const" title="Permanent link">&para;</a></h2>
 <p>ポインタに関連するconstには4種類あります：</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的指针或者说指向常量的指针。</span>
@@ -5606,46 +5607,46 @@
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的const指针。</span>
 </span></code></pre></div>
 <blockquote>
-<p><strong>まとめ：</strong> <br>
-*const*が<code>*</code>の左側にある場合、そのconstはポインタが指す変数を修飾します。すなわちポインタの指す先が定数です；<br>constが<code>*</code>の右側にある場合、*const*はポインタ自体を修飾します。すなわちポインタ自体が定数です。</p>
+<p><strong>小結：</strong> <br>
+<em>const</em> が <code>*</code> の左側にある場合、constはポインタが指す変数を修飾します。つまりポインタの指す先が定数です；<br>constが <code>*</code> の右側にある場合、<em>const</em> はポインタ自体を修飾します。つまりポインタ自体が定数です。</p>
 </blockquote>
-<p><strong>もうひとつの読み解き方</strong><br>
-英語を右から左へ読み、toを区切りとします。toより前はポインタの特性の説明、toより後は指す対象の特性の説明です<br>
+<p><strong>もう一つの読み方</strong><br>
+英語を右から左へ読み、toを境目とします。toの前はポインタの特性の説明、toの後は指す対象の特性の説明です<br>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a pointer to const char</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//同上</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to char</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to const char</span>
 </span></code></pre></div>
-ポインタにconstの特性が付くと、ポインタは指すアドレスを変更できなくなります<br>
-指す対象の特性がcharであれば、内容はポインタを通して変更できます。例: *char='y';<br>
-指す対象の特性がconst charであれば、内容はポインタを通して変更できません<br></p>
-<p>具体的な使用方法は以下の通りです：</p>
-<p>（1） <strong>定数を指すポインタ</strong></p>
+ポインタ自体にconstの特性が付くと、ポインタは指す先のアドレスを変更できなくなります<br>
+指す対象の特性がcharなら、内容はポインタを通して変更できます。例：*char='y';<br>
+指す対象の特性がconst charなら、内容はポインタを通して変更できません<br></p>
+<p>具体的な使い方は以下の通りです：</p>
+<p>（1）<strong>定数へのポインタ</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
-<p>ptrはint型のconstオブジェクトを指すポインタです。constが修飾しているのはint型、すなわちptrが指すオブジェクトの型であって、ptr自体ではありません。したがってptrは初期値を与えなくてもかまいません。しかし、ptrを通して指すオブジェクトの値を変更することはできません。</p>
-<p>また、void<code>*</code>ポインタでconstオブジェクトのアドレスを保存することもできず、constオブジェクトのアドレスを保存するにはconst void<code>*</code>型のポインタを使わなければなりません。</p>
+<p>ptrはint型のconstオブジェクトへのポインタです。constが修飾しているのはint型、すなわちptrが指すオブジェクトの型であって、ptr自体ではありません。したがってptrに初期値は必要ありません。ただし、ptrを通して指すオブジェクトの値を変更することはできません。</p>
+<p>また、void<code>*</code> ポインタでconstオブジェクトのアドレスを保持することもできません。constオブジェクトのアドレスを保持するには、const void<code>*</code> 型のポインタを使わなければなりません。</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
-<p>もうひとつの重要な点は、**非constオブジェクトのアドレスを、定数を指すポインタに代入することは許される**ということです。</p>
-<p>非constオブジェクトのアドレスを、constオブジェクトへのポインタに代入します:</p>
+<p>もう一つの重要な点：<strong>非constオブジェクトのアドレスを、constオブジェクトへのポインタに代入することは許されます</strong>。</p>
+<p>非constオブジェクトのアドレスをconstオブジェクトへのポインタに代入する：</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 </span></code></pre></div>
-<p>ptrポインタを通してvalの値を変更することはできません。たとえそれが指しているのが非constオブジェクトであってもです！</p>
-<p>定数を指すポインタを使って元のオブジェクトを変更することはできませんが、そのポインタが非constオブジェクトを指している場合は、他の方法で指しているオブジェクトを変更できます。constポインタが指す値を変更することは可能ですが、constオブジェクトへのポインタを通して行うことはできません！以下のように変更します：</p>
+<p>ptrが指しているのが非constオブジェクトであっても、ptrポインタを通してvalの値を変更することはできません！</p>
+<p>constオブジェクトへのポインタを使って基底のオブジェクトを変更することはできませんが、そのポインタが非constオブジェクトを指している場合、他の方法で指すオブジェクトを変更することは可能です。constポインタが指す値は変更できます——ただしconstオブジェクトポインタを通してはできないだけです！次のように変更します：</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <blockquote>
-<p>まとめ：<br>1.定数を指すポインタについては、ポインタを通してオブジェクトの値を変更できません。<br>2.void<code>*</code>ポインタでconstオブジェクトのアドレスを保存することはできず、constオブジェクトのアドレスを保存するにはconst void<code>*</code>型のポインタを使わなければなりません。<br>3.非constオブジェクトのアドレスをconstオブジェクトへのポインタに代入することは許されます。ポインタが指すオブジェクトの値を変更したい場合は、他の方法で変更しなければならず、現在のポインタを通して直接変更することはできません。</p>
+<p>小結：<br>1.定数へのポインタについては、ポインタを通してオブジェクトの値を変更することはできません。<br>2.void<code>*</code> ポインタでconstオブジェクトのアドレスを保持することはできず、const void<code>*</code> 型のポインタで保持しなければなりません。<br>3.非constオブジェクトのアドレスをconstオブジェクトへのポインタに代入することは許されます。ポインタが指すオブジェクトの値を変更するには、他の方法で変更しなければならず、現在のポインタを通して直接変更することはできません。</p>
 </blockquote>
-<p>（2） <strong>定数ポインタ（constポインタ）</strong></p>
+<p>（2）<strong>定数ポインタ</strong></p>
 <p>constポインタは初期化しなければならず、constポインタが指す値は変更できますが、指す先は変更できません。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
@@ -5667,7 +5668,7 @@
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>このコードは何も起こらず、正常に1を出力します。</p>
-<p>最後に、const定数のアドレスをptrに代入すると、ptrが指しているのは変数であってconst定数ではないため、エラーが発生します。const int<code>*</code> -&gt; int <code>*</code>というエラーです！</p>
+<p>最後に、const定数のアドレスをptrに代入すると、ptrが指すのは変数であってconst定数ではないため、エラーが発生します：const int<code>*</code> -&gt; int <code>*</code> のエラーです！</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -5676,18 +5677,18 @@
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>上記を const int <code>*</code>ptr または const int <code>*</code>const ptr に変えれば、どちらも正常に動作します！</p>
-<p>（3）<strong>定数を指す定数ポインタ</strong></p>
-<p>前の2つの場合を理解すれば、以下の場合も理解しやすいでしょう：</p>
+<p>上のコードを const int <code>*</code>ptr あるいは const int <code>*</code>const ptr に変えれば、どちらも正常に動作します！</p>
+<p>（3）<strong>定数への定数ポインタ</strong></p>
+<p>前の2つの場合を理解すれば、次の場合は理解しやすいです：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
 </span></code></pre></div>
 <p>ptrはconstポインタであり、int型のconstオブジェクトを指しています。</p>
 <h2 id="6const">6.関数でのconstの使用<a class="headerlink" href="#6const" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>constが関数の戻り値を修飾</p>
+<p>constが関数の戻り値を修飾する</p>
 </blockquote>
-<p>これはconstが通常の変数やポインタを修飾する場合と基本的に同じ意味です：</p>
+<p>これはconstが普通の変数やポインタを修飾する場合と基本的に同じ意味です：</p>
 <p>（1）<strong>const int</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
 </span></code></pre></div>
@@ -5701,40 +5702,41 @@
 </span></code></pre></div>
 <p>ポインタ自体は不変です。</p>
 <blockquote>
-<p>constが関数のパラメータを修飾</p>
+<p>constが関数のパラメータを修飾する</p>
 </blockquote>
-<p>（1）渡されてきたパラメータおよびポインタ自体が関数内で不変である場合、意味がありません！</p>
+<p>（1）渡されたパラメータおよびポインタ自体は関数内で不変——意味がありません！</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
 </span></code></pre></div>
-<p>パラメータは関数本体内で変更できないことを示しますが、ここでは何の意味もありません。var自体が仮引数であり、関数内で変化しないからです。渡される仮引数がポインタである場合も同様です。</p>
-<p>入力パラメータが「値渡し」を採用している場合、関数が自動的にテンポラリ変数を生成してそのパラメータを複製するため、その入力パラメータはもともと保護する必要がなく、constを付ける必要はありません。</p>
-<p>（2）<strong>パラメータポインタが指す内容が定数であり変更不可</strong></p>
+<p>これはパラメータが関数本体内で変更できないことを示しますが、ここでは何の意味もありません。varはもともと仮引数であり、関数内で変更されることはありません。渡される仮引数がポインタの場合も同様です。</p>
+<p>入力パラメータが「値渡し」を採る場合、関数は自動的にテンポラリ変数を生成してそのパラメータをコピーするため、その入力パラメータはもともと保護の必要がなく、constを付けるべきではありません。</p>
+<p>（2）<strong>パラメータポインタが指す内容が定数であり不変</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 </span></code></pre></div>
-<p>ここでsrcは入力パラメータ、dstは出力パラメータです。srcにconstを付けると、関数本体内の文がsrcの内容を変更しようとしたとき、コンパイラがエラーを指摘します。これがconstを付ける効果のひとつです。</p>
+<p>ここでsrcは入力パラメータ、dstは出力パラメータです。srcにconstを付けると、関数本体内の文がsrcの内容を変更しようとしたとき、コンパイラがエラーを指摘します。これがconstを付ける効果の一つです。</p>
 <p>（3）<strong>パラメータが参照の場合。効率を高めると同時に変更を防ぐためです。</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
-<p>非内部データ型のパラメータにとって、void func(A a) のように宣言された関数は効率が低くなる運命にあります。関数本体内でA型のテンポラリオブジェクトを生成してパラメータaを複製する必要があり、テンポラリオブジェクトの構築・複製・破棄の過程すべてに時間がかかるためです。</p>
-<p>効率を上げるには、関数宣言をvoid func(A &amp;a)に変更できます。「参照渡し」はパラメータの別名を借りるだけで、テンポラリオブジェクトを生成する必要がないからです。</p>
+<p>非内部データ型のパラメータにとって、void func(A a) のように宣言された関数は効率が低くなる運命にあります。関数本体内でA型のテンポラリオブジェクトが生成されてパラメータaをコピーするからで、テンポラリオブジェクトの構築、コピー、破棄にはすべて時間がかかります。</p>
+<p>効率を上げるには、関数宣言を void func(A &amp;a) に変えればよいのです。「参照渡し」はパラメータの別名を借りるだけであり、テンポラリオブジェ
+クトを生成する必要がないからです。</p>
 <blockquote>
-<p>しかし関数void func(A &amp;a)には欠点があります：<br><br>「参照渡し」ではパラメータaが変更される可能性があり、これは私たちが望むことではありません。この問題の解決は簡単で、constを付ければよいのです。したがって関数は最終的に
-void func(const A &amp;a)となります。</p>
+<p>しかし関数 void func(A &amp;a) には欠点があります：<br><br>「参照渡し」ではパラメータaが変更される可能性があり、それは望まないことです。この問題の解決は簡単で、constを付ければよく、関数は最終的に
+void func(const A &amp;a) になります。</p>
 </blockquote>
-<p>これと同様に、効率を上げるためにvoid func(int x) をvoid func(const int &amp;x)と書き換えるべきでしょうか？まったく必要ありません。内部データ型のパラメータには構築・破棄の過程がなく、複製も非常に速いため、「値渡し」と「参照渡し」の効率はほぼ同等だからです。</p>
+<p>同じ理屈で、効率向上のために void func(int x) を void func(const int &amp;x) に書き換えるべきでしょうか？まったく必要ありません。内部データ型のパラメータには構築・破棄の過程がなく、コピーも非常に速く、「値渡し」と「参照渡し」の効率はほぼ同じだからです。</p>
 <blockquote>
-<p>まとめ：<br>1.非内部データ型の入力パラメータについては、「値渡し」方式を「const参照渡し」に変更すべきです。目的は効率の向上です。例えばvoid func(A a) をvoid func(const A &amp;a)に変更します。<br><br>2.内部データ型の入力パラメータについては、「値渡し」方式を「const参照渡し」に変更しないでください。そうしないと効率向上の目的を達成できないばかりか、関数の理解しやすさも下がります。例えばvoid func(int x) はvoid func(const int &amp;x)とすべきではありません。</font></p></p>
+<p>小結：<br>1.非内部データ型の入力パラメータについては、効率向上のために「値渡し」を「const参照渡し」に変えるべきです。例えば void func(A a) を void func(const A &amp;a) に変えます。<br><br>2.内部データ型の入力パラメータについては、「値渡し」を「const参照渡し」に変えてはいけません。そうしないと効率向上の目的を達成できないばかりか、関数の分かりやすさも下がります。例えば void func(int x) は void func(const int &amp;x) に変えるべきではありません。</font></p></p>
 </blockquote>
-<p>以上で、2つの面接問題が解決されました：</p>
+<p>以上で2つの面接の質問が解決されました：</p>
 <ul>
-<li>関数にポインタを渡す必要がある場合、そのポインタにconstを付けるべきか。constをポインタの異なる位置に付けると何が違うのか。</li>
-<li>書く関数の渡すべきパラメータが複合型のインスタンスである場合、値パラメータと参照パラメータでは何が違うのか。いつ渡す参照パラメータにconstを付ける必要があるのか。</li>
+<li>関数にポインタを渡す場合、そのポインタにconstを付ける必要があるか、constをポインタのどの位置に付けるかで何が違うのか；</li>
+<li>書いた関数のパラメータが複雑な型のインスタンスである場合、値パラメータと参照パラメータの違いは何か、いつ渡された参照パラメータにconstを付ける必要があるのか。</li>
 </ul>
 <h2 id="7const">7.クラスでのconstの使用<a class="headerlink" href="#7const" title="Permanent link">&para;</a></h2>
-<p>クラスの中で、データメンバを決して変更しない関数はすべてconst型として宣言すべきです。constメンバ関数を書く際にうっかりデータメンバを変更したり、他の非constメンバ関数を呼び出したりすると、コンパイラがエラーを指摘してくれます。これは間違いなくプログラムの堅牢性を高めます。</p>
-<p>constキーワードを使って宣言されたメンバ関数を、定数メンバ関数と呼びます。定数メンバ関数だけが定数や定数オブジェクトを操作する資格を持ち、constキーワードを使って宣言されていないメンバ関数は、定数オブジェクトを操作するのに使えません。</p>
-<p>クラスのconstメンバ変数は、初期化リストを通して初期化しなければなりません。以下に示します：</p>
+<p>クラスでは、データメンバーを変更しない関数はすべてconst型として宣言すべきです。constメンバー関数を書くときに誤ってデータメンバーを変更したり、他の非constメンバー関数を呼び出したりすると、コンパイラがエラーを指摘してくれます。これは間違いなくプログラムの堅牢性を高めます。</p>
+<p>constキーワードで指定されたメンバー関数は、定数メンバー関数と呼ばれます。定数メンバー関数だけが定数や定数オブジェクトを操作する資格を持ち、constキーワードで指定されていないメンバー関数は定数オブジェクトの操作に使えません。</p>
+<p>クラスのconstメンバー変数は、以下に示すように初期化リストで初期化しなければなりません：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span><span class="p">{</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
@@ -5748,7 +5750,7 @@ void func(const A &amp;a)となります。</p>
 </span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
 </span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>constオブジェクトはconstメンバ関数にしかアクセスできません。一方、非constオブジェクトは任意のメンバ関数にアクセスできます。constメンバ関数を含みます.</p>
+<p>constオブジェクトはconstメンバー関数にしかアクセスできず、非constオブジェクトは任意のメンバー関数（constメンバー関数を含む）にアクセスできます。</p>
 <p>例えば：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// apple.cpp</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
@@ -5802,35 +5804,35 @@ void func(const A &amp;a)となります。</p>
 <blockquote>
 <p>コンパイル：bazel run basic_content/const/class_const/first_example:main<br></p>
 </blockquote>
-<p>このときエラーが発生します。上のgetCount()メソッドの中でaddメソッドが呼び出されていますが、addメソッドはconst修飾されていないため、実行時にエラーになります。つまり、constメンバ関数がアクセスできるのはconstメンバ関数だけです。</p>
+<p>このときエラーが報告されます：getCount() はconstメンバー関数であり、その中の add() のオーバーロード解決はconst版（<code>int add(int num) const</code>）にしか一致しません；このconst版をコメントアウトして初めて、非constの add() を呼び出したことによるエラーになります。すなわち：constオブジェクトはconstメンバー関数にしかアクセスできず、非constオブジェクトは任意のメンバー関数にアクセスできます（<a href="https://github.com/Light-City/CPlusPlusThings/issues/338">issue #338</a> を参照）。</p>
 <p>呼び出しを次のように変えると：</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>b.add(); // error
 </span></code></pre></div>
-このとき、constオブジェクトはconstメンバ関数にしかアクセスできないことが証明されます。</p>
-<p>上述の初期化リストによるconst定数の初期化に加えて、以下の方法もあります。</p>
-<p>第一に、定数の定義をstaticと組み合わせます。すなわち：</p>
+<p>このとき、constオブジェクトはconstメンバー関数にしかアクセスできないことが証明できます。</p>
+<p>上記のように初期化リストでconst定数を初期化する以外に、次の方法を使うこともできます：</p>
+<p>第一に：定数の定義をstaticと組み合わせます。つまり：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
 </span></code></pre></div>
-<p>第二に、外で初期化します：</p>
+<p>第二に：外で初期化します：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
-<p>もちろん、c++11でコンパイルするなら、定義の場所で直接初期化できます。次のように直接書けます：</p>
+<p>もちろん、C++11でコンパイルするなら、定義の時点で直接初期化でき、次のように書けます：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1">// 或者</span>
 </span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
-<p>この2つともc++11でサポートされています！</p>
-<p>コンパイル時に<code>-std=c++11</code>を付けるだけです！</p>
-<p>ここでstaticが出てきたので、簡単に説明しておきます：</p>
-<p>C++では、static静的メンバ変数はクラスの内部で初期化できません。クラスの内部では宣言のみを行い、定義はクラス定義体の外部、通常はクラスの実装ファイルで初期化しなければなりません。</p>
+<p>この2つはどちらもC++11でサポートされています！</p>
+<p>コンパイル時に <code>-std=c++11</code> を付けるだけです！</p>
+<p>ここでstaticという言葉が出てきたので、簡単に触れておきます：</p>
+<p>C++では、static静的メンバー変数はクラスの内部では初期化できません。クラスの内部では宣言のみであり、定義はクラス定義体の外で行わなければならず、通常はクラスの実装ファイルで初期化します。</p>
 <p>クラス内で宣言：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
 </span></code></pre></div>
 <p>クラスの実装ファイルで使用：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
-<p>これについては、c++11では宣言と同時に初期化することはできません。つまり上記の使用方法になります。</p>
+<p>この項目については、C++11では宣言と初期化を同時に行うことはできず、上記の使い方になります。</p>
 <h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>

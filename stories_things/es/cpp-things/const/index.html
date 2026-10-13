@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un tipo constante es un tipo declarado con el modificador de tipo const; el valor de las variables u objetos de tipo constante no puede actualizarse.">
+        <meta name="description" content="Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="uso de constantes y del modificador const en C++,fundamentos de C++"> 
-    <meta name="title" content="const en C++: constantes y modificación | C++那些事"> 
+    <meta name="keywords" content="uso de constantes y calificadores const en C++,fundamentos de C++"> 
+    <meta name="title" content="Constantes y calificadores const en C++ | C++那些事"> 
 
     
       
-        <title>const en C++: constantes y modificación | C++那些事 - C++那些事</title>
+        <title>Constantes y calificadores const en C++ | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="const en C++: constantes y modificación | C++那些事">
-      <meta property="og:description" content="Un tipo constante es un tipo declarado con el modificador de tipo const; el valor de las variables u objetos de tipo constante no puede actualizarse.">
+      <meta property="og:title" content="Constantes y calificadores const en C++ | C++那些事">
+      <meta property="og:description" content="Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="const en C++: constantes y modificación | C++那些事">
-      <meta name="twitter:description" content="Un tipo constante es un tipo declarado con el modificador de tipo const; el valor de las variables u objetos de tipo constante no puede actualizarse.">
+      <meta name="twitter:title" content="Constantes y calificadores const en C++ | C++那些事">
+      <meta name="twitter:description" content="Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "const en C++: constantes y modificación | C++那些事", "description": "Un tipo constante es un tipo declarado con el modificador de tipo const; el valor de las variables u objetos de tipo constante no puede actualizarse.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "const en C++: constantes y modificación | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Constantes y calificadores const en C++ | C++那些事", "description": "Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Constantes y calificadores const en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#const-en-c-constantes-y-modificacion" class="md-skip">
+        <a href="#constantes-y-calificadores-const-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              const en C++: constantes y modificación | C++那些事
+              Constantes y calificadores const en C++ | C++那些事
             
           </span>
         </div>
@@ -850,27 +850,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-significado-de-const" class="md-nav__link">
+  <a href="#1-el-significado-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Significado de const
+      1. El significado de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-funcion-de-const" class="md-nav__link">
+  <a href="#2-el-papel-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Función de const
+      2. El papel de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-los-objetos-const-son-por-defecto-locales-al-archivo" class="md-nav__link">
+  <a href="#3-los-objetos-const-son-locales-al-archivo-por-defecto" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Los objetos const son por defecto locales al archivo
+      3. Los objetos const son locales al archivo por defecto
     </span>
   </a>
   
@@ -5419,27 +5419,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-significado-de-const" class="md-nav__link">
+  <a href="#1-el-significado-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Significado de const
+      1. El significado de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-funcion-de-const" class="md-nav__link">
+  <a href="#2-el-papel-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Función de const
+      2. El papel de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-los-objetos-const-son-por-defecto-locales-al-archivo" class="md-nav__link">
+  <a href="#3-los-objetos-const-son-locales-al-archivo-por-defecto" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Los objetos const son por defecto locales al archivo
+      3. Los objetos const son locales al archivo por defecto
     </span>
   </a>
   
@@ -5513,41 +5513,57 @@
 <blockquote>
 <p><strong>Última actualización：2026-10-12</strong></p>
 </blockquote>
-<h1 id="const-en-c-constantes-y-modificacion">const en C++: constantes y modificación<a class="headerlink" href="#const-en-c-constantes-y-modificacion" title="Permanent link">&para;</a></h1>
+<h1 id="constantes-y-calificadores-const-en-c">Constantes y calificadores const en C++<a class="headerlink" href="#constantes-y-calificadores-const-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública de WeChat:</p>
-<p><img alt="wechat" alt="const en C++: constantes y modificación | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
-<h2 id="1-significado-de-const">1. Significado de const<a class="headerlink" href="#1-significado-de-const" title="Permanent link">&para;</a></h2>
-<p>Un tipo constante es un tipo declarado con el modificador de tipo <strong>const</strong>; el valor de las variables u objetos de tipo constante no puede actualizarse.</p>
-<h2 id="2-funcion-de-const">2. Función de const<a class="headerlink" href="#2-funcion-de-const" title="Permanent link">&para;</a></h2>
+<p><img alt="wechat" alt="Constantes y calificadores const en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<h2 id="1-el-significado-de-const">1. El significado de const<a class="headerlink" href="#1-el-significado-de-const" title="Permanent link">&para;</a></h2>
+<p>Un tipo const es un tipo declarado con el calificador de tipo <strong>const</strong>; el valor de una variable u objeto de tipo const no puede actualizarse.</p>
+<h2 id="2-el-papel-de-const">2. El papel de const<a class="headerlink" href="#2-el-papel-de-const" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Permite definir constantes</li>
+<li>Puede definir constantes</li>
 </ul>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 </span></code></pre></div>
-+ Comprobación de tipos</p>
-<div class="language-text highlight"><pre><span></span><code>+ Diferencia entre las constantes const y las constantes definidas con la macro `#define`:
-&gt; &lt;strong&gt;&lt;s&gt;Las constantes const tienen un tipo, de modo que el compilador puede realizar comprobaciones de seguridad; las constantes definidas con la macro #define no tienen tipo de datos, son un simple reemplazo de cadenas y no permiten comprobaciones de seguridad.&lt;/s&gt;&lt;/strong&gt;Gracias a dos expertos por señalar el problema aquí, ver: [issue](https://github.com/Light-City/CPlusPlusThings/issues/5)
-
-+ Las constantes const admiten todos los tipos.
-+ En los demás casos, solo se trata de una variable cualificada con `const`; no hay que confundirla con una constante.
-</code></pre></div>
 <ul>
-<li>Evita modificaciones, ejerce una función de protección y aumenta la robustez del programa</li>
+<li>
+<p>Comprobación de tipos</p>
+<ul>
+<li>
+<p>Diferencia entre las constantes const y las constantes definidas con la macro <code>#define</code>:</p>
+<blockquote>
+<p><strong><s>Una constante const tiene un tipo, por lo que el compilador puede hacer comprobaciones de seguridad; una definición de macro #define no tiene tipo de datos, es un simple reemplazo de cadenas y no permite comprobaciones de seguridad.</s></strong>Gracias a los dos expertos que señalaron el error aquí; véase: <a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
+</blockquote>
+</li>
+<li>
+<p>Las constantes const admiten todos los tipos.</p>
+</li>
+<li>En los demás casos se trata solo de una variable cualificada con <code>const</code>; no la confundas con una constante.</li>
 </ul>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
+</li>
+<li>
+<p>Evitar modificaciones, ejercer un papel protector y aumentar la robustez del programa</p>
+</li>
+</ul>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// error!</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
 </span></code></pre></div>
-+ Ahorra espacio y evita asignaciones de memoria innecesarias</p>
-<div class="language-text highlight"><pre><span></span><code>+ Desde el punto de vista del ensamblador, una constante definida con const solo proporciona la dirección de memoria correspondiente, mientras que `#define` proporciona un inmediato.
-+ Una constante definida con const tiene una sola copia durante la ejecución del programa, mientras que las constantes definidas con `#define` tienen varias copias en memoria.
-</code></pre></div>
-<h2 id="3-los-objetos-const-son-por-defecto-locales-al-archivo">3. Los objetos const son por defecto locales al archivo<a class="headerlink" href="#3-los-objetos-const-son-por-defecto-locales-al-archivo" title="Permanent link">&para;</a></h2>
-<p><font style="color:red">Nota: las variables no const son extern por defecto. Para que una variable const pueda utilizarse desde otros archivos, debe especificarse explícitamente como extern en el archivo.</font></p>
+<ul>
+<li>
+<p>Ahorrar espacio y evitar asignaciones de memoria innecesarias</p>
+<ul>
+<li>Un const inicializado con un tipo entero/de enumeración y una expresión constante (es decir, una expresión constante) se comporta en la práctica más bien como una constante de compilación: si no se toma su dirección y solo se usa su valor, normalmente se optimiza como un inmediato, igual que <code>#define</code>; solo al tomar su dirección o al hacer un odr-use entre unidades de traducción pasa a memoria, y en todo el programa existe una sola copia.</li>
+<li>Tras expandirse a un literal, <code>#define</code> se compila en las instrucciones como un inmediato; las propias instrucciones también ocupan memoria, por lo que varios usos significan varias apariciones (véase la discusión en el <a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue #5</a>).</li>
+<li>Nota: no todas las variables const son expresiones constantes; solo lo son las de tipo entero/enum inicializadas con una expresión constante; las demás variables const son solo variables cualificadas con const (por ejemplo, coma flotante, tipos definidos por el usuario); <code>constexpr</code> es la forma correcta de expresar constantes de compilación.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-los-objetos-const-son-locales-al-archivo-por-defecto">3. Los objetos const son locales al archivo por defecto<a class="headerlink" href="#3-los-objetos-const-son-locales-al-archivo-por-defecto" title="Permanent link">&para;</a></h2>
+<p><font style="color:red">Nota: las variables no const son extern por defecto. Para que una variable const sea accesible desde otros archivos, debe especificarse explícitamente como extern en el archivo.</font></p>
 
 <blockquote>
-<p>Acceso a variables no modificadas con const desde archivos distintos</p>
+<p>Acceso a una variable no modificada con const desde archivos distintos</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// file1.cpp</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
@@ -5560,7 +5576,7 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>Acceso a constantes const desde archivos distintos</p>
+<p>Acceso a una constante const desde archivos distintos</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// extern_file1.cpp</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>
@@ -5572,19 +5588,19 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>Resumen:<br>Se puede observar que las variables no modificadas con const no necesitan una declaración explícita de extern, mientras que las constantes const deben declararse explícitamente como extern y deben inicializarse. Como una constante no puede modificarse después de definirse, debe inicializarse en el momento de la definición.</font></p></p>
+<p>Resumen:<br>Se puede observar que las variables no modificadas con const no necesitan declaración extern explícita, mientras que las constantes const requieren una declaración extern explícita y, además, inicialización. Como una constante no puede modificarse tras su definición, debe inicializarse en el momento de definirla.</font></p></p>
 </blockquote>
 <h2 id="4-definir-constantes">4. Definir constantes<a class="headerlink" href="#4-definir-constantes" title="Permanent link">&para;</a></h2>
-<p><div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// error: assignment of read-only variable ‘b’</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;helloworld&quot;</span><span class="p">;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="c1">// error: uninitialized const ‘i’</span>
 </span></code></pre></div>
-Lo anterior contiene dos errores:
-+ b es una constante, ¡no puede modificarse!
-+ i es una constante, ¡debe inicializarse! (Como una constante no puede modificarse después de definirse, debe inicializarse en el momento de la definición.)</p>
+<p>Lo anterior contiene dos errores:
++ b es una constante, ¡no se puede cambiar!
++ i es una constante, ¡debe inicializarse! (Porque una constante no puede modificarse tras su definición, debe inicializarse en el momento de definirla.)</p>
 <h2 id="5-punteros-y-const">5. Punteros y const<a class="headerlink" href="#5-punteros-y-const" title="Permanent link">&para;</a></h2>
-<p>Hay cuatro formas de combinar const con punteros:</p>
+<p>Hay cuatro formas de const relacionadas con los punteros:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的指针或者说指向常量的指针。</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 同上</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向类型对象的const指针。或者说常指针、const指针。</span>
@@ -5592,232 +5608,231 @@ Lo anterior contiene dos errores:
 </span></code></pre></div>
 <blockquote>
 <p><strong>Resumen:</strong> <br>
-Si <em>const</em> está a la izquierda de <code>*</code>, entonces const modifica la variable apuntada por el puntero, es decir, el punto señalado es constante;<br>si const está a la derecha de <code>*</code>, <em>const</em> modifica el puntero mismo, es decir, el puntero en sí es constante.</p>
+Si <em>const</em> está a la izquierda de <code>*</code>, entonces const califica a la variable apuntada por el puntero, es decir, lo apuntado es una constante;<br>si const está a la derecha de <code>*</code>, <em>const</em> califica al puntero mismo, es decir, el puntero en sí es una constante.</p>
 </blockquote>
 <p><strong>Otra forma de interpretarlo</strong><br>
-Leyendo en inglés de derecha a izquierda y usando to como frontera: lo que va antes de to describe las características del puntero y lo que va después de to describe las del objeto apuntado<br>
+Lee el inglés de derecha a izquierda, tomando «to» como frontera: lo que va antes de «to» describe la característica del puntero y lo que va después describe la característica del destino<br>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a pointer to const char</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//同上</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to char</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to const char</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="err">```</span><span class="n">Cuando</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">puntero</span><span class="w"> </span><span class="n">recibe</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">característica</span><span class="w"> </span><span class="k">const</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">puntero</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">puede</span><span class="w"> </span><span class="n">cambiar</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">dirección</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">apunta</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">Cuando</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">objeto</span><span class="w"> </span><span class="n">apuntado</span><span class="w"> </span><span class="n">tiene</span><span class="w"> </span><span class="n">característica</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">contenido</span><span class="w"> </span><span class="n">puede</span><span class="w"> </span><span class="n">modificarse</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">través</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">puntero</span><span class="p">,</span><span class="w"> </span><span class="n">por</span><span class="w"> </span><span class="n">ejemplo</span><span class="o">:</span><span class="w"> </span><span class="o">*</span><span class="kt">char</span><span class="o">=</span><span class="sc">&#39;y&#39;</span><span class="p">;</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">Cuando</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">objeto</span><span class="w"> </span><span class="n">apuntado</span><span class="w"> </span><span class="n">tiene</span><span class="w"> </span><span class="n">característica</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">contenido</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">puede</span><span class="w"> </span><span class="n">modificarse</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">través</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">puntero</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">Su</span><span class="w"> </span><span class="n">uso</span><span class="w"> </span><span class="n">concreto</span><span class="w"> </span><span class="n">es</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">siguiente</span><span class="o">:</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="n">Puntero</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">constantes</span><span class="o">**</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="err">```</span><span class="n">cpp</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
-ptr es un puntero a un objeto const de tipo int; const califica el tipo int, es decir, el tipo del objeto al que apunta ptr, y no a ptr mismo, por lo que ptr puede no tener valor inicial. Pero no se puede modificar mediante ptr el valor del objeto al que apunta.</p>
-<p>Además, tampoco se puede usar un puntero void<code>*</code> para guardar la dirección de un objeto const; debe usarse un puntero de tipo const void<code>*</code> para guardar la dirección de un objeto const.</p>
-<p><div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
+Cuando el puntero recibe la característica const, el puntero no puede cambiar la dirección a la que apunta<br>
+Cuando la característica del destino es char, el contenido puede modificarse a través del puntero, por ejemplo: *char='y';<br>
+Cuando la característica del destino es const char, el contenido no puede modificarse a través del puntero<br></p>
+<p>El uso concreto es el siguiente:</p>
+<p>(1) <strong>Puntero a una constante</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
-Otro punto importante: <strong>está permitido asignar la dirección de un objeto no const a un puntero a objeto const</strong>.</p>
+<p>ptr es un puntero a un objeto const de tipo int; el const califica al tipo int, es decir, al tipo del objeto al que apunta ptr, y no a ptr mismo, por lo que ptr no necesita valor inicial. Pero no se puede modificar el valor del objeto apuntado a través de ptr.</p>
+<p>Además, tampoco se puede usar un puntero void<code>*</code> para guardar la dirección de un objeto const; hay que usar un puntero de tipo const void<code>*</code> para guardar la dirección de un objeto const.</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
+</span></code></pre></div>
+<p>Otro punto clave: <strong>se permite asignar la dirección de un objeto no const a un puntero a objeto const</strong>.</p>
 <p>Asignar la dirección de un objeto no const a un puntero a objeto const:</p>
-<p><div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 </span></code></pre></div>
-No podemos modificar mediante el puntero ptr el valor de val, ¡aunque apunte a un objeto no const!</p>
-<p>No podemos usar un puntero a objeto const para modificar el objeto subyacente; sin embargo, si ese puntero apunta a un objeto no const, el objeto apuntado puede modificarse por otros medios. El valor apuntado por un puntero const puede modificarse, ¡solo que no a través del puntero a objeto const! Modificación como sigue:</p>
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<p>¡No podemos modificar el valor de val a través del puntero ptr, aunque apunte a un objeto no const!</p>
+<p>No podemos usar un puntero a objeto const para modificar el objeto subyacente; sin embargo, si el puntero apunta a un objeto no const, el objeto apuntado puede modificarse por otros medios. El valor apuntado por un puntero const sí puede cambiarse, ¡solo que no a través del puntero a objeto const! Se modifica así:</p>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <blockquote>
-<p>Resumen:<br>1. Con un puntero a constantes no se puede modificar mediante el puntero el valor del objeto.<br>2. No se puede usar un puntero void<code>*</code> para guardar la dirección de un objeto const; debe usarse un puntero de tipo const void<code>*</code> para guardar la dirección de un objeto const.<br>3. Está permitido asignar la dirección de un objeto no const a un puntero a objeto const; si se desea modificar el valor del objeto apuntado, debe hacerse por otros medios, no directamente a través del puntero actual.</p>
+<p>Resumen:<br>1. Con un puntero a una constante, no se puede modificar el valor del objeto a través del puntero.<br>2. No se puede usar un puntero void<code>*</code> para guardar la dirección de un objeto const; hay que usar un puntero de tipo const void<code>*</code> para guardar la dirección de un objeto const.<br>3. Se permite asignar la dirección de un objeto no const a un puntero a objeto const; para modificar el valor del objeto apuntado hay que hacerlo por otros medios, no directamente a través del puntero actual.</p>
 </blockquote>
 <p>(2) <strong>Puntero constante</strong></p>
-<p>Un puntero const debe inicializarse; el valor apuntado por un puntero const puede modificarse, pero no puede cambiar el objeto al que apunta.</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// const指针必须初始化！且const指针的指向不能修改</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num1</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const指针不能修改指向！</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
-</span></code></pre></div>
-El código produce un error de compilación: un puntero const no puede modificar el objeto al que apunta.</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<p>Un puntero const debe inicializarse; el valor apuntado por un puntero const puede modificarse, pero su dirección no.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// const指针必须初始化！且const指针的指向不能修改</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num1</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const指针不能修改指向！</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">}</span>
 </span></code></pre></div>
-El código no produce nada raro y muestra 1 con normalidad.</p>
-<p>Por último, cuando se asigna a ptr la dirección de una constante const, como ptr apunta a una variable y no a una constante const, se produce un error: ¡error de const int<code>*</code> -&gt; int <code>*</code>!</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+<p>El código da un error de compilación: un puntero const no puede cambiar aquello a lo que apunta.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const int* -&gt; int*</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// const指针必须初始化！且const指针的指向不能修改</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
-Si lo anterior se cambia a const int <code>*</code>ptr o a const int <code>*</code>const ptr, ¡ambas versiones funcionan con normalidad!</p>
-<p>(3) <strong>Puntero constante a constantes</strong></p>
-<p>Entendidos los dos casos anteriores, este caso resulta más fácil de entender:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
+<p>Con este código no ocurre nada, imprime 1 con normalidad.</p>
+<p>Por último, cuando se asigna a ptr la dirección de una constante const, como ptr apunta a una variable y no a una constante const, se produce un error: ¡el error const int<code>*</code> -&gt; int <code>*</code>!</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="o">=&amp;</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// error! const int* -&gt; int*</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-ptr es un puntero const que apunta a un objeto const de tipo int.</p>
+<p>Si lo anterior se cambia a const int <code>*</code>ptr, o a const int <code>*</code>const ptr, ¡ambos funcionan correctamente!</p>
+<p>(3) <strong>Puntero constante a una constante</strong></p>
+<p>Entendidos los dos casos anteriores, este caso resulta bastante fácil de entender:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
+</span></code></pre></div>
+<p>ptr es un puntero const que apunta a un objeto const de tipo int.</p>
 <h2 id="6-uso-de-const-en-funciones">6. Uso de const en funciones<a class="headerlink" href="#6-uso-de-const-en-funciones" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>const modifica el valor de retorno de la función</p>
+<p>const calificando el valor de retorno de una función</p>
 </blockquote>
-<p>Esto tiene básicamente el mismo significado que cuando const modifica variables ordinarias y punteros:</p>
+<p>Esto tiene básicamente el mismo significado que const calificando variables y punteros ordinarios:</p>
 <p>(1) <strong>const int</strong></p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
 </span></code></pre></div>
-Esto en sí carece de sentido, ¡porque el valor devuelto ya se asigna a otras variables!</p>
+<p>Esto en sí carece de sentido, ¡porque el valor devuelto ya se asigna a otra variable!</p>
 <p>(2) <strong>const int*</strong></p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func2</span><span class="p">();</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func2</span><span class="p">();</span>
 </span></code></pre></div>
-El contenido apuntado por el puntero no cambia.</p>
+<p>El contenido apuntado por el puntero es inmutable.</p>
 <p>(3) int *const</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">func2</span><span class="p">();</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">func2</span><span class="p">();</span>
 </span></code></pre></div>
-El puntero mismo no puede cambiarse.</p>
+<p>El puntero mismo es inmutable.</p>
 <blockquote>
-<p>const modifica los parámetros de la función</p>
+<p>const calificando los parámetros de una función</p>
 </blockquote>
-<p>(1) El parámetro recibido y el puntero mismo no pueden modificarse dentro de la función, ¡carece de sentido!</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
+<p>(1) El parámetro recibido y el puntero mismo son inmutables dentro de la función, ¡carece de sentido!</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
 </span></code></pre></div>
-Indica que el parámetro no puede modificarse dentro del cuerpo de la función, pero aquí no tiene ningún sentido: var es en sí un parámetro formal y no cambia dentro de la función. Lo mismo ocurre cuando el parámetro formal recibido es un puntero.</p>
-<p>Cuando el parámetro de entrada se pasa "por valor", como la función genera automáticamente una variable temporal para copiarlo, dicho parámetro de entrada no necesita protección, así que no hace falta añadir const.</p>
-<p>(2) <strong>El contenido apuntado por el parámetro puntero es constante e inmutable</strong></p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+<p>Indica que el parámetro no puede modificarse en el cuerpo de la función, pero aquí no tiene ningún sentido: var es en sí un parámetro formal y no cambia dentro de la función. Lo mismo ocurre cuando el parámetro formal recibido es un puntero.</p>
+<p>Cuando un parámetro de entrada usa «paso por valor», la función genera automáticamente una variable temporal para copiarlo, y ese parámetro de entrada no necesita protección, así que no le añadas const.</p>
+<p>(2) <strong>El contenido apuntado por el parámetro puntero es una constante inmutable</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 </span></code></pre></div>
-Aquí src es un parámetro de entrada y dst es un parámetro de salida. Al añadir const a src, si alguna instrucción del cuerpo de la función intenta modificar el contenido de src, el compilador señalará el error. Este es uno de los efectos de añadir const.</p>
-<p>(3) <strong>El parámetro es una referencia, para ganar eficiencia y a la vez evitar modificaciones.</strong></p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
+<p>Aquí src es un parámetro de entrada y dst un parámetro de salida. Al añadir const a src, si una sentencia del cuerpo de la función intenta cambiar el contenido de src, el compilador señalará el error. Este es uno de los efectos de añadir const.</p>
+<p>(3) <strong>El parámetro es una referencia, para ganar eficiencia evitando modificaciones.</strong></p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
-Para los parámetros de tipos de datos no internos, una función declarada como void func(A a) está condenada a ser poco eficiente, porque en el cuerpo de la función se generará un objeto temporal de tipo A para copiar el parámetro a, y la construcción, copia y destrucción del objeto temporal consumen tiempo.</p>
-<p>Para mejorar la eficiencia, la función puede declararse como void func(A &amp;a), porque el "paso por referencia" solo toma prestado el alias del parámetro y no necesita generar un objeto temporal.</p>
+<p>Para parámetros de tipos de datos no internos, una función declarada como void func(A a) está condenada a ser poco eficiente, porque el cuerpo de la función creará un objeto temporal de tipo A para copiar el parámetro a, y la construcción, copia y destrucción de ese objeto temporal consumen tiempo.</p>
+<p>Para mejorar la eficiencia, la función puede declararse como void func(A &amp;a), porque el «paso por referencia» solo toma prestado el alias del parámetro y no necesita generar un
+objeto temporal.</p>
 <blockquote>
-<p>Pero la función void func(A &amp;a) tiene un inconveniente:<br><br>el "paso por referencia" podría modificar el parámetro a, y eso no es lo que deseamos. La solución es muy sencilla: añadir el modificador const, de modo que la función finalmente queda como
+<p>Pero la función void func(A &amp;a) tiene un inconveniente:<br><br>el «paso por referencia» puede modificar el parámetro a, y eso no es lo que deseamos. La solución es muy sencilla: añadir const, y la función termina siendo
 void func(const A &amp;a).</p>
 </blockquote>
-<p>Por analogía, ¿debería reescribirse void func(int x) como void func(const int &amp;x) para mejorar la eficiencia? No hay ninguna necesidad, porque los parámetros de tipos de datos internos no pasan por procesos de construcción y destrucción, y copiarlos es muy rápido: la eficiencia del "paso por valor" y del "paso por referencia" es prácticamente la misma.</p>
+<p>Por analogía, ¿debería reescribirse void func(int x) como void func(const int &amp;x) para mejorar la eficiencia? No hay ninguna necesidad: los parámetros de tipos de datos internos no implican construcción ni destrucción, y copiarlos es rapidísimo; la eficiencia del «paso por valor» y del «paso por referencia» es prácticamente la misma.</p>
 <blockquote>
-<p>Resumen:<br>1. Para los parámetros de entrada de tipos de datos no internos, conviene cambiar el "paso por valor" por un "paso por const referencia", con el objetivo de mejorar la eficiencia. Por ejemplo, cambiar void func(A a) por void func(const A &amp;a).<br><br>2. Para los parámetros de entrada de tipos de datos internos, no hay que cambiar el "paso por valor" por un "paso por const referencia". De lo contrario, no solo no se gana eficiencia, sino que se reduce la claridad de la función. Por ejemplo, void func(int x) no debería cambiarse por void func(const int &amp;x).</font></p></p>
+<p>Resumen:<br>1. Para parámetros de entrada de tipos de datos no internos, conviene cambiar el «paso por valor» por el «paso por referencia constante», con el fin de mejorar la eficiencia. Por ejemplo, cambiar void func(A a) por void func(const A &amp;a).<br><br>2. Para parámetros de entrada de tipos de datos internos, no cambies el «paso por valor» por el «paso por referencia constante». De lo contrario, ni se gana eficiencia ni se facilita la comprensión de la función. Por ejemplo, void func(int x) no debería cambiarse por void func(const int &amp;x).</font></p></p>
 </blockquote>
-<p>Con lo anterior se resuelven dos preguntas de entrevista:</p>
+<p>Con esto quedan resueltas dos preguntas de entrevista:</p>
 <ul>
-<li>Si una función necesita recibir un puntero, ¿hay que añadir const a ese puntero y qué diferencia hay según la posición en la que se coloque const;</li>
-<li>Si la función que escribes necesita recibir como parámetro una instancia de un tipo complejo, qué diferencia hay entre pasar el parámetro por valor o por referencia, y cuándo hay que añadir const al parámetro de referencia recibido.</li>
+<li>Si una función recibe un puntero, ¿necesita ese puntero const, y en qué se diferencia colocar const en distintas posiciones del puntero;</li>
+<li>Si el parámetro que recibe la función es una instancia de un tipo complejo, ¿en qué se diferencian el paso por valor y el paso por referencia, y cuándo conviene añadir const al parámetro de referencia recibido.</li>
 </ul>
 <h2 id="7-uso-de-const-en-clases">7. Uso de const en clases<a class="headerlink" href="#7-uso-de-const-en-clases" title="Permanent link">&para;</a></h2>
-<p>En una clase, toda función que no modifique los miembros de datos debería declararse de tipo const. Si al escribir una función miembro const modificamos por descuido un miembro de datos, o llamamos a otra función miembro no const, el compilador señalará el error, lo que sin duda mejora la robustez del programa.</p>
-<p>Las funciones miembro declaradas con la palabra clave const se denominan funciones miembro constantes. Solo las funciones miembro constantes pueden operar con constantes o con objetos constantes; las funciones miembro declaradas sin la palabra clave const no pueden utilizarse para operar con objetos constantes.</p>
-<p>Las variables miembro const de una clase deben inicializarse mediante la lista de inicialización, como se muestra a continuación:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span><span class="p">{</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">private</span><span class="o">:</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="k">public</span><span class="o">:</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="p">};</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="p">{</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="p">}</span>
+<p>En una clase, toda función que no modifique miembros de datos debería declararse const. Si al escribir una función miembro const modificas por descuido un miembro de datos, o llamas a otra función miembro no const, el compilador señalará el error, lo que sin duda aumenta la robustez del programa.</p>
+<p>Una función miembro especificada con la palabra clave const se llama función miembro constante. Solo las funciones miembro constantes están capacitadas para operar con constantes u objetos constantes; las funciones miembro no especificadas con const no pueden usarse para operar con objetos constantes.</p>
+<p>Los miembros de datos const de una clase deben inicializarse mediante la lista de inicialización, como se muestra a continuación:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">};</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="o">:</span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="p">{</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="p">}</span>
 </span></code></pre></div>
-Un objeto const solo puede acceder a funciones miembro const, mientras que un objeto no const puede acceder a cualquier función miembro, incluidas las funciones miembro const.</p>
+<p>Los objetos const solo pueden acceder a funciones miembro const, mientras que los objetos no const pueden acceder a cualquier función miembro, incluidas las funciones miembro const.</p>
 <p>Por ejemplo:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">// apple.cpp</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">{</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">private</span><span class="o">:</span>
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">public</span><span class="o">:</span>
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
-</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">();</span>
-</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
-</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="p">};</span>
-</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="c1">// apple.cpp</span>
-</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="p">{</span>
-</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="p">}</span>
-</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
-</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="p">{</span>
-</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="p">}</span>
-</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="p">{</span>
-</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
-</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="p">}</span>
-</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="kt">void</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="p">{</span>
-</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;take func &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="p">}</span>
-</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="p">{</span>
-</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="w">    </span><span class="c1">//    add(); // error</span>
-</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
-</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="p">}</span>
-</span><span id="__span-21-39"><a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
-</span><span id="__span-21-40"><a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a><span class="p">{</span>
-</span><span id="__span-21-41"><a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a><span class="w">    </span><span class="n">Apple</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span><span id="__span-21-42"><a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-21-43"><a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</span><span id="__span-21-44"><a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-21-45"><a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-</span><span id="__span-21-46"><a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-21-47"><a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a><span class="p">}</span>
-</span><span id="__span-21-48"><a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a><span class="c1">// main.cpp</span>
-</span><span id="__span-21-49"><a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a><span class="err">```</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Compilación</span><span class="o">:</span><span class="w"> </span><span class="n">bazel</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">basic_content</span><span class="o">/</span><span class="k">const</span><span class="o">/</span><span class="n">class_const</span><span class="o">/</span><span class="n">first_example</span><span class="o">:</span><span class="n">main</span><span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-</span><span id="__span-21-50"><a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a>
-</span><span id="__span-21-51"><a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a><span class="n">En</span><span class="w"> </span><span class="n">este</span><span class="w"> </span><span class="n">momento</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">produce</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">error</span><span class="o">:</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">método</span><span class="w"> </span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="n">anterior</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">llama</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">método</span><span class="w"> </span><span class="n">add</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">como</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">método</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">está</span><span class="w"> </span><span class="n">modificado</span><span class="w"> </span><span class="n">con</span><span class="w"> </span><span class="k">const</span><span class="p">,</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">ejecución</span><span class="w"> </span><span class="n">da</span><span class="w"> </span><span class="n">error</span><span class="p">.</span><span class="w"> </span><span class="n">Es</span><span class="w"> </span><span class="n">decir</span><span class="p">,</span><span class="w"> </span><span class="n">una</span><span class="w"> </span><span class="n">función</span><span class="w"> </span><span class="n">miembro</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">solo</span><span class="w"> </span><span class="n">puede</span><span class="w"> </span><span class="n">acceder</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">funciones</span><span class="w"> </span><span class="n">miembro</span><span class="w"> </span><span class="k">const</span><span class="p">.</span>
-</span><span id="__span-21-52"><a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a>
-</span><span id="__span-21-53"><a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a><span class="n">Cuando</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">llamada</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">cambia</span><span class="w"> </span><span class="n">a</span><span class="o">:</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// apple.cpp</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">{</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">();</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="p">};</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1">// apple.cpp</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="n">Apple</span><span class="o">::</span><span class="n">Apple</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">apple_number</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="p">{</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="p">}</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="p">{</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="p">}</span>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="p">{</span>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="p">}</span>
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="kt">void</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="p">{</span>
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;take func &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="p">}</span>
+</span><span id="__span-22-33"><a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-22-34"><a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="p">{</span>
+</span><span id="__span-22-35"><a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="w">    </span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-22-36"><a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="w">    </span><span class="c1">//    add(); // error</span>
+</span><span id="__span-22-37"><a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">apple_number</span><span class="p">;</span>
+</span><span id="__span-22-38"><a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="p">}</span>
+</span><span id="__span-22-39"><a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+</span><span id="__span-22-40"><a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a><span class="p">{</span>
+</span><span id="__span-22-41"><a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="w">    </span><span class="n">Apple</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-22-42"><a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">getCount</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-22-43"><a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-22-44"><a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-22-45"><a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span id="__span-22-46"><a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-47"><a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a><span class="p">}</span>
+</span><span id="__span-22-48"><a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="c1">// main.cpp</span>
 </span></code></pre></div>
-const Apple b(3);
-b.add(); // error
-```En este punto queda demostrado que un objeto const solo puede acceder a funciones miembro const.</p>
-<p>Además de inicializar las constantes const con la lista de inicialización como se ha visto, también podemos hacerlo de las siguientes maneras:</p>
-<p>Primera: combinar la definición de la constante con static, es decir:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
+<blockquote>
+<p>Compilar: bazel run basic_content/const/class_const/first_example:main<br></p>
+</blockquote>
+<p>En este punto se informa de un error: getCount() es una función miembro const y la resolución de sobrecarga dentro de ella solo encaja con la versión const (<code>int add(int num) const</code>); solo tras comentar esa versión const el error proviene de la llamada al add() no const. Es decir: los objetos const solo pueden acceder a funciones miembro const, y los objetos no const pueden acceder a cualquier función miembro (véase el <a href="https://github.com/Light-City/CPlusPlusThings/issues/338">issue #338</a>).</p>
+<p>Cuando la llamada se cambia a:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>b.add(); // error
 </span></code></pre></div>
-Segunda: inicializarla fuera:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<p>Esto demuestra que los objetos const solo pueden acceder a funciones miembro const.</p>
+<p>Además de inicializar las constantes const con la lista de inicialización como se indicó, también se pueden usar los métodos siguientes:</p>
+<p>Primero: combinar la definición de la constante con static, es decir:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
 </span></code></pre></div>
-Por supuesto, si compilas con C++11, puedes inicializar directamente en la definición y escribir directamente:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1">// 或者</span>
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<p>Segundo: inicializarla fuera:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
-¡Ambas formas están soportadas en C++11!</p>
+<p>Por supuesto, si compilas con C++11, puedes inicializar directamente en la definición y escribir directamente:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1">// 或者</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
+<p>¡Ambas formas están soportadas en C++11!</p>
 <p>¡Basta con añadir <code>-std=c++11</code> al compilar!</p>
-<p>Aquí se ha mencionado static; a continuación, brevemente:</p>
-<p>En C++, las variables miembro estáticas static no pueden inicializarse dentro de la clase. Dentro de la clase solo hay una declaración; la definición debe estar fuera del cuerpo de la definición de la clase, normalmente en el archivo de implementación de la clase.</p>
+<p>Ha salido static, así que comentémoslo brevemente:</p>
+<p>En C++, las variables miembro estáticas static no pueden inicializarse dentro de la clase. Dentro de la clase solo hay una declaración; la definición debe estar fuera del cuerpo de la definición de la clase, normalmente se inicializa en el archivo de implementación de la clase.</p>
 <p>Declaración en la clase:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
 </span></code></pre></div>
-Uso en el archivo de implementación de la clase:</p>
-<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
+<p>Uso en el archivo de implementación de la clase:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
-En este punto, C++11 no permite declarar e inicializar a la vez, es decir, el uso descrito anteriormente.</p>
+<p>En cuanto a este punto, C++11 no permite declarar e inicializar a la vez; es decir, el uso es el descrito arriba.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>

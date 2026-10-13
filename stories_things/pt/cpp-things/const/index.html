@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Tipos constantes são tipos descritos com o modificador de tipo const; o valor de variáveis ou objetos de tipo constante não pode ser atualizado.">
+        <meta name="description" content="Um tipo const é um tipo declarado com o qualificador de tipo const; o valor de uma variável ou objeto de tipo const não pode ser atualizado.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="uso de const para constantes e modificadores em C++,fundamentos de C++"> 
-    <meta name="title" content="Constantes e modificadores com const em C++ | C++那些事"> 
+    <meta name="keywords" content="uso de constantes e qualificadores const em C++,fundamentos de C++"> 
+    <meta name="title" content="Constantes e qualificadores const em C++ | C++那些事"> 
 
     
       
-        <title>Constantes e modificadores com const em C++ | C++那些事 - C++那些事</title>
+        <title>Constantes e qualificadores const em C++ | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Constantes e modificadores com const em C++ | C++那些事">
-      <meta property="og:description" content="Tipos constantes são tipos descritos com o modificador de tipo const; o valor de variáveis ou objetos de tipo constante não pode ser atualizado.">
+      <meta property="og:title" content="Constantes e qualificadores const em C++ | C++那些事">
+      <meta property="og:description" content="Um tipo const é um tipo declarado com o qualificador de tipo const; o valor de uma variável ou objeto de tipo const não pode ser atualizado.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="pt_BR">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Constantes e modificadores com const em C++ | C++那些事">
-      <meta name="twitter:description" content="Tipos constantes são tipos descritos com o modificador de tipo const; o valor de variáveis ou objetos de tipo constante não pode ser atualizado.">
+      <meta name="twitter:title" content="Constantes e qualificadores const em C++ | C++那些事">
+      <meta name="twitter:description" content="Um tipo const é um tipo declarado com o qualificador de tipo const; o valor de uma variável ou objeto de tipo const não pode ser atualizado.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Constantes e modificadores com const em C++ | C++那些事", "description": "Tipos constantes são tipos descritos com o modificador de tipo const; o valor de variáveis ou objetos de tipo constante não pode ser atualizado.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Constantes e modificadores com const em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Constantes e qualificadores const em C++ | C++那些事", "description": "Um tipo const é um tipo declarado com o qualificador de tipo const; o valor de uma variável ou objeto de tipo const não pode ser atualizado.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Constantes e qualificadores const em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#constantes-e-modificadores-com-const-em-c" class="md-skip">
+        <a href="#constantes-e-qualificadores-const-em-c" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Constantes e modificadores com const em C++ | C++那些事
+              Constantes e qualificadores const em C++ | C++那些事
             
           </span>
         </div>
@@ -850,63 +850,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1significado-de-const" class="md-nav__link">
+  <a href="#1-o-significado-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      1.Significado de const
+      1. O significado de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2funcoes-de-const" class="md-nav__link">
+  <a href="#2-o-papel-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      2.Funções de const
+      2. O papel de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3objetos-const-sao-por-padrao-locais-ao-arquivo" class="md-nav__link">
+  <a href="#3-objetos-const-sao-locais-ao-arquivo-por-padrao" class="md-nav__link">
     <span class="md-ellipsis">
-      3.Objetos const são, por padrão, locais ao arquivo
+      3. Objetos const são locais ao arquivo por padrão
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4definindo-constantes" class="md-nav__link">
+  <a href="#4-definindo-constantes" class="md-nav__link">
     <span class="md-ellipsis">
-      4.Definindo constantes
+      4. Definindo constantes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5ponteiros-e-const" class="md-nav__link">
+  <a href="#5-ponteiros-e-const" class="md-nav__link">
     <span class="md-ellipsis">
-      5.Ponteiros e const
+      5. Ponteiros e const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6const-em-funcoes" class="md-nav__link">
+  <a href="#6-uso-de-const-em-funcoes" class="md-nav__link">
     <span class="md-ellipsis">
-      6.const em funções
+      6. Uso de const em funções
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7const-em-classes" class="md-nav__link">
+  <a href="#7-uso-de-const-em-classes" class="md-nav__link">
     <span class="md-ellipsis">
-      7.const em classes
+      7. Uso de const em classes
     </span>
   </a>
   
@@ -5419,63 +5419,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1significado-de-const" class="md-nav__link">
+  <a href="#1-o-significado-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      1.Significado de const
+      1. O significado de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2funcoes-de-const" class="md-nav__link">
+  <a href="#2-o-papel-de-const" class="md-nav__link">
     <span class="md-ellipsis">
-      2.Funções de const
+      2. O papel de const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3objetos-const-sao-por-padrao-locais-ao-arquivo" class="md-nav__link">
+  <a href="#3-objetos-const-sao-locais-ao-arquivo-por-padrao" class="md-nav__link">
     <span class="md-ellipsis">
-      3.Objetos const são, por padrão, locais ao arquivo
+      3. Objetos const são locais ao arquivo por padrão
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4definindo-constantes" class="md-nav__link">
+  <a href="#4-definindo-constantes" class="md-nav__link">
     <span class="md-ellipsis">
-      4.Definindo constantes
+      4. Definindo constantes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5ponteiros-e-const" class="md-nav__link">
+  <a href="#5-ponteiros-e-const" class="md-nav__link">
     <span class="md-ellipsis">
-      5.Ponteiros e const
+      5. Ponteiros e const
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6const-em-funcoes" class="md-nav__link">
+  <a href="#6-uso-de-const-em-funcoes" class="md-nav__link">
     <span class="md-ellipsis">
-      6.const em funções
+      6. Uso de const em funções
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7const-em-classes" class="md-nav__link">
+  <a href="#7-uso-de-const-em-classes" class="md-nav__link">
     <span class="md-ellipsis">
-      7.const em classes
+      7. Uso de const em classes
     </span>
   </a>
   
@@ -5513,15 +5513,15 @@
 <blockquote>
 <p><strong>Última atualização：2026-10-12</strong></p>
 </blockquote>
-<h1 id="constantes-e-modificadores-com-const-em-c">Constantes e modificadores com const em C++<a class="headerlink" href="#constantes-e-modificadores-com-const-em-c" title="Permanent link">&para;</a></h1>
+<h1 id="constantes-e-qualificadores-const-em-c">Constantes e qualificadores const em C++<a class="headerlink" href="#constantes-e-qualificadores-const-em-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
-<p>Conta oficial do WeChat:</p>
-<p><img alt="wechat" alt="Constantes e modificadores com const em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
-<h2 id="1significado-de-const">1.Significado de const<a class="headerlink" href="#1significado-de-const" title="Permanent link">&para;</a></h2>
-<p>Tipos constantes são tipos descritos com o modificador de tipo <strong>const</strong>; o valor de variáveis ou objetos de tipo constante não pode ser atualizado.</p>
-<h2 id="2funcoes-de-const">2.Funções de const<a class="headerlink" href="#2funcoes-de-const" title="Permanent link">&para;</a></h2>
+<p>Conta pública no WeChat:</p>
+<p><img alt="wechat" alt="Constantes e qualificadores const em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<h2 id="1-o-significado-de-const">1. O significado de const<a class="headerlink" href="#1-o-significado-de-const" title="Permanent link">&para;</a></h2>
+<p>Um tipo const é um tipo declarado com o qualificador de tipo <strong>const</strong>; o valor de uma variável ou objeto de tipo const não pode ser atualizado.</p>
+<h2 id="2-o-papel-de-const">2. O papel de const<a class="headerlink" href="#2-o-papel-de-const" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Podem definir constantes</li>
+<li>Pode definir constantes</li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 </span></code></pre></div>
@@ -5530,19 +5530,19 @@
 <p>Verificação de tipos</p>
 <ul>
 <li>
-<p>Diferença entre constantes const e constantes definidas com a macro <code>#define</code>:</p>
+<p>A diferença entre constantes const e constantes definidas com a macro <code>#define</code>:</p>
 <blockquote>
-<p><strong><s>Constantes const têm tipo, e o compilador pode fazer verificação de segurança; constantes definidas com #define não têm tipo de dados, são apenas simples substituições de string, sem verificação de segurança possível.</s></strong>Obrigado aos dois colegas que apontaram o problema aqui, veja: <a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
+<p><strong><s>Uma constante const tem um tipo, e o compilador pode fazer verificação de segurança; a definição de macro #define não tem tipo de dados, é uma simples substituição de strings e não permite verificação de segurança.</s></strong>Agradecemos aos dois especialistas que apontaram o problema aqui; veja: <a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue</a></p>
 </blockquote>
 </li>
 <li>
 <p>Constantes const suportam todos os tipos.</p>
 </li>
-<li>Nos demais casos, é apenas uma variável qualificada como <code>const</code>; não a confunda com uma constante.</li>
+<li>Nos demais casos, é apenas uma variável qualificada com <code>const</code>; não a confunda com uma constante.</li>
 </ul>
 </li>
 <li>
-<p>Evita modificações, exerce papel de proteção e aumenta a robustez do programa</p>
+<p>Evitar modificação, exercer papel de proteção e aumentar a robustez do programa</p>
 </li>
 </ul>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">){</span>
@@ -5551,18 +5551,19 @@
 </span></code></pre></div>
 <ul>
 <li>
-<p>Economiza espaço, evitando alocações de memória desnecessárias</p>
+<p>Economizar espaço e evitar alocações de memória desnecessárias</p>
 <ul>
-<li>Do ponto de vista do assembly, uma constante definida com const apenas fornece o endereço de memória correspondente, e não um valor imediato como o <code>#define</code>.</li>
-<li>Uma constante definida com const tem apenas uma cópia durante a execução do programa, enquanto uma constante definida com <code>#define</code> tem várias cópias na memória.</li>
+<li>Um const inicializado com um tipo inteiro/enum e uma expressão constante (ou seja, uma expressão constante) comporta-se, em uso, bem mais como uma constante de tempo de compilação: se você nunca obtém o endereço dele e usa apenas o valor, ele normalmente é otimizado para um imediato, tal como <code>#define</code>; só ao obter o endereço ou fazer um odr-use entre unidades de tradução ele vai para a memória, e existe apenas uma cópia em todo o programa.</li>
+<li>Depois que <code>#define</code> se expande para um literal, ele é compilado nas instruções como um imediato; as próprias instruções também ocupam memória, então vários usos significam várias ocorrências (veja a discussão no <a href="https://github.com/Light-City/CPlusPlusThings/issues/5">issue #5</a>).</li>
+<li>Nota: nem toda variável const é uma expressão constante — só o são as de tipo inteiro/enum inicializadas com uma expressão constante; as demais variáveis const são apenas variáveis qualificadas com const (por exemplo, ponto flutuante, tipos definidos pelo usuário); <code>constexpr</code> é a forma correta de expressar constantes de tempo de compilação.</li>
 </ul>
 </li>
 </ul>
-<h2 id="3objetos-const-sao-por-padrao-locais-ao-arquivo">3.Objetos const são, por padrão, locais ao arquivo<a class="headerlink" href="#3objetos-const-sao-por-padrao-locais-ao-arquivo" title="Permanent link">&para;</a></h2>
-<p><font style="color:red">Nota: variáveis não const são, por padrão, extern. Para que uma variável const possa ser acessada em outros arquivos, é necessário especificá-la explicitamente como extern no arquivo.</font></p>
+<h2 id="3-objetos-const-sao-locais-ao-arquivo-por-padrao">3. Objetos const são locais ao arquivo por padrão<a class="headerlink" href="#3-objetos-const-sao-locais-ao-arquivo-por-padrao" title="Permanent link">&para;</a></h2>
+<p><font style="color:red">Nota: variáveis não const são extern por padrão. Para que uma variável const possa ser acessada em outros arquivos, é preciso especificá-la explicitamente como extern no arquivo.</font></p>
 
 <blockquote>
-<p>Acesso a variáveis não modificadas com const em arquivos diferentes</p>
+<p>Acesso a uma variável não modificada com const em arquivos diferentes</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// file1.cpp</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="p">;</span>
@@ -5575,7 +5576,7 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>Acesso a constantes const em arquivos diferentes</p>
+<p>Acesso a uma constante const em arquivos diferentes</p>
 </blockquote>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// extern_file1.cpp</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ext</span><span class="o">=</span><span class="mi">12</span><span class="p">;</span>
@@ -5587,18 +5588,18 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>Resumo:<br>Percebe-se que variáveis não modificadas com const não precisam de declaração explícita de extern! Já as constantes const precisam da declaração explícita de extern e precisam ser inicializadas! Como uma constante não pode ser modificada depois de definida, ela deve ser inicializada na definição.</font></p></p>
+<p>Resumo:<br>Percebe-se que variáveis não modificadas com const não precisam de declaração extern explícita! Já a constante const exige declaração extern explícita e, além disso, precisa ser inicializada! Como uma constante não pode ser modificada depois de definida, ela deve ser inicializada no momento da definição.</font></p></p>
 </blockquote>
-<h2 id="4definindo-constantes">4.Definindo constantes<a class="headerlink" href="#4definindo-constantes" title="Permanent link">&para;</a></h2>
+<h2 id="4-definindo-constantes">4. Definindo constantes<a class="headerlink" href="#4-definindo-constantes" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// error: assignment of read-only variable ‘b’</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;helloworld&quot;</span><span class="p">;</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="c1">// error: uninitialized const ‘i’</span>
 </span></code></pre></div>
-<p>Há dois erros acima:
+<p>O código acima contém dois erros:
 + b é uma constante, não pode ser alterada!
-+ i é uma constante, deve ser inicializada! (Como uma constante não pode ser modificada depois de definida, ela deve ser inicializada na definição.)</p>
-<h2 id="5ponteiros-e-const">5.Ponteiros e const<a class="headerlink" href="#5ponteiros-e-const" title="Permanent link">&para;</a></h2>
++ i é uma constante, deve ser inicializada! (Porque uma constante não pode ser modificada depois de definida, ela deve ser inicializada no momento da definição.)</p>
+<h2 id="5-ponteiros-e-const">5. Ponteiros e const<a class="headerlink" href="#5-ponteiros-e-const" title="Permanent link">&para;</a></h2>
 <p>Há quatro formas de const relacionadas a ponteiros:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向const对象的指针或者说指向常量的指针。</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// 同上</span>
@@ -5607,25 +5608,25 @@
 </span></code></pre></div>
 <blockquote>
 <p><strong>Resumo:</strong> <br>
-Se <em>const</em> está à esquerda do <code>*</code>, então o const modifica a variável apontada pelo ponteiro, ou seja, o alvo do ponteiro é constante;<br>se const está à direita do <code>*</code>, <em>const</em> modifica o próprio ponteiro, ou seja, o ponteiro em si é constante.</p>
+Se <em>const</em> está à esquerda de <code>*</code>, então const serve para qualificar a variável apontada pelo ponteiro, ou seja, o apontado é uma constante;<br>se const está à direita de <code>*</code>, <em>const</em> qualifica o próprio ponteiro, ou seja, o ponteiro em si é uma constante.</p>
 </blockquote>
 <p><strong>Outra forma de interpretar</strong><br>
-Leia em inglês da direita para a esquerda, usando o to como divisor: antes do to descreve-se a característica do ponteiro, depois do to descreve-se a característica do alvo<br>
+Leia o inglês da direita para a esquerda, tomando "to" como divisor: o que vem antes de "to" descreve a característica do ponteiro, e o que vem depois descreve a característica do alvo<br>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a pointer to const char</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">char</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//同上</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to char</span>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">//p is a const pointer to const char</span>
 </span></code></pre></div>
-Quando o ponteiro recebe a característica const, o ponteiro não pode mudar o endereço para o qual aponta<br>
-Quando o alvo apontado tem característica char, o conteúdo pode ser modificado por meio do ponteiro, como: *char='y';<br>
-Quando o alvo apontado tem característica const char, o conteúdo não pode ser modificado por meio do ponteiro<br></p>
-<p>Uso concreto a seguir:</p>
+Quando o ponteiro recebe a característica const, ele não pode mais mudar o endereço que aponta<br>
+Quando a característica do alvo é char, o conteúdo pode ser modificado através do ponteiro, por exemplo: *char='y';<br>
+Quando a característica do alvo é const char, o conteúdo não pode ser modificado através do ponteiro<br></p>
+<p>O uso concreto é o seguinte:</p>
 <p>(1) <strong>Ponteiro para constante</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span></code></pre></div>
-<p>ptr é um ponteiro para um objeto const do tipo int; o const define o tipo int, ou seja, o tipo do objeto apontado por ptr, e não o ptr em si; por isso, ptr pode ficar sem valor inicial. Mas não é possível modificar o valor do objeto apontado por meio de ptr.</p>
-<p>Além disso, tampouco é possível usar um ponteiro void<code>*</code> para guardar o endereço de um objeto const; é preciso usar um ponteiro do tipo const void<code>*</code> para guardar o endereço de um objeto const.</p>
+<p>ptr é um ponteiro para um objeto const do tipo int; o const define o tipo int, ou seja, o tipo do objeto que ptr aponta, e não o ptr em si, por isso ptr não precisa de valor inicial. Mas não se pode modificar o valor do objeto apontado através de ptr.</p>
+<p>Além disso, também não se pode usar um ponteiro void<code>*</code> para guardar o endereço de um objeto const; é preciso usar um ponteiro do tipo const void<code>*</code> para guardar o endereço de um objeto const.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
@@ -5636,17 +5637,17 @@ Quando o alvo apontado tem característica const char, o conteúdo não pode ser
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span><span class="w"> </span><span class="c1">// ok</span>
 </span></code></pre></div>
-<p>Não podemos modificar o valor de val por meio do ponteiro ptr, mesmo ele apontando para um objeto não const!</p>
-<p>Não podemos usar um ponteiro para objeto const para modificar o objeto de base; no entanto, se esse ponteiro apontar para um objeto não const, o objeto apontado pode ser modificado por outros meios. O valor apontado por um ponteiro const pode ser modificado — só não diretamente por meio do ponteiro para objeto const! Modificação:</p>
+<p>Não podemos modificar o valor de val através do ponteiro ptr, mesmo que ele aponte para um objeto não const!</p>
+<p>Não podemos usar um ponteiro para objeto const para modificar o objeto subjacente; contudo, se o ponteiro aponta para um objeto não const, o objeto apontado pode ser modificado por outros meios. O valor apontado por um ponteiro const pode ser alterado — só não através do ponteiro para objeto const! Modifique assim:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">*</span><span class="n">ptr1</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <blockquote>
-<p>Resumo:<br>1. Com ponteiros para constantes, não é possível modificar o valor do objeto por meio do ponteiro.<br>2. Não é possível usar um ponteiro void<code>*</code> para guardar o endereço de um objeto const; é preciso usar um ponteiro do tipo const void<code>*</code> para guardar o endereço de um objeto const.<br>3. É permitido atribuir o endereço de um objeto não const a um ponteiro para objeto const; para modificar o valor do objeto apontado pelo ponteiro, é preciso fazê-lo por outro meio, e não diretamente pelo ponteiro atual.</p>
+<p>Resumo:<br>1. Para um ponteiro para constante, não se pode modificar o valor do objeto através do ponteiro.<br>2. Não se pode usar um ponteiro void<code>*</code> para guardar o endereço de um objeto const; é preciso usar um ponteiro do tipo const void<code>*</code> para guardar o endereço de um objeto const.<br>3. É permitido atribuir o endereço de um objeto não const a um ponteiro para objeto const; para modificar o valor do objeto apontado, é preciso fazê-lo por outros meios, e não diretamente através do ponteiro atual.</p>
 </blockquote>
 <p>(2) <strong>Ponteiro constante</strong></p>
-<p>Um ponteiro const deve ser inicializado, e o valor apontado por um ponteiro const pode ser modificado, mas o alvo apontado não.</p>
+<p>Um ponteiro const deve ser inicializado, e o valor apontado por um ponteiro const pode ser modificado, mas o seu apontamento não.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -5656,7 +5657,7 @@ Quando o alvo apontado tem característica const char, o conteúdo não pode ser
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>O código gera um erro de compilação: um ponteiro const não pode mudar o alvo apontado.</p>
+<p>O código gera um erro de compilação: um ponteiro const não pode mudar o que aponta.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -5666,8 +5667,8 @@ Quando o alvo apontado tem característica const char, o conteúdo não pode ser
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>No código nada de errado acontece, e ele normalmente imprime 1.</p>
-<p>Por fim, quando se atribui o endereço de uma constante const ao ptr, como ptr aponta para uma variável, e não para uma constante const, ocorre um erro, aparecendo o erro const int<code>*</code> -&gt; int <code>*</code>!</p>
+<p>Nada acontece com este código; ele imprime 1 normalmente.</p>
+<p>Por fim, quando o endereço de uma constante const é atribuído a ptr, como ptr aponta para uma variável e não para uma constante const, ocorre um erro: o erro const int<code>*</code> -&gt; int <code>*</code>!</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -5676,65 +5677,66 @@ Quando o alvo apontado tem característica const char, o conteúdo não pode ser
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;*</span><span class="n">ptr</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Se o acima for alterado para const int <code>*</code>ptr ou para const int <code>*</code>const ptr, ambos funcionam normalmente!</p>
-<p>(3)<strong>Ponteiro constante para constante</strong></p>
-<p>Entendidos os dois primeiros casos, o caso a seguir fica mais fácil de entender:</p>
+<p>Se o acima for alterado para const int <code>*</code>ptr, ou para const int <code>*</code>const ptr, ambos funcionam normalmente!</p>
+<p>(3) <strong>Ponteiro constante para constante</strong></p>
+<p>Entendidos os dois casos anteriores, este caso fica bem fácil de entender:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span><span class="w"> </span>
 </span></code></pre></div>
 <p>ptr é um ponteiro const que aponta para um objeto const do tipo int.</p>
-<h2 id="6const-em-funcoes">6.const em funções<a class="headerlink" href="#6const-em-funcoes" title="Permanent link">&para;</a></h2>
+<h2 id="6-uso-de-const-em-funcoes">6. Uso de const em funções<a class="headerlink" href="#6-uso-de-const-em-funcoes" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>const modificando o valor de retorno da função</p>
+<p>const qualificando o valor de retorno de uma função</p>
 </blockquote>
-<p>Isso é basicamente igual ao significado de const modificando variáveis comuns e ponteiros:</p>
-<p>(1)<strong>const int</strong></p>
+<p>Isso tem basicamente o mesmo significado de const qualificando variáveis e ponteiros comuns:</p>
+<p>(1) <strong>const int</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">func1</span><span class="p">();</span>
 </span></code></pre></div>
-<p>Isso em si não tem sentido, porque o retorno do parâmetro já é atribuído a outras variáveis!</p>
-<p>(2)<strong>const int*</strong></p>
+<p>Isso em si não tem sentido, porque o valor retornado já é atribuído a outra variável!</p>
+<p>(2) <strong>const int*</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">func2</span><span class="p">();</span>
 </span></code></pre></div>
 <p>O conteúdo apontado pelo ponteiro é imutável.</p>
-<p>(3)int *const</p>
+<p>(3) int *const</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">func2</span><span class="p">();</span>
 </span></code></pre></div>
-<p>O próprio ponteiro é imutável.</p>
+<p>O ponteiro em si é imutável.</p>
 <blockquote>
-<p>const modificando parâmetros de função</p>
+<p>const qualificando parâmetros de função</p>
 </blockquote>
-<p>(1) Os parâmetros passados e o próprio ponteiro são imutáveis dentro da função — sem sentido!</p>
+<p>(1) O parâmetro recebido e o ponteiro em si são imutáveis dentro da função — sem sentido!</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递过来的参数不可变</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w"> </span><span class="c1">// 指针本身不可变</span>
 </span></code></pre></div>
-<p>Indica que o parâmetro não pode ser modificado no corpo da função, mas aqui isso não tem qualquer sentido: var é, ele próprio, um parâmetro formal, que não muda dentro da função. O mesmo vale para parâmetros formais passados como ponteiro.</p>
-<p>Quando o parâmetro de entrada usa "passagem por valor", como a função gera automaticamente uma variável temporária para copiar o parâmetro, esse parâmetro de entrada já não precisa de proteção; portanto, não o modifique com const.</p>
-<p>(2)<strong>O conteúdo apontado pelo parâmetro ponteiro é constante e imutável</strong></p>
+<p>Indica que o parâmetro não pode ser modificado no corpo da função, mas aqui isso não tem nenhum significado: var é em si um parâmetro formal e não muda dentro da função. O mesmo vale quando o parâmetro formal recebido é um ponteiro.</p>
+<p>Quando um parâmetro de entrada usa "passagem por valor", a função gera automaticamente uma variável temporária para copiá-lo, e esse parâmetro de entrada, de origem, não precisa de proteção; portanto não adicione const.</p>
+<p>(2) <strong>O conteúdo apontado pelo parâmetro ponteiro é uma constante imutável</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">StringCopy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Aqui src é o parâmetro de entrada e dst é o parâmetro de saída. Com src modificado por const, se alguma instrução do corpo da função tentar alterar o conteúdo de src, o compilador apontará o erro. Este é um dos efeitos de adicionar const.</p>
-<p>(3)<strong>Parâmetro por referência, para aumentar a eficiência e, ao mesmo tempo, evitar modificações.</strong></p>
+<p>Aqui src é um parâmetro de entrada e dst é um parâmetro de saída. Ao adicionar const a src, se alguma instrução do corpo da função tentar alterar o conteúdo de src, o compilador apontará o erro. Este é um dos efeitos de adicionar const.</p>
+<p>(3) <strong>O parâmetro é uma referência, para ganhar eficiência e ao mesmo tempo evitar modificação.</strong></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Para parâmetros de tipos de dados não internos, uma função declarada como void func(A a) tem, por natureza, eficiência baixa, porque o corpo da função gerará um objeto temporário do tipo A para copiar o parâmetro a, e a construção, a cópia e a destruição do objeto temporário consomem tempo.</p>
-<p>Para melhorar a eficiência, a declaração da função pode ser alterada para void func(A &amp;a), pois a "passagem por referência" apenas toma emprestado o alias do parâmetro, sem necessidade de gerar um objeto temporário.</p>
+<p>Para parâmetros de tipos de dados não internos, uma função declarada como void func(A a) está fadada a ser ineficiente, porque o corpo da função criará um objeto temporário do tipo A para copiar o parâmetro a, e a construção, cópia e destruição do objeto temporário consomem tempo.</p>
+<p>Para melhorar a eficiência, a declaração da função pode ser alterada para void func(A &amp;a), pois a "passagem por referência" apenas toma emprestado o alias do parâmetro e não precisa gerar um
+objeto temporário.</p>
 <blockquote>
-<p>Mas a função void func(A &amp;a) tem uma desvantagem:<br><br>a "passagem por referência" pode alterar o parâmetro a, o que não esperamos. Resolver isso é fácil: basta adicionar const, e a função se torna finalmente
+<p>Mas a função void func(A &amp;a) tem uma desvantagem:<br><br>a "passagem por referência" pode alterar o parâmetro a, o que não desejamos. Resolver o problema é fácil: basta adicionar const, e a função finalmente se torna
 void func(const A &amp;a).</p>
 </blockquote>
-<p>Por analogia, devemos reescrever void func(int x) como void func(const int &amp;x) para melhorar a eficiência? Não há a menor necessidade: parâmetros de tipos de dados internos não passam por construção e destruição, e a cópia é muito rápida; a eficiência da "passagem por valor" e da "passagem por referência" é praticamente a mesma.</p>
+<p>Por analogia, deveria void func(int x) ser reescrita como void func(const int &amp;x) para melhorar a eficiência? Não há a menor necessidade: parâmetros de tipos de dados internos não têm processo de construção/destruição, e a cópia é muito rápida — a eficiência da "passagem por valor" e da "passagem por referência" é praticamente a mesma.</p>
 <blockquote>
-<p>Resumo:<br>1. Para parâmetros de entrada de tipos de dados não internos, a "passagem por valor" deve ser substituída por "passagem por referência const", com o objetivo de melhorar a eficiência. Por exemplo, void func(A a) passa a ser void func(const A &amp;a).<br><br>2. Para parâmetros de entrada de tipos de dados internos, não substitua a "passagem por valor" por "passagem por referência const"; caso contrário, além de não melhorar a eficiência, reduz-se a compreensibilidade da função. Por exemplo, void func(int x) não deveria ser alterada para void func(const int &amp;x).</font></p></p>
+<p>Resumo:<br>1. Para parâmetros de entrada de tipos de dados não internos, deve-se trocar a "passagem por valor" por "passagem por referência const", com o objetivo de melhorar a eficiência. Por exemplo, trocar void func(A a) por void func(const A &amp;a).<br><br>2. Para parâmetros de entrada de tipos de dados internos, não troque a "passagem por valor" por "passagem por referência const". Caso contrário, você não ganha eficiência e ainda reduz a compreensibilidade da função. Por exemplo, void func(int x) não deveria ser alterada para void func(const int &amp;x).</font></p></p>
 </blockquote>
-<p>Com isso, respondemos a duas perguntas de entrevista:</p>
+<p>Com isso ficam resolvidas duas perguntas de entrevista:</p>
 <ul>
-<li>Se a função precisa receber um ponteiro, é preciso adicionar const a esse ponteiro? Qual a diferença entre colocar const em posições diferentes do ponteiro?</li>
-<li>Se a função que você escreveu precisa receber como parâmetro uma instância de tipo complexo, qual a diferença entre passar o parâmetro por valor ou por referência, e quando é preciso adicionar const ao parâmetro de referência recebido?</li>
+<li>Se a função recebe um ponteiro, esse ponteiro precisa de const, e qual a diferença entre colocar const em posições diferentes do ponteiro;</li>
+<li>Se o parâmetro que a função recebe é uma instância de um tipo complexo, qual a diferença entre passar parâmetro por valor ou por referência, e quando é preciso adicionar const ao parâmetro de referência recebido.</li>
 </ul>
-<h2 id="7const-em-classes">7.const em classes<a class="headerlink" href="#7const-em-classes" title="Permanent link">&para;</a></h2>
-<p>Em uma classe, toda função que não modifica membros de dados deveria ser declarada como const. Se, ao escrever uma função membro const, você modificar por descuido um membro de dados, ou chamar outra função membro não const, o compilador apontará o erro — o que, sem dúvida, aumenta a robustez do programa.</p>
-<p>Funções membro descritas com a palavra-chave const são chamadas de funções membro constantes. Somente funções membro constantes têm legitimidade para operar constantes ou objetos constantes; funções membro descritas sem a palavra-chave const não podem ser usadas para operar objetos constantes.</p>
-<p>As variáveis membro const de uma classe devem ser inicializadas por meio da lista de inicialização, como mostrado abaixo:</p>
+<h2 id="7-uso-de-const-em-classes">7. Uso de const em classes<a class="headerlink" href="#7-uso-de-const-em-classes" title="Permanent link">&para;</a></h2>
+<p>Em uma classe, qualquer função que não modifique membros de dados deveria ser declarada como const. Se, ao escrever uma função-membro const, você modificar por descuido um membro de dados, ou chamar outra função-membro não const, o compilador apontará o erro, o que sem dúvida aumenta a robustez do programa.</p>
+<p>Uma função-membro especificada com a palavra-chave const é chamada de função-membro constante. Somente funções-membro constantes têm qualificação para operar constantes ou objetos constantes; funções-membro não especificadas com a palavra-chave const não podem ser usadas para operar objetos constantes.</p>
+<p>As variáveis-membro const de uma classe devem ser inicializadas através da lista de inicialização, como mostrado abaixo:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span><span class="p">{</span>
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">people</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
@@ -5748,7 +5750,7 @@ void func(const A &amp;a).</p>
 </span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
 </span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Objetos const só podem acessar funções membro const, enquanto objetos não const podem acessar qualquer função membro, incluindo as funções membro const.</p>
+<p>Objetos const só podem acessar funções-membro const, enquanto objetos não const podem acessar qualquer função-membro, incluindo funções-membro const.</p>
 <p>Por exemplo:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">// apple.cpp</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Apple</span>
@@ -5800,37 +5802,37 @@ void func(const A &amp;a).</p>
 </span><span id="__span-22-48"><a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="c1">// main.cpp</span>
 </span></code></pre></div>
 <blockquote>
-<p>Compilação: bazel run basic_content/const/class_const/first_example:main<br></p>
+<p>Compilar: bazel run basic_content/const/class_const/first_example:main<br></p>
 </blockquote>
-<p>Nesse momento ocorre um erro: o método getCount() acima chama um método add, e o método add não é modificado por const, portanto a execução falha. Ou seja, funções membro const só podem acessar funções membro const.</p>
-<p>Quando a chamada passa a ser:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
+<p>Neste momento ocorre um erro: getCount() é uma função-membro const, e a resolução de sobrecarga do add() dentro dela só corresponde à versão const (<code>int add(int num) const</code>); somente depois de comentar essa versão const é que o erro decorreria da chamada ao add() não const. Ou seja: objetos const só podem acessar funções-membro const, e objetos não const podem acessar qualquer função-membro (veja a <a href="https://github.com/Light-City/CPlusPlusThings/issues/338">issue #338</a>).</p>
+<p>Quando a chamada é alterada para:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>const Apple b(3);
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>b.add(); // error
 </span></code></pre></div>
-Nesse caso, fica demonstrado que objetos const só podem acessar funções membro const.</p>
-<p>Além da inicialização de constantes const por lista de inicialização vista acima, também é possível usar os métodos a seguir:</p>
-<p>Primeiro: combinar a definição da constante com static, isto é:</p>
+<p>Isso prova que objetos const só podem acessar funções-membro const.</p>
+<p>Além de inicializar constantes const com a lista de inicialização como acima, também podemos usar os métodos a seguir:</p>
+<p>Primeiro: combinar a definição da constante com static, ou seja:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span>
 </span></code></pre></div>
-<p>Segundo: inicializar fora da classe:</p>
+<p>Segundo: inicializar fora:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Naturalmente, se você compilar com C++11, é possível inicializar diretamente na declaração, escrevendo diretamente:</p>
+<p>É claro que, se você compilar com C++11, pode inicializar direto na definição e escrever simplesmente:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1">// 或者</span>
 </span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">apple_number</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Ambas as formas são suportadas no C++11!</p>
 <p>Basta adicionar <code>-std=c++11</code> ao compilar!</p>
-<p>Já que falamos de static, uma breve nota a seguir:</p>
-<p>Em C++, variáveis membro estáticas static não podem ser inicializadas dentro da classe. Na classe há apenas a declaração; a definição deve ficar fora do corpo da definição da classe, normalmente no arquivo de implementação da classe.</p>
-<p>Declarar na classe:</p>
+<p>Aqui mencionamos static; vamos falar brevemente sobre isso:</p>
+<p>Em C++, variáveis-membro estáticas static não podem ser inicializadas dentro da classe. Dentro da classe há apenas a declaração; a definição deve ficar fora do corpo da definição da classe, normalmente a inicialização é feita no arquivo de implementação da classe.</p>
+<p>Declarada na classe:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ap</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Usar no arquivo de implementação da classe:</p>
+<p>Usada no arquivo de implementação da classe:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
-<p>Quanto a este item, o C++11 não permite declarar e inicializar ao mesmo tempo, ou seja, o método de uso descrito acima.</p>
+<p>Quanto a este item, o C++11 não permite declarar e inicializar ao mesmo tempo — ou seja, vale o uso descrito acima.</p>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funções virtuais puras e classes abstratas em C++ | C++那些事</a></li>

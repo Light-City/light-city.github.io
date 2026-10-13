@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="仮想関数の呼び出しは、指しているまたは参照しているオブジェクトの型によって決まり、ポインタや参照自身の型では決まりません。">
+        <meta name="description" content="仮想関数の呼び出しは、ポインタや参照が指すオブジェクトの型によって決まり、ポインタや参照自身の型によって決まるわけではありません。">
       
       
         <meta name="author" content="光城">
@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ virtual 仮想関数の使い方,C++基礎"> 
-    <meta name="title" content="C++ virtual 仮想関数 | C++那些事"> 
+    <meta name="title" content="C++ 仮想関数 | C++那些事"> 
 
     
       
-        <title>C++ virtual 仮想関数 | C++那些事 - C++那些事</title>
+        <title>C++ 仮想関数 | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ virtual 仮想関数 | C++那些事">
-      <meta property="og:description" content="仮想関数の呼び出しは、指しているまたは参照しているオブジェクトの型によって決まり、ポインタや参照自身の型では決まりません。">
+      <meta property="og:title" content="C++ 仮想関数 | C++那些事">
+      <meta property="og:description" content="仮想関数の呼び出しは、ポインタや参照が指すオブジェクトの型によって決まり、ポインタや参照自身の型によって決まるわけではありません。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/virtual/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ja_JP">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ virtual 仮想関数 | C++那些事">
-      <meta name="twitter:description" content="仮想関数の呼び出しは、指しているまたは参照しているオブジェクトの型によって決まり、ポインタや参照自身の型では決まりません。">
+      <meta name="twitter:title" content="C++ 仮想関数 | C++那些事">
+      <meta name="twitter:description" content="仮想関数の呼び出しは、ポインタや参照が指すオブジェクトの型によって決まり、ポインタや参照自身の型によって決まるわけではありません。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ virtual 仮想関数 | C++那些事", "description": "仮想関数の呼び出しは、指しているまたは参照しているオブジェクトの型によって決まり、ポインタや参照自身の型では決まりません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ virtual 仮想関数 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 仮想関数 | C++那些事", "description": "仮想関数の呼び出しは、ポインタや参照が指すオブジェクトの型によって決まり、ポインタや参照自身の型によって決まるわけではありません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ 仮想関数 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/virtual/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-virtual" class="md-skip">
+        <a href="#c" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ virtual 仮想関数 | C++那些事
+              C++ 仮想関数 | C++那些事
             
           </span>
         </div>
@@ -1063,7 +1063,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      著者について：
+      作者について：
     </span>
   </a>
   
@@ -1072,7 +1072,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1.仮想関数と実行時多態
+      1.仮想関数と実行時多態性
     </span>
   </a>
   
@@ -1090,7 +1090,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3.仮想関数におけるデフォルト引数
+      3.仮想関数とデフォルト引数
     </span>
   </a>
   
@@ -1099,7 +1099,7 @@
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4.可能か不可能か
+      4.できる・できない
     </span>
   </a>
   
@@ -5403,7 +5403,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      著者について：
+      作者について：
     </span>
   </a>
   
@@ -5412,7 +5412,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1.仮想関数と実行時多態
+      1.仮想関数と実行時多態性
     </span>
   </a>
   
@@ -5430,7 +5430,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3.仮想関数におけるデフォルト引数
+      3.仮想関数とデフォルト引数
     </span>
   </a>
   
@@ -5439,7 +5439,7 @@
         <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4.可能か不可能か
+      4.できる・できない
     </span>
   </a>
   
@@ -5495,30 +5495,30 @@
 <blockquote>
 <p><strong>最終更新：2026-10-12</strong></p>
 </blockquote>
-<h1 id="c-virtual">C++ virtual 仮想関数<a class="headerlink" href="#c-virtual" title="Permanent link">&para;</a></h1>
-<h2 id="_1">著者について：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>個人公式アカウント（WeChat）：</p>
-<p><img alt="wechat" alt="C++ virtual 仮想関数 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
-<h2 id="1">1.仮想関数と実行時多態<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h1 id="c">C++ 仮想関数<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<h2 id="_1">作者について：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>個人公众号（公式アカウント）：</p>
+<p><img alt="wechat" alt="C++ 仮想関数 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<h2 id="1">1.仮想関数と実行時多態性<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>対応するコード：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set1/emp.cpp">emp.cpp</a></p>
-<p><strong>仮想関数の呼び出しは、指しているまたは参照しているオブジェクトの型によって決まり、ポインタや参照自身の型では決まりません。</strong></p>
+<p><strong>仮想関数の呼び出しは、ポインタや参照が指すオブジェクトの型によって決まり、ポインタや参照自身の型によって決まるわけではありません。</strong></p>
 <h2 id="2vptrvtable">2.vptrとvtable<a class="headerlink" href="#2vptrvtable" title="Permanent link">&para;</a></h2>
-<p><a href="../vptr-vtable/">vptr_vtable那些事</a>を参照</p>
-<h2 id="3">3.仮想関数におけるデフォルト引数<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="../vptr-vtable/">vptrとvtableあれこれ</a>を参照</p>
+<h2 id="3">3.仮想関数とデフォルト引数<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>対応するコード：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set2/default_arg.cpp">default_arg.cpp</a></p>
-<p><strong>デフォルト引数は静的バインディングされ、仮想関数は動的バインディングされます。デフォルト引数の使用は、オブジェクトの型ではなく、ポインタや参照自身の型によって決まります</strong>。</p>
-<h2 id="4">4.可能か不可能か<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>（1） <strong>静的関数は仮想関数として宣言できますか？</strong></p>
-<p>理由は主に2つの側面にあります：</p>
-<p><strong>静的関数は仮想関数として宣言できず、同時にconstやvolatileキーワードで修飾することもできません</strong></p>
-<p>staticメンバ関数はどのクラスオブジェクトにもクラスインスタンスにも属さないため、この関数にvirutalを付けても何の意味もありません</p>
-<p>仮想関数はvptrとvtableに依存して処理されます。vptrはポインタであり、クラスのコンストラクタの中で生成され、thisポインタでしかアクセスできません。静的メンバ関数にはthisポインタがないため、vptrにアクセスできません。</p>
-<p>コード学習：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/static_error.cpp">static_error.cpp  </a></p>
-<p>（2）<strong>コンストラクタは仮想関数にできますか？</strong></p>
-<p>コンストラクタは仮想関数として宣言できません。また、inline|explicit以外のキーワードは、コンストラクタに使用することは許されません。</p>
-<p>なぜコンストラクタは仮想関数にできないのでしょうか？</p>
-<p>仮想関数テーブルvtableはコンパイル段階で既に構築されますが、仮想関数テーブルを指すポインタvptrは、実行段階でオブジェクトをインスタンス化するときに初めて生成されます。クラスが仮想関数を持つ場合、コンパイラはコンストラクタの中にvptrを作成するコードを追加します。ここで問題が生じます。コンストラクタが仮想であれば、vtableにアクセスするためにvptrが必要ですが、この時点ではvptrはまだ生成されていません。したがって、コンストラクタは仮想関数にできないのです。</p>
-<p>仮想関数を使うのは、情報が不完全な状況で多態的な動作をする必要があるからです。一方、コンストラクタはインスタンスを初期化するためのものであり、インスタンスの型は明確でなければなりません。したがって、コンストラクタを仮想関数として宣言する必要はありません。</p>
+<p><strong>デフォルト引数は静的バインディングされ、仮想関数は動的バインディングされます。使用されるデフォルト引数は、オブジェクトの型ではなく、ポインタや参照自身の型によって決まります</strong>。</p>
+<h2 id="4">4.できる・できない<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>（1）<strong>静的関数を仮想関数として宣言できるか？</strong></p>
+<p>主な理由は二つあります：</p>
+<p><strong>静的関数は仮想関数として宣言できず、constやvolatileキーワードで修飾することもできません</strong></p>
+<p>staticメンバ関数はどのクラスオブジェクトにもクラスインスタンスにも属さないため、この関数にvirtualを付けても何の意味もありません。</p>
+<p>仮想関数はvptrとvtableに依存して処理されます。vptrはポインタであり、クラスのコンストラクタ内で生成され、thisポインタからしかアクセスできません。静的メンバ関数にはthisポインタがないため、vptrにアクセスできません。</p>
+<p>コード学習：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/static_error.cpp">static_error.cpp</a></p>
+<p>（2）<strong>コンストラクタは仮想関数にできるか？</strong></p>
+<p>コンストラクタは仮想関数として宣言できません。また、inlineとexplicitを除き、コンストラクタに他のキーワードを使うことは許されていません。</p>
+<p>なぜコンストラクタは仮想関数になれないのか？</p>
+<p>仮想関数テーブルvtableはコンパイル段階で構築されますが、vtableを指すポインタvptrは実行段階でオブジェクトをインスタンス化するときに初めて生成されます。クラスが仮想関数を持つ場合、コンパイラはコンストラクタにvptrを生成するコードを追加します。ここで問題が生じます。もしコンストラクタが仮想なら、vtableにアクセスするためにvptrが必要ですが、その時点ではまだvptrが生成されていません。したがって、コンストラクタは仮想関数になれないのです。</p>
+<p>仮想関数を使う理由は、情報が不完全な状況で多態的な動作が必要だからです。一方、コンストラクタはインスタンスを初期化するためのものであり、インスタンスの型は明確でなければなりません。したがって、コンストラクタを仮想関数として宣言する必要はありません。</p>
 <p>コード学習：</p>
 <ul>
 <li>
@@ -5528,33 +5528,33 @@
 <p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_con.cpp">vir_con.cpp</a> </p>
 </li>
 </ul>
-<p>（3）<strong>デストラクタは仮想関数にできますか？</strong></p>
-<p><strong>デストラクタは仮想関数として宣言できます。派生クラスを指す基底クラスのポインタを削除する必要がある場合は、デストラクタを仮想関数として宣言すべきです。実際、クラスが他のクラスに継承される可能性が少しでもあるなら、（たとえそのデストラクタが何の操作もしなくても）仮想デストラクタを宣言すべきです。</strong></p>
+<p>（3）<strong>デストラクタは仮想関数にできるか？</strong></p>
+<p><strong>デストラクタは仮想関数として宣言できます。派生クラスを指す基底クラスのポインタを削除する必要がある場合は、デストラクタを仮想関数として宣言すべきです。実際、クラスが他のクラスに継承される可能性が少しでもある限り、仮想デストラクタを宣言すべきです（たとえそのデストラクタが何もしなくても）。</strong></p>
 <p>コード学習：</p>
 <ul>
 <li>
 <p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/full_virde.cpp">full_virde.cpp</a></p>
 </li>
 <li>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp </a>      </p>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp</a>      </p>
 </li>
 </ul>
-<p>（4）<strong>仮想関数はprivateな関数にできますか？</strong></p>
+<p>（4）<strong>仮想関数はprivateな関数にできるか？</strong></p>
 <ul>
-<li>基底クラスのポインタが派生クラスのオブジェクトを指す場合、派生クラスオブジェクトの関数が呼ばれます；</li>
-<li>int main()をBaseクラスの友元として宣言しなければ、コンパイルに失敗します。コンパイラのエラー：ptrはprivateな関数にアクセスできません。もちろん、基底クラスをpublic、派生クラスをprivateとして宣言すれば、この問題は存在しなくなります。</li>
+<li>基底クラスのポインタが派生クラスのオブジェクトを指す場合、派生クラスのオブジェクトの関数が呼ばれます；</li>
+<li>int main()はBaseクラスのフレンドとして宣言されなければならず、さもないとコンパイルに失敗します。コンパイラのエラー：ptrはprivateな関数にアクセスできません。もちろん、基底クラスをpublic、派生クラスをprivateとして宣言すれば、この問題はなくなります。</li>
 </ul>
 <p>コード学習：</p>
 <ul>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/virtual_function.cpp">virtual_function.cpp</a></li>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/virtual_function1.cpp">virtual_function1.cpp</a></li>
 </ul>
-<p>（5）<strong>仮想関数はインラインにできますか？</strong></p>
-<p><strong>通常、クラスのメンバ関数はすべて、コンパイラがインライン化するかどうかを検討します。しかし、基底クラスのポインタや参照を通じて呼び出される仮想関数は、必ずインライン化できません。もちろん、実体オブジェクトによる仮想関数の呼び出しや静的な呼び出しはインライン化でき、仮想デストラクタの静的呼び出しも必ずインライン展開されます。</strong></p>
+<p>（5）<strong>仮想関数はinlineにできるか？</strong></p>
+<p><strong>通常、クラスのメンバ関数はコンパイラによってインライン化するかどうかが検討されます。しかし、基底クラスのポインタや参照を通じて呼び出される仮想関数は、絶対にインライン化できません。もちろん、実オブジェクトによる仮想関数の呼び出しや静的な呼び出しはインライン化でき、仮想デストラクタの静的呼び出しは必ずインライン展開されます。</strong></p>
 <ul>
-<li>仮想関数はインライン関数にできます。inlineは仮想関数を修飾できますが、仮想関数が多態性を発現するときにはインライン化できません。</li>
-<li>inlineはコンパイラに対してインライン化を提案するものですが、仮想関数の多態性は実行期のものです。コンパイラは実行期にどのコードが呼ばれるかを知ることができないため、仮想関数が多態性を発現する場合（実行期）はインライン化できません。</li>
-<li><code>inline virtual</code> がインライン化できる唯一の場合は、コンパイラが呼び出されるオブジェクトがどのクラスかを知っているとき（例：<code>Base::who()</code>）です。これは、コンパイラがオブジェクトへのポインタや参照ではなく実際のオブジェクトを保持しているときにのみ起こります。</li>
+<li>仮想関数はインライン関数になれます。inlineは仮想関数を修飾できますが、仮想関数が多態性を発揮するときはインライン化できません。</li>
+<li>インライン化はコンパイラに対する提案であるのに対し、仮想関数の多態性は実行時のものであり、コンパイラは実行時にどのコードが呼ばれるかを知ることができません。したがって、仮想関数が多態的に振る舞うとき（実行時）はインライン化できません。</li>
+<li><code>inline virtual</code>がインライン化できる唯一の場合は、コンパイラが呼び出されるオブジェクトがどのクラスに属するかを知っているとき（例えば <code>Base::who()</code>）で、これはコンパイラがオブジェクトへのポインタや参照ではなく実際のオブジェクトを持っているときにのみ起こります。</li>
 </ul>
 <p>コード学習：</p>
 <ul>
@@ -5566,15 +5566,15 @@
 </li>
 </ul>
 <h2 id="5rttidynamic_cast">5.RTTIとdynamic_cast<a class="headerlink" href="#5rttidynamic_cast" title="Permanent link">&para;</a></h2>
-<p>RTTI（Run-Time Type Identification）は、実行時型情報によって、プログラムが<a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">基底クラス</a>の<a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">ポインタ</a>や参照を使用して、それらのポインタや参照が指すオブジェクトの実際の<a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">派生クラス</a>型を検査できるようにするものです。</p>
-<p>オブジェクト指向プログラミングでは、あるオブジェクトが特定の多態的な型として使用できるかを実行時に問い合わせる必要があることがあります。Javaのinstanceofや、C#のas、is演算子と同様に、C++は動的キャストのためにdynamic_cast関数を提供しています。CスタイルのキャストやC++のreinterpret_castと比べて、dynamic_castは型安全チェックを提供し、能力問い合わせ（Capability Query）に基づく変換であるため、多態的な型間の変換にはdynamic_castの使用がより推奨されます。</p>
+<p>RTTI（Run-Time Type Identification、実行時型情報）により、プログラムは<a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">基底クラス</a>の<a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">ポインタ</a>や参照を使って、それらが指すオブジェクトの実際の<a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">派生クラス</a>型を調べることができます。</p>
+<p>オブジェクト指向プログラミングでは、あるオブジェクトを特定の多態的型として使用できるかを実行時に問い合わせたい場合があります。JavaのinstanceofやC#のas・is演算子と同様に、C++は動的キャストのためにdynamic_castを提供しています。CスタイルのキャストやC++のreinterpret_castと比べて、dynamic_castは型安全チェックを提供し、能力問い合わせ（Capability Query）に基づく変換であるため、多態的型間の変換にはdynamic_castを使うことが推奨されます。</p>
 <p>コード学習：</p>
 <ul>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/rtti.cpp">rtti.cpp</a></li>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/warn_rtti.cpp">warn_rtti.cpp</a></li>
 </ul>
 <h2 id="6">6.純粋仮想関数と抽象クラス<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p><a href="../abstract/">純粋仮想関数と抽象クラス那些事</a>を参照</p>
+<p><a href="../abstract/">純粋仮想関数と抽象クラスあれこれ</a>を参照</p>
 <h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>

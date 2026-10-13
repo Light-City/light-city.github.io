@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="विश्वास है कि इंटरव्यू में सभी से डिज़ाइन पैटर्न की चर्चा अनिवार्यतः होती है। यह अनुभाग इंटरव्यू में सर्वाधिक प्रयुक्त डिज़ाइन पैटर्न (सिंगलटन पैटर्न) की व्याख्या करता है — वर्गीकरण, thread safety, तथा C++11 से पहले तथा बाद के दृष्टिकोण से thread-safe सिंगलटन पैटर्न की कौन-कौन सी योजनाएँ हैं। विश्वास है यह लेख ध्यान से पढ़ लेने के बाद, आगे के इंटरव्यू में चिंता करने की आवश्यकता नहीं रहेगी।">
+        <meta name="description" content="इंटरव्यू में डिज़ाइन पैटर्न के विषय से शायद कोई नहीं बच पाता। यह खंड इंटरव्यू में सबसे अधिक पूछे जाने वाले डिज़ाइन पैटर्न (सिंगलटन पैटर्न) पर चर्चा करता है — इसके वर्गीकरण, थ्रेड सुरक्षा, तथा C++11 मानक पर आधारित न होने और आधारित होने, दोनों दृष्टिकोणों से थ्रेड-सुरक्षित सिंगलटन के समाधान। यह लेख ध्यान से पढ़ लें, फिर भविष्य के इंटरव्यू में चिंता करने की ज़रूरत नहीं होगी।">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ ट्यूटोरियल सिंगलटन पैटर्न,std::mutex,डिज़ाइन पैटर्न"> 
+    <meta name="keywords" content="C++ सिंगलटन पैटर्न ट्यूटोरियल,std::mutex,डिज़ाइन पैटर्न"> 
     <meta name="title" content="C++ सिंगलटन पैटर्न | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ सिंगलटन पैटर्न | C++那些事">
-      <meta property="og:description" content="विश्वास है कि इंटरव्यू में सभी से डिज़ाइन पैटर्न की चर्चा अनिवार्यतः होती है। यह अनुभाग इंटरव्यू में सर्वाधिक प्रयुक्त डिज़ाइन पैटर्न (सिंगलटन पैटर्न) की व्याख्या करता है — वर्गीकरण, thread safety, तथा C++11 से पहले तथा बाद के दृष्टिकोण से thread-safe सिंगलटन पैटर्न की कौन-कौन सी योजनाएँ हैं। विश्वास है यह लेख ध्यान से पढ़ लेने के बाद, आगे के इंटरव्यू में चिंता करने की आवश्यकता नहीं रहेगी।">
+      <meta property="og:description" content="इंटरव्यू में डिज़ाइन पैटर्न के विषय से शायद कोई नहीं बच पाता। यह खंड इंटरव्यू में सबसे अधिक पूछे जाने वाले डिज़ाइन पैटर्न (सिंगलटन पैटर्न) पर चर्चा करता है — इसके वर्गीकरण, थ्रेड सुरक्षा, तथा C++11 मानक पर आधारित न होने और आधारित होने, दोनों दृष्टिकोणों से थ्रेड-सुरक्षित सिंगलटन के समाधान। यह लेख ध्यान से पढ़ लें, फिर भविष्य के इंटरव्यू में चिंता करने की ज़रूरत नहीं होगी।">
       <meta property="og:url" content="https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="hi_IN">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ सिंगलटन पैटर्न | C++那些事">
-      <meta name="twitter:description" content="विश्वास है कि इंटरव्यू में सभी से डिज़ाइन पैटर्न की चर्चा अनिवार्यतः होती है। यह अनुभाग इंटरव्यू में सर्वाधिक प्रयुक्त डिज़ाइन पैटर्न (सिंगलटन पैटर्न) की व्याख्या करता है — वर्गीकरण, thread safety, तथा C++11 से पहले तथा बाद के दृष्टिकोण से thread-safe सिंगलटन पैटर्न की कौन-कौन सी योजनाएँ हैं। विश्वास है यह लेख ध्यान से पढ़ लेने के बाद, आगे के इंटरव्यू में चिंता करने की आवश्यकता नहीं रहेगी।">
+      <meta name="twitter:description" content="इंटरव्यू में डिज़ाइन पैटर्न के विषय से शायद कोई नहीं बच पाता। यह खंड इंटरव्यू में सबसे अधिक पूछे जाने वाले डिज़ाइन पैटर्न (सिंगलटन पैटर्न) पर चर्चा करता है — इसके वर्गीकरण, थ्रेड सुरक्षा, तथा C++11 मानक पर आधारित न होने और आधारित होने, दोनों दृष्टिकोणों से थ्रेड-सुरक्षित सिंगलटन के समाधान। यह लेख ध्यान से पढ़ लें, फिर भविष्य के इंटरव्यू में चिंता करने की ज़रूरत नहीं होगी।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ सिंगलटन पैटर्न | C++那些事", "description": "विश्वास है कि इंटरव्यू में सभी से डिज़ाइन पैटर्न की चर्चा अनिवार्यतः होती है। यह अनुभाग इंटरव्यू में सर्वाधिक प्रयुक्त डिज़ाइन पैटर्न (सिंगलटन पैटर्न) की व्याख्या करता है — वर्गीकरण, thread safety, तथा C++11 से पहले तथा बाद के दृष्टिकोण से thread-safe सिंगलटन पैटर्न की कौन-कौन सी योजनाएँ हैं। विश्वास है यह लेख ध्यान से पढ़ लेने के बाद, आगे के इंटरव्यू में चिंता करने की आवश्यकता नहीं रहेगी।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ सिंगलटन पैटर्न | C++那些事", "description": "इंटरव्यू में डिज़ाइन पैटर्न के विषय से शायद कोई नहीं बच पाता। यह खंड इंटरव्यू में सबसे अधिक पूछे जाने वाले डिज़ाइन पैटर्न (सिंगलटन पैटर्न) पर चर्चा करता है — इसके वर्गीकरण, थ्रेड सुरक्षा, तथा C++11 मानक पर आधारित न होने और आधारित होने, दोनों दृष्टिकोणों से थ्रेड-सुरक्षित सिंगलटन के समाधान। यह लेख ध्यान से पढ़ लें, फिर भविष्य के इंटरव्यू में चिंता करने की ज़रूरत नहीं होगी।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "आइडियम", "item": "https://light-city.github.io/stories_things/hi/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "C++ सिंगलटन पैटर्न | C++那些事", "item": "https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/"}]}</script>
   </head>
   
@@ -2652,7 +2652,7 @@
         <li class="md-nav__item">
   <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
-      0.प्रस्तावना
+      0. प्रस्तावना
     </span>
   </a>
   
@@ -2661,43 +2661,43 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1.सर्वविदित सिंगलटन
+      1. प्रसिद्ध सिंगलटन
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lazy-eager" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2.लेज़ी (lazy) तथा ईगर (eager)
+      2. लेज़ी और ईगर इनिशियलाइज़ेशन
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-lock" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3.मल्टी-थ्रेड में लॉक (lock)
+      3. कई थ्रेड के लिए लॉकिंग
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-dclp" class="md-nav__link">
+  <a href="#4-" class="md-nav__link">
     <span class="md-ellipsis">
-      4.डबल-चेक लॉक पैटर्न (DCLP)
+      4. डबल-चेक्ड लॉकिंग पैटर्न
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5memory-barrier" class="md-nav__link">
+  <a href="#5-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5.memory barrier निर्देश
+      5. memory barrier निर्देश
     </span>
   </a>
   
@@ -2706,25 +2706,25 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6.स्टैटिक लोकल वेरिएबल
+      6. स्टैटिक लोकल वेरिएबल
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
@@ -2733,7 +2733,7 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
-      9.सारांश
+      9. सारांश
     </span>
   </a>
   
@@ -2742,7 +2742,16 @@
         <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
-      10.संदर्भ सामग्री
+      10. संदर्भ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      पुनः प्रयोग योग्य थ्रेड-सुरक्षित सिंगलटन टेम्पलेट क्लास
     </span>
   </a>
   
@@ -5427,7 +5436,7 @@
         <li class="md-nav__item">
   <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
-      0.प्रस्तावना
+      0. प्रस्तावना
     </span>
   </a>
   
@@ -5436,43 +5445,43 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1.सर्वविदित सिंगलटन
+      1. प्रसिद्ध सिंगलटन
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lazy-eager" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2.लेज़ी (lazy) तथा ईगर (eager)
+      2. लेज़ी और ईगर इनिशियलाइज़ेशन
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-lock" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3.मल्टी-थ्रेड में लॉक (lock)
+      3. कई थ्रेड के लिए लॉकिंग
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-dclp" class="md-nav__link">
+  <a href="#4-" class="md-nav__link">
     <span class="md-ellipsis">
-      4.डबल-चेक लॉक पैटर्न (DCLP)
+      4. डबल-चेक्ड लॉकिंग पैटर्न
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5memory-barrier" class="md-nav__link">
+  <a href="#5-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5.memory barrier निर्देश
+      5. memory barrier निर्देश
     </span>
   </a>
   
@@ -5481,25 +5490,25 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6.स्टैटिक लोकल वेरिएबल
+      6. स्टैटिक लोकल वेरिएबल
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
@@ -5508,7 +5517,7 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
-      9.सारांश
+      9. सारांश
     </span>
   </a>
   
@@ -5517,7 +5526,16 @@
         <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
-      10.संदर्भ सामग्री
+      10. संदर्भ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      पुनः प्रयोग योग्य थ्रेड-सुरक्षित सिंगलटन टेम्पलेट क्लास
     </span>
   </a>
   
@@ -5547,10 +5565,10 @@
 <p><strong>अंतिम अद्यतन：2026-10-12</strong></p>
 </blockquote>
 <h1 id="c">C++ सिंगलटन पैटर्न<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
-<h2 id="0">0.प्रस्तावना<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>विश्वास है कि इंटरव्यू में सभी से डिज़ाइन पैटर्न की चर्चा अनिवार्यतः होती है। यह अनुभाग इंटरव्यू में सर्वाधिक प्रयुक्त डिज़ाइन पैटर्न (सिंगलटन पैटर्न) की व्याख्या करता है — वर्गीकरण, thread safety, तथा C++11 से पहले तथा बाद के दृष्टिकोण से thread-safe सिंगलटन पैटर्न की कौन-कौन सी योजनाएँ हैं। विश्वास है यह लेख ध्यान से पढ़ लेने के बाद, आगे के इंटरव्यू में चिंता करने की आवश्यकता नहीं रहेगी।</p>
-<h2 id="1">1.सर्वविदित सिंगलटन<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>सामान्य पुस्तकों में या जिसे सभी भली-भाँति जानते हैं, सिंगलटन पैटर्न नीचे जैसा होता है:</p>
+<h2 id="0">0. प्रस्तावना<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>इंटरव्यू में डिज़ाइन पैटर्न के विषय से शायद कोई नहीं बच पाता। यह खंड इंटरव्यू में सबसे अधिक पूछे जाने वाले डिज़ाइन पैटर्न (सिंगलटन पैटर्न) पर चर्चा करता है — इसके वर्गीकरण, थ्रेड सुरक्षा, तथा C++11 मानक पर आधारित न होने और आधारित होने, दोनों दृष्टिकोणों से थ्रेड-सुरक्षित सिंगलटन के समाधान। यह लेख ध्यान से पढ़ लें, फिर भविष्य के इंटरव्यू में चिंता करने की ज़रूरत नहीं होगी।</p>
+<h2 id="1">1. प्रसिद्ध सिंगलटन<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>सामान्य पुस्तकों में, या जैसा आमतौर पर जाना जाता है, सिंगलटन पैटर्न इस प्रकार होता है:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5567,17 +5585,17 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>यह बहुत सरल कार्यान्वयन है — कंस्ट्रक्टर को private या protected घोषित कर बाहरी फंक्शन्स द्वारा इंस्टैंशिएट होने से रोका गया है; भीतर एक स्टैटिक क्लास पॉइंटर अद्वितीय इंस्टेंस सहेजता है, और इंस्टेंस का कार्यान्वयन एक public मेथड से होता है जो उस क्लास का अद्वितीय इंस्टेंस लौटाता है।</p>
-<p>बेशक यह कोड केवल single-thread में उपयुक्त है; multi-thread में यह असुरक्षित है। मान लीजिए दो थ्रेड एक साथ पहली बार instance मेथड कॉल करते हैं और एक साथ पाते हैं कि p, nullptr है — तो दोनों थ्रेड एक साथ p के लिए एक इंस्टेंस बना देंगे, जो सिंगलटन के नियम के विरुद्ध है।</p>
-<h2 id="2-lazy-eager">2.लेज़ी (lazy) तथा ईगर (eager)<a class="headerlink" href="#2-lazy-eager" title="Permanent link">&para;</a></h2>
-<p>सिंगलटन के दो कार्यान्वयन तरीके हैं:</p>
+<p>यह बहुत सरल कार्यान्वयन है: कंस्ट्रक्टर को private या protected घोषित किया जाता है ताकि बाहरी फ़ंक्शन इंस्टेंस न बना सकें; क्लास के भीतर एक स्टैटिक क्लास पॉइंटर अद्वितीय इंस्टेंस को रखता है; इंस्टेंस का निर्माण एक public विधि द्वारा किया जाता है, जो उस क्लास का एकमात्र इंस्टेंस लौटाती है।</p>
+<p>बेशक यह कोड केवल सिंगल-थ्रेड के लिए उपयुक्त है; कई थ्रेड होने पर यह सुरक्षित नहीं है। सोचिए कि दो थ्रेड एक साथ पहली बार instance विधि को कॉल करते हैं और दोनों को p nullptr दिखता है: तब दोनों थ्रेड एक साथ p के लिए इंस्टेंस बना देंगे, जो सिंगलटन के नियम का उल्लंघन करता है।</p>
+<h2 id="2">2. लेज़ी और ईगर इनिशियलाइज़ेशन<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>सिंगलटन दो तरीकों से कार्यान्वित किया जाता है:</p>
 <ul>
-<li>लेज़ी (lazy)</li>
-<li>क्लास इंस्टेंस की पहली आवश्यकता पड़ने पर ही इंस्टैंशिएट होता है; उपरोक्त उदाहरण यही लेज़ी कार्यान्वयन है।</li>
-<li>ईगर (eager)</li>
-<li>सिंगलटन क्लास की परिभाषा के समय ही इंस्टैंशिएट हो जाता है।</li>
+<li>लेज़ी (आलस्य)</li>
+<li>क्लास इंस्टेंस के पहली बार उपयोग होने पर ही इंस्टेंटिएट होता है; ऊपर दिया गया कोड लेज़ी कार्यान्वयन है।</li>
+<li>ईगर (उत्सुक)</li>
+<li>सिंगलटन क्लास की परिभाषा के समय ही इंस्टेंटिएट हो जाता है।</li>
 </ul>
-<p>यहाँ ईगर का कार्यान्वयन भी देते हैं:</p>
+<p>यहाँ ईगर कार्यान्वयन भी दिया गया है:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5591,9 +5609,9 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>बेशक यह thread-safe है; जिसे हम सामान्यतः thread-unsafe कहते हैं वह लेज़ी मोड है — आगे लेज़ी मोड के thread-safe कोड अनुकूलन की व्याख्या होगी।</p>
-<h2 id="3-lock">3.मल्टी-थ्रेड में लॉक (lock)<a class="headerlink" href="#3-lock" title="Permanent link">&para;</a></h2>
-<p>C++ में लॉकिंग के लिए एक क्लास का कार्यान्वयन सिद्धांत RAII पर आधारित है, जिसमें unlock का हाथ से प्रबंधन नहीं करना पड़ता — वह है lock_guard; यहाँ उसी से लॉक किया गया है।</p>
+<p>बेशक यह थ्रेड-सुरक्षित है। सामान्यतः हम जिसे थ्रेड-असुरक्षित बताते हैं वह लेज़ी शैली है; नीचे हम लेज़ी पैटर्न के थ्रेड-सुरक्षित कोड अनुकूलन की चर्चा करेंगे।</p>
+<h2 id="3">3. कई थ्रेड के लिए लॉकिंग<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>C++ में लॉकिंग के लिए एक क्लास है जिसके कार्यान्वयन का सिद्धांत RAII है, यानी unlock को हाथ से प्रबंधित करने की ज़रूरत नहीं — वह है lock_guard; यहाँ हम इसी से लॉक करते हैं।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5612,11 +5630,11 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>इस लिखावट में ऊपर जैसी स्थिति (दोनों थ्रेड p==nullptr के भीतर पहुँच जाएँ) नहीं आ सकती। जब थ्रेड A <code>p = new Singleton()</code> निष्पादित कर रहा हो और थ्रेड B उस समय <code>instance()</code> कॉल करे, तो वह अवश्य ही लॉक प्राप्त करने के स्थान पर अवरुद्ध होगा और थ्रेड A के निष्पादन समाप्त होकर लॉक मुक्त करने की प्रतीक्षा करेगा। इस प्रकार यह thread-safe है।</p>
-<p>परंतु इस लिखावट का प्रदर्शन बहुत निम्न है, क्योंकि हर बार <code>instance()</code> कॉल पर लॉक लगता और छूटता है — जबकि यह चरण केवल पहली बार <code>new Singleton()</code> के समय ही आवश्यक है। जब तक <code>p</code> बन गया है, तब कितने भी थ्रेड एक साथ आएँ, केवल <code>if (p == nullptr)</code> से निर्णय पर्याप्त है (केवल पठन ऑपरेशन, लॉक की आवश्यकता नहीं) — कोई thread-safety समस्या नहीं; लॉक लगाने से उलटा प्रदर्शन की समस्या आ जाती है।</p>
-<p>इसी से DCL की उत्पत्ति हुई।</p>
-<h2 id="4-dclp">4.डबल-चेक लॉक पैटर्न (DCLP)<a class="headerlink" href="#4-dclp" title="Permanent link">&para;</a></h2>
-<p>उपरोक्त लिखावट में हर स्थिति में लॉक लगता और छूटता है, जबकि पठन ऑपरेशन में thread-safety की समस्या होती ही नहीं — अतः केवल पहली बार इंस्टेंस बनते समय लॉक चाहिए, बाद में नहीं। पहले DCLP का कार्यान्वयन देखिए:</p>
+<p>इस लेखन शैली में ऊपर वाली स्थिति — दोनों थ्रेड का p == nullptr शाखा के भीतर तक निष्पादित होना — संभव नहीं है। जब थ्रेड A <code>p = new Singleton()</code> निष्पादित कर रहा हो, और थ्रेड B <code>instance()</code> को कॉल करे, तो B अवश्य ही लॉक प्राप्त करने की जगह अवरुद्ध होगा और थ्रेड A के निष्पादन समाप्त होकर लॉक मुक्त होने की प्रतीक्षा करेगा। इस प्रकार यह थ्रेड-सुरक्षित है।</p>
+<p>लेकिन इस शैली का प्रदर्शन बहुत ख़राब है, क्योंकि <code>instance()</code> के प्रत्येक कॉल पर लॉक प्राप्त और मुक्त होता है, जबकि यह चरण केवल पहले <code>new Singleton()</code> के लिए आवश्यक है। एक बार <code>p</code> बन जाने के बाद, चाहे कितने ही थ्रेड एक साथ पहुँचें, <code>if (p == nullptr)</code> से निर्णय करना पर्याप्त है (यह केवल पढ़ने का ऑपरेशन है, लॉक की ज़रूरत नहीं); थ्रेड-सुरक्षा की कोई समस्या नहीं है, और लॉक लगाने से इसके बदले प्रदर्शन की समस्या आ जाती है।</p>
+<p>इसी से DCL का जन्म हुआ।</p>
+<h2 id="4-">4. डबल-चेक्ड लॉकिंग पैटर्न<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h2>
+<p>ऊपर की शैली हर स्थिति में लॉक प्राप्त करके मुक्त करती है, जबकि पढ़ने के ऑपरेशन में थ्रेड-सुरक्षा की कोई समस्या नहीं होती; इसलिए लॉक केवल पहली बार इंस्टेंस बनते समय चाहिए, बाद में कभी नहीं। पहले DCLP का कार्यान्वयन देखते हैं:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">singleton</span><span class="o">*</span><span class="w"> </span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 第一次检查</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">;</span>
@@ -5627,7 +5645,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>उपरोक्त के आधार पर, हम डबल-चेक लॉक + स्वतः रीसाइकल (auto-recycle) लिख सकते हैं</p>
+<p>उपरोक्त आधार पर, हम डबल-चेक्ड लॉकिंग + स्वचालित रीकवरी लिख सकते हैं</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5663,29 +5681,29 @@
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>DCLP का मर्म यह है कि instance के अधिकांश कॉल पाएँगे कि p गैर-शून्य है, इसलिए उसे आरंभीकृत करने का प्रयास भी नहीं करते। अतः DCLP लॉक प्राप्त करने से पहले जाँचता है कि p शून्य है या नहीं। केवल जब जाँच सफल हो (अर्थात् p अभी आरंभीकृत नहीं हुआ) तभी लॉक लेता है, फिर पुनः जाँचता है कि p अभी भी शून्य है या नहीं (इसी से नाम पड़ा — डबल-चेक लॉक)। <strong>दूसरी जाँच आवश्यक है, क्योंकि — जैसा अभी देखा — बहुत संभव है कि कोई अन्य थ्रेड पहली जाँच के बाद तथा लॉक प्राप्त करने से पहले ही p को आरंभीकृत कर दे।</strong></p>
-<p>देखने में उपरोक्त कोड बहुत सिद्ध लगता है, परंतु काफी समय बाद यह छिद्र पकड़ में आया; कारण है: <strong>मेमोरी पठन-लेखन का क्रम-विहीन निष्पादन (कंपाइलर समस्या)</strong>।</p>
-<p>पुनः <code>p</code> को आरंभीकृत करने वाली पंक्ति पर विचार करें:</p>
+<p>DCLP का मुख्य बिंदु यह है कि instance के अधिकांश कॉल p को गैर-शून्य देखेंगे, इसलिए वे उसे इनिशियलाइज़ करने का प्रयास भी नहीं करते। इसलिए DCLP, लॉक प्राप्त करने का प्रयास करने से पहले जाँचता है कि p शून्य है या नहीं। केवल जब यह जाँच सफल हो (यानी p अभी इनिशियलाइज़ नहीं हुआ है), तब वह लॉक प्राप्त करता है, और फिर दोबारा जाँचता है कि p अभी भी शून्य है या नहीं (इसीलिए इसका नाम डबल-चेक्ड लॉकिंग है)। <strong>दूसरी जाँच आवश्यक है, क्योंकि जैसा हमने अभी देखा, बहुत संभव है कि कोई अन्य थ्रेड पहली जाँच के बाद और लॉक सफलतापूर्वक प्राप्त करने से पहले ही p को इनिशियलाइज़ कर दे।</strong></p>
+<p>उपरोक्त कोड बहुत अच्छा लगता है, लेकिन काफ़ी समय बाद जाकर इसकी खामी मिली। कारण: <strong>मेमोरी पढ़ने-लिखने का क्रम-विहीन निष्पादन (कंपाइलर की समस्या)</strong>।</p>
+<p>आइए दोबारा उस पंक्ति पर विचार करें जो <code>p</code> को इनिशियलाइज़ करती है:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
 </span></code></pre></div>
-<p>यह कथन तीन काम करता है:</p>
+<p>यह कथन तीन चीज़ें घटित करता है:</p>
 <ol>
-<li><code>singleton</code> ऑब्जेक्ट सहेजने योग्य मेमोरी आवंटित करना;</li>
-<li>आवंटित मेमोरी में एक <code>singleton</code> ऑब्जेक्ट का निर्माण;</li>
+<li><code>singleton</code> ऑब्जेक्ट को संग्रहीत करने में सक्षम मेमोरी आवंटित करना;</li>
+<li>आवंटित मेमोरी में एक <code>singleton</code> ऑब्जेक्ट का निर्माण करना;</li>
 <li><code>p</code> को उस आवंटित मेमोरी की ओर इशारा कराना।</li>
 </ol>
-<p>सोचा जा सकता है कि ये तीनों चरण क्रम से चलते हैं, परंतु वास्तव में केवल इतना निश्चित है कि चरण <code>1</code> सबसे पहले होता है — चरण <code>2</code> तथा <code>3</code> का क्रम निश्चित नहीं। समस्या यहीं है।</p>
+<p>हो सकता है कि आप मानें कि ये तीनों चरण क्रम से निष्पादित होते हैं, लेकिन वास्तव में केवल इतना निश्चित है कि चरण <code>1</code> सबसे पहले निष्पादित होता है; चरण <code>2</code> और <code>3</code> के बारे में निश्चितता नहीं है। समस्या यहीं है।</p>
 <ul>
-<li>थ्रेड A, instance कॉल करता है, p की पहली जाँच निष्पादित करता है, लॉक प्राप्त करता है, 1, 3 क्रम से निष्पादित करता है, फिर निलंबित हो जाता है। इस समय p गैर-शून्य है, परंतु p की ओर इशारा की मेमोरी में अभी कोई Singleton ऑब्जेक्ट बना नहीं है।</li>
-<li>थ्रेड B, instance कॉल करता है, पाता है कि p गैर-शून्य है, और उसे instance के कॉलर को लौटा देता है। कॉलर पॉइंटर को dereference करके singleton लेता है — अरे, एक ऐसा ऑब्जेक्ट जो अभी बना ही नहीं! बग आ गया।</li>
+<li>थ्रेड A instance को कॉल करता है, p का पहला परीक्षण निष्पादित करता है, लॉक प्राप्त करता है, चरण 1 और 3 निष्पादित करता है, फिर निलंबित हो जाता है। इस समय p गैर-शून्य है, लेकिन p द्वारा इंगित मेमोरी में अभी तक कोई Singleton ऑब्जेक्ट निर्मित नहीं हुआ है।</li>
+<li>थ्रेड B instance को कॉल करता है, p को गैर-शून्य पाता है, और उसे instance के कॉलर को लौटा देता है। कॉलर सिंगलटन प्राप्त करने के लिए पॉइंटर को डिरेफ़रेंस करता है — अरे, एक ऐसा ऑब्जेक्ट जो अभी निर्मित ही नहीं हुआ। बग यहीं पैदा हो जाता है।</li>
 </ul>
-<p>DCLP तभी भली-भाँति काम करता है जब चरण एक तथा दो, चरण तीन से पहले निष्पादित हों; परंतु C या C++ में यह प्रतिबंध व्यक्त करने का कोई तरीका नहीं था। यह जैसे DCLP के हृदय में घोंपी गई छुरी है: हमें निर्देशों के सापेक्ष क्रम पर प्रतिबंध परिभाषित करने हैं, परंतु हमारी भाषा ऐसा प्रतिबंध व्यक्त करने का कोई उपाय नहीं देती।</p>
-<h2 id="5memory-barrier">5.memory barrier निर्देश<a class="headerlink" href="#5memory-barrier" title="Permanent link">&para;</a></h2>
-<p>C++11 में DCLP की यह समस्या हल हो गई।</p>
-<p>क्योंकि नए C++11 ने नया मेमोरी मॉडल निर्धारित किया, जो गारंटी देता है कि उपरोक्त 3 चरणों के निष्पादन के दौरान थ्रेड-स्विच नहीं होगा — मानो यह आरंभीकरण प्रक्रिया "atomic" ऑपरेशन हो। इससे DCL पुनः सही ढंग से उपयोग हो सकता है; तथापि C++11 में multi-thread singleton लिखने की और भी संक्षिप्त विधि है, जिसका परिचय आगे है।</p>
-<p>C++11 से पहले का समाधान barrier निर्देश था। सही निष्पादन के लिए चरण 2, 3 के बीच एक memory barrier लगाना पड़ता है — CPU को बाध्य करके कि 1, 2, 3 चरणों के क्रम में चले।</p>
+<p>DCLP तभी ठीक से काम करता है जब चरण एक और दो, चरण तीन से पहले निष्पादित हों, लेकिन C या C++ में इस नियम को व्यक्त करने का कोई तरीका नहीं है। यह DCLP के दिल में घोंपी गई छुरी की तरह है: हमें निर्देशों के सापेक्ष क्रम पर प्रतिबंध परिभाषित करने की आवश्यकता है, लेकिन हमारी भाषा ऐसे प्रतिबंध व्यक्त करने का कोई तरीका नहीं देती।</p>
+<h2 id="5-memory-barrier">5. memory barrier निर्देश<a class="headerlink" href="#5-memory-barrier" title="Permanent link">&para;</a></h2>
+<p>DCLP की समस्या C++11 में हल हो गई।</p>
+<p>चूँकि नए C++11 ने नया मेमोरी मॉडल निर्धारित किया, यह गारंटी दी जाती है कि उपरोक्त 3 चरणों के निष्पादन के दौरान थ्रेड स्विच नहीं होता; यह इनिशियलाइज़ेशन प्रक्रिया "परमाणु" (atomic) ऑपरेशन के समान है, और DCL को दोबारा सही ढंग से उपयोग किया जा सकता है। हालाँकि, C++11 के अंतर्गत मल्टी-थ्रेड सिंगलटन लिखने की और भी संक्षिप्त विधि मौजूद है, जिसे आगे प्रस्तुत करेंगे।</p>
+<p>C++11 से पहले का समाधान barrier निर्देश था। इसे सही ढंग से निष्पादित कराने के लिए, चरण 2 और 3 के ठीक बीच में एक memory barrier लगाना पड़ता है, ताकि CPU को 1, 2, 3 के क्रम में चलाने के लिए बाध्य किया जा सके।</p>
 <p><strong>पहला कार्यान्वयन:</strong></p>
-<p>operator new + placement new पर आधारित — 1, 2, 3 निष्पादन क्रम के अनुसार क्रमवार कोड।</p>
+<p>operator new + placement new पर आधारित, 1, 2, 3 निष्पादन क्रम का पालन करते हुए क्रमशः कोड लिखा गया है।</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// method 1 operator new + placement new
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>singleton *instance() {
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    if (p == nullptr) {
@@ -5700,7 +5718,7 @@
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>}
 </span></code></pre></div>
 <p><strong>दूसरा कार्यान्वयन:</strong></p>
-<p>ASM असेंबली निर्देश mfence को सीधे अंतःस्थापित (embed) करने पर आधारित; unix का barrier मैक्रो भी इसी निर्देश से बना है।</p>
+<p>ASM असेंबली निर्देश mfence को सीधे एम्बेड करने पर आधारित; unix का barrier मैक्रो भी इसी निर्देश से कार्यान्वित होता है।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define barrier() __asm__ volatile (&quot;lwsync&quot;)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">singleton</span><span class="w"> </span><span class="o">*</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5713,31 +5731,31 @@
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>सामान्यतः CPU द्वारा दिया गया एक निर्देश कॉल किया जाता है; इस निर्देश का कार्य है — CPU को रोकना कि वह इस निर्देश से पहले के निर्देशों को इसके बाद न बदले; इसी निर्देश को प्रायः barrier कहा जाता है। उपरोक्त कोड में <strong>asm</strong> यह दर्शाता है कि यह एक असेंबली निर्देश है; volatile वैकल्पिक है — इसके उपयोग पर कंपाइलर को घोषित किया जाता है कि इस असेंबली निर्देश का अनुकूलन (optimize) करने की अनुमति नहीं। lwsync, POWERPC द्वारा दिया गया barrier निर्देश है।</p>
-<h2 id="6">6.स्टैटिक लोकल वेरिएबल<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>Scott Meyer ने “Effective C++” में सिंगलटन की एक संक्षिप्त लिखावट प्रस्तुत की</p>
+<p>सामान्यतः CPU द्वारा प्रदान किए गए एक निर्देश को कॉल किया जाता है; इस निर्देश का कार्य CPU को इस निर्देश से पहले वाले निर्देशों को इसके बाद विनिमय (swap) करने से रोकना है; इसीलिए इस निर्देश को सामान्यतः barrier कहा जाता है। ऊपर के कोड में <strong>asm</strong> बताता है कि यह एक असेंबली निर्देश है; volatile वैकल्पिक है — यदि इसका उपयोग किया जाए, तो इसका अर्थ है कि कंपाइलर को घोषित किया जा रहा है कि इस असेंबली निर्देश का अनुकूलन करने की अनुमति नहीं है। lwsync POWERPC द्वारा प्रदान किया गया barrier निर्देश है।</p>
+<h2 id="6">6. स्टैटिक लोकल वेरिएबल<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>स्कॉट मेयर्स ने «Effective C++» में सिंगलटन लिखने की एक संक्षिप्त शैली प्रस्तावित की</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">singleton</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>single-thread में, सही।</li>
-<li>C++11 तथा बाद के संस्करणों (जैसे C++14) के multi-thread में, सही।</li>
-<li>C++11 से पहले के multi-thread में, हो सकता है सही न हो।</li>
+<li>सिंगल-थ्रेड में, सही।</li>
+<li>C++11 और बाद के संस्करणों (जैसे C++14) की मल्टी-थ्रेड स्थिति में, सही।</li>
+<li>C++11 से पहले की मल्टी-थ्रेड स्थिति में, ज़रूरी नहीं कि सही हो।</li>
 </ul>
-<p>कारण यह है कि C++11 से पहले के स्टैंडर्ड में local static वेरिएबल का मेमोरी मॉडल निर्धारित नहीं था, इसलिए वह thread-safe नहीं था। परंतु C++11 में यह thread-safe है, क्योंकि नए C++ स्टैंडर्ड ने नियम दिया कि जब एक थ्रेड किसी वेरिएबल का आरंभीकरण कर रहा हो, तो अन्य थ्रेड्स को उस आरंभीकरण पूरा होने तक प्रतीक्षा करनी होगी।</p>
-<p>उपरोक्त में उपयोग हुए मेमोरी ऑर्डर (memory order):</p>
+<p>कारण यह है कि C++11 से पहले के मानकों में लोकल static वेरिएबल के लिए मेमोरी मॉडल निर्धारित नहीं था, इसलिए वह थ्रेड-सुरक्षित नहीं था। लेकिन C++11 में यह थ्रेड-सुरक्षित है, क्योंकि नए C++ मानक ने नियम दिया है कि जब एक थ्रेड किसी वेरिएबल को इनिशियलाइज़ कर रहा हो, तो अन्य थ्रेडों को उस इनिशियलाइज़ेशन के पूरा होने की प्रतीक्षा करनी होगी, तभी वे उस तक पहुँच सकते हैं।</p>
+<p>ऊपर उपयोग किए गए मेमोरी क्रम:</p>
 <ul>
-<li>memory_order_relaxed: शिथिल (relaxed) मेमोरी ऑर्डर — केवल इतना सुनिश्चित करता है कि atomic ऑब्जेक्ट पर ऑपरेशन atomic हो</li>
-<li>memory_order_acquire: acquire ऑपरेशन — किसी atomic ऑब्जेक्ट को पढ़ते समय, वर्तमान थ्रेड के उसके बाद के कोई भी पठन-लेखन इस ऑपरेशन से पहले reorder नहीं हो सकते, तथा उसी atomic ऑब्जेक्ट पर release से पहले अन्य थ्रेड्स के सभी मेमोरी-लेखन वर्तमान थ्रेड को दिखाई देते हैं</li>
-<li>memory_order_release: release ऑपरेशन — किसी atomic ऑब्जेक्ट पर लिखते समय, वर्तमान थ्रेड के उसके पहले के कोई भी पठन-लेखन इस ऑपरेशन के बाद reorder नहीं हो सकते, तथा वर्तमान थ्रेड के सभी मेमोरी-लेखन उसी atomic ऑब्जेक्ट को acquire करने वाले अन्य थ्रेड्स को दिखाई देते हैं</li>
+<li>memory_order_relaxed: शिथिल मेमोरी क्रम, केवल यह सुनिश्चित करता है कि परमाणु ऑब्जेक्ट पर ऑपरेशन परमाणु हों</li>
+<li>memory_order_acquire: प्राप्ति (acquire) ऑपरेशन; किसी परमाणु ऑब्जेक्ट को पढ़ते समय, वर्तमान थ्रेड का कोई भी बाद का पढ़ना-लिखना इस ऑपरेशन से पहले पुनर्क्रमित नहीं किया जा सकता, और अन्य थ्रेडों द्वारा उसी परमाणु ऑब्जेक्ट की रिहाई (release) से पहले की सभी मेमोरी लेखन वर्तमान थ्रेड को दिखाई देती हैं</li>
+<li>memory_order_release: रिहाई (release) ऑपरेशन; किसी परमाणु ऑब्जेक्ट पर लिखते समय, वर्तमान थ्रेड का कोई भी पहले का पढ़ना-लिखना इस ऑपरेशन के बाद पुनर्क्रमित नहीं किया जा सकता, और वर्तमान थ्रेड की सभी मेमोरी लेखन उसी परमाणु ऑब्जेक्ट को प्राप्त (acquire) करने वाले अन्य थ्रेडों को दिखाई देती हैं</li>
 </ul>
-<h2 id="7atomic">7.Atomic<a class="headerlink" href="#7atomic" title="Permanent link">&para;</a></h2>
-<p>C++11 से पहले के संस्करणों में, लॉक से thread-safe Singleton बनाने के अतिरिक्त, विभिन्न कंपाइलरों के अंतर्निहित atomic operation से भी बनाया जा सकता है।</p>
-<p><code>java</code> तथा <code>c#</code> ने reorder समस्या पकड़ने पर <code>volatile</code> कीवर्ड जोड़ दिया — <code>p</code> वेरिएबल घोषित करते समय <code>volatile</code> लगाना होता है; कंपाइलर देखकर समझ जाता है कि यहाँ reorder नहीं हो सकता (पहले मेमोरी आवंटित, फिर कंस्ट्रक्टर निष्पादित, सब पूरा होने पर असाइनमेंट)।</p>
-<p>परंतु <code>c++</code> स्टैंडर्ड में यह लंबे समय तक सुधार नहीं हुआ, इसलिए <code>VC++</code> ने भी <code>2005</code> संस्करण में यह कीवर्ड जोड़ दिया — परंतु यह cross-platform नहीं है (केवल Microsoft प्लेटफ़ॉर्म)।</p>
-<p>और <code>c++ 11</code> संस्करण में, इन छिद्रों को जड़ से मिटाने के लिए multi-thread के उपयुक्त मेमोरी मॉडल पेश किया गया। अंततः ऐसी कार्यप्रणाली मिली जो cross-platform समाधान बनाने में सहायक है।</p>
+<h2 id="7-atomic">7. Atomic<a class="headerlink" href="#7-atomic" title="Permanent link">&para;</a></h2>
+<p>C++11 से पहले के संस्करणों में, लॉक से थ्रेड-सुरक्षित Singleton बनाने के अलावा, विभिन्न कंपाइलरों में अंतर्निहित atomic operation का भी उपयोग किया जा सकता है।</p>
+<p><code>java</code> और <code>c#</code> ने पुनर्क्रमण की समस्या की खोज के बाद एक कीवर्ड <code>volatile</code> जोड़ा: <code>p</code> वेरिएबल की घोषणा करते समय <code>volatile</code> क्वालिफ़ायर लगाना ज़रूरी है, और कंपाइलर इसे देखकर समझ जाता है कि यहाँ पुनर्क्रमण (reorder) नहीं हो सकता (पहले मेमोरी आवंटित हो, फिर कंस्ट्रक्टर निष्पादित हो, और सब पूरा होने के बाद ही असाइनमेंट हो)।</p>
+<p>लेकिन <code>c++</code> मानक में यह लंबे समय तक सुधारा नहीं गया, इसलिए <code>VC++</code> ने अपने <code>2005</code> संस्करण में यह कीवर्ड जोड़ा, पर यह क्रॉस-प्लेटफ़ॉर्म नहीं है (केवल माइक्रोसॉफ़्ट प्लेटफ़ॉर्म का समर्थन)।</p>
+<p>फिर <code>c++ 11</code> संस्करण में, इन खामियों को जड़ से मिटाने के लिए मल्टी-थ्रेड के उपयुक्त मेमोरी मॉडल पेश किया गया। अंततः ऐसा तंत्र मिला जो हमें क्रॉस-प्लेटफ़ॉर्म समाधान कार्यान्वित करने में मदद करता है।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">mutex</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">lock_</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">atomic</span><span class="o">&lt;</span><span class="n">singleton</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -5761,14 +5779,14 @@
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>ध्यान देने योग्य है कि उपरोक्त कोड दो अपेक्षाकृत महत्वपूर्ण शब्द उपयोग करता है — acquire तथा release:</p>
+<p>ध्यान देने योग्य है कि उपरोक्त कोड दो काफ़ी महत्वपूर्ण शब्दों — प्राप्ति और रिहाई — का उपयोग करता है:</p>
 <ul>
-<li>acquire मेमोरी पर एक पठन ऑपरेशन है; वर्तमान थ्रेड के उसके बाद के कोई भी पठन-लेखन इस ऑपरेशन से पहले reorder नहीं हो सकते।</li>
-<li>release मेमोरी पर एक लेखन ऑपरेशन है; वर्तमान थ्रेड के उसके पहले के कोई भी पठन-लेखन इस ऑपरेशन के बाद reorder नहीं हो सकते।</li>
+<li>प्राप्ति (acquire) मेमोरी पर एक पढ़ने का ऑपरेशन है; वर्तमान थ्रेड का कोई भी बाद का पढ़ना-लिखना इस ऑपरेशन से पहले पुनर्क्रमित नहीं किया जा सकता।</li>
+<li>रिहाई (release) मेमोरी पर एक लिखने का ऑपरेशन है; वर्तमान थ्रेड का कोई भी पहले का पढ़ना-लिखना इस ऑपरेशन के बाद पुनर्क्रमित नहीं किया जा सकता।</li>
 </ul>
-<p>acquire तथा release प्रायः जोड़े में आते हैं; उद्देश्य यह सुनिश्चित करना है कि यदि उसी atomic ऑब्जेक्ट पर release, acquire से पहले हुआ हो, तो release से पहले की गई मेमोरी-मरम्मतें (modifications) acquire के बाद के मेमोरी-पठन को संपूर्ण रूप से दिखाई दें।</p>
-<h2 id="8pthread_once">8.pthread_once<a class="headerlink" href="#8pthread_once" title="Permanent link">&para;</a></h2>
-<p>यदि unix प्लेटफ़ॉर्म हो, तो atomic operation के अतिरिक्त, C++11 उपयोग न करते हुए भी pthread_once से Singleton बनाया जा सकता है।</p>
+<p>acquire और release प्रायः जोड़ी में आते हैं, जिसका उद्देश्य यह सुनिश्चित करना है कि यदि उसी परमाणु ऑब्जेक्ट पर release, acquire से पहले होता है, तो release से पहले हुए मेमोरी परिवर्तन acquire के बाद के मेमोरी पठन को पूरी तरह दिखाई दें।</p>
+<h2 id="8-pthread_once">8. pthread_once<a class="headerlink" href="#8-pthread_once" title="Permanent link">&para;</a></h2>
+<p>unix प्लेटफ़ॉर्म पर, atomic operation के अलावा, यदि C++11 का उपयोग नहीं कर रहे हैं, तो pthread_once से भी Singleton कार्यान्वित किया जा सकता है।</p>
 <p>प्रोटोटाइप इस प्रकार है:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>int pthread_once(pthread_once_t once_control, void (init_routine) (void))；
 </span></code></pre></div>
@@ -5793,15 +5811,41 @@
 </span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="9">9.सारांश<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
-<p>इस लेख में कुछ सिंगलटन पैटर्न समझाए गए, साथ ही thread-safe सिंगलटन पैटर्न तथा C++11 उपयोग किए बिना बनाए जाने वाले कुछ thread-safe सिंगलटन: memory barrier, स्टैटिक लोकल वेरिएबल, pthread_once तरीका, C++11 का atomic कार्यान्वयन आदि।</p>
-<p>अंत में ध्यान देने योग्य है कि उपरोक्त सिंगलटन क्लास के डिस्ट्रक्टर के लिए डबल-चेक लॉक पैटर्न + स्वतः रीसाइकल कार्यान्वयन देखें — क्लास में अवश्य ही एक स्टैटिक लोकल वेरिएबल घोषित करना चाहिए। स्टैटिक लोकल वेरिएबल को ग्लोबल वेरिएबल समझा जा सकता है — प्रोग्राम समाप्त होने पर उस स्टैटिक लोकल वेरिएबल का डिस्ट्रक्टर स्वतः कॉल होता है; इसीलिए क्लास में नेस्टेड क्लास घोषित-परिभाषित की जाती है, न कि सिंगलटन का डिस्ट्रक्टर सीधे लिखा जाता।</p>
-<h2 id="10">10.संदर्भ सामग्री<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h2 id="9">9. सारांश<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>इस लेख में कई सिंगलटन पैटर्न समझाए गए, साथ ही थ्रेड-सुरक्षित सिंगलटन पैटर्न और C++11 का उपयोग किए बिना थ्रेड-सुरक्षित सिंगलटन के कई कार्यान्वयन: memory barrier, स्टैटिक लोकल वेरिएबल, pthread_once विधि, C++11 का atomic कार्यान्वयन आदि।</p>
+<p>अंत में ध्यान देने योग्य है कि उपरोक्त सिंगलटन क्लासों के डिस्ट्रक्टर के लिए कृपया डबल-चेक्ड लॉकिंग + स्वचालित रीकवरी कार्यान्वयन देखें: क्लास के भीतर एक स्टैटिक लोकल वेरिएबल घोषित करना अनिवार्य है। स्टैटिक लोकल वेरिएबल को ग्लोबल वेरिएबल की तरह समझा जा सकता है; प्रोग्राम समाप्त होने पर उस स्टैटिक लोकल वेरिएबल का डिस्ट्रक्टर स्वचालित रूप से कॉल होता है। इसीलिए क्लास के भीतर नेस्टेड क्लास घोषित और परिभाषित की जाती है, न कि सिंगलटन का डिस्ट्रक्टर सीधे लिखा जाता है।</p>
+<h2 id="10">10. संदर्भ<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><a href="https://thorns.cn/2019/03/09/DCLP.html">https://thorns.cn/2019/03/09/DCLP.html</a></p>
 <p><a href="https://www.cnblogs.com/liyuan989/p/4264889.html">https://www.cnblogs.com/liyuan989/p/4264889.html</a></p>
 <p><a href="https://segmentfault.com/a/1190000015950693">https://segmentfault.com/a/1190000015950693</a></p>
 </blockquote>
+<h2 id="-">पुनः प्रयोग योग्य थ्रेड-सुरक्षित सिंगलटन टेम्पलेट क्लास<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/issues/303">issue #303</a> की माँग के जवाब में: boost::container::singleton_default के विचार को देखते हुए, एक CRTP टेम्पलेट बेस क्लास किसी भी क्लास को एक पंक्ति में थ्रेड-सुरक्षित सिंगलटन बना सकती है (पूरा कोड <a href="https://github.com/Light-City/CPlusPlusThings/blob/master/design_pattern/singleton/singleton_default.hpp">singleton_default.hpp</a> में देखें, जिसमें कंकरेंसी टेस्ट शामिल हैं):</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span><span class="w">   </span><span class="c1">// C++11 起局部静态变量初始化线程安全</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">};</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1">// 用法：继承即可</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyConfig</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="n">MyConfig</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">   </span><span class="c1">// 构造私有，交由基类创建</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="p">};</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="c1">// MyConfig::instance().value</span>
+</span></code></pre></div>
 
 
 

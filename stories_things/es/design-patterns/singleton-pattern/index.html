@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Seguro que en las entrevistas no te libras del tema de los patrones de diseño. Esta sección trata el patrón más usado en entrevistas (el patrón singleton): su clasificación, la seguridad ante hilos y, desde la perspectiva previa a C++11 y desde la de C++11, qué soluciones existen para un singleton thread-safe. Si lees este artículo con atención, ya no tendrás de qué preocuparte en futuras entrevistas.">
+        <meta name="description" content="Seguro que nadie escapa en las entrevistas al tema de los patrones de diseño. Esta sección expone el patrón de diseño más utilizado en entrevistas (el patrón singleton), desde su clasificación y la seguridad de hilos, tanto desde la perspectiva previa a C++11 como desde la perspectiva basada en C++11, y qué soluciones de singleton thread-safe existen. Lee este artículo con atención y no tendrás que preocuparte en futuras entrevistas.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ tutorial patrón singleton,std::mutex,patrones de diseño"> 
-    <meta name="title" content="C++ Patrón singleton | C++那些事"> 
+    <meta name="keywords" content="tutorial del patrón singleton en C++,std::mutex,patrones de diseño"> 
+    <meta name="title" content="El patrón singleton en C++ | C++那些事"> 
 
     
       
-        <title>C++ Patrón singleton | C++那些事 - C++那些事</title>
+        <title>El patrón singleton en C++ | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ Patrón singleton | C++那些事">
-      <meta property="og:description" content="Seguro que en las entrevistas no te libras del tema de los patrones de diseño. Esta sección trata el patrón más usado en entrevistas (el patrón singleton): su clasificación, la seguridad ante hilos y, desde la perspectiva previa a C++11 y desde la de C++11, qué soluciones existen para un singleton thread-safe. Si lees este artículo con atención, ya no tendrás de qué preocuparte en futuras entrevistas.">
+      <meta property="og:title" content="El patrón singleton en C++ | C++那些事">
+      <meta property="og:description" content="Seguro que nadie escapa en las entrevistas al tema de los patrones de diseño. Esta sección expone el patrón de diseño más utilizado en entrevistas (el patrón singleton), desde su clasificación y la seguridad de hilos, tanto desde la perspectiva previa a C++11 como desde la perspectiva basada en C++11, y qué soluciones de singleton thread-safe existen. Lee este artículo con atención y no tendrás que preocuparte en futuras entrevistas.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ Patrón singleton | C++那些事">
-      <meta name="twitter:description" content="Seguro que en las entrevistas no te libras del tema de los patrones de diseño. Esta sección trata el patrón más usado en entrevistas (el patrón singleton): su clasificación, la seguridad ante hilos y, desde la perspectiva previa a C++11 y desde la de C++11, qué soluciones existen para un singleton thread-safe. Si lees este artículo con atención, ya no tendrás de qué preocuparte en futuras entrevistas.">
+      <meta name="twitter:title" content="El patrón singleton en C++ | C++那些事">
+      <meta name="twitter:description" content="Seguro que nadie escapa en las entrevistas al tema de los patrones de diseño. Esta sección expone el patrón de diseño más utilizado en entrevistas (el patrón singleton), desde su clasificación y la seguridad de hilos, tanto desde la perspectiva previa a C++11 como desde la perspectiva basada en C++11, y qué soluciones de singleton thread-safe existen. Lee este artículo con atención y no tendrás que preocuparte en futuras entrevistas.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ Patrón singleton | C++那些事", "description": "Seguro que en las entrevistas no te libras del tema de los patrones de diseño. Esta sección trata el patrón más usado en entrevistas (el patrón singleton): su clasificación, la seguridad ante hilos y, desde la perspectiva previa a C++11 y desde la de C++11, qué soluciones existen para un singleton thread-safe. Si lees este artículo con atención, ya no tendrás de qué preocuparte en futuras entrevistas.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Idioms", "item": "https://light-city.github.io/stories_things/es/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "C++ Patrón singleton | C++那些事", "item": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "El patrón singleton en C++ | C++那些事", "description": "Seguro que nadie escapa en las entrevistas al tema de los patrones de diseño. Esta sección expone el patrón de diseño más utilizado en entrevistas (el patrón singleton), desde su clasificación y la seguridad de hilos, tanto desde la perspectiva previa a C++11 como desde la perspectiva basada en C++11, y qué soluciones de singleton thread-safe existen. Lee este artículo con atención y no tendrás que preocuparte en futuras entrevistas.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Idioms", "item": "https://light-city.github.io/stories_things/es/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "El patrón singleton en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/design-patterns/singleton-pattern/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-patron-singleton" class="md-skip">
+        <a href="#el-patron-singleton-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ Patrón singleton | C++那些事
+              El patrón singleton en C++ | C++那些事
             
           </span>
         </div>
@@ -2650,99 +2650,108 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0introduccion" class="md-nav__link">
+  <a href="#0-introduccion" class="md-nav__link">
     <span class="md-ellipsis">
-      0.Introducción
+      0. Introducción
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1el-singleton-que-todo-el-mundo-conoce" class="md-nav__link">
+  <a href="#1-el-singleton-ampliamente-conocido" class="md-nav__link">
     <span class="md-ellipsis">
-      1.El singleton que todo el mundo conoce
+      1. El singleton ampliamente conocido
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2perezoso-versus-ansioso" class="md-nav__link">
+  <a href="#2-inicializacion-perezosa-y-ansiosa" class="md-nav__link">
     <span class="md-ellipsis">
-      2.Perezoso versus ansioso
+      2. Inicialización perezosa y ansiosa
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3bloqueo-con-mutex-en-entornos-multihilo" class="md-nav__link">
+  <a href="#3-bloqueo-para-multiples-hilos" class="md-nav__link">
     <span class="md-ellipsis">
-      3.Bloqueo con mutex en entornos multihilo
+      3. Bloqueo para múltiples hilos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4patron-double-checked-locking" class="md-nav__link">
+  <a href="#4-patron-de-doble-comprobacion-con-lock-dclp" class="md-nav__link">
     <span class="md-ellipsis">
-      4.Patrón double-checked locking
+      4. Patrón de doble comprobación con lock (DCLP)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5la-instruccion-memory-barrier" class="md-nav__link">
+  <a href="#5-la-instruccion-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5.La instrucción memory barrier
+      5. La instrucción memory barrier
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6variable-local-estatica" class="md-nav__link">
+  <a href="#6-variables-estaticas-locales" class="md-nav__link">
     <span class="md-ellipsis">
-      6.Variable local estática
+      6. Variables estáticas locales
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9resumen" class="md-nav__link">
+  <a href="#9-resumen" class="md-nav__link">
     <span class="md-ellipsis">
-      9.Resumen
+      9. Resumen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10referencias" class="md-nav__link">
+  <a href="#10-referencias" class="md-nav__link">
     <span class="md-ellipsis">
-      10.Referencias
+      10. Referencias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#una-clase-plantilla-singleton-thread-safe-reutilizable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Una clase plantilla singleton thread-safe reutilizable
     </span>
   </a>
   
@@ -5425,99 +5434,108 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#0introduccion" class="md-nav__link">
+  <a href="#0-introduccion" class="md-nav__link">
     <span class="md-ellipsis">
-      0.Introducción
+      0. Introducción
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1el-singleton-que-todo-el-mundo-conoce" class="md-nav__link">
+  <a href="#1-el-singleton-ampliamente-conocido" class="md-nav__link">
     <span class="md-ellipsis">
-      1.El singleton que todo el mundo conoce
+      1. El singleton ampliamente conocido
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2perezoso-versus-ansioso" class="md-nav__link">
+  <a href="#2-inicializacion-perezosa-y-ansiosa" class="md-nav__link">
     <span class="md-ellipsis">
-      2.Perezoso versus ansioso
+      2. Inicialización perezosa y ansiosa
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3bloqueo-con-mutex-en-entornos-multihilo" class="md-nav__link">
+  <a href="#3-bloqueo-para-multiples-hilos" class="md-nav__link">
     <span class="md-ellipsis">
-      3.Bloqueo con mutex en entornos multihilo
+      3. Bloqueo para múltiples hilos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4patron-double-checked-locking" class="md-nav__link">
+  <a href="#4-patron-de-doble-comprobacion-con-lock-dclp" class="md-nav__link">
     <span class="md-ellipsis">
-      4.Patrón double-checked locking
+      4. Patrón de doble comprobación con lock (DCLP)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5la-instruccion-memory-barrier" class="md-nav__link">
+  <a href="#5-la-instruccion-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5.La instrucción memory barrier
+      5. La instrucción memory barrier
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6variable-local-estatica" class="md-nav__link">
+  <a href="#6-variables-estaticas-locales" class="md-nav__link">
     <span class="md-ellipsis">
-      6.Variable local estática
+      6. Variables estáticas locales
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7atomic" class="md-nav__link">
+  <a href="#7-atomic" class="md-nav__link">
     <span class="md-ellipsis">
-      7.Atomic
+      7. Atomic
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8pthread_once" class="md-nav__link">
+  <a href="#8-pthread_once" class="md-nav__link">
     <span class="md-ellipsis">
-      8.pthread_once
+      8. pthread_once
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9resumen" class="md-nav__link">
+  <a href="#9-resumen" class="md-nav__link">
     <span class="md-ellipsis">
-      9.Resumen
+      9. Resumen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10referencias" class="md-nav__link">
+  <a href="#10-referencias" class="md-nav__link">
     <span class="md-ellipsis">
-      10.Referencias
+      10. Referencias
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#una-clase-plantilla-singleton-thread-safe-reutilizable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Una clase plantilla singleton thread-safe reutilizable
     </span>
   </a>
   
@@ -5546,11 +5564,11 @@
 <blockquote>
 <p><strong>Última actualización：2026-10-12</strong></p>
 </blockquote>
-<h1 id="c-patron-singleton">C++ Patrón singleton<a class="headerlink" href="#c-patron-singleton" title="Permanent link">&para;</a></h1>
-<h2 id="0introduccion">0.Introducción<a class="headerlink" href="#0introduccion" title="Permanent link">&para;</a></h2>
-<p>Seguro que en las entrevistas no te libras del tema de los patrones de diseño. Esta sección trata el patrón más usado en entrevistas (el patrón singleton): su clasificación, la seguridad ante hilos y, desde la perspectiva previa a C++11 y desde la de C++11, qué soluciones existen para un singleton thread-safe. Si lees este artículo con atención, ya no tendrás de qué preocuparte en futuras entrevistas.</p>
-<h2 id="1el-singleton-que-todo-el-mundo-conoce">1.El singleton que todo el mundo conoce<a class="headerlink" href="#1el-singleton-que-todo-el-mundo-conoce" title="Permanent link">&para;</a></h2>
-<p>En los libros corrientes, o en la versión más conocida del patrón singleton, este se presenta así:</p>
+<h1 id="el-patron-singleton-en-c">El patrón singleton en C++<a class="headerlink" href="#el-patron-singleton-en-c" title="Permanent link">&para;</a></h1>
+<h2 id="0-introduccion">0. Introducción<a class="headerlink" href="#0-introduccion" title="Permanent link">&para;</a></h2>
+<p>Seguro que nadie escapa en las entrevistas al tema de los patrones de diseño. Esta sección expone el patrón de diseño más utilizado en entrevistas (el patrón singleton), desde su clasificación y la seguridad de hilos, tanto desde la perspectiva previa a C++11 como desde la perspectiva basada en C++11, y qué soluciones de singleton thread-safe existen. Lee este artículo con atención y no tendrás que preocuparte en futuras entrevistas.</p>
+<h2 id="1-el-singleton-ampliamente-conocido">1. El singleton ampliamente conocido<a class="headerlink" href="#1-el-singleton-ampliamente-conocido" title="Permanent link">&para;</a></h2>
+<p>En los libros habituales, o según el conocimiento común, el patrón singleton es el siguiente:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5567,17 +5585,17 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Es una implementación muy simple: se declara el constructor private o protected para impedir la instanciación desde funciones externas, se guarda la única instancia en un puntero estático de clase, y la creación de la instancia se confía a un método public que devuelve la única instancia de la clase.</p>
-<p>Eso sí, este código solo sirve para un solo hilo; con varios hilos no es seguro. Imagina dos hilos que llaman a instance por primera vez a la vez y ambos comprueban que p es nullptr: los dos construirían una instancia para p simultáneamente, violando el principio del singleton.</p>
-<h2 id="2perezoso-versus-ansioso">2.Perezoso versus ansioso<a class="headerlink" href="#2perezoso-versus-ansioso" title="Permanent link">&para;</a></h2>
-<p>El singleton tiene dos formas de implementarse:</p>
+<p>Esta es una implementación muy sencilla: el constructor se declara private o protected para evitar que funciones externas instancien la clase; dentro, un puntero estático de la clase guarda la única instancia; la instanciación se realiza mediante un método public que devuelve la única instancia de la clase.</p>
+<p>Por supuesto, este código solo sirve para un solo hilo; con múltiples hilos no es seguro. Considera dos hilos que llaman a instance por primera vez a la vez y ambos comprueban que p es nullptr: ambos hilos construirían una instancia para p simultáneamente, lo que violaría el principio del singleton.</p>
+<h2 id="2-inicializacion-perezosa-y-ansiosa">2. Inicialización perezosa y ansiosa<a class="headerlink" href="#2-inicializacion-perezosa-y-ansiosa" title="Permanent link">&para;</a></h2>
+<p>El singleton se implementa de dos maneras:</p>
 <ul>
-<li>Perezoso (lazy)</li>
-<li>La instancia se crea la primera vez que se usa; la de arriba es la implementación perezosa.</li>
-<li>Ansioso (eager)</li>
-<li>La instancia se crea al definir la clase singleton.</li>
+<li>Inicialización perezosa (lazy)</li>
+<li>La instanciación ocurre la primera vez que se usa la instancia de la clase; lo anterior es la implementación perezosa.</li>
+<li>Inicialización ansiosa (eager)</li>
+<li>La instanciación ocurre en el momento en que se define la clase singleton.</li>
 </ul>
-<p>Aquí está también la implementación ansiosa:</p>
+<p>Aquí también se muestra la implementación ansiosa:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5591,9 +5609,9 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Esta desde luego es thread-safe; lo que habitualmente describimos como no thread-safe es el modo perezoso, y a continuación veremos optimizaciones thread-safe del modo perezoso.</p>
-<h2 id="3bloqueo-con-mutex-en-entornos-multihilo">3.Bloqueo con mutex en entornos multihilo<a class="headerlink" href="#3bloqueo-con-mutex-en-entornos-multihilo" title="Permanent link">&para;</a></h2>
-<p>En C++ hay una clase para bloquear cuyo principio de implementación usa RAII, sin gestionar unlock a mano: lock_guard; aquí la usamos para bloquear.</p>
+<p>Por supuesto esta es thread-safe. La que solemos describir como no thread-safe es la variante perezosa; a continuación se explican las optimizaciones de código para hacerla thread-safe.</p>
+<h2 id="3-bloqueo-para-multiples-hilos">3. Bloqueo para múltiples hilos<a class="headerlink" href="#3-bloqueo-para-multiples-hilos" title="Permanent link">&para;</a></h2>
+<p>En C++ hay una clase para bloquear cuyo principio de implementación emplea RAII, de modo que no hay que gestionar el unlock manualmente: lock_guard; aquí la usamos para bloquear.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5612,11 +5630,11 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Con esta escritura no puede ocurrir que dos hilos entren ambos en la rama p == nullptr: cuando el hilo A está ejecutando <code>p = new Singleton()</code> y el hilo B llama a <code>instance()</code>, B se queda bloqueado en el cerrojo esperando a que A termine y lo libere. Por tanto es thread-safe.</p>
-<p>Pero esta forma de escribir tiene un rendimiento muy bajo, porque cada llamada a <code>instance()</code> adquiere y libera el cerrojo, y ese paso solo es necesario la primera vez, en el <code>new Singleton()</code>. Una vez que <code>p</code> está creado, por muchos hilos que accedan a la vez, basta con la comprobación <code>if (p == nullptr)</code> (una mera lectura, sin necesidad de cerrojo): no hay problema de seguridad de hilos, y añadir el cerrojo solo genera un problema de rendimiento.</p>
+<p>Con esta escritura no puede ocurrir la situación anterior en la que ambos hilos entran en la rama de p == nullptr. Mientras el hilo A ejecuta <code>p = new Singleton()</code>, si el hilo B llama a <code>instance()</code>, se bloqueará sin duda en la toma del lock y esperará a que el hilo A termine y libere el lock. Por lo tanto es thread-safe.</p>
+<p>Pero esta escritura tiene un rendimiento muy bajo, porque cada llamada a <code>instance()</code> toma y libera el lock, y ese paso solo es necesario para el primer <code>new Singleton()</code>. Una vez que <code>p</code> ha sido creado, no importa cuántos hilos accedan a la vez, comprobar con <code>if (p == nullptr)</code> es suficiente (es solo una operación de lectura, no requiere lock); no hay problema de seguridad de hilos, y añadir el lock solo genera un problema de rendimiento.</p>
 <p>De ahí surge el DCL.</p>
-<h2 id="4patron-double-checked-locking">4.Patrón double-checked locking<a class="headerlink" href="#4patron-double-checked-locking" title="Permanent link">&para;</a></h2>
-<p>La escritura anterior bloquea y libera pase lo que pase, pero en las operaciones de lectura no existe el problema de seguridad de hilos, así que basta con bloquear la primera vez que se crea la instancia y no hacerlo después. Veamos primero la implementación del DCLP:</p>
+<h2 id="4-patron-de-doble-comprobacion-con-lock-dclp">4. Patrón de doble comprobación con lock (DCLP)<a class="headerlink" href="#4-patron-de-doble-comprobacion-con-lock-dclp" title="Permanent link">&para;</a></h2>
+<p>La escritura anterior toma el lock y lo libiere pase lo que pase, mientras que para las operaciones de lectura no existe problema de seguridad de hilos; por tanto solo hace falta bloquear cuando se crea la instancia por primera vez, y nunca después. Veamos primero la implementación del DCLP:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">singleton</span><span class="o">*</span><span class="w"> </span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 第一次检查</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">;</span>
@@ -5627,7 +5645,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Sobre esa base podemos escribir double-checked locking con recogida automática</p>
+<p>Con base en lo anterior, podemos escribir doble comprobación con lock + recolección automática</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5663,29 +5681,29 @@
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>La clave del DCLP es que la mayoría de las llamadas a instance verán p distinto de null, de modo que ni siquiera intentan inicializarlo. Por eso el DCLP comprueba si p es nulo antes de intentar adquirir el cerrojo. Solo si la comprobación tiene éxito (es decir, p aún no se ha inicializado) se obtiene el cerrojo y se comprueba de nuevo si p sigue siendo nulo (de ahí el nombre de doble comprobación). <strong>La segunda comprobación es necesaria porque, como acabamos de ver, es perfectamente posible que otro hilo inicialice p por casualidad después de la primera comprobación y antes de conseguir el cerrojo.</strong></p>
-<p>El código anterior parece perfecto, pero bastante tiempo después se descubrió el agujero. La causa: <strong>la ejecución desordenada de lecturas y escrituras de memoria (un problema del compilador)</strong>.</p>
+<p>La clave del DCLP está en que la mayoría de las llamadas a instance verán p como no nulo, de modo que ni siquiera intentan inicializarlo. Por eso el DCLP comprueba si p es nulo antes de intentar tomar el lock. Solo cuando la comprobación tiene éxito (es decir, p aún no se ha inicializado) toma el lock, y después comprueba de nuevo si p sigue siendo nulo (de ahí el nombre de doble comprobación con lock). <strong>La segunda comprobación es necesaria porque, como acabamos de ver, es muy posible que otro hilo inicialice p casualmente después de la primera comprobación y antes de adquirir el lock con éxito.</strong></p>
+<p>El código anterior parece precioso, pero después de bastante tiempo se descubrió el fallo. La razón: <strong>ejecución desordenada de lecturas y escrituras de memoria (un problema del compilador)</strong>.</p>
 <p>Consideremos de nuevo la línea que inicializa <code>p</code>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
 </span></code></pre></div>
 <p>Esta sentencia provoca tres cosas:</p>
 <ol>
-<li>Asignar la memoria capaz de almacenar el objeto <code>singleton</code>;</li>
+<li>Asignar memoria capaz de almacenar el objeto <code>singleton</code>;</li>
 <li>Construir un objeto <code>singleton</code> en la memoria asignada;</li>
 <li>Hacer que <code>p</code> apunte a esa memoria asignada.</li>
 </ol>
-<p>Uno podría pensar que estos tres pasos se ejecutan en orden, pero en realidad solo podemos afirmar que el paso <code>1</code> es el primero; los pasos <code>2</code> y <code>3</code>, no necesariamente. Ahí está el problema.</p>
+<p>Puede parecer que estos tres pasos se ejecutan en orden, pero en realidad solo se puede garantizar que el paso <code>1</code> se ejecuta primero; los pasos <code>2</code> y <code>3</code>, no necesariamente. Ahí está el problema.</p>
 <ul>
-<li>El hilo A llama a instance, ejecuta la primera comprobación de p, adquiere el cerrojo, ejecuta según el orden 1,3, y a continuación se suspende. En ese momento p no es nulo, pero en la memoria a la que apunta p todavía no se ha construido ningún objeto Singleton.</li>
+<li>El hilo A llama a instance, ejecuta la primera comprobación de p, toma el lock, ejecuta los pasos 1 y 3, y luego se suspende. En ese momento p no es nulo, pero todavía no se ha construido ningún objeto Singleton en la memoria a la que apunta p.</li>
 <li>El hilo B llama a instance, determina que p no es nulo y lo devuelve al llamador de instance. El llamador desreferencia el puntero para obtener el singleton… vaya, un objeto que aún no ha sido construido. Ahí aparece el bug.</li>
 </ul>
-<p>El DCLP solo funciona bien si los pasos uno y dos se ejecutan antes que el paso tres, pero no hay forma de expresar esa restricción en C ni en C++. Es como una daga clavada en el corazón del DCLP: necesitamos definir restricciones sobre el orden relativo de las instrucciones, pero nuestro lenguaje no ofrece manera de expresarlas.</p>
-<h2 id="5la-instruccion-memory-barrier">5.La instrucción memory barrier<a class="headerlink" href="#5la-instruccion-memory-barrier" title="Permanent link">&para;</a></h2>
-<p>En C++11, el problema del DCLP quedó resuelto.</p>
-<p>Como el nuevo C++11 estableció un nuevo modelo de memoria que garantiza que no se produzcan cambios de hilo durante la ejecución de esos 3 pasos —el proceso de inicialización es, en la práctica, «atómico»—, el DCL vuelve a poder usarse correctamente. Eso sí, en C++11 existe una forma aún más concisa de escribir un singleton multihilo, que presentaremos más adelante.</p>
-<p>Antes de C++11 la solución era la instrucción barrier. Para que se ejecute correctamente hay que poner un memory barrier justo entre los pasos 2 y 3, obligando a la CPU a ejecutar los pasos en el orden 1, 2 y 3.</p>
+<p>El DCLP funciona bien solo si los pasos uno y dos se ejecutan antes del paso tres, pero no hay forma de expresar esa restricción en C ni en C++. Es como una daga clavada en el corazón del DCLP: necesitamos definir restricciones sobre el orden relativo de las instrucciones, pero nuestro lenguaje no ofrece manera de expresar dichas restricciones.</p>
+<h2 id="5-la-instruccion-memory-barrier">5. La instrucción memory barrier<a class="headerlink" href="#5-la-instruccion-memory-barrier" title="Permanent link">&para;</a></h2>
+<p>El problema del DCLP quedó resuelto en C++11.</p>
+<p>Como el nuevo C++11 establece un nuevo modelo de memoria, garantiza que no habrá cambio de hilo mientras se ejecutan los 3 pasos anteriores; el proceso de inicialización equivale a una operación «atómica», y el DCL vuelve a poder usarse correctamente. Eso sí, en C++11 existe una forma aún más concisa de escribir un singleton multihilo, que presentaremos más adelante.</p>
+<p>Antes de C++11 la solución era la instrucción barrier. Para que se ejecute correctamente hay que poner un memory barrier justo entre los pasos 2 y 3, forzando a la CPU a ejecutarse en el orden 1, 2 y 3.</p>
 <p><strong>Primera implementación:</strong></p>
-<p>Basada en operator new + placement new, escribiendo el código según el orden de ejecución 1,2,3.</p>
+<p>Basada en operator new + placement new, escribiendo el código siguiendo el orden de ejecución 1, 2, 3.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// method 1 operator new + placement new
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>singleton *instance() {
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    if (p == nullptr) {
@@ -5700,7 +5718,7 @@
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>}
 </span></code></pre></div>
 <p><strong>Segunda implementación:</strong></p>
-<p>Basada en incrustar directamente la instrucción de ensamblador ASM mfence; la macro barrier de Unix también se implementa con esa instrucción.</p>
+<p>Basada en incrustar directamente la instrucción ASM mfence; la macro barrier de unix también se implementa mediante esa instrucción.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define barrier() __asm__ volatile (&quot;lwsync&quot;)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">singleton</span><span class="w"> </span><span class="o">*</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5713,31 +5731,31 @@
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Normalmente se llama a una instrucción que provee la CPU; su función es impedir que la CPU reordene las instrucciones anteriores a ella colocándolas después de ella; a esta instrucción se le llama habitualmente barrier. En el código anterior, <strong>asm</strong> indica que es una instrucción de ensamblador; volatile es opcional: si se usa, le declara al compilador que no se permite optimizar esa instrucción de ensamblador. lwsync es la instrucción barrier que provee POWERPC.</p>
-<h2 id="6variable-local-estatica">6.Variable local estática<a class="headerlink" href="#6variable-local-estatica" title="Permanent link">&para;</a></h2>
-<p>Scott Meyer propuso en «Effective C++» una forma concisa de escribir el singleton</p>
+<p>Normalmente se llama a una instrucción proporcionada por la CPU; el papel de esta instrucción es impedir que la CPU intercambie las instrucciones anteriores a ella hacia después de ella, y por eso suele llamarse barrier. En el código anterior, <strong>asm</strong> indica que es una instrucción ensamblador; volatile es opcional y, si se usa, declara al compilador que no se permite optimizar esa instrucción ensamblador. lwsync es la instrucción barrier que proporciona POWERPC.</p>
+<h2 id="6-variables-estaticas-locales">6. Variables estáticas locales<a class="headerlink" href="#6-variables-estaticas-locales" title="Permanent link">&para;</a></h2>
+<p>Scott Meyers propuso en Effective C++ una forma concisa de escribir un singleton</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">singleton</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>En un solo hilo, correcto.</li>
-<li>En entornos multihilo de C++11 y posteriores (como C++14), correcto.</li>
-<li>En entornos multihilo anteriores a C++11, no necesariamente correcto.</li>
+<li>Con un solo hilo, correcto.</li>
+<li>Con múltiples hilos en C++11 y versiones posteriores (como C++14), correcto.</li>
+<li>Con múltiples hilos antes de C++11, no necesariamente correcto.</li>
 </ul>
-<p>El motivo es que los estándares anteriores a C++11 no definían el modelo de memoria de las variables static locales, así que no era thread-safe. Pero en C++11 sí lo es, porque el nuevo estándar C++ establece que cuando un hilo está inicializando una variable, los demás hilos deben esperar a que esa inicialización termine antes de poder acceder a ella.</p>
-<p>Los órdenes de memoria usados anteriormente:</p>
+<p>La razón es que los estándares anteriores a C++11 no definían un modelo de memoria para las variables static locales, así que no era thread-safe. En C++11, en cambio, sí lo es, porque el nuevo estándar C++ establece que cuando un hilo está inicializando una variable, los demás hilos deben esperar a que dicha inicialización termine para poder acceder a ella.</p>
+<p>Los órdenes de memoria usados arriba:</p>
 <ul>
-<li>memory_order_relaxed: orden de memoria relajado; solo garantiza que las operaciones sobre el objeto atómico sean atómicas</li>
-<li>memory_order_acquire: operación de adquisición; al leer un objeto atómico, ninguna operación de lectura o escritura posterior del hilo actual puede reordenarse por delante de esta operación, y todas las escrituras de memoria que otros hilos hayan hecho antes de la liberación del mismo objeto atómico se vuelven visibles para el hilo actual</li>
-<li>memory_order_release: operación de liberación; al escribir un objeto atómico, ninguna operación de lectura o escritura previa del hilo actual puede reordenarse por detrás de esta operación, y todas las escrituras de memoria del hilo actual se vuelven visibles para los otros hilos que adquieran el mismo objeto atómico</li>
+<li>memory_order_relaxed: orden de memoria relajado, solo garantiza que las operaciones sobre el objeto atómico sean atómicas</li>
+<li>memory_order_acquire: operación de adquisición; al leer un objeto atómico, ninguna operación de lectura o escritura posterior del hilo actual puede reordenarse por delante de esta operación, y todas las escrituras de memoria de otros hilos previas a la liberación del mismo objeto atómico son visibles para el hilo actual</li>
+<li>memory_order_release: operación de liberación; al escribir un objeto atómico, ninguna operación de lectura o escritura anterior del hilo actual puede reordenarse después de esta operación, y todas las escrituras de memoria del hilo actual son visibles para los otros hilos que adquieran el mismo objeto atómico</li>
 </ul>
-<h2 id="7atomic">7.Atomic<a class="headerlink" href="#7atomic" title="Permanent link">&para;</a></h2>
-<p>En versiones anteriores a C++11, además de implementar el Singleton thread-safe con cerrojos, se pueden aprovechar las operaciones atómicas integradas de cada compilador.</p>
-<p>Cuando <code>java</code> y <code>c#</code> descubrieron el problema de reordenación, añadieron la palabra clave <code>volatile</code>: al declarar la variable <code>p</code> hay que añadir el modificador <code>volatile</code>, y al verlo el compilador sabe que ahí no se puede reordenar (primero reservar la memoria, luego ejecutar el constructor, y solo al terminar ambos, asignar).</p>
-<p>El estándar de <code>c++</code>, en cambio, nunca lo corrigió, así que <code>VC++</code> añadió esa palabra clave en la versión <code>2005</code>, pero no es portable (solo se admite en plataformas Microsoft).</p>
-<p>Y al llegar a <code>c++ 11</code>, para eliminar estos agujeros de raíz, se introdujo un modelo de memoria adecuado para multihilo. Por fin existe un mecanismo que nos ayuda a implementar una solución multiplataforma.</p>
+<h2 id="7-atomic">7. Atomic<a class="headerlink" href="#7-atomic" title="Permanent link">&para;</a></h2>
+<p>En versiones anteriores a C++11, además de implementar un Singleton thread-safe mediante locks, también se pueden aprovechar las atomic operation integradas en cada compilador.</p>
+<p>Cuando <code>java</code> y <code>c#</code> descubrieron el problema de reordenación, añadieron una palabra clave <code>volatile</code>: al declarar la variable <code>p</code> hay que cualificarla con <code>volatile</code>, y al verlo el compilador sabe que aquí no se puede reordenar (primero asignar la memoria, luego ejecutar el constructor, y solo cuando todo esté hecho, hacer la asignación).</p>
+<p>El estándar de <code>c++</code>, en cambio, nunca lo corrigió, así que <code>VC++</code> añadió esta palabra clave en su versión <code>2005</code>, pero no es multiplataforma (solo admite plataformas Microsoft).</p>
+<p>Y al llegar <code>c++ 11</code>, para eliminar estos agujeros de raíz, se introdujo un modelo de memoria adecuado para el multihilo. Por fin existe un mecanismo que nos ayuda a implementar una solución multiplataforma.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">mutex</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">lock_</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">atomic</span><span class="o">&lt;</span><span class="n">singleton</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -5761,15 +5779,15 @@
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Conviene señalar que el código anterior usa dos términos clave, adquisición y liberación:</p>
+<p>Cabe señalar que el código anterior emplea dos términos bastante clave: adquisición y liberación:</p>
 <ul>
-<li>La adquisición es una operación de lectura de memoria; ninguna operación de lectura o escritura posterior del hilo actual puede reordenarse por delante de esta operación.</li>
-<li>La liberación es una operación de escritura de memoria; ninguna operación de lectura o escritura previa del hilo actual puede reordenarse por detrás de esta operación.</li>
+<li>La adquisición es una operación de lectura sobre memoria; ninguna operación de lectura o escritura posterior del hilo actual puede reordenarse por delante de ella.</li>
+<li>La liberación es una operación de escritura sobre memoria; ninguna operación de lectura o escritura anterior del hilo actual puede reordenarse después de ella.</li>
 </ul>
-<p>acquire y release suelen aparecer emparejados, con el objetivo de garantizar que, si el release sobre el mismo objeto atómico ocurre antes que el acquire, todas las modificaciones de memoria previas al release puedan verse en su totalidad en las lecturas de memoria posteriores al acquire.</p>
-<h2 id="8pthread_once">8.pthread_once<a class="headerlink" href="#8pthread_once" title="Permanent link">&para;</a></h2>
-<p>En plataformas Unix, además de usar operaciones atómicas, si no se usa C++11 se puede implementar el Singleton con pthread_once.</p>
-<p>Su prototipo es:</p>
+<p>acquire y release normalmente apareen emparejados, con el objetivo de garantizar que, si la release sobre el mismo objeto atómico ocurre antes que la acquire, las modificaciones de memoria previas a la release puedan verse por completo en las lecturas de memoria posteriores a la acquire.</p>
+<h2 id="8-pthread_once">8. pthread_once<a class="headerlink" href="#8-pthread_once" title="Permanent link">&para;</a></h2>
+<p>En plataformas unix, además de usar atomic operations, si no se usa C++11 también se puede implementar el Singleton mediante pthread_once.</p>
+<p>El prototipo es el siguiente:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>int pthread_once(pthread_once_t once_control, void (init_routine) (void))；
 </span></code></pre></div>
 <p>Implementación:</p>
@@ -5793,15 +5811,41 @@
 </span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="9resumen">9.Resumen<a class="headerlink" href="#9resumen" title="Permanent link">&para;</a></h2>
-<p>Este artículo ha explicado varios tipos de patrón singleton, el singleton thread-safe, y varias implementaciones thread-safe sin usar C++11: memory barrier, variable local estática, pthread_once, la implementación con atomic de C++11, etc.</p>
-<p>Por último, nótese que, respecto al destructor de las clases singleton anteriores, conviene consultar la implementación con doble comprobación de cerrojo y recogida automática: hay que declarar una variable local estática dentro de la clase; una variable local estática puede entenderse como una variable global: al terminar el programa se invoca automáticamente su destructor. Por eso hay que declarar y definir una clase anidada en la clase, en lugar de escribir directamente el destructor del singleton.</p>
-<h2 id="10referencias">10.Referencias<a class="headerlink" href="#10referencias" title="Permanent link">&para;</a></h2>
+<h2 id="9-resumen">9. Resumen<a class="headerlink" href="#9-resumen" title="Permanent link">&para;</a></h2>
+<p>Este artículo ha explicado varios patrones singleton, los patrones singleton thread-safe, y varias implementaciones thread-safe que no usan C++11: memory barrier, variables estáticas locales, el enfoque pthread_once, la implementación atomic de C++11, etc.</p>
+<p>Por último, cabe señalar que, para el destructor de las clases singleton anteriores, consulta la implementación de doble comprobación con lock + recolección automática: hay que declarar una variable estática local dentro de la clase. Una variable estática local puede entenderse como una variable global; al terminar el programa se invoca automáticamente el destructor de esa variable estática local. Por eso se declara y define una clase anidada dentro de la clase, en lugar de escribir directamente el destructor del singleton.</p>
+<h2 id="10-referencias">10. Referencias<a class="headerlink" href="#10-referencias" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><a href="https://thorns.cn/2019/03/09/DCLP.html">https://thorns.cn/2019/03/09/DCLP.html</a></p>
 <p><a href="https://www.cnblogs.com/liyuan989/p/4264889.html">https://www.cnblogs.com/liyuan989/p/4264889.html</a></p>
 <p><a href="https://segmentfault.com/a/1190000015950693">https://segmentfault.com/a/1190000015950693</a></p>
 </blockquote>
+<h2 id="una-clase-plantilla-singleton-thread-safe-reutilizable">Una clase plantilla singleton thread-safe reutilizable<a class="headerlink" href="#una-clase-plantilla-singleton-thread-safe-reutilizable" title="Permanent link">&para;</a></h2>
+<p>Respondiendo a la petición del <a href="https://github.com/Light-City/CPlusPlusThings/issues/303">issue #303</a>: siguiendo la idea de boost::container::singleton_default, una clase base plantilla CRTP puede convertir cualquier clase en un singleton thread-safe en una sola línea (el código completo está en <a href="https://github.com/Light-City/CPlusPlusThings/blob/master/design_pattern/singleton/singleton_default.hpp">singleton_default.hpp</a>, con pruebas de concurrencia incluidas):</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span><span class="w">   </span><span class="c1">// C++11 起局部静态变量初始化线程安全</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">};</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1">// 用法：继承即可</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyConfig</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="n">MyConfig</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">   </span><span class="c1">// 构造私有，交由基类创建</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="p">};</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="c1">// MyConfig::instance().value</span>
+</span></code></pre></div>
 
 
 

@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Primero un resumen, y a continuación ejemplos reales. ¡A la práctica!">
+        <meta name="description" content="/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/sizeof/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="El operador sizeof en C++ | C++那些事">
-      <meta property="og:description" content="Primero un resumen, y a continuación ejemplos reales. ¡A la práctica!">
+      <meta property="og:description" content="/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/sizeof/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="El operador sizeof en C++ | C++那些事">
-      <meta name="twitter:description" content="Primero un resumen, y a continuación ejemplos reales. ¡A la práctica!">
+      <meta name="twitter:description" content="/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "El operador sizeof en C++ | C++那些事", "description": "Primero un resumen, y a continuación ejemplos reales. ¡A la práctica!", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "El operador sizeof en C++ | C++那些事", "description": "/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "El operador sizeof en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/"}]}</script>
   </head>
   
@@ -5460,14 +5460,14 @@
 <p><strong>Última actualización：2026-10-12</strong></p>
 </blockquote>
 <h1 id="el-operador-sizeof-en-c">El operador sizeof en C++<a class="headerlink" href="#el-operador-sizeof-en-c" title="Permanent link">&para;</a></h1>
-<p>Primero un resumen, y a continuación ejemplos reales. ¡A la práctica!</p>
+<p>Primero un resumen, y luego ejemplos reales a continuación. ¡A practicar!</p>
 <ul>
 <li>El tamaño de una clase vacía es 1 byte</li>
-<li>Dentro de una clase, las propias funciones virtuales, las funciones miembro (estáticas y no estáticas) y los miembros de datos estáticos no ocupan espacio de almacenamiento en el objeto de la clase.</li>
-<li>Para una clase que contiene funciones virtuales, no importa cuántas funciones virtuales haya: solo hay un puntero virtual, del tamaño del vptr.</li>
-<li>En la herencia ordinaria, la clase derivada hereda todas las funciones y miembros de las clases base, y el tamaño se calcula según la alineación de bytes</li>
-<li>En la herencia de funciones virtuales, ya sea herencia simple o múltiple, se hereda el vptr de las clases base. (4 bytes en sistemas de 32 bits, 8 bytes en sistemas de 64 bits)</li>
-<li>En la herencia virtual se hereda el vptr de la clase base.</li>
+<li>En una clase, las propias funciones virtuales, las funciones miembro (estáticas y no estáticas) y los miembros de datos estáticos no ocupan espacio de almacenamiento en los objetos de la clase.</li>
+<li>Para una clase que contiene funciones virtuales, sin importar cuántas haya, solo existe un puntero virtual: el tamaño del vptr.</li>
+<li>Con la herencia ordinaria, la clase derivada hereda todas las funciones y miembros de la clase base, y el tamaño debe calcularse según la alineación de bytes</li>
+<li>Con la herencia de funciones virtuales, ya sea herencia simple o múltiple, se hereda el vptr de la clase base. (¡4 bytes en sistemas de 32 bits, 8 bytes en sistemas de 64 bits)!</li>
+<li>Con la herencia virtual, se hereda el vptr de la clase base. Nótese que el resultado depende del compilador: GCC combina el puntero de base virtual con el puntero de la tabla de funciones virtuales (p. ej. 8/8/16), mientras que MSVC/Windows los almacena por separado (p. ej. 8/8/32); véase <a href="https://github.com/Light-City/CPlusPlusThings/issues/246">issue #246</a>.</li>
 </ul>
 <h2 id="1-principio-1">1. Principio 1<a class="headerlink" href="#1-principio-1" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
@@ -5653,7 +5653,7 @@
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">const en C++: constantes y modificación | C++那些事</a></li>
+<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

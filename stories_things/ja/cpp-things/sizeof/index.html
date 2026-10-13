@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="まずまとめを示し、その後実際の例を挙げて、実践してみましょう！">
+        <meta name="description" content="/  @file blackclass.cpp  @brief 空のクラスのサイズは1バイト  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/sizeof/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ sizeof 演算子 | C++那些事">
-      <meta property="og:description" content="まずまとめを示し、その後実際の例を挙げて、実践してみましょう！">
+      <meta property="og:description" content="/  @file blackclass.cpp  @brief 空のクラスのサイズは1バイト  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/sizeof/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ja_JP">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ sizeof 演算子 | C++那些事">
-      <meta name="twitter:description" content="まずまとめを示し、その後実際の例を挙げて、実践してみましょう！">
+      <meta name="twitter:description" content="/  @file blackclass.cpp  @brief 空のクラスのサイズは1バイト  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ sizeof 演算子 | C++那些事", "description": "まずまとめを示し、その後実際の例を挙げて、実践してみましょう！", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ sizeof 演算子 | C++那些事", "description": "/  @file blackclass.cpp  @brief 空のクラスのサイズは1バイト  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ sizeof 演算子 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/sizeof/"}]}</script>
   </head>
   
@@ -5460,14 +5460,14 @@
 <p><strong>最終更新：2026-10-12</strong></p>
 </blockquote>
 <h1 id="c-sizeof">C++ sizeof 演算子<a class="headerlink" href="#c-sizeof" title="Permanent link">&para;</a></h1>
-<p>まずまとめを示し、その後実際の例を挙げて、実践してみましょう！</p>
+<p>まずまとめを示し、その後で実際の例を挙げて実践してみましょう！</p>
 <ul>
-<li>空のクラスのサイズは1バイトである</li>
-<li>あるクラスにおいて、仮想関数自体、メンバ関数（静的・非静的を含む）、静的データメンバはいずれもクラスオブジェクトの記憶領域を消費しない。</li>
-<li>仮想関数を含むクラスでは、仮想関数が何個あっても、仮想ポインタは1つだけであり、vptrのサイズ分だけである。</li>
-<li>通常の継承では、派生クラスはすべての基底クラスの関数とメンバを継承し、バイトアラインメントに従ってサイズを計算する必要がある</li>
-<li>仮想関数の継承では、単一継承でも多重継承でも、基底クラスのvptrを継承する。（32ビットOSでは4バイト、64ビットOSでは8バイト）！</li>
-<li>仮想継承では、基底クラスのvptrを継承する。</li>
+<li>空のクラスのサイズは1バイト</li>
+<li>クラスにおいて、仮想関数自体、メンバ関数（静的・非静的の両方）、静的データメンバは、クラスオブジェクトの記憶領域を消費しません。</li>
+<li>仮想関数を含むクラスでは、仮想関数が何個あっても、仮想ポインタは1つだけで、その大きさはvptrのサイズです。</li>
+<li>通常の継承では、派生クラスは基底クラスのすべての関数とメンバを継承し、サイズはバイトアライメントに従って計算します</li>
+<li>仮想関数の継承では、単一継承でも多重継承でも、基底クラスのvptrを継承します（32ビットOSでは4バイト、64ビットOSでは8バイト）！</li>
+<li>仮想継承では、基底クラスのvptrを継承します。結果はコンパイラに依存することに注意してください：GCCは仮想基底ポインタと仮想関数テーブルポインタを統合します（例：8/8/16）が、MSVC/Windowsでは別々に格納します（例：8/8/32）。<a href="https://github.com/Light-City/CPlusPlusThings/issues/246">issue #246</a> を参照。</li>
 </ul>
 <h2 id="11">1.原則1<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>

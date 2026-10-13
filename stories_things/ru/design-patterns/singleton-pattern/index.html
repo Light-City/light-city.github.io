@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Наверняка на собеседованиях вам не избежать темы шаблонов проектирования. В этом разделе рассматривается самый часто встречающийся на собеседованиях шаблон — singleton (одиночка): его разновидности, потокобезопасность, решения без опоры на стандарт C++11 и на основе C++11. Внимательно прочитав эту статью, вы сможете больше не беспокоиться об этом на собеседованиях.">
+        <meta name="description" content="Наверняка никому не избежать на собеседованиях темы паттернов проектирования. В этом разделе разбирается самый популярный на собеседованиях паттерн — «одиночка» (singleton): его разновидности, потокобезопасность и решения потокобезопасного синглтона как без использования стандарта C++11, так и на его основе. Внимательно прочитайте эту статью — и на будущих собеседованиях вам беспокоиться будет не о чем.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="Учебник C++ singleton (одиночка),std::mutex,шаблоны проектирования"> 
-    <meta name="title" content="Шаблон Singleton в C++ | C++那些事"> 
+    <meta name="keywords" content="C++ паттерн одиночка руководство,std::mutex,шаблоны проектирования"> 
+    <meta name="title" content="Паттерн «одиночка» в C++ | C++那些事"> 
 
     
       
-        <title>Шаблон Singleton в C++ | C++那些事 - C++那些事</title>
+        <title>Паттерн «одиночка» в C++ | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/design-patterns/singleton-pattern/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/design-patterns/singleton-pattern/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Шаблон Singleton в C++ | C++那些事">
-      <meta property="og:description" content="Наверняка на собеседованиях вам не избежать темы шаблонов проектирования. В этом разделе рассматривается самый часто встречающийся на собеседованиях шаблон — singleton (одиночка): его разновидности, потокобезопасность, решения без опоры на стандарт C++11 и на основе C++11. Внимательно прочитав эту статью, вы сможете больше не беспокоиться об этом на собеседованиях.">
+      <meta property="og:title" content="Паттерн «одиночка» в C++ | C++那些事">
+      <meta property="og:description" content="Наверняка никому не избежать на собеседованиях темы паттернов проектирования. В этом разделе разбирается самый популярный на собеседованиях паттерн — «одиночка» (singleton): его разновидности, потокобезопасность и решения потокобезопасного синглтона как без использования стандарта C++11, так и на его основе. Внимательно прочитайте эту статью — и на будущих собеседованиях вам беспокоиться будет не о чем.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ru_RU">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Шаблон Singleton в C++ | C++那些事">
-      <meta name="twitter:description" content="Наверняка на собеседованиях вам не избежать темы шаблонов проектирования. В этом разделе рассматривается самый часто встречающийся на собеседованиях шаблон — singleton (одиночка): его разновидности, потокобезопасность, решения без опоры на стандарт C++11 и на основе C++11. Внимательно прочитав эту статью, вы сможете больше не беспокоиться об этом на собеседованиях.">
+      <meta name="twitter:title" content="Паттерн «одиночка» в C++ | C++那些事">
+      <meta name="twitter:description" content="Наверняка никому не избежать на собеседованиях темы паттернов проектирования. В этом разделе разбирается самый популярный на собеседованиях паттерн — «одиночка» (singleton): его разновидности, потокобезопасность и решения потокобезопасного синглтона как без использования стандарта C++11, так и на его основе. Внимательно прочитайте эту статью — и на будущих собеседованиях вам беспокоиться будет не о чем.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Шаблон Singleton в C++ | C++那些事", "description": "Наверняка на собеседованиях вам не избежать темы шаблонов проектирования. В этом разделе рассматривается самый часто встречающийся на собеседованиях шаблон — singleton (одиночка): его разновидности, потокобезопасность, решения без опоры на стандарт C++11 и на основе C++11. Внимательно прочитав эту статью, вы сможете больше не беспокоиться об этом на собеседованиях.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Идиомы", "item": "https://light-city.github.io/stories_things/ru/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "Шаблон Singleton в C++ | C++那些事", "item": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Паттерн «одиночка» в C++ | C++那些事", "description": "Наверняка никому не избежать на собеседованиях темы паттернов проектирования. В этом разделе разбирается самый популярный на собеседованиях паттерн — «одиночка» (singleton): его разновидности, потокобезопасность и решения потокобезопасного синглтона как без использования стандарта C++11, так и на его основе. Внимательно прочитайте эту статью — и на будущих собеседованиях вам беспокоиться будет не о чем.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Идиомы", "item": "https://light-city.github.io/stories_things/ru/cpp-idioms/class-initializer-list/"}, {"@type": "ListItem", "position": 3, "name": "Паттерн «одиночка» в C++ | C++那些事", "item": "https://light-city.github.io/stories_things/ru/design-patterns/singleton-pattern/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#singleton-c" class="md-skip">
+        <a href="#c" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Шаблон Singleton в C++ | C++那些事
+              Паттерн «одиночка» в C++ | C++那些事
             
           </span>
         </div>
@@ -2659,9 +2659,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-singleton" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Широко известный singleton
+      1. Широко известный синглтон
     </span>
   </a>
   
@@ -2670,7 +2670,7 @@
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Ленивая и жадная инициализация
+      2. «Ленивая» и «жадная» инициализация
     </span>
   </a>
   
@@ -2679,7 +2679,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Блокировка в многопоточности
+      3. Блокировка для многопоточности
     </span>
   </a>
   
@@ -2688,7 +2688,7 @@
         <li class="md-nav__item">
   <a href="#4-dclp" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Паттерн двойной проверенной блокировки (DCLP)
+      4. Паттерн двойной проверки блокировки (DCLP)
     </span>
   </a>
   
@@ -2697,7 +2697,7 @@
         <li class="md-nav__item">
   <a href="#5-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Инструкции memory barrier
+      5. Инструкция memory barrier
     </span>
   </a>
   
@@ -2706,7 +2706,7 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Статическая локальная переменная
+      6. Статические локальные переменные
     </span>
   </a>
   
@@ -2733,7 +2733,7 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Заключение
+      9. Итоги
     </span>
   </a>
   
@@ -2743,6 +2743,15 @@
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
       10. Ссылки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Переиспользуемый шаблон потокобезопасного синглтона
     </span>
   </a>
   
@@ -5434,9 +5443,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-singleton" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Широко известный singleton
+      1. Широко известный синглтон
     </span>
   </a>
   
@@ -5445,7 +5454,7 @@
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Ленивая и жадная инициализация
+      2. «Ленивая» и «жадная» инициализация
     </span>
   </a>
   
@@ -5454,7 +5463,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Блокировка в многопоточности
+      3. Блокировка для многопоточности
     </span>
   </a>
   
@@ -5463,7 +5472,7 @@
         <li class="md-nav__item">
   <a href="#4-dclp" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Паттерн двойной проверенной блокировки (DCLP)
+      4. Паттерн двойной проверки блокировки (DCLP)
     </span>
   </a>
   
@@ -5472,7 +5481,7 @@
         <li class="md-nav__item">
   <a href="#5-memory-barrier" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Инструкции memory barrier
+      5. Инструкция memory barrier
     </span>
   </a>
   
@@ -5481,7 +5490,7 @@
         <li class="md-nav__item">
   <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Статическая локальная переменная
+      6. Статические локальные переменные
     </span>
   </a>
   
@@ -5508,7 +5517,7 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Заключение
+      9. Итоги
     </span>
   </a>
   
@@ -5518,6 +5527,15 @@
   <a href="#10" class="md-nav__link">
     <span class="md-ellipsis">
       10. Ссылки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Переиспользуемый шаблон потокобезопасного синглтона
     </span>
   </a>
   
@@ -5546,11 +5564,11 @@
 <blockquote>
 <p><strong>Последнее обновление：2026-10-12</strong></p>
 </blockquote>
-<h1 id="singleton-c">Шаблон Singleton в C++<a class="headerlink" href="#singleton-c" title="Permanent link">&para;</a></h1>
+<h1 id="c">Паттерн «одиночка» в C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <h2 id="0">0. Введение<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
-<p>Наверняка на собеседованиях вам не избежать темы шаблонов проектирования. В этом разделе рассматривается самый часто встречающийся на собеседованиях шаблон — singleton (одиночка): его разновидности, потокобезопасность, решения без опоры на стандарт C++11 и на основе C++11. Внимательно прочитав эту статью, вы сможете больше не беспокоиться об этом на собеседованиях.</p>
-<h2 id="1-singleton">1. Широко известный singleton<a class="headerlink" href="#1-singleton" title="Permanent link">&para;</a></h2>
-<p>В обычных книгах и в массовом представлении шаблон singleton выглядит так:</p>
+<p>Наверняка никому не избежать на собеседованиях темы паттернов проектирования. В этом разделе разбирается самый популярный на собеседованиях паттерн — «одиночка» (singleton): его разновидности, потокобезопасность и решения потокобезопасного синглтона как без использования стандарта C++11, так и на его основе. Внимательно прочитайте эту статью — и на будущих собеседованиях вам беспокоиться будет не о чем.</p>
+<h2 id="1">1. Широко известный синглтон<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>В обычных книгах, или как принято считать, паттерн «одиночка» выглядит так:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5567,15 +5585,15 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Это очень простая реализация: конструктор объявляется private или protected, чтобы внешние функции не могли инстанцировать класс, внутри есть статический указатель на класс, хранящий единственный экземпляр, а реализация получения экземпляра выполнена public-методом, который и возвращает этот единственный экземпляр класса.</p>
-<p>Разумеется, этот код годится только для однопоточного случая; при многопоточности он небезопасен. Представим, что два потока одновременно впервые вызывают метод instance и одновременно видят, что p равен nullptr, — тогда оба потока одновременно сконструируют экземпляр и присвоят его p, что нарушает принцип singleton.</p>
-<h2 id="2">2. Ленивая и жадная инициализация<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>Singleton имеет две реализации:</p>
+<p>Это очень простая реализация: конструктор объявляется private или protected, чтобы внешние функции не могли создать экземпляр; внутри статический указатель класса хранит единственный экземпляр; создание экземпляра выполняется public-методом, который и возвращает единственный экземпляр класса.</p>
+<p>Разумеется, этот код годится только для однопоточного использования; при многопоточности он небезопасен. Представьте, что два потока впервые одновременно вызывают метод instance и оба обнаруживают, что p равно nullptr: тогда оба потока одновременно создадут экземпляр и запишут его в p, что нарушает принцип синглтона.</p>
+<h2 id="2">2. «Ленивая» и «жадная» инициализация<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>Синглтон реализуется двумя способами:</p>
 <ul>
-<li>ленивая (lazy)</li>
-<li>экземпляр создаётся при первом использовании; описанная выше — это как раз ленивая реализация.</li>
-<li>жадная (eager)</li>
-<li>экземпляр создаётся в момент определения класса singleton.</li>
+<li>Ленивая инициализация</li>
+<li>Экземпляр создаётся при первом использовании; приведённый выше вариант — ленивая реализация.</li>
+<li>Жадная инициализация</li>
+<li>Экземпляр создаётся в момент определения класса-синглтона.</li>
 </ul>
 <p>Приведём и жадную реализацию:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
@@ -5591,9 +5609,9 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Она, разумеется, потокобезопасна. Обычно, когда говорят о потоконебезопасности, имеют в виду ленивый режим — его потокобезопасную оптимизацию мы разберём ниже.</p>
-<h2 id="3">3. Блокировка в многопоточности<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>В C++ есть класс, чей принцип реализации блокировки построен на RAII и не требует ручного unlock — это lock_guard; воспользуемся им для блокировки.</p>
+<p>Разумеется, она потокобезопасна. Обычно же как небезопасную для потоков описывают ленивую разновидность; ниже мы разберём оптимизации кода ленивого синглтона для потокобезопасности.</p>
+<h2 id="3">3. Блокировка для многопоточности<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>В C++ есть класс для блокировки, принцип реализации которого основан на RAII и который не требует ручного управления unlock — это lock_guard; воспользуемся им для блокировки.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5612,11 +5630,11 @@
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>При такой записи не возникнет описанной выше ситуации, когда оба потока выполняют ветку p == nullptr: когда поток A выполняет <code>p = new Singleton()</code>, а поток B вызывает <code>instance()</code>, B неизбежно блокируется на захвате мьютекса и ждёт, пока поток A закончит и освободит блокировку. Тем самым достигается потокобезопасность.</p>
-<p>Но такая запись крайне низкопроизводительна: каждый вызов <code>instance()</code> захватывает и освобождает блокировку, тогда как это нужно только при первом <code>new Singleton()</code>. Как только <code>p</code> создан, скольким бы потокам ни требовался доступ, проверки <code>if (p == nullptr)</code> вполне достаточно (это лишь чтение, блокировка не нужна), никаких проблем потокобезопасности нет, а блокировка лишь создаёт проблемы производительности.</p>
-<p>Отсюда и появляется DCL.</p>
-<h2 id="4-dclp">4. Паттерн двойной проверенной блокировки (DCLP)<a class="headerlink" href="#4-dclp" title="Permanent link">&para;</a></h2>
-<p>В варианте выше блокировка захватывается и освобождается при любых обстоятельствах, но для операций чтения потокобезопасность не нарушается, поэтому блокировка нужна только при первом создании экземпляра, а дальше — нет. Сначала посмотрим на реализацию DCLP:</p>
+<p>При такой записи не может случиться описанная выше ситуация, когда оба потока выполняются внутри ветки p == nullptr. Пока поток A выполняет <code>p = new Singleton()</code>, если поток B вызовет <code>instance()</code>, он гарантированно заблокируется на захвате мьютекса и будет ждать, пока поток A не завершит работу и не освободит его. Следовательно, это потокобезопасно.</p>
+<p>Но такая запись крайне неэффективна, поскольку при каждом вызове <code>instance()</code> выполняется захват и освобождение мьютекса, а нужен этот шаг только для первого <code>new Singleton()</code>. Как только <code>p</code> создан, сколько бы потоков ни обращалось одновременно, достаточно проверки <code>if (p == nullptr)</code> (это лишь операция чтения, блокировка не нужна); проблемы потокобезопасности нет, а после добавления блокировки возникает как раз проблема производительности.</p>
+<p>Отсюда появляется DCL.</p>
+<h2 id="4-dclp">4. Паттерн двойной проверки блокировки (DCLP)<a class="headerlink" href="#4-dclp" title="Permanent link">&para;</a></h2>
+<p>Вариант выше при любых обстоятельствах захватывает и освобождает мьютекс, хотя для операций чтения проблемы потокобезопасности нет; значит, блокировка нужна только при первом создании экземпляра, а дальше — никогда. Сначала посмотрим на реализацию DCLP:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">singleton</span><span class="o">*</span><span class="w"> </span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 第一次检查</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">;</span>
@@ -5627,7 +5645,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>На её основе можно написать двойную проверенную блокировку с автоматической сборкой мусора</p>
+<p>На основе сказанного можно написать двойную проверку с блокировкой + автоматическое освобождение</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">singleton</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">private</span><span class="o">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5663,29 +5681,29 @@
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Суть DCLP в том, что большинство вызовов instance видят p ненулевым и даже не пытаются ничего инициализировать. Поэтому DCLP перед попыткой захвата блокировки проверяет, пуст ли p. Только если проверка прошла (то есть p ещё не инициализирован), захватывается блокировка и p проверяется повторно (отсюда и название — двойная проверенная блокировка). <strong>Вторая проверка необходима, поскольку, как мы только что видели, вполне возможно, что другой поток случайно инициализировал p после первой проверки, но до успешного захвата блокировки.</strong></p>
-<p>Кажется, что приведённый выше код прекрасен, но лишь спустя довольно долгое время была обнаружена дыра, причина — <strong>переупорядочивание чтений и записей памяти (проблема компилятора)</strong>.</p>
-<p>Рассмотрим ещё раз строку инициализации <code>p</code>:</p>
+<p>Суть DCLP в том, что большинство вызовов instance увидят p ненулевым и даже не попытаются его инициализировать. Поэтому DCLP перед попыткой захвата мьютекса проверяет, нулевой ли p. Только если проверка успешна (то есть p ещё не инициализирован), он захватывает мьютекс, а затем снова проверяет, остался ли p нулевым (отсюда и название — двойная проверка с блокировкой). <strong>Вторая проверка необходима, потому что, как мы только что видели, вполне вероятно, что другой поток случайно инициализирует p после первой проверки, но до успешного захвата мьютекса.</strong></p>
+<p>Код выше выглядит прекрасно, однако лишь по прошествии немалого времени в нём обнаружили изъян. Причина: <strong>переупорядочивание чтений и записей памяти (проблема компилятора)</strong>.</p>
+<p>Рассмотрим ещё раз строку, инициализирующую <code>p</code>:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
 </span></code></pre></div>
-<p>Эта инструкция приводит к трём событиям:</p>
+<p>Этот оператор влечёт три события:</p>
 <ol>
-<li>выделяется память, способная хранить объект <code>singleton</code>;</li>
-<li>в выделенной памяти конструируется объект <code>singleton</code>;</li>
-<li><code>p</code> начинает указывать на эту выделенную память.</li>
+<li>Выделить память, способную хранить объект <code>singleton</code>;</li>
+<li>Сконструировать объект <code>singleton</code> в выделенной памяти;</li>
+<li>Заставить <code>p</code> указывать на эту выделенную память.</li>
 </ol>
-<p>Можно было бы думать, что эти три шага выполняются по порядку, но на самом деле можно гарантировать лишь то, что шаг <code>1</code> выполняется первым, а порядок шагов <code>2</code> и <code>3</code> не гарантирован. Вот где кроется проблема.</p>
+<p>Можно подумать, что эти три шага выполняются по порядку, но на деле гарантировано лишь то, что шаг <code>1</code> выполняется первым; шаги <code>2</code> и <code>3</code> — не обязательно. В этом и кроется проблема.</p>
 <ul>
-<li>Поток A вызывает instance, выполняет первую проверку p, захватывает блокировку, выполняет шаги в порядке 1, 3 — и вытесняется. В этот момент p не пуст, но в памяти, на которую указывает p, объект Singleton ещё не сконструирован.</li>
-<li>Поток B вызывает instance, видит p ненулевым и возвращает его вызывающей стороне. Вызывающая сторона разыменовывает указатель, чтобы получить singleton — и вот он, ещё не сконструированный объект. Здесь и проявляется баг.</li>
+<li>Поток A вызывает instance, выполняет первую проверку p, захватывает мьютекс, выполняет шаги 1 и 3, после чего приостанавливается. В этот момент p уже не нулевой, но в памяти, на которую указывает p, объект Singleton ещё не сконструирован.</li>
+<li>Поток B вызывает instance, видит p ненулевым и возвращает его вызывающей стороне. Та разыменовывает указатель, чтобы получить singleton — и опа, объект, который ещё не был сконструирован. Вот и баг.</li>
 </ul>
-<p>DCLP работает корректно, только если шаги один и два выполняются до шага три, но в C или C++ нет способа выразить это ограничение. Это словно кинжал в сердце DCLP: нам нужно наложить ограничения на относительный порядок инструкций, а наш язык не даёт способа их выразить.</p>
-<h2 id="5-memory-barrier">5. Инструкции memory barrier<a class="headerlink" href="#5-memory-barrier" title="Permanent link">&para;</a></h2>
-<p>В C++11 проблема DCLP была решена.</p>
-<p>Новый стандарт C++11 задал новую модель памяти, гарантирующую, что при выполнении описанных трёх шагов не происходит переключения потоков — этот процесс инициализации становится «атомарной» операцией, и DCL снова можно использовать корректно. Впрочем, в C++11 есть и более лаконичная многопоточная реализация singleton, о ней мы расскажем позже.</p>
-<p>До C++11 решением были инструкции barrier. Чтобы всё выполнялось корректно, между шагами 2 и 3 нужно поставить memory barrier, заставляющий CPU при выполнении идти по шагам 1, 2, 3.</p>
+<p>DCLP работает корректно, только если шаги один и два выполняются перед шагом три, но выразить такое ограничение в C или C++ невозможно. Это как кинжал в сердце DCLP: нам нужно наложить ограничения на относительный порядок инструкций, но наш язык не даёт способа выразить такие ограничения.</p>
+<h2 id="5-memory-barrier">5. Инструкция memory barrier<a class="headerlink" href="#5-memory-barrier" title="Permanent link">&para;</a></h2>
+<p>Проблема DCLP была решена в C++11.</p>
+<p>Поскольку новый C++11 определил новую модель памяти, гарантируется, что при выполнении указанных трёх шагов переключения потоков не произойдёт — процесс инициализации фактически является «атомарной» операцией, и DCL снова можно использовать корректно. Впрочем, в C++11 существует и более лаконичный способ написать многопоточный синглтон — о нём расскажем позже.</p>
+<p>До C++11 решением была инструкция barrier. Чтобы всё выполнялось корректно, между шагами 2 и 3 нужно поставить memory barrier, вынуждая CPU выполнять шаги строго в порядке 1, 2, 3.</p>
 <p><strong>Первая реализация:</strong></p>
-<p>На основе operator new + placement new, код написан строго в порядке 1, 2, 3.</p>
+<p>На основе operator new + placement new, код пишется последовательно в порядке выполнения 1, 2, 3.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// method 1 operator new + placement new
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>singleton *instance() {
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    if (p == nullptr) {
@@ -5700,7 +5718,7 @@
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>}
 </span></code></pre></div>
 <p><strong>Вторая реализация:</strong></p>
-<p>На основе прямой вставки ASM-инструкции mfence; макрос barrier в unix реализуется именно через эту инструкцию.</p>
+<p>На основе непосредственной вставки ASM-инструкции mfence; макрос barrier в unix тоже реализован через эту инструкцию.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define barrier() __asm__ volatile (&quot;lwsync&quot;)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">singleton</span><span class="w"> </span><span class="o">*</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5713,31 +5731,31 @@
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Обычно вызывается одна из инструкций, предоставляемых CPU; её действие — не дать процессору переставлять инструкции, стоящие до неё, на место после неё; такую инструкцию обычно и называют barrier. В приведённом коде <strong>asm</strong> означает, что это ассемблерная инструкция, volatile необязателен: если он используется, то объявляет компилятору, что оптимизировать эту ассемблерную инструкцию нельзя. lwsync — барьерная инструкция, предоставляемая POWERPC.</p>
-<h2 id="6">6. Статическая локальная переменная<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>Scott Meyer в «Effective C++» предложил лаконичную запись singleton</p>
+<p>Обычно вызывается одна инструкция, предоставляемая CPU; её роль — не позволять CPU переставлять инструкции, стоящие до неё, после неё; такую инструкцию обычно и называют barrier. В коде выше <strong>asm</strong> означает, что это ассемблерная инструкция; volatile необязателен — если он использован, то это объявление компилятору, что оптимизировать эту ассемблерную инструкцию не разрешено. lwsync — инструкция barrier, предоставляемая POWERPC.</p>
+<h2 id="6">6. Статические локальные переменные<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>Скотт Мейерс в «Effective C++» предложил лаконичный способ записи синглтона</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">singleton</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">singleton::instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li>В однопоточном исполнении — корректно.</li>
-<li>В многопоточном исполнении в C++11 и более поздних версиях (например, C++14) — корректно.</li>
-<li>В многопоточном исполнении до C++11 — корректность не гарантирована.</li>
+<li>В однопоточном режиме — корректно.</li>
+<li>В многопоточном режиме в C++11 и более поздних версиях (например, C++14) — корректно.</li>
+<li>В многопоточном режиме до C++11 — не обязательно корректно.</li>
 </ul>
-<p>Причина в том, что стандарты до C++11 не задавали модель памяти для local static переменных, поэтому она не была потокобезопасной. А в C++11 она потокобезопасна, поскольку новый стандарт C++ требует, чтобы, когда один поток инициализирует переменную, остальные потоки могли обратиться к ней только после завершения инициализации.</p>
-<p>Использованные выше упорядочивания памяти:</p>
+<p>Причина в том, что в стандартах до C++11 модель памяти для локальных static-переменных не была определена, поэтому он не был потокобезопасным. В C++11 же он потокобезопасен, потому что новый стандарт C++ требует: пока один поток инициализирует переменную, остальные потоки обязаны дождаться завершения инициализации, прежде чем получить к ней доступ.</p>
+<p>Использованные выше порядки памяти:</p>
 <ul>
-<li>memory_order_relaxed: ослабленный порядок, гарантирует лишь атомарность операций над атомарным объектом</li>
-<li>memory_order_acquire: операция получения; при чтении атомарного объекта никакие последующие чтения и записи текущего потока не могут быть переупорядочены до этой операции, и все записи в память, сделанные другими потоками до освобления того же атомарного объекта, становятся видимы текущему потоку</li>
-<li>memory_order_release: операция освобождения; при записи в атомарный объект никакие предшествующие чтения и записи текущего потока не могут быть переупорядочены после этой операции, и все записи в память текущего потока становятся видимы другим потокам, выполняющим получение того же атомарного объекта</li>
+<li>memory_order_relaxed: ослабленный порядок памяти; гарантирует лишь атомарность операций над атомарным объектом</li>
+<li>memory_order_acquire: операция получения; при чтении атомарного объекта никакие последующие чтения или записи текущего потока не могут быть переупорядочены до этой операции, и все записи памяти, сделанные другими потоками до освобождения того же атомарного объекта, становятся видимыми текущему потоку</li>
+<li>memory_order_release: операция освобождения; при записи в атомарный объект никакие предшествующие чтения или записи текущего потока не могут быть переупорядочены после этой операции, и все записи памяти текущего потока становятся видимыми другим потокам, которые получают тот же атомарный объект</li>
 </ul>
 <h2 id="7-atomic">7. Atomic<a class="headerlink" href="#7-atomic" title="Permanent link">&para;</a></h2>
-<p>В версиях до C++11, помимо потокобезопасного Singleton через блокировки, можно воспользоваться встроенными в компиляторы операциями atomic.</p>
-<p>Обнаружив проблемы переупорядочивания, <code>java</code> и <code>c#</code> добавили ключевое слово <code>volatile</code>: при объявлении переменной <code>p</code> нужно добавить модификатор <code>volatile</code>, и компилятор, увидев его, понимает, что здесь переупорядочивать нельзя (сначала выделить память, затем выполнить конструктор и лишь потом присваивание).</p>
-<p>Стандарт <code>c++</code> же долго не исправлял это, поэтому <code>VC++</code> добавил это ключевое слово в версии <code>2005</code>, но оно не переносимо между платформами (поддерживается только на платформах Microsoft).</p>
-<p>А в версии <code>c++ 11</code>, чтобы устранить эти дыры в корне, была введена многопоточная модель памяти. Наконец-то появился механизм, помогающий реализовать переносимое решение.</p>
+<p>В версиях до C++11, помимо реализации потокобезопасного Singleton с помощью блокировок, можно использовать встроенные в компиляторы atomic operation.</p>
+<p>Обнаружив проблему переупорядочивания, <code>java</code> и <code>c#</code> добавили ключевое слово <code>volatile</code>: при объявлении переменной <code>p</code> нужно указать квалификатор <code>volatile</code>, и, увидев его, компилятор понимает, что здесь переупорядочивать нельзя (сначала выделить память, затем выполнить конструктор и только после всего этого выполнить присваивание).</p>
+<p>Стандарт <code>c++</code> же долго не исправляли, поэтому <code>VC++</code> добавил это ключевое слово в версии <code>2005</code>, но оно не является кроссплатформенным (поддерживаются только платформы Microsoft).</p>
+<p>А в <code>c++ 11</code>, чтобы устранить эти дыры в корне, была введена подходящая для многопоточности модель памяти. Наконец-то появился механизм, помогающий реализовать переносимое решение.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">mutex</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">lock_</span><span class="p">;</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">atomic</span><span class="o">&lt;</span><span class="n">singleton</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">singleton</span><span class="o">::</span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -5761,14 +5779,14 @@
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Стоит отметить, что в приведённом коде используются два ключевых термина — получение (acquire) и освобождение (release):</p>
+<p>Примечательно, что в коде выше используются два довольно ключевых термина — получение и освобождение:</p>
 <ul>
-<li>получение — это операция чтения памяти; никакие последующие чтения и записи текущего потока не могут быть переупорядочены до этой операции.</li>
-<li>освобождение — это операция записи в память; никакие предшествующие чтения и записи текущего потока не могут быть переупорядочены после этой операции.</li>
+<li>Получение — это операция чтения памяти; никакие последующие чтения или записи текущего потока не могут быть переупорядочены до неё.</li>
+<li>Освобождение — это операция записи в память; никакие предшествующие чтения или записи текущего потока не могут быть переупорядочены после неё.</li>
 </ul>
-<p>acquire и release обычно используются парами, чтобы гарантировать: если release над одним и тем же атомарным объектом происходит до acquire, то все изменения памяти, произошедшие до release, будут видны всем чтениям памяти после acquire.</p>
+<p>acquire и release обычно появляются в паре, и цель этого — гарантировать, что если освобождение (release) одного и того же атомарного объекта происходит до получения (acquire), то все изменения памяти, случившиеся до release, будут полностью видны чтениям памяти после acquire.</p>
 <h2 id="8-pthread_once">8. pthread_once<a class="headerlink" href="#8-pthread_once" title="Permanent link">&para;</a></h2>
-<p>На unix-платформах, помимо atomic-операций, при невозможности использовать C++11 Singleton можно реализовать и через pthread_once.</p>
+<p>На unix-платформах, помимо atomic operation, если C++11 недоступен, Singleton можно реализовать и через pthread_once.</p>
 <p>Прототип таков:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>int pthread_once(pthread_once_t once_control, void (init_routine) (void))；
 </span></code></pre></div>
@@ -5793,15 +5811,41 @@
 </span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">};</span>
 </span></code></pre></div>
-<h2 id="9">9. Заключение<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
-<p>В этой статье разобраны несколько вариантов singleton, в том числе потокобезопасные, а также несколько потокобезопасных реализаций без C++11: memory barrier, статическая локальная переменная, способ с pthread_once, а также atomic-реализация из C++11 и другие.</p>
-<p>Наконец, обратите внимание: для деструктора описанного выше класса singleton стоит обратиться к реализации «двойная проверенная блокировка + автоматическая сборка мусора» — необходимо объявить внутри класса статическую локальную переменную. Статическую локальную переменную можно понимать как глобальную: по завершении программы автоматически вызывается её деструктор — вот почему внутри класса объявляется и определяется вложенный класс, а не пишется напрямую деструктор singleton.</p>
+<h2 id="9">9. Итоги<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>В этой статье разобраны несколько вариантов синглтона, в частности потокобезопасные синглтоны, а также несколько потокобезопасных реализаций без C++11: memory barrier, статические локальные переменные, способ с pthread_once, реализация на atomic из C++11 и т. д.</p>
+<p>Напоследок отметим: что касается деструктора описанных выше классов-синглтонов, см. реализацию «двойная проверка с блокировкой + автоматическое освобождение» — в классе обязательно нужно объявить статическую локальную переменную. Статическую локальную переменную можно понимать как глобальную: при завершении программы её деструктор вызывается автоматически. Вот почему внутри класса объявляется и определяется вложенный класс, а не пишется напрямую деструктор синглтона.</p>
 <h2 id="10">10. Ссылки<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p><a href="https://thorns.cn/2019/03/09/DCLP.html">https://thorns.cn/2019/03/09/DCLP.html</a></p>
 <p><a href="https://www.cnblogs.com/liyuan989/p/4264889.html">https://www.cnblogs.com/liyuan989/p/4264889.html</a></p>
 <p><a href="https://segmentfault.com/a/1190000015950693">https://segmentfault.com/a/1190000015950693</a></p>
 </blockquote>
+<h2 id="_1">Переиспользуемый шаблон потокобезопасного синглтона<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Отвечая на запрос из <a href="https://github.com/Light-City/CPlusPlusThings/issues/303">issue #303</a>: следуя идее boost::container::singleton_default, шаблонный базовый класс на CRTP может превратить любой класс в потокобезопасный синглтон одной строкой (полный код см. в <a href="https://github.com/Light-City/CPlusPlusThings/blob/master/design_pattern/singleton/singleton_default.hpp">singleton_default.hpp</a>, включая тесты конкурентного доступа):</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span><span class="w">   </span><span class="c1">// C++11 起局部静态变量初始化线程安全</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">inst</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="n">SingletonDefault</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">};</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1">// 用法：继承即可</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyConfig</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SingletonDefault</span><span class="o">&lt;</span><span class="n">MyConfig</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="n">MyConfig</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w">   </span><span class="c1">// 构造私有，交由基类创建</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="p">};</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="c1">// MyConfig::instance().value</span>
+</span></code></pre></div>
 
 
 

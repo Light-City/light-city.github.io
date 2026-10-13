@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Quando usada com tipos diferentes, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
+        <meta name="description" content="Quando usada com diferentes tipos de entidades, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="membros estáticos e tempo de vida com static em C++,fundamentos de C++"> 
+    <meta name="keywords" content="C++ static membros estáticos e tempo de vida,fundamentos de C++"> 
     <meta name="title" content="Membros estáticos e tempo de vida com static em C++ | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/static/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Membros estáticos e tempo de vida com static em C++ | C++那些事">
-      <meta property="og:description" content="Quando usada com tipos diferentes, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
+      <meta property="og:description" content="Quando usada com diferentes tipos de entidades, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/static/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="pt_BR">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Membros estáticos e tempo de vida com static em C++ | C++那些事">
-      <meta name="twitter:description" content="Quando usada com tipos diferentes, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
+      <meta name="twitter:description" content="Quando usada com diferentes tipos de entidades, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Membros estáticos e tempo de vida com static em C++ | C++那些事", "description": "Quando usada com tipos diferentes, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Membros estáticos e tempo de vida com static em C++ | C++那些事", "description": "Quando usada com diferentes tipos de entidades, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Membros estáticos e tempo de vida com static em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/static/"}]}</script>
   </head>
   
@@ -866,6 +866,15 @@
   <a href="#sobre-o-autor" class="md-nav__link">
     <span class="md-ellipsis">
       Sobre o autor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ligacao-interna-de-static-restricao-do-escopo-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ligação interna de static (restrição do escopo de acesso)
     </span>
   </a>
   
@@ -5356,6 +5365,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ligacao-interna-de-static-restricao-do-escopo-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ligação interna de static (restrição do escopo de acesso)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#topicos-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Tópicos relacionados
@@ -5389,17 +5407,17 @@
 </blockquote>
 <h1 id="membros-estaticos-e-tempo-de-vida-com-static-em-c">Membros estáticos e tempo de vida com static em C++<a class="headerlink" href="#membros-estaticos-e-tempo-de-vida-com-static-em-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
-<p>Conta oficial do WeChat:</p>
+<p>Conta pública no WeChat:</p>
 <p><img alt="wechat" alt="Membros estáticos e tempo de vida com static em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
-<p>Quando usada com tipos diferentes, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:</p>
-<p><strong>Variáveis estáticas:</strong> variáveis em funções, variáveis em classes</p>
-<p><strong>Membros estáticos de classes:</strong> objetos de classe e funções em classes</p>
-<p>Agora vejamos em detalhe esses usos de static:</p>
+<p>Quando usada com diferentes tipos de entidades, a palavra-chave static tem significados diferentes. Podemos usar a palavra-chave static:</p>
+<p><strong>Variáveis estáticas:</strong> variáveis em uma função, variáveis em uma classe</p>
+<p><strong>Membros estáticos da classe:</strong> objetos da classe e funções em uma classe</p>
+<p>Agora vamos ver em detalhe esses usos de static:</p>
 <p><strong>Variáveis estáticas</strong></p>
 <ul>
-<li>Variáveis estáticas em funções</li>
+<li>Variáveis estáticas em uma função</li>
 </ul>
-<p>Quando uma variável é declarada static, o espaço <strong>é alocado durante todo o ciclo de vida do programa</strong>. Mesmo que a função seja chamada várias vezes, o espaço da variável estática <strong>é alocado uma única vez</strong>, e o valor da variável de uma chamada anterior é levado para a chamada seguinte da função. Isso é muito útil em C/C++ ou em qualquer outra aplicação que precise armazenar o estado anterior da função.</p>
+<p>Quando uma variável é declarada static, o espaço <strong>é alocado pelo tempo de vida do programa</strong>. Mesmo que a função seja chamada várias vezes, o espaço da variável estática <strong>é alocado apenas uma vez</strong>, e o valor da variável da chamada anterior é levado para a próxima chamada da função. Isso é muito útil em C / C++ ou em qualquer outra aplicação que precise armazenar o estado anterior de uma função.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="c1"> </span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
@@ -5426,11 +5444,11 @@
 <p>Saída:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>0 1 2 3 4 
 </span></code></pre></div>
-<p>Você pode ver, no programa acima, que a variável count foi declarada static; por isso, o seu valor é transmitido entre as chamadas da função. A cada chamada da função, a variável count não é inicializada de novo.</p>
+<p>Você pode ver no programa acima que a variável count foi declarada static. Portanto, o seu valor é levado através das chamadas da função. A cada chamada da função, a variável count não é inicializada novamente.</p>
 <ul>
-<li>Variáveis estáticas em classes</li>
+<li>Variáveis estáticas em uma classe</li>
 </ul>
-<p>Como as variáveis declaradas static são inicializadas apenas uma vez — porque seu espaço é alocado em um armazenamento estático separado —, as variáveis estáticas de uma classe ** são compartilhadas pelos objetos**. Não pode haver múltiplas cópias da mesma variável estática para objetos diferentes. É também por esse motivo que variáveis estáticas não podem ser inicializadas com o construtor.</p>
+<p>Como as variáveis declaradas static são inicializadas apenas uma vez — pois têm espaço alocado em um armazenamento estático separado —, as variáveis estáticas de uma classe <strong>são compartilhadas pelos objetos</strong>. Não pode haver várias cópias da mesma variável estática para objetos diferentes. É também por esse motivo que variáveis estáticas não podem ser inicializadas usando um construtor.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -5456,7 +5474,7 @@
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj1</span><span class="p">.</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot; &quot;</span><span class="o">&lt;&lt;</span><span class="n">obj2</span><span class="p">.</span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span><span class="w"> </span>
 </span></code></pre></div>
-<p>Você pode ver, no programa acima, que tentamos criar múltiplas cópias da variável estática i para vários objetos — o que não aconteceu. Por isso, as variáveis estáticas de uma classe devem ser inicializadas explicitamente pelo usuário, fora da classe, usando o nome da classe e o operador de resolução de escopo, assim:</p>
+<p>Você pode ver no programa acima que tentamos criar várias cópias da variável estática i para vários objetos. Mas isso não aconteceu. Portanto, uma variável estática em uma classe deve ser explicitamente inicializada pelo usuário fora da classe, usando o nome da classe e o operador de resolução de escopo, como mostrado a seguir:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -5485,10 +5503,10 @@
 </span></code></pre></div>
 <p><strong>Membros estáticos</strong></p>
 <ul>
-<li>Objetos de classe estáticos</li>
+<li>Objetos de classe como estáticos</li>
 </ul>
-<p>Assim como as variáveis, os objetos também têm escopo até o fim do ciclo de vida do programa quando declarados static.</p>
-<p>Considere o programa a seguir, em que o objeto não é estático.</p>
+<p>Assim como as variáveis, os objetos declarados static também têm escopo até o fim do tempo de vida do programa.</p>
+<p>Considere o programa a seguir, no qual o objeto não é estático.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -5522,8 +5540,8 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">Inside</span><span class="w"> </span><span class="n">Destructor</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">main</span>
 </span></code></pre></div>
-<p>No programa acima, o objeto é declarado como não estático dentro do bloco if; portanto, o escopo da variável fica restrito ao bloco if. Assim, quando o objeto é criado, o construtor é chamado e, ao mesmo tempo que o controle sai do bloco if, o destrutor é chamado, porque o escopo do objeto se limita ao bloco if em que foi declarado.
-Se declararmos o objeto como estático, vejamos agora como a saída muda.</p>
+<p>No programa acima, o objeto é declarado não estático dentro do bloco if. Portanto, o escopo da variável é apenas dentro do bloco if. Assim, quando o objeto é criado, o construtor é chamado, e o destruidor é chamado no momento em que o controle do bloco if o ultrapassa, porque o escopo do objeto se limita ao bloco if em que foi declarado.</p>
+<p>Se declararmos o objeto como estático, vejamos agora como a saída muda.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
@@ -5557,12 +5575,12 @@ Se declararmos o objeto como estático, vejamos agora como a saída muda.</p>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>End of main
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Inside Destructor
 </span></code></pre></div>
-<p>Você pode ver claramente a mudança na saída: agora o destrutor é chamado depois do fim do main. Isso ocorre porque o escopo do objeto estático se estende por todo o ciclo de vida do programa.</p>
+<p>Você pode ver claramente a mudança na saída. Agora o destruidor é chamado depois do fim de main. Isso ocorre porque o escopo de um objeto estático se estende por todo o tempo de vida do programa.</p>
 <ul>
-<li>Funções estáticas em classes</li>
+<li>Funções estáticas em uma classe</li>
 </ul>
-<p>Assim como os membros de dados estáticos ou as variáveis estáticas de uma classe, as funções membro estáticas também não dependem dos objetos da classe. Somos autorizados a chamar funções membro estáticas usando um objeto e o '.'; mas é recomendado chamá-las usando o nome da classe e o operador de resolução de escopo.</p>
-<p>As funções membro estáticas só podem acessar membros de dados estáticos ou outras funções membro estáticas; elas não conseguem acessar membros de dados ou funções membro não estáticas da classe.</p>
+<p>Assim como os membros de dados estáticos ou as variáveis estáticas de uma classe, as funções-membro estáticas também não dependem dos objetos da classe. Somos autorizados a chamar uma função-membro estática usando um objeto e '.'. No entanto, recomenda-se chamar membros estáticos usando o nome da classe e o operador de resolução de escopo.</p>
+<p>As funções-membro estáticas só têm permissão para acessar membros de dados estáticos ou outras funções-membro estáticas; elas não conseguem acessar os membros de dados não estáticos nem as funções-membro da classe.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> </span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -5586,8 +5604,8 @@ Se declararmos o objeto como estático, vejamos agora como a saída muda.</p>
 <p>Saída:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Welcome to Apple!
 </span></code></pre></div>
-<p><strong>Restrição do escopo de acesso</strong>
-static também tem a função de restringir o escopo de acesso (semelhante a um namespace anônimo). Da issue: <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">https://github.com/Light-City/CPlusPlusThings/issues/142</a>
+<p><strong>Restrição do escopo de acesso</strong></p>
+<p>static também tem a função de restringir o escopo de acesso (de modo semelhante a um namespace anônimo). Da issue: <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">https://github.com/Light-City/CPlusPlusThings/issues/142</a></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// source1.cpp</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">();</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -5605,7 +5623,7 @@ static também tem a função de restringir o escopo de acesso (semelhante a um 
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
 </span></code></pre></div>
-O g++ compila normalmente esses dois arquivos de código e imprime Hello World!; mas, se for adicionado static ao msg de source1.cpp, ocorre o erro de compilação undefined reference to 'msg':
+<p>O g++ compila normalmente os dois arquivos de código acima e imprime Hello World!, mas se você adicionar static a msg em source1.cpp, isso causa um erro de compilação 'undefined reference to msg':</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// source1.cpp</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">extern</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">();</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -5614,14 +5632,29 @@ O g++ compila normalmente esses dois arquivos de código e imprime Hello World!;
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">sayHello</span><span class="p">();</span>
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+<h2 id="ligacao-interna-de-static-restricao-do-escopo-de-acesso">Ligação interna de static (restrição do escopo de acesso)<a class="headerlink" href="#ligacao-interna-de-static-restricao-do-escopo-de-acesso" title="Permanent link">&para;</a></h2>
+<p>Agradecemos à <a href="https://github.com/Light-City/CPlusPlusThings/issues/142">issue #142</a> pela observação: quando static qualifica uma variável/função global, ele também cumpre o papel de <strong>restringir o escopo de acesso</strong> — muda a sua ligação (linkage) de externa para interna, com um efeito semelhante ao de um namespace anônimo:</p>
+<ul>
+<li>Variável global sem static: outras unidades de tradução podem acessá-la por meio de uma declaração <code>extern</code>;</li>
+<li>Variável/função global static: visível apenas na unidade de tradução atual; nem mesmo uma declaração <code>extern</code> consegue ligar-se a ela (undefined reference).</li>
+</ul>
+<p>No C++ moderno é mais recomendado usar um <strong>namespace anônimo</strong> para expressar "visível apenas neste arquivo" (também funciona para tipos), mas entender essa faceta do static é muito importante ao ler código antigo.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// file1.cpp</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">          </span><span class="c1">// 内部链接：其他文件 extern 不可见</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 外部链接：其他文件可 extern 访问</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">namespace</span><span class="w"> </span><span class="p">{</span><span class="w">                      </span><span class="c1">// 匿名命名空间：等价且更现代的写法</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">also_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funções virtuais puras e classes abstratas em C++ | C++那些事</a></li>
 <li><a href="../assert/">Asserções com assert em C++ | C++那些事</a></li>
 <li><a href="../bit/">Bit fields em C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementando polimorfismo de C++ em linguagem C | C++那些事</a></li>
-<li><a href="../const/">Constantes e modificadores com const em C++ | C++那些事</a></li>
+<li><a href="../const/">Constantes e qualificadores const em C++ | C++那些事</a></li>
 <li><a href="../cpp-const-family/">A família completa do const em C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">O operador de desreferência * em C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialização e atribuição em C++ | C++那些事</a></li>

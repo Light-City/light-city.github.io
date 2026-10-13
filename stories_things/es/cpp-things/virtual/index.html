@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="La llamada a una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
+        <meta name="description" content="La invocación de una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="uso de funciones virtuales (virtual) en C++,fundamentos de C++"> 
-    <meta name="title" content="Funciones virtuales (virtual) en C++ | C++那些事"> 
+    <meta name="keywords" content="uso de funciones virtuales en C++,fundamentos de C++"> 
+    <meta name="title" content="Funciones virtuales en C++ | C++那些事"> 
 
     
       
-        <title>Funciones virtuales (virtual) en C++ | C++那些事 - C++那些事</title>
+        <title>Funciones virtuales en C++ | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Funciones virtuales (virtual) en C++ | C++那些事">
-      <meta property="og:description" content="La llamada a una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
+      <meta property="og:title" content="Funciones virtuales en C++ | C++那些事">
+      <meta property="og:description" content="La invocación de una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/virtual/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Funciones virtuales (virtual) en C++ | C++那些事">
-      <meta name="twitter:description" content="La llamada a una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
+      <meta name="twitter:title" content="Funciones virtuales en C++ | C++那些事">
+      <meta name="twitter:description" content="La invocación de una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Funciones virtuales (virtual) en C++ | C++那些事", "description": "La llamada a una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Funciones virtuales (virtual) en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Funciones virtuales en C++ | C++那些事", "description": "La invocación de una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Funciones virtuales en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/virtual/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#funciones-virtuales-virtual-en-c" class="md-skip">
+        <a href="#funciones-virtuales-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Funciones virtuales (virtual) en C++ | C++那些事
+              Funciones virtuales en C++ | C++那些事
             
           </span>
         </div>
@@ -1088,18 +1088,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-parametros-por-defecto-en-funciones-virtuales" class="md-nav__link">
+  <a href="#3-argumentos-por-defecto-en-funciones-virtuales" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Parámetros por defecto en funciones virtuales
+      3. Argumentos por defecto en funciones virtuales
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-que-se-puede-y-que-no-se-puede" class="md-nav__link">
+  <a href="#4-esta-permitido" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Qué se puede y qué no se puede
+      4. ¿Está permitido?
     </span>
   </a>
   
@@ -5428,18 +5428,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-parametros-por-defecto-en-funciones-virtuales" class="md-nav__link">
+  <a href="#3-argumentos-por-defecto-en-funciones-virtuales" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Parámetros por defecto en funciones virtuales
+      3. Argumentos por defecto en funciones virtuales
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-que-se-puede-y-que-no-se-puede" class="md-nav__link">
+  <a href="#4-esta-permitido" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Qué se puede y qué no se puede
+      4. ¿Está permitido?
     </span>
   </a>
   
@@ -5495,54 +5495,54 @@
 <blockquote>
 <p><strong>Última actualización：2026-10-12</strong></p>
 </blockquote>
-<h1 id="funciones-virtuales-virtual-en-c">Funciones virtuales (virtual) en C++<a class="headerlink" href="#funciones-virtuales-virtual-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="funciones-virtuales-en-c">Funciones virtuales en C++<a class="headerlink" href="#funciones-virtuales-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
-<p>Cuenta pública personal:</p>
-<p><img alt="wechat" alt="Funciones virtuales (virtual) en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p>Cuenta pública de WeChat personal:</p>
+<p><img alt="wechat" alt="Funciones virtuales en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1-funciones-virtuales-y-polimorfismo-en-tiempo-de-ejecucion">1. Funciones virtuales y polimorfismo en tiempo de ejecución<a class="headerlink" href="#1-funciones-virtuales-y-polimorfismo-en-tiempo-de-ejecucion" title="Permanent link">&para;</a></h2>
 <p>Código correspondiente: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set1/emp.cpp">emp.cpp</a></p>
-<p><strong>La llamada a una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.</strong></p>
+<p><strong>La invocación de una función virtual depende del tipo del objeto apuntado o referenciado, no del tipo del propio puntero o referencia.</strong></p>
 <h2 id="2-vptr-y-vtable">2. vptr y vtable<a class="headerlink" href="#2-vptr-y-vtable" title="Permanent link">&para;</a></h2>
-<p>Ver <a href="../vptr-vtable/">temas sobre vptr_vtable</a></p>
-<h2 id="3-parametros-por-defecto-en-funciones-virtuales">3. Parámetros por defecto en funciones virtuales<a class="headerlink" href="#3-parametros-por-defecto-en-funciones-virtuales" title="Permanent link">&para;</a></h2>
+<p>Ver <a href="../vptr-vtable/">vptr y vtable</a></p>
+<h2 id="3-argumentos-por-defecto-en-funciones-virtuales">3. Argumentos por defecto en funciones virtuales<a class="headerlink" href="#3-argumentos-por-defecto-en-funciones-virtuales" title="Permanent link">&para;</a></h2>
 <p>Código correspondiente: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set2/default_arg.cpp">default_arg.cpp</a></p>
-<p><strong>Los parámetros por defecto se enlazan estáticamente, mientras que las funciones virtuales se enlazan dinámicamente. El uso de un parámetro por defecto depende del tipo del propio puntero o referencia, no del tipo del objeto</strong>.</p>
-<h2 id="4-que-se-puede-y-que-no-se-puede">4. Qué se puede y qué no se puede<a class="headerlink" href="#4-que-se-puede-y-que-no-se-puede" title="Permanent link">&para;</a></h2>
-<p>(1) <strong>¿Puede una función estática declararse como virtual?</strong></p>
+<p><strong>Los argumentos por defecto se enlazan estáticamente, mientras que las funciones virtuales se enlazan dinámicamente. El argumento por defecto utilizado depende del tipo del propio puntero o referencia, no del tipo del objeto</strong>.</p>
+<h2 id="4-esta-permitido">4. ¿Está permitido?<a class="headerlink" href="#4-esta-permitido" title="Permanent link">&para;</a></h2>
+<p>(1) <strong>¿Puede una función estática declararse virtual?</strong></p>
 <p>Hay dos razones principales:</p>
 <p><strong>Una función estática no puede declararse virtual, ni tampoco puede modificarse con las palabras clave const y volatile</strong></p>
-<p>La función miembro static no pertenece a ningún objeto de clase ni instancia de clase, de modo que añadirle virtual no tendría ningún sentido</p>
-<p>Las funciones virtuales se apoyan en el vptr y el vtable. El vptr es un puntero que se crea en el constructor de la clase y solo puede accederse a él mediante el puntero this; las funciones miembro estáticas no tienen puntero this, por lo que no pueden acceder al vptr.</p>
+<p>Una función miembro static no pertenece a ningún objeto de la clase ni a ninguna instancia de la clase, por lo que añadirle virtual no tiene ningún sentido.</p>
+<p>Las funciones virtuales se apoyan en el vptr y la vtable. El vptr es un puntero que se crea en el constructor de la clase y solo puede accederse a él mediante el puntero this; las funciones miembro estáticas no tienen puntero this, por lo que no pueden acceder al vptr.</p>
 <p>Código para estudiar: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/static_error.cpp">static_error.cpp</a></p>
-<p>(2) <strong>¿Puede un constructor ser una función virtual?</strong></p>
-<p>Un constructor no puede declararse virtual. Además, salvo inline|explicit, el constructor no admite ninguna otra palabra clave.</p>
-<p>¿Por qué el constructor no puede ser una función virtual?</p>
-<p>Aunque la tabla de funciones virtuales vtable se construye ya en la fase de compilación, el puntero a la tabla de funciones virtuales, vptr, no se genera hasta la fase de ejecución, al instanciar el objeto. Si la clase contiene funciones virtuales, el compilador añade código en el constructor para crear el vptr. Ahí está el problema: si el constructor fuera virtual, necesitaría el vptr para acceder al vtable, pero en ese momento el vptr aún no se ha generado. Por eso, el constructor no puede ser una función virtual.</p>
-<p>Usamos funciones virtuales porque necesitamos ejecución polimórfica con información incompleta. El constructor, en cambio, sirve para inicializar la instancia, y el tipo de la instancia debe ser inequívoco. Por lo tanto, no hay ninguna necesidad de declarar el constructor como función virtual.</p>
+<p>(2) <strong>¿Puede un constructor ser virtual?</strong></p>
+<p>Un constructor no puede declararse virtual. Además, aparte de inline y explicit, un constructor no admite ninguna otra palabra clave.</p>
+<p>¿Por qué un constructor no puede ser virtual?</p>
+<p>Aunque la tabla de funciones virtuales (vtable) se construye en la fase de compilación, el puntero a la tabla de funciones virtuales (vptr) solo se genera en tiempo de ejecución, cuando se instancia el objeto. Si una clase contiene funciones virtuales, el compilador añade código en el constructor para crear el vptr. Ahí está el problema: si el constructor fuera virtual, necesitaría el vptr para acceder a la vtable, pero en ese momento el vptr aún no existe. Por tanto, un constructor no puede ser virtual.</p>
+<p>Usamos funciones virtuales porque necesitamos un despacho polimórfico con información incompleta. Un constructor, en cambio, sirve para inicializar una instancia, y el tipo de la instancia debe estar claro. Por ello no hay ninguna necesidad de declarar virtual un constructor.</p>
 <p>Código para estudiar:</p>
 <ul>
 <li>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/copy_consrtuct.cpp">copy_consrtuct.cpp</a></p>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/copy_consrtuct.cpp">copy_consrtuct.cpp</a> </p>
 </li>
 <li>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_con.cpp">vir_con.cpp</a></p>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_con.cpp">vir_con.cpp</a> </p>
 </li>
 </ul>
-<p>(3) <strong>¿Puede el destructor ser una función virtual?</strong></p>
-<p><strong>El destructor puede declararse virtual. Si necesitamos eliminar mediante un puntero a la clase base un objeto de la clase derivada, el destructor debe declararse virtual. De hecho, siempre que una clase pueda ser heredada por otras, debería declararse un destructor virtual (aunque ese destructor no ejecute ninguna operación).</strong></p>
+<p>(3) <strong>¿Puede un destructor ser virtual?</strong></p>
+<p><strong>Un destructor puede declararse virtual. Si necesitamos eliminar mediante un puntero a la clase base un objeto de una clase derivada, el destructor debe declararse virtual. De hecho, siempre que una clase pueda ser heredada por otras clases, debería declararse un destructor virtual (aunque ese destructor no haga nada).</strong></p>
 <p>Código para estudiar:</p>
 <ul>
 <li>
 <p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/full_virde.cpp">full_virde.cpp</a></p>
 </li>
 <li>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp</a></p>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp</a>      </p>
 </li>
 </ul>
 <p>(4) <strong>¿Puede una función virtual ser privada?</strong></p>
 <ul>
-<li>Si un puntero a la clase base apunta a un objeto de la clase derivada, se invoca la función del objeto de la clase derivada;</li>
-<li>int main() debe declararse friend de la clase Base, de lo contrario la compilación falla. El compilador da el error: ptr no puede acceder a la función privada. Por supuesto, si la clase base se declara public y la clase derivada private, el problema desaparece.</li>
+<li>Cuando un puntero a la clase base apunta a un objeto de la clase derivada, se invoca la función del objeto de la clase derivada;</li>
+<li>int main() debe declararse friend de la clase Base, de lo contrario la compilación falla. El compilador informa: ptr no puede acceder a la función privada. Por supuesto, si la clase base se declara public y la derivada private, el problema desaparece.</li>
 </ul>
 <p>Código para estudiar:</p>
 <ul>
@@ -5550,11 +5550,11 @@
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/virtual_function1.cpp">virtual_function1.cpp</a></li>
 </ul>
 <p>(5) <strong>¿Puede una función virtual ser inline?</strong></p>
-<p><strong>Normalmente el compilador considera si conviene insertar (inline) las funciones miembro de una clase. Pero una función virtual invocada mediante puntero o referencia a la clase base no puede ser inline en ningún caso. Por supuesto, cuando la invocación se hace desde el objeto real, o cuando la llamada es estática, sí puede insertarse, y la llamada estática a un destructor virtual también se expandirá inline.</strong></p>
+<p><strong>Normalmente el compilador considera si integrar (inline) las funciones miembro de una clase. Pero una función virtual invocada mediante un puntero o referencia a la clase base jamás puede integrarse. Por supuesto, cuando se llama a una función virtual sobre un objeto real o se la invoca estáticamente, sí puede integrarse, y la invocación estática de un destructor virtual siempre se expandirá en línea.</strong></p>
 <ul>
-<li>Una función virtual puede ser una función inline; inline puede modificar a una función virtual, pero cuando la función virtual manifiesta polimorfismo no puede insertarse.</li>
-<li>inline es una sugerencia al compilador para que inserte en tiempo de compilación, mientras que el polimorfismo de la función virtual ocurre en tiempo de ejecución; el compilador no puede saber qué código se invocará en ejecución, por eso una función virtual no puede ser inline cuando manifiesta polimorfismo (en tiempo de ejecución).</li>
-<li><code>inline virtual</code> solo puede insertarse cuando el compilador sabe de qué clase es el objeto invocado (por ejemplo <code>Base::who()</code>), lo cual solo ocurre cuando el compilador tiene el objeto real y no un puntero o referencia al objeto.</li>
+<li>Una función virtual puede ser una función inline; inline puede modificar a una función virtual, pero cuando la función virtual manifiesta polimorfismo no puede integrarse.</li>
+<li>La integración en línea es una sugerencia al compilador en tiempo de compilación, mientras que el polimorfismo de las funciones virtuales ocurre en tiempo de ejecución; el compilador no puede saber qué código se invocará en ejecución, por lo que una función virtual no puede integrarse cuando se comporta polimórficamente (en tiempo de ejecución).</li>
+<li>El único caso en que <code>inline virtual</code> puede integrarse es cuando el compilador sabe a qué clase pertenece el objeto invocado (por ejemplo <code>Base::who()</code>), lo cual solo sucede cuando el compilador dispone del objeto real y no de un puntero o referencia al objeto.</li>
 </ul>
 <p>Código para estudiar:</p>
 <ul>
@@ -5566,22 +5566,22 @@
 </li>
 </ul>
 <h2 id="5-rtti-y-dynamic_cast">5. RTTI y dynamic_cast<a class="headerlink" href="#5-rtti-y-dynamic_cast" title="Permanent link">&para;</a></h2>
-<p>RTTI (Run-Time Type Identification): gracias a la información de tipos en tiempo de ejecución, un programa puede usar un <a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">puntero</a> o una referencia a la <a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">clase base</a> para comprobar el tipo real de la <a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">clase derivada</a> del objeto al que apuntan o refieren.</p>
-<p>En la programación orientada a objetos, a veces necesitamos consultar en tiempo de ejecución si un objeto puede usarse como un determinado tipo polimórfico. De forma análoga al instanceof de Java y a los operadores as e is de C#, C++ ofrece la función dynamic_cast para la conversión dinámica. Frente a la conversión forzada al estilo de C y al reinterpret_cast de C++, dynamic_cast proporciona comprobación de seguridad de tipos: es una conversión basada en consulta de capacidades (Capability Query), por lo que para convertir entre tipos polimórficos es más recomendable usar dynamic_cast.</p>
+<p>RTTI (Run-Time Type Identification, identificación de tipos en tiempo de ejecución) permite que un programa, mediante un puntero o una referencia a una <a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">clase base</a>, compruebe el tipo real de la <a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">clase derivada</a> del objeto al que apunta ese <a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">puntero</a> o referencia.</p>
+<p>En la programación orientada a objetos, a veces necesitamos consultar en tiempo de ejecución si un objeto puede usarse como un determinado tipo polimórfico. De forma similar al instanceof de Java y a los operadores as e is de C#, C++ ofrece dynamic_cast para la conversión dinámica. Frente a las conversiones forzadas al estilo de C y a reinterpret_cast de C++, dynamic_cast proporciona comprobaciones de seguridad de tipos y es una conversión basada en consultas de capacidad (Capability Query), por lo que se recomienda usar dynamic_cast para conversiones entre tipos polimórficos.</p>
 <p>Código para estudiar:</p>
 <ul>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/rtti.cpp">rtti.cpp</a></li>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/warn_rtti.cpp">warn_rtti.cpp</a></li>
 </ul>
 <h2 id="6-funciones-virtuales-puras-y-clases-abstractas">6. Funciones virtuales puras y clases abstractas<a class="headerlink" href="#6-funciones-virtuales-puras-y-clases-abstractas" title="Permanent link">&para;</a></h2>
-<p>Ver <a href="../abstract/">temas sobre funciones virtuales puras y clases abstractas</a></p>
+<p>Ver <a href="../abstract/">Funciones virtuales puras y clases abstractas</a></p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">const en C++: constantes y modificación | C++那些事</a></li>
+<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

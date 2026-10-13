@@ -5468,7 +5468,7 @@
 <li>对于包含虚函数的类，不管有多少个虚函数，只有一个虚指针,vptr的大小。</li>
 <li>普通继承，派生类继承了所有基类的函数与成员，要按照字节对齐来计算大小</li>
 <li>虚函数继承，不管是单继承还是多继承，都是继承了基类的vptr。(32位操作系统4字节，64位操作系统 8字节)！</li>
-<li>虚继承,继承基类的vptr。</li>
+<li>虚继承，继承基类的 vptr。注意结果与编译器相关：GCC 会把虚基类指针与虚函数表指针合并（如 8/8/16），MSVC/Windows 则分开存储（如 8/8/32），见 <a href="https://github.com/Light-City/CPlusPlusThings/issues/246">issue #246</a>。</li>
 </ul>
 <h2 id="11">1.原则1<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>

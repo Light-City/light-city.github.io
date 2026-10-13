@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Which virtual function is called is determined by the type of the object pointed to or referred to, not by the type of the pointer or reference itself.">
+        <meta name="description" content="The invocation of a virtual function depends on the type of the object pointed to or referred to, not on the type of the pointer or reference itself.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ virtual functions usage,C++ basics"> 
-    <meta name="title" content="C++ virtual Functions | C++那些事"> 
+    <meta name="keywords" content="C++ virtual function usage,C++ basics"> 
+    <meta name="title" content="C++ Virtual Functions | C++那些事"> 
 
     
       
-        <title>C++ virtual Functions | C++那些事 - C++那些事</title>
+        <title>C++ Virtual Functions | C++那些事 - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/virtual/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/virtual/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ virtual Functions | C++那些事">
-      <meta property="og:description" content="Which virtual function is called is determined by the type of the object pointed to or referred to, not by the type of the pointer or reference itself.">
+      <meta property="og:title" content="C++ Virtual Functions | C++那些事">
+      <meta property="og:description" content="The invocation of a virtual function depends on the type of the object pointed to or referred to, not on the type of the pointer or reference itself.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/en/cpp-things/virtual/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ virtual Functions | C++那些事">
-      <meta name="twitter:description" content="Which virtual function is called is determined by the type of the object pointed to or referred to, not by the type of the pointer or reference itself.">
+      <meta name="twitter:title" content="C++ Virtual Functions | C++那些事">
+      <meta name="twitter:description" content="The invocation of a virtual function depends on the type of the object pointed to or referred to, not on the type of the pointer or reference itself.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ virtual Functions | C++那些事", "description": "Which virtual function is called is determined by the type of the object pointed to or referred to, not by the type of the pointer or reference itself.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/en/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ virtual Functions | C++那些事", "item": "https://light-city.github.io/stories_things/en/cpp-things/virtual/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ Virtual Functions | C++那些事", "description": "The invocation of a virtual function depends on the type of the object pointed to or referred to, not on the type of the pointer or reference itself.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/en/cpp-things/virtual/", "mainEntityOfPage": "https://light-city.github.io/stories_things/en/cpp-things/virtual/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/en/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ Virtual Functions | C++那些事", "item": "https://light-city.github.io/stories_things/en/cpp-things/virtual/"}]}</script>
   </head>
   
   
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ virtual Functions | C++那些事
+              C++ Virtual Functions | C++那些事
             
           </span>
         </div>
@@ -1097,9 +1097,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-allowed-or-not" class="md-nav__link">
+  <a href="#4-is-it-allowed" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Allowed or Not
+      4. Is It Allowed?
     </span>
   </a>
   
@@ -5437,9 +5437,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-allowed-or-not" class="md-nav__link">
+  <a href="#4-is-it-allowed" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Allowed or Not
+      4. Is It Allowed?
     </span>
   </a>
   
@@ -5495,30 +5495,30 @@
 <blockquote>
 <p><strong>Last updated：2026-10-12</strong></p>
 </blockquote>
-<h1 id="c-virtual-functions">C++ virtual Functions<a class="headerlink" href="#c-virtual-functions" title="Permanent link">&para;</a></h1>
+<h1 id="c-virtual-functions">C++ Virtual Functions<a class="headerlink" href="#c-virtual-functions" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author:<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>Personal WeChat official account:</p>
-<p><img alt="wechat" alt="C++ virtual Functions | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="wechat" alt="C++ Virtual Functions | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
 <h2 id="1-virtual-functions-and-runtime-polymorphism">1. Virtual Functions and Runtime Polymorphism<a class="headerlink" href="#1-virtual-functions-and-runtime-polymorphism" title="Permanent link">&para;</a></h2>
 <p>Corresponding code: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set1/emp.cpp">emp.cpp</a></p>
-<p><strong>Which virtual function is called is determined by the type of the object pointed to or referred to, not by the type of the pointer or reference itself.</strong></p>
+<p><strong>The invocation of a virtual function depends on the type of the object pointed to or referred to, not on the type of the pointer or reference itself.</strong></p>
 <h2 id="2-vptr-and-vtable">2. vptr and vtable<a class="headerlink" href="#2-vptr-and-vtable" title="Permanent link">&para;</a></h2>
-<p>See <a href="../vptr-vtable/">All About vptr_vtable</a></p>
+<p>See <a href="../vptr-vtable/">vptr and vtable</a></p>
 <h2 id="3-default-arguments-in-virtual-functions">3. Default Arguments in Virtual Functions<a class="headerlink" href="#3-default-arguments-in-virtual-functions" title="Permanent link">&para;</a></h2>
 <p>Corresponding code: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set2/default_arg.cpp">default_arg.cpp</a></p>
-<p><strong>Default arguments are statically bound, while virtual functions are dynamically bound. The default argument used depends on the type of the pointer or reference itself, not on the type of the object.</strong></p>
-<h2 id="4-allowed-or-not">4. Allowed or Not<a class="headerlink" href="#4-allowed-or-not" title="Permanent link">&para;</a></h2>
+<p><strong>Default arguments are statically bound, while virtual functions are dynamically bound. Which default argument is used depends on the type of the pointer or reference itself, not on the type of the object</strong>.</p>
+<h2 id="4-is-it-allowed">4. Is It Allowed?<a class="headerlink" href="#4-is-it-allowed" title="Permanent link">&para;</a></h2>
 <p>(1) <strong>Can a static function be declared virtual?</strong></p>
 <p>There are two main reasons:</p>
-<p><strong>A static function cannot be declared virtual, nor can it be modified with the const or volatile keywords</strong></p>
-<p>A static member function belongs to no class object or class instance, so adding virtual to such a function is meaningless</p>
-<p>Virtual functions rely on vptr and vtable. vptr is a pointer, created in the class's constructor and accessible only through the this pointer; static member functions have no this pointer, so they cannot access vptr.</p>
-<p>Code to study: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/static_error.cpp">static_error.cpp  </a></p>
+<p><strong>A static function cannot be declared virtual, nor can it be qualified with the const or volatile keywords</strong></p>
+<p>A static member function does not belong to any class object or class instance, so adding virtual to such a function is meaningless.</p>
+<p>Virtual functions rely on the vptr and the vtable. The vptr is a pointer, created in the class's constructor, and can only be accessed through the this pointer; static member functions have no this pointer, so they cannot access the vptr.</p>
+<p>Code to study: <a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/static_error.cpp">static_error.cpp</a></p>
 <p>(2) <strong>Can a constructor be virtual?</strong></p>
-<p>A constructor cannot be declared virtual. Besides inline and explicit, no other keywords are allowed on constructors.</p>
+<p>A constructor cannot be declared virtual. Moreover, apart from inline and explicit, a constructor may not use any other keyword.</p>
 <p>Why can't a constructor be virtual?</p>
-<p>Although the virtual function table vtable is built at compile time, the pointer to the virtual function table, vptr, only comes into existence at runtime when the object is instantiated. If a class contains virtual functions, the compiler adds code in the constructor to create the vptr. Here is the problem: if the constructor were virtual, it would need the vptr to access the vtable — but at that point the vptr does not exist yet. Therefore a constructor cannot be virtual.</p>
-<p>The reason we use virtual functions is to run polymorphically with incomplete information. A constructor, on the other hand, initializes an instance, and the instance's type must be definite. Hence there is no need for a constructor to be declared virtual.</p>
+<p>Although the virtual function table (vtable) is built at compile time, the pointer to the virtual function table (vptr) is only generated at runtime when the object is instantiated. If a class contains virtual functions, the compiler adds code in the constructor to create the vptr. Here comes the problem: if the constructor were virtual, it would need the vptr to access the vtable, but at that moment the vptr does not exist yet. Therefore, a constructor cannot be virtual.</p>
+<p>The reason we use virtual functions is that we need polymorphic dispatch with incomplete information. A constructor, on the other hand, is used to initialize an instance, and the type of the instance must be definite. Therefore, there is no need to declare a constructor virtual.</p>
 <p>Code to study:</p>
 <ul>
 <li>
@@ -5529,20 +5529,20 @@
 </li>
 </ul>
 <p>(3) <strong>Can a destructor be virtual?</strong></p>
-<p><strong>A destructor can be declared virtual. If we need to delete a base-class pointer that points to a derived class, the destructor should be declared virtual. In fact, whenever a class might be inherited by other classes, it should declare a virtual destructor (even if the destructor does nothing).</strong></p>
+<p><strong>A destructor can be declared virtual. If we need to delete a base-class pointer that points to a derived class, the destructor should be declared virtual. In fact, as long as a class might be inherited by other classes, a virtual destructor should be declared (even if that destructor does nothing).</strong></p>
 <p>Code to study:</p>
 <ul>
 <li>
 <p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/full_virde.cpp">full_virde.cpp</a></p>
 </li>
 <li>
-<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp </a>      </p>
+<p><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/vir_de.cpp">vir_de.cpp</a>      </p>
 </li>
 </ul>
 <p>(4) <strong>Can a virtual function be private?</strong></p>
 <ul>
-<li>When a base-class pointer points to a derived-class object, the derived-class object's function is called;</li>
-<li>int main() must be declared a friend of class Base, otherwise compilation fails. The compiler reports: ptr cannot access the private function. Of course, if the base class is declared public and the derived class private, the problem disappears.</li>
+<li>When a base-class pointer points to a derived-class object, the derived class's function is invoked;</li>
+<li>int main() must be declared a friend of the Base class, otherwise compilation fails. The compiler reports an error: ptr cannot access the private function. Of course, if the base class is declared public and the derived class private, the problem disappears.</li>
 </ul>
 <p>Code to study:</p>
 <ul>
@@ -5550,11 +5550,11 @@
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set3/virtual_function1.cpp">virtual_function1.cpp</a></li>
 </ul>
 <p>(5) <strong>Can a virtual function be inlined?</strong></p>
-<p><strong>Normally, the compiler considers whether to inline class member functions. But a virtual function invoked through a base-class pointer or reference can never be inlined. Of course, when a virtual function is called on an actual object, or invoked statically, it can be inlined; a statically invoked virtual destructor will certainly be inlined and expanded.</strong></p>
+<p><strong>Usually the compiler considers whether to inline class member functions. But a virtual function invoked through a base-class pointer or reference can never be inlined. Of course, when a virtual function is called on an actual object or invoked statically, it can be inlined, and a statically invoked virtual destructor will certainly be expanded inline.</strong></p>
 <ul>
-<li>A virtual function can be an inline function — inline may modify a virtual function — but when the virtual function exhibits polymorphism it cannot be inlined.</li>
-<li>inline is a suggestion to the compiler to inline at compile time, whereas a virtual function's polymorphism happens at runtime; the compiler cannot know which code will be called at runtime, so a virtual function cannot be inlined when it behaves polymorphically (at runtime).</li>
-<li>The only time <code>inline virtual</code> can be inlined is when the compiler knows which class the called object belongs to (e.g. <code>Base::who()</code>), which happens only when the compiler has an actual object rather than a pointer or reference to the object.</li>
+<li>A virtual function can be an inline function; inline is allowed to qualify a virtual function, but a virtual function cannot be inlined when it exhibits polymorphic behavior.</li>
+<li>Inlining is a suggestion to the compiler to inline at compile time, while the polymorphism of virtual functions happens at runtime; the compiler cannot know which code will be invoked at runtime, so a virtual function cannot be inlined when it behaves polymorphically (at runtime).</li>
+<li>The only time <code>inline virtual</code> can be inlined is when the compiler knows which class the object being called belongs to (for example <code>Base::who()</code>), which only happens when the compiler has an actual object rather than a pointer or reference to the object.</li>
 </ul>
 <p>Code to study:</p>
 <ul>
@@ -5566,15 +5566,15 @@
 </li>
 </ul>
 <h2 id="5-rtti-and-dynamic_cast">5. RTTI and dynamic_cast<a class="headerlink" href="#5-rtti-and-dynamic_cast" title="Permanent link">&para;</a></h2>
-<p>RTTI (Run-Time Type Identification) lets a program use a <a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">base-class</a> <a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">pointer</a> or reference to check the actual <a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">derived class</a> of the object those pointers or references point to.</p>
-<p>In object-oriented programming, we sometimes need to query at runtime whether an object can be used as a certain polymorphic type. Similar to Java's instanceof and C#'s as and is operators, C++ provides dynamic_cast for dynamic casting. Compared with C-style casts and C++ reinterpret_cast, dynamic_cast provides a type-safety check — it is a capability-query-based conversion — so dynamic_cast is the preferred way to convert between polymorphic types.</p>
+<p>RTTI (Run-Time Type Identification) allows a program to use a <a href="https://baike.baidu.com/item/%E5%9F%BA%E7%B1%BB/9589663">base class</a>'s <a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">pointer</a> or reference to check the actual <a href="https://baike.baidu.com/item/%E6%B4%BE%E7%94%9F%E7%B1%BB">derived class</a> type of the object they point to.</p>
+<p>In object-oriented programming, we sometimes need to query at runtime whether an object can be used as a certain polymorphic type. Similar to Java's instanceof and C#'s as and is operators, C++ provides dynamic_cast for dynamic casting. Compared with C-style casts and C++ reinterpret_cast, dynamic_cast provides type-safety checks and is a capability-query-based conversion, so dynamic_cast is the preferred choice for conversions between polymorphic types.</p>
 <p>Code to study:</p>
 <ul>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/rtti.cpp">rtti.cpp</a></li>
 <li><a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/virtual/set4/warn_rtti.cpp">warn_rtti.cpp</a></li>
 </ul>
 <h2 id="6-pure-virtual-functions-and-abstract-classes">6. Pure Virtual Functions and Abstract Classes<a class="headerlink" href="#6-pure-virtual-functions-and-abstract-classes" title="Permanent link">&para;</a></h2>
-<p>See <a href="../abstract/">All About Pure Virtual Functions and Abstract Classes</a></p>
+<p>See <a href="../abstract/">Pure Virtual Functions and Abstract Classes</a></p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ Pure Virtual Functions and Abstract Classes | C++那些事</a></li>
