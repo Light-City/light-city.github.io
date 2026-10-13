@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="ru_RU">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Detecção de Erros de Concorrência com Helgrind | C++那些事">
       <meta name="twitter:description" content="Ao escrever programas multi-thread normalmente encontramos dois problemas com facilidade:">
@@ -5447,7 +5451,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img alt="deadlock" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="deadlock" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>Suponha uma variável compartilhada que incrementamos 100 mil vezes em múltiplas threads; qual será o resultado?</p>
 <p>Claramente há um problema de corrida sobre a variável global entre threads, com resultado final inconsistente; o método de detecção com helgrind é o mesmo acima.</p>
@@ -5460,7 +5464,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Podemos ver em qual linha está o data race e então corrigir o problema.</p>
-<p><img alt="datarace" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="datarace" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
 <p>Por fim, deixo algumas perguntas:</p>
 <p>1.Como corrigir esses dois códigos com problema?</p>
 <p>2.Além da ferramenta acima, existem outras formas?</p>

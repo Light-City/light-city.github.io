@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Сравнение производительности memcpy и std::copy | C++那些事">
       <meta name="twitter:description" content="Занимаясь недавно оптимизацией производительности, я заметил, что в одном коде используется std::copy, а в другом — memcpy; по функциональности они фактически похожи, так каков же их эффект на производительность?">
@@ -5408,7 +5412,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="Сравнение производительности memcpy и std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="copy memcpy" alt="Сравнение производительности memcpy и std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="_1">Как выбрать?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>В реальном проекте выбор между <code>memcpy</code> и <code>std::copy</code> зависит от конкретных требований. Если вы работаете с POD-типами и хотите сохранить гибкость, более разумным выбором будет <code>std::copy</code>. Для большинства сценариев <code>std::copy</code> предоставляет более универсальный и безопасный способ копирования данных.</p>
 <p>Однако при стремлении к максимальной производительности можно рассмотреть <code>memcpy</code>, особенно при обработке больших объёмов данных. Но делая выбор, обязательно учитывайте реальный сценарий применения и проводите детальное тестирование и оптимизацию с помощью инструментов профилирования.</p>

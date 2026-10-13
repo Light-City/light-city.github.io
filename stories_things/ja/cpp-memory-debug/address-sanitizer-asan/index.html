@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="AddressSanitizer メモリ検出 | C++那些事">
       <meta name="twitter:description" content="CとC++は非常に安全でなくエラーを起こしやすいプログラミング言語です。Address SanitizerはGoogleが開発した、解放後使用（use-after-free）やメモリリークなどのメモリアクセスエラーを検出するためのツールです。GCCバージョン&gt;= 4.8に統合されており、CとC+…">
@@ -5534,7 +5538,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 <p>生成されたbinファイルを実行すると、次の結果が得られます。</p>
-<p><img alt="heap use after free" alt="AddressSanitizer メモリ検出 | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
+<p><img width="2312" height="1494" alt="heap use after free" alt="AddressSanitizer メモリ検出 | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
 <h2 id="2heap-buffer-overflow">2.heap buffer overflow<a class="headerlink" href="#2heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>まず、<code>new</code>キーワードによってヒープ上に整数2つの配列を割り当て、その配列の先頭アドレスをポインタ<code>arr</code>に代入します。その後、プログラムは値10を配列の3番目の位置（インデックス2）に格納しようとします。これは配列の有効範囲を超えており、ヒープバッファオーバーフローエラーにつながります。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
@@ -5553,7 +5557,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./a.out
 </span></code></pre></div>
 <p>次の検出結果が得られます。</p>
-<p><img alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png" /></p>
+<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png" /></p>
 <h2 id="3stack-buffer-overflow">3.stack buffer overflow<a class="headerlink" href="#3stack-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p><code>vulnerableFunction</code>関数の中では、8文字のchar配列<code>buffer</code>が定義されています。その後、<code>std::cin</code>を使って標準入力からデータを読み取り<code>buffer</code>に格納しますが、入力サイズの制限がありません。入力された文字数が<code>buffer</code>のサイズを超えると、スタックバッファオーバーフローエラーが発生します。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">vulnerableFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5563,7 +5567,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>使い方は上と同じです。</p>
-<p><img alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png" /></p>
+<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png" /></p>
 <h2 id="4global-buffer-overflow">4.global buffer overflow<a class="headerlink" href="#4global-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>グローバルバッファ（<code>buffer</code>配列）はプログラムのグローバル領域で定義されており、入力サイズに対する十分な制限がありません。入力された文字数がバッファのサイズを超えると、グローバルバッファオーバーフローエラーが発生します。スタックバッファオーバーフローと同様に、グローバルバッファオーバーフローはプログラムの不安定化やセキュリティ問題を引き起こす可能性があります。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5577,7 +5581,7 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>使い方は上と同じです。次が得られます：</p>
-<p><img alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png" /></p>
+<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png" /></p>
 <h2 id="5use-after-return">5.use after return<a class="headerlink" href="#5use-after-return" title="Permanent link">&para;</a></h2>
 <p>関数<code>f</code>の中では、ローカル変数<code>i</code>のアドレスが返されていますが、<code>main</code>関数の中で、返されたポインタを通じて、すでに破棄されたローカル変数にアクセスしようとしています。このようなシナリオでは、binファイルを検出し、<code>ASAN_OPTIONS=detect_stack_use_after_return=1</code>を設定します。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>g++-13 stack_use_after_return.cc -Wall -g -fsanitize=address
@@ -5595,7 +5599,7 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>すると、次の結果が得られます：</p>
-<p><img alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png" /></p>
+<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png" /></p>
 <h2 id="6use-after-scope">6.use after scope<a class="headerlink" href="#6use-after-scope" title="Permanent link">&para;</a></h2>
 <p>ローカル変数<code>x</code>のアドレスをポインタ<code>p</code>に代入します。しかし、この内部スコープを抜けた後、ポインタ<code>p</code>を通じて、すでに範囲外となったローカル変数<code>x</code>にアクセスしようとしており、スコープ外使用エラーが発生します。これも未定義動作です。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5614,7 +5618,7 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ASAN_OPTIONS=detect_stack_use_after_scope=0  ./a.out 
 </span></code></pre></div>
 <p>実際に試したところ、clang++では検出できますが、g++では検出できません。</p>
-<p><img alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png" /></p>
+<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png" /></p>
 <h2 id="7initialization-order-bugs">7.Initialization order bugs<a class="headerlink" href="#7initialization-order-bugs" title="Permanent link">&para;</a></h2>
 <p>2つの異なるソースファイルの中に、グローバル変数<code>a</code>の初期化が存在しますが、初期化の順序は不定です。<code>init_order_b.cc</code>ファイルの中では、変数<code>a</code>の値を使用しようとしていますが、初期化順序の不整合により、未定義の動作が引き起こされる可能性があります。</p>
 <p>コードは次のとおりです：</p>
@@ -5643,7 +5647,7 @@
 <p>このような問題が発生したとき、AddressSanitizerを使って初期化順序を検出できます。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ASAN_OPTIONS</span><span class="o">=</span><span class="n">check_initialization_order</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png" /></p>
+<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png" /></p>
 <h2 id="8memory-leak">8.memory leak<a class="headerlink" href="#8memory-leak" title="Permanent link">&para;</a></h2>
 <p><code>new</code>キーワードによって整数1つのメモリを動的に割り当てましたが、プログラムが終了する前に<code>delete</code>キーワードでこのメモリを解放していないため、メモリリークが発生します。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5657,7 +5661,7 @@
 <p><code>ASAN_OPTIONS=detect_leaks=1</code>を設定します。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ASAN_OPTIONS=detect_leaks=1 ./a.out
 </span></code></pre></div>
-<p><img alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png" /></p>
+<p><img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png" /></p>
 <h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-memory-leak-detection/">C++ メモリリーク検出 | C++那些事</a></li>

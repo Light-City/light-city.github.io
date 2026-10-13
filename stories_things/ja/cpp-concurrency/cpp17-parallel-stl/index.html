@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++17 並列 STL | C++那些事">
       <meta name="twitter:description" content="各コンパイラの並列アルゴリズムライブラリへの対応状況は以下のとおりです：">
@@ -5441,9 +5445,9 @@
 <p><a href="https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features">https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features</a></p>
 </blockquote>
 <p>gcc9以降で対応済みであることがわかります。clangはまだ完全には対応しておらず、自分でもローカルで試しましたが、確かに未対応でした。</p>
-<p><img alt="fea" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/fea.png" /></p>
+<p><img width="1990" height="1580" alt="fea" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/fea.png" /></p>
 <p>対応しているアルゴリズムには以下が含まれます：</p>
-<p><img alt="all std" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/all_std.png" /></p>
+<p><img width="1748" height="1080" alt="all std" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/all_std.png" /></p>
 <blockquote>
 <p><a href="https://en.cppreference.com/w/cpp/experimental/parallelism">https://en.cppreference.com/w/cpp/experimental/parallelism</a></p>
 </blockquote>
@@ -5453,7 +5457,7 @@
 <p><a href="https://gcc.gnu.org/gcc-9/changes.html">https://gcc.gnu.org/gcc-9/changes.html</a></p>
 </blockquote>
 <p>その中で、非常に重要な情報が述べられています：**tbbサポートが必要**です。</p>
-<p><img alt="tbb req" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/tbb_req.png" /></p>
+<p><img width="2228" height="702" alt="tbb req" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/tbb_req.png" /></p>
 <p>TBBはインテル（Intel）社が開発した並列プログラミング用のC++ライブラリです。TBBは、マルチコアプロセッサ上での並列ソフトウェア開発を簡素化することを目指しており、プログラマが並列アルゴリズムをより簡単に実装できるよう、一連の抽象化とモデルを提供しています。</p>
 <p>1.C++17で並列アルゴリズムライブラリを使用する前提としてtbbをインストールする必要がありますが、tbbをインストールしないとどうなるのでしょうか？</p>
 <p>自分で実際に試したところ、コンパイルと実行は可能でしたが、一切高速化されず、従来の非並列実行の結果と同じでした。</p>
@@ -5518,11 +5522,11 @@
 </span></code></pre></div>
 <p>以下のテスト結果では、tbbのデフォルトのスレッドスケジューリングポリシーを使用します。</p>
 <p><strong>対照グループ1：並列Sort/逐次Sortの詳細データと高速化比</strong></p>
-<p><img alt="sort parallel" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
-<p><img alt="sort parallel sp" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
+<p><img width="1387" height="871" alt="sort parallel" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
+<p><img width="1613" height="869" alt="sort parallel sp" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
 <p><strong>対照グループ2：並列Merge/逐次Mergeの詳細データと高速化比</strong></p>
-<p><img alt="merge parallel" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
-<p><img alt="merge parallel sp" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
+<p><img width="1405" height="871" alt="merge parallel" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
+<p><img width="1649" height="869" alt="merge parallel sp" alt="C++17 並列 STL | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
 <p>tbbドキュメント：</p>
 <blockquote>
 <p><a href="https://oneapi-src.github.io/oneTBB/index.html">https://oneapi-src.github.io/oneTBB/index.html</a></p>

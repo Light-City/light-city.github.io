@@ -96,6 +96,11 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
+      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ 多态：虚函数、CRTP 与 variant | C++那些事">
       <meta name="twitter:description" content="多态是面向对象编程的一个重要概念，它使得单一接口能够代表不同的类型。C++提供了几种实现多态性的方式，本文将会讨论三种场景的多态：">
@@ -5482,9 +5487,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>测试结果1：gcc编译，可以看到virtual与std::variant性能差别不大，但是与crtp差别非常大。</p>
-<p><img alt="gcc bm" alt="C++ 多态：虚函数、CRTP 与 variant | C++那些事" src="../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img width="1704" height="1246" alt="gcc bm" alt="C++ 多态：虚函数、CRTP 与 variant | C++那些事" src="../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>测试结果2：clang编译，总体趋势类似gcc编译，只有crtp + std::variant性能明显回退，这个可能也是由于这里用了std::visit导致。</p>
-<p><img alt="clang bm" alt="C++ 多态：虚函数、CRTP 与 variant | C++那些事" src="../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img width="1678" height="1250" alt="clang bm" alt="C++ 多态：虚函数、CRTP 与 variant | C++那些事" src="../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>在A Tour of C++书中提到：</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ‘‘potentially faster’’ should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

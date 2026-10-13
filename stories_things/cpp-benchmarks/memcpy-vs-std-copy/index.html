@@ -96,6 +96,11 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
+      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="memcpy 与 std::copy 性能对比 | C++那些事">
       <meta name="twitter:description" content="最近在做性能优化时，发现有一些代码用了std::copy，还有一些用了memcpy，两者在功能上其实类似，那么它们对性能影响是怎样的呢？">
@@ -5408,7 +5413,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="memcpy 与 std::copy 性能对比 | C++那些事" src="../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="copy memcpy" alt="memcpy 与 std::copy 性能对比 | C++那些事" src="../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="_1">如何选择？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在实际项目中，如何选择<code>memcpy</code>还是<code>std::copy</code>取决于具体的需求。如果处理的是POD类型，而且希望保持灵活性，那么选择<code>std::copy</code>是更为明智的选择。对于大多数应用场景，<code>std::copy</code>提供了更通用、更安全的数据拷贝方式。</p>
 <p>然而，在追求极致性能的情况下，可以考虑使用<code>memcpy</code>，尤其是在处理大规模数据时。但在做出选择时，务必结合实际应用场景，并借助性能分析工具进行详细测试和优化。</p>

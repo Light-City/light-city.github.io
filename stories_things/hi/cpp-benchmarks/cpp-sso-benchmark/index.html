@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="ru_RU">
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事">
       <meta name="twitter:description" content="आज मैं आपसे दो सवाल पूछना चाहता हूँ:">
@@ -5442,7 +5446,7 @@
 <p>देखा जा सकता है कि परफ़ॉर्मेंस का अंतर बहुत बड़ा है, केवल एक कैरेक्टर std::string की परफ़ॉर्मेंस में इतना बड़ा अंतर ला देता है!</p>
 <p>इसका मूल कारण वही पहले वाला SSO local buffer ही है।</p>
 <p>परफ़ॉर्मेंस टेस्ट: <a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="gcc short long" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>इसी तरह, हम llvm-14 का उदाहरण लेते हैं, पूरा कोड देखना हो तो नीचे दिए github पते पर जाएँ, यहाँ केवल मुख्य कोड निकालकर दिया गया है।</p>
 <blockquote>
@@ -5479,14 +5483,14 @@
 <p>जबकि SSO में, लोकल बफ़र में 22 से अधिक कैरेक्टर नहीं रहते, 22 कैरेक्टर से अधिक होने पर heap पर आवंटन हो जाता है।</p>
 <p>इसलिए जब हम gcc वाला वही टेस्ट कोड clang पर लागू करते हैं, तो हमें काफ़ी अलग परिणाम मिलता है, यानी: long स्ट्रिंग और short स्ट्रिंग की परफ़ॉर्मेंस में ज़्यादा अंतर नहीं है। कारण यह है कि gcc के टेस्ट केस सभी 22 कैरेक्टर के भीतर हैं, यानी सभी छोटे कैरेक्टर ही हैं।</p>
 <p>परफ़ॉर्मेंस टेस्ट: <a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="llvm short long no" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>जब हम वास्तविक लंबे-छोटे स्ट्रिंग टेस्ट करते हैं, तो परफ़ॉर्मेंस में स्पष्ट बदलाव दिखता है, और रुझान gcc के अनुरूप ही रहता है।</p>
 <ul>
 <li>छोटे स्ट्रिंग की टेस्ट सामग्री: "hello world hello worl", कुल 22 कैरेक्टर।</li>
 <li>लंबे स्ट्रिंग की टेस्ट सामग्री: "hello world hello world", कुल 23 कैरेक्टर।</li>
 </ul>
 <p>परफ़ॉर्मेंस टेस्ट: <a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="llvm short long" alt="C++ string SSO परफ़ॉर्मेंस टेस्ट | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="_1">संबंधित विषय<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事</a></li>

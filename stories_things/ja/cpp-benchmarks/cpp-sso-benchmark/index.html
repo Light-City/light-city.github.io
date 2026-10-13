@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ string SSO パフォーマンステスト | C++那些事">
       <meta name="twitter:description" content="今日は皆さんに2つの質問があります：">
@@ -5442,7 +5446,7 @@
 <p>パフォーマンスの差が非常に大きいことがわかります。わずか1文字の違いで std::string のパフォーマンスがここまで変わるのです！</p>
 <p>本質は前述の SSO ローカルバッファです。</p>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="gcc short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>同様に llvm-14 を例にとります。完全なコードを見たい場合は下の GitHub アドレスをご覧ください。ここでは核心部分を抜粋します。</p>
 <blockquote>
@@ -5479,14 +5483,14 @@
 <p>SSO については、ローカルバッファに格納できる文字数は 22 文字までで、22 文字を超えると heap 上に確保されます。</p>
 <p>そのため、gcc と同じテストコードを clang に適用すると、少し違う結果が得られます。つまり、long 文字列と short 文字列のパフォーマンスの差が大きくありません。理由は、gcc のテストケースがどちらも 22 文字以内、つまりすべて短い文字列だったためです。</p>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="llvm short long no" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>本当に長い文字列と短い文字列をテストすると、パフォーマンスは明確に変化し、傾向は gcc と一致します。</p>
 <ul>
 <li>短い文字列のテスト内容："hello world hello worl"、合計 22 文字。</li>
 <li>長い文字列のテスト内容："hello world hello world"、合計 23 文字。</li>
 </ul>
 <p>パフォーマンステスト：<a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="llvm short long" alt="C++ string SSO パフォーマンステスト | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">memcpy と std::copy のパフォーマンス比較 | C++那些事</a></li>

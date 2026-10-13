@@ -96,6 +96,11 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
+      <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ string SSO 性能测试 | C++那些事">
       <meta name="twitter:description" content="由于这两个答案在g++libstdc++与clanglibc++上的结果不一样，所以这里会分别进行分析。">
@@ -5442,7 +5447,7 @@
 <p>可以看到性能差距非常大，仅仅一个字符会导致std::string性能差别这么大！</p>
 <p>这里本质还是前面的SSO local buffer。</p>
 <p>性能测试：<a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="gcc short long" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>同理，我们以llvm-14为例，如果想要看完整代码戳下面的github地址即可，这里摘取出核心代码。</p>
 <blockquote>
@@ -5479,14 +5484,14 @@
 <p>而SSO，本地buffer存储的字符不超过22，当超过22个字符便会分配在heap上。</p>
 <p>所以当我们使用与gcc同样的测试代码应用在clang上，我们便得到了不太一样的结果，即：long字符串的性能与short字符串的性能拆别不大。原因就是gcc的测试case都是在22个字符以内，都是短字符。</p>
 <p>性能测试：<a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="llvm short long no" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>当我们测试真正的长短字符串时，性能便会发生明显变化，趋势与gcc保持一致。</p>
 <ul>
 <li>短字符串测试内容为："hello world hello worl"，总共22个字符。</li>
 <li>长字符串测试内容为："hello world hello world"，总共为23个字符。</li>
 </ul>
 <p>性能测试：<a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="llvm short long" alt="C++ string SSO 性能测试 | C++那些事" src="../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">memcpy 与 std::copy 性能对比 | C++那些事</a></li>

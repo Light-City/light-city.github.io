@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="ru_RU">
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事">
       <meta name="twitter:description" content="हाल में परफ़ॉर्मेंस ऑप्टिमाइज़ेशन करते समय देखा कि कुछ कोड std::copy का उपयोग करते हैं और कुछ memcpy का — दोनों कार्यात्मक रूप से काफ़ी मिलते-जुलते हैं, तो परफ़ॉर्मेंस पर इनका प्रभाव कैसा होता है?">
@@ -5408,7 +5412,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="copy memcpy" alt="memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="_1">कैसे चुनें?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>वास्तविक प्रोजेक्ट में <code>memcpy</code> चुनना है या <code>std::copy</code>, यह ठोस ज़रूरतों पर निर्भर करता है। यदि POD प्रकारों से निपट रहे हैं और लचीलापन बनाए रखना चाहते हैं, तो <code>std::copy</code> चुनना अधिक समझदारी है। अधिकांश अनुप्रयोग परिदृश्यों के लिए <code>std::copy</code> अधिक सामान्य और सुरक्षित डेटा कॉपी का तरीका प्रदान करता है।</p>
 <p>हालांकि, अंतिम परफ़ॉर्मेंस की मांग वाली स्थितियों में <code>memcpy</code> पर विचार किया जा सकता है, खासकर बड़े पैमाने के डेटा के साथ। लेकिन चुनाव करते समय ज़रूर वास्तविक अनुप्रयोग परिदृश्य को ध्यान में रखें, और परफ़ॉर्मेंस विश्लेषण टूल्स की मदद से विस्तृत परीक्षण व ऑप्टिमाइज़ेशन करें।</p>

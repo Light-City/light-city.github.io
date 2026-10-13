@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ string SSO Performance Test | C++那些事">
       <meta name="twitter:description" content="Today I want to ask you two questions:">
@@ -5442,7 +5446,7 @@
 <p>As you can see, the performance gap is huge — a single character makes this much difference for std::string!</p>
 <p>At its core, this is still the SSO local buffer mentioned earlier.</p>
 <p>Benchmark: <a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="gcc short long" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2-clang-libc">2. clang++ (libc++)<a class="headerlink" href="#2-clang-libc" title="Permanent link">&para;</a></h2>
 <p>Likewise, we take llvm-14 as the example; if you want the complete code, follow the GitHub link below — here the core parts are excerpted.</p>
 <blockquote>
@@ -5479,14 +5483,14 @@
 <p>As for SSO, the local buffer holds no more than 22 characters; beyond 22 characters the data is allocated on the heap.</p>
 <p>So when we run on clang the same test code we used for gcc, we get rather different results: the long string performs about the same as the short one. The reason is that the gcc test cases are all within 22 characters — all short strings.</p>
 <p>Benchmark: <a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="llvm short long no" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>When we test genuinely long and short strings, performance changes noticeably, with the trend matching gcc.</p>
 <ul>
 <li>The short-string test input is "hello world hello worl", 22 characters in total.</li>
 <li>The long-string test input is "hello world hello world", 23 characters in total.</li>
 </ul>
 <p>Benchmark: <a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="llvm short long" alt="C++ string SSO Performance Test | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">memcpy vs std::copy Performance Comparison | C++那些事</a></li>

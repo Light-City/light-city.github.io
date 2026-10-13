@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Polimorfismo en C++: funciones virtuales, CRTP y variant | C++那些事">
       <meta name="twitter:description" content="El polimorfismo es un concepto importante de la programación orientada a objetos: permite que una única interfaz represente distintos tipos. C++ ofrece varias formas de implementar el polimorfismo; este artículo tratará el polimorfismo en tres escenarios:">
@@ -5482,9 +5486,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>Resultado de la prueba 1: compilando con gcc, puede verse que virtual y std::variant apenas difieren en rendimiento, pero la diferencia con crtp es enorme.</p>
-<p><img alt="gcc bm" alt="Polimorfismo en C++: funciones virtuales, CRTP y variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img width="1704" height="1246" alt="gcc bm" alt="Polimorfismo en C++: funciones virtuales, CRTP y variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>Resultado de la prueba 2: compilando con clang, la tendencia general es similar a la de gcc; solo crtp + std::variant sufre un retroceso de rendimiento notable, posiblemente también debido al uso de std::visit aquí.</p>
-<p><img alt="clang bm" alt="Polimorfismo en C++: funciones virtuales, CRTP y variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img width="1678" height="1250" alt="clang bm" alt="Polimorfismo en C++: funciones virtuales, CRTP y variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>En el libro A Tour of C++ se menciona:</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ''potentially faster'' should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

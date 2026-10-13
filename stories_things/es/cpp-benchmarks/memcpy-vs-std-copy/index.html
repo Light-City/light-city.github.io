@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Comparación de rendimiento: memcpy frente a std::copy | C++那些事">
       <meta name="twitter:description" content="Últimamente, al hacer optimización de rendimiento, he visto que algo de código usa std::copy y otro tanto usa memcpy; en lo funcional los dos son de hecho parecidos, ¿cuál es su impacto en el rendimiento?">
@@ -5408,7 +5412,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img alt="copy memcpy" alt="Comparación de rendimiento: memcpy frente a std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="copy memcpy" alt="Comparación de rendimiento: memcpy frente a std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
 <h2 id="como-elegir">¿Cómo elegir?<a class="headerlink" href="#como-elegir" title="Permanent link">&para;</a></h2>
 <p>En proyectos reales, la elección entre <code>memcpy</code> y <code>std::copy</code> depende de las necesidades concretas. Si se procesan tipos POD y se quiere mantener la flexibilidad, <code>std::copy</code> es la opción más sensata. Para la mayoría de los escenarios de aplicación, <code>std::copy</code> ofrece una forma de copia de datos más genérica y segura.</p>
 <p>Sin embargo, cuando se persigue el máximo rendimiento, puede considerarse <code>memcpy</code>, sobre todo al procesar grandes volúmenes de datos. Pero al decidir, asegúrate de tener en cuenta el escenario de aplicación real y de apoyarte en herramientas de análisis de rendimiento para hacer pruebas y optimización detalladas.</p>

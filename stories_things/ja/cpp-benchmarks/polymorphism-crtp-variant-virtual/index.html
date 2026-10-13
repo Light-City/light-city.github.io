@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事">
       <meta name="twitter:description" content="ポリモーフィズムはオブジェクト指向プログラミングの重要な概念で、単一のインターフェースで異なる型を表現できます。C++ にはいくつかのポリモーフィズム実現方法があり、本記事では3つのシナリオのポリモーフィズムを議論します：">
@@ -5482,9 +5486,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>テスト結果1：gcc コンパイルでは、virtual と std::variant のパフォーマンス差は大きくありませんが、crtp との差は非常に大きいことがわかります。</p>
-<p><img alt="gcc bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img width="1704" height="1246" alt="gcc bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
 <p>テスト結果2：clang コンパイルでは全体傾向は gcc と同様で、crtp + std::variant のパフォーマンスだけが明らかに低下しています。これは std::visit を使っているためかもしれません。</p>
-<p><img alt="clang bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img width="1678" height="1250" alt="clang bm" alt="C++ ポリモーフィズム：仮想関数、CRTP と variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
 <p>A Tour of C++ の書籍には次のように書かれています：</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ''potentially faster'' should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

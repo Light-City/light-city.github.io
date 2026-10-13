@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ メモリリーク検出 | C++那些事">
       <meta name="twitter:description" content="C/C++コードを書くとき、メモリの問題はどこにでもあります。仕事でも面接でも、メモリの話題は避けて通れません。">
@@ -5520,7 +5524,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>valgrind --leak-check=full ./a.out 
 </span></code></pre></div>
 <p>すると、valgrindが私たちに示してくれる情報が得られます：</p>
-<p><img alt="detect" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/detect.png" /></p>
+<p><img width="1986" height="1830" alt="detect" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/detect.png" /></p>
 <p>このとき、上の画像からいくつかの問題が見て取れます：</p>
 <ul>
 <li>Invalid write</li>
@@ -5539,13 +5543,13 @@
 <p><code>--vgdb-error=0</code>を付けると、コードを非常に便利にデバッグできるようになり、デバッグしながらどこに問題があるかを確認できます。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">valgrind</span><span class="w"> </span><span class="o">--</span><span class="n">leak</span><span class="o">-</span><span class="n">check</span><span class="o">=</span><span class="n">full</span><span class="w"> </span><span class="o">--</span><span class="n">vgdb</span><span class="o">-</span><span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img alt="attach" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/attach.png" /></p>
+<p><img width="1972" height="502" alt="attach" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/attach.png" /></p>
 <p>続いて、gdbでアタッチします</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">gdb</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
 </span></code></pre></div>
 <p>上のtargetの行をgdbに貼り付けて、continueを実行すると、対応する行のコードと、valgrindが出力を続ける情報を見ることができます。</p>
-<p><img alt="gdb" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png" /></p>
-<p><img alt="continue" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/continue.png" /></p>
+<p><img width="2480" height="1414" alt="gdb" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png" /></p>
+<p><img width="2018" height="890" alt="continue" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/continue.png" /></p>
 <p>本節では、みなさんと一緒にメモリ問題を実践しました。お役に立てたなら、ぜひシェアをお願いします。</p>
 <h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>

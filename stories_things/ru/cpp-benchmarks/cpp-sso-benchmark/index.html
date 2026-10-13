@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Тест производительности SSO в C++ string | C++那些事">
       <meta name="twitter:description" content="Сегодня хочу задать вам два вопроса:">
@@ -5442,7 +5446,7 @@
 <p>Видно, что разница в производительности огромна — всего один символ настолько меняет производительность std::string!</p>
 <p>По сути, дело всё в том же SSO local buffer.</p>
 <p>Тест производительности: <a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img alt="gcc short long" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="gcc short long" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>Аналогично возьмём llvm-14; если хотите посмотреть полный код — откройте адрес на github ниже, здесь я приведу ключевые фрагменты.</p>
 <blockquote>
@@ -5479,14 +5483,14 @@
 <p>Что касается SSO, локальный буфер хранит не более 22 символов, а при превышении 22 символов происходит выделение в heap.</p>
 <p>Поэтому, когда мы применили на clang тот же тестовый код, что и для gcc, результат получился несколько иным: производительность для long-строки почти не отличается от производительности для short-строки. Причина в том, что тестовые сценарии gcc укладывались в 22 символа — все они были короткими.</p>
 <p>Тест производительности: <a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img alt="llvm short long no" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="llvm short long no" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
 <p>Когда же мы тестируем по-настоящему длинные и короткие строки, производительность меняется заметно, и тренд совпадает с gcc.</p>
 <ul>
 <li>Содержимое короткой строки для теста: "hello world hello worl", всего 22 символа.</li>
 <li>Содержимое длинной строки для теста: "hello world hello world", всего 23 символа.</li>
 </ul>
 <p>Тест производительности: <a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img alt="llvm short long" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="llvm short long" alt="Тест производительности SSO в C++ string | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
 <h2 id="_1">Похожие темы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">Сравнение производительности memcpy и std::copy | C++那些事</a></li>

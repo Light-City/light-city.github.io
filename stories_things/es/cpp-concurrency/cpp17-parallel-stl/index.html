@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="STL paralelo de C++17 | C++那些事">
       <meta name="twitter:description" content="El soporte de la biblioteca de algoritmos paralelos en los distintos compiladores es el siguiente:">
@@ -5441,9 +5445,9 @@
 <p><a href="https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features">https://en.cppreference.com/w/cpp/compiler_support/17#C.2B.2B17_library_features</a></p>
 </blockquote>
 <p>Se puede ver que gcc ya la admite a partir de gcc9, mientras que clang aún no la soporta por completo; lo comprobé en local y, en efecto, no la admite.</p>
-<p><img alt="fea" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/fea.png" /></p>
+<p><img width="1990" height="1580" alt="fea" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/fea.png" /></p>
 <p>Los algoritmos admitidos incluyen:</p>
-<p><img alt="all std" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/all_std.png" /></p>
+<p><img width="1748" height="1080" alt="all std" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/all_std.png" /></p>
 <blockquote>
 <p><a href="https://en.cppreference.com/w/cpp/experimental/parallelism">https://en.cppreference.com/w/cpp/experimental/parallelism</a></p>
 </blockquote>
@@ -5453,7 +5457,7 @@
 <p><a href="https://gcc.gnu.org/gcc-9/changes.html">https://gcc.gnu.org/gcc-9/changes.html</a></p>
 </blockquote>
 <p>En ella se menciona un dato muy importante: <strong>requiere soporte de tbb</strong>.</p>
-<p><img alt="tbb req" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/tbb_req.png" /></p>
+<p><img width="2228" height="702" alt="tbb req" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/tbb_req.png" /></p>
 <p>TBB es una biblioteca C++ para programación paralela desarrollada por Intel. TBB busca simplificar el desarrollo de software paralelo en procesadores multinúcleo y proporciona un conjunto de abstracciones y modelos que permiten a los programadores implementar algoritmos paralelos con mayor facilidad.</p>
 <p>1.Para usar la biblioteca de algoritmos paralelos en C++17 es imprescindible tener tbb instalado; ¿y qué ocurre si no se instala tbb?</p>
 <p>Por mi propia experiencia: compila y se ejecuta, solo que sin ninguna aceleración; el resultado es el mismo que el de la versión no paralela original.</p>
@@ -5518,11 +5522,11 @@
 </span></code></pre></div>
 <p>Los resultados de las pruebas siguientes usan la política de planificación de hilos por defecto de tbb.</p>
 <p><strong>Grupo de comparación 1: datos detallados y factor de aceleración de sort paralelo/sort serial</strong></p>
-<p><img alt="sort parallel" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
-<p><img alt="sort parallel sp" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
+<p><img width="1387" height="871" alt="sort parallel" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel.png" /></p>
+<p><img width="1613" height="869" alt="sort parallel sp" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/sort_parallel_sp.png" /></p>
 <p><strong>Grupo de comparación 2: datos detallados y factor de aceleración de merge paralelo/merge serial</strong></p>
-<p><img alt="merge parallel" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
-<p><img alt="merge parallel sp" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
+<p><img width="1405" height="871" alt="merge parallel" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel.png" /></p>
+<p><img width="1649" height="869" alt="merge parallel sp" alt="STL paralelo de C++17 | C++那些事" src="../../../assets/images/2024/parallel/img/merge_parallel_sp.png" /></p>
 <p>Documentación de tbb:</p>
 <blockquote>
 <p><a href="https://oneapi-src.github.io/oneTBB/index.html">https://oneapi-src.github.io/oneTBB/index.html</a></p>

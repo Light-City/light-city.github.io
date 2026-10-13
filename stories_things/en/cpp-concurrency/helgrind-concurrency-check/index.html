@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:locale:alternate" content="hi_IN">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Helgrind Concurrency Error Detection | C++那些事">
       <meta name="twitter:description" content="Usually, when we write multi-threaded programs, we easily run into two problems:">
@@ -5447,7 +5451,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img alt="deadlock" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="deadlock" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>Suppose there is a shared variable that we increment 100,000 times from multiple threads — what will the result be?</p>
 <p>Clearly there is a problem here of multiple threads racing on a global variable, and the final result is inconsistent; use the same helgrind detection method as above.</p>
@@ -5460,7 +5464,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>At this point, we can see on which line the data race occurs, and then go fix the problem.</p>
-<p><img alt="datarace" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="datarace" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
 <p>Finally, here are a few questions to leave you with:</p>
 <p>1.How do you fix the two pieces of problematic code above?</p>
 <p>2.Besides the tools above, are there any other approaches?</p>

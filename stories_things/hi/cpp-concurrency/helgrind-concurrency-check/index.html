@@ -96,6 +96,10 @@
       <meta property="og:locale:alternate" content="ru_RU">
       <meta property="og:locale:alternate" content="pt_BR">
       <meta property="og:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="C++那些事">
+      <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Helgrind concurrency error detection | C++那些事">
       <meta name="twitter:description" content="उत्तर है हाँ, हम valgrind के helgrind tool से इन दोनों समस्याओं का पता लगा सकते हैं, इस लेख की व्याख्या को और सरल बनाने के लिए कुछ उदाहरण दिए गए हैं।">
@@ -5447,7 +5451,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img alt="deadlock" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="deadlock" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>मान लीजिए एक shared variable है, जिसे हम multiple threads से 10w बार increment करते हैं, तो परिणाम कितना होगा?</p>
 <p>स्पष्ट है कि यहाँ multiple threads के global variable पर race की समस्या पैदा हुई है, अंतिम परिणाम inconsistent आता है, helgrind से detect करने का तरीका वही है जो ऊपर बताया गया।</p>
@@ -5460,7 +5464,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>इस समय हम देख सकते हैं कि data race वाली line कौन सी है, और फिर समस्या हल करें।</p>
-<p><img alt="datarace" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="datarace" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
 <p>अंत में, कुछ प्रश्न छोड़ते हैं:</p>
 <p>1.ऊपर के इन दोनों समस्याग्रस्त code को कैसे ठीक करें?</p>
 <p>2.ऊपर बताए tool के अलावा, कोई और तरीका भी है?</p>
