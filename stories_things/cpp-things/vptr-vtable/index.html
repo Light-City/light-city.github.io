@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="c-virtual-pointer-and-vtable-mechanism">C++ Virtual Pointer and vtable Mechanism<a class="headerlink" href="#c-virtual-pointer-and-vtable-mechanism" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author:<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>Personal WeChat official account:</p>
-<p><img alt="wechat" alt="C++ Virtual Pointer and vtable Mechanism | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ Virtual Pointer and vtable Mechanism | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-basic-theory">1. Basic Theory<a class="headerlink" href="#1-basic-theory" title="Permanent link">&para;</a></h2>
 <p>To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as "vtable", "virtual function table", "virtual method table", or "dispatch table".</p>
 <p>The virtual table is actually quite simple, even if it is a little complicated to describe in words. First, <strong>every class that uses virtual functions (or is derived from a class that uses virtual functions) has its own virtual table</strong>. This table is simply a static array the compiler sets up at compile time. The virtual table contains one entry for each virtual function that can be called by objects of the class. Each entry in this table is just a function pointer pointing to the most-derived function accessible to that class.</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2-implementation-and-internal-structure">2. Implementation and Internal Structure<a class="headerlink" href="#2-implementation-and-internal-structure" title="Permanent link">&para;</a></h2>
 <p>Now let's look at automatically and manually manipulating the vptr to obtain addresses and invoke virtual functions!</p>
 <p>Before looking at the code, here is a call diagram to make things easier to understand:</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>The code all follows the standard commenting style; you will understand it at a glance, and if not, feel free to leave a comment!</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5574,7 +5574,7 @@
 - If a node is red, then both its children are black.
 - For each node, all simple paths from the node to its descendant leaves contain the same number of black nodes.</p>
 <p>Of course, this rb_tree likewise satisfies these properties; the iterator's begin points to the red-black tree's root — that is, the header's parent — while end points to the header node.</p>
-<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />.
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>.
 The ellipsis in the figure means the nodes were not all drawn — other nodes exist, hence the omission.</p>
 <h2 id="1red-black-tree-node-base-class">1.Red-black tree node base class<a class="headerlink" href="#1red-black-tree-node-base-class" title="Permanent link">&para;</a></h2>
 <p>The red-black tree base class is very simple; a color flag is defined at the start of the file.</p>
@@ -5803,7 +5803,7 @@ Later we will explain the most important operation, insertion.</p>
 <p>Getting the red-black tree's root, leftmost, and rightmost nodes</p>
 </blockquote>
 <p>Back to the figure from the beginning:
-<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />.</p>
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 图中100 节点</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -5903,12 +5903,12 @@ You will notice the function and variable names differ from the source — that 
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <p>case 1.1: The parent is red and its uncle is also red; then set the parent and uncle to black, and the grandparent to red.</p>
-<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
+<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 1.2 If there is no uncle, or the uncle is black, it splits into the following two:</p>
 <p>Situation 1.2.1: x's uncle y is black and x is a right child</p>
-<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
+<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>Situation 1.2.2: x's uncle y is black and x is a left child</p>
-<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
+<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png"  loading="lazy" decoding="async"/></p>
 <p>Corresponding to this in the source code:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
@@ -5933,11 +5933,11 @@ You will notice the function and variable names differ from the source — that 
 </span></code></pre></div></p>
 <p>The other one is the symmetric process of the above:</p>
 <p>case 2.1: The parent is red and its uncle is also red; then set the parent and uncle to black, and the grandparent to red.</p>
-<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
+<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2.2 If there is no uncle, or the uncle is black</p>
-<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
+<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>Situation 2.2.1: x's uncle y is black and x is a left child</p>
-<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
+<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png"  loading="lazy" decoding="async"/></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
@@ -6043,12 +6043,12 @@ You will notice the function and variable names differ from the source — that 
 <p>From the insertion process and source analysis above, we derive the following three cases:
 Let P stand for the parent node, N for the newly inserted node, U for the uncle, and G for the grandparent.</p>
 <p>case 1: U is red, and P and N are also red; then, by changing colors and adjusting recursively bottom-up, next time N becomes G, and we just keep judging upward. If the root happens to get colored red, the algorithm can force root back to black at the very end.</p>
-<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
+<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2: U is black; consider whether N is P's left or right child.</p>
 <p>case2.1 If it is a right child, first do a left rotation, then move on to the next case.</p>
-<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
+<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png"  loading="lazy" decoding="async"/></p>
 <p>case2.2 May have evolved from the case above, but not necessarily! The strategy: rotate right and change colors.</p>
-<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
+<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png"  loading="lazy" decoding="async"/></p>
 <p>From the source analysis above we learn that red-black tree insertion is a mirror transformation; the other case is exactly the reverse.</p>
 <p>The deletion operation is rather complex, so it is not analyzed here for now; to be added later...</p>
 <h2 id="6usage">6.Usage<a class="headerlink" href="#6usage" title="Permanent link">&para;</a></h2>

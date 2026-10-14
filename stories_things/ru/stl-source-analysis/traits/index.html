@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5462,7 +5462,7 @@
 <h1 id="traits-stl">Извлечение типов traits в STL<a class="headerlink" href="#traits-stl" title="Permanent link">&para;</a></h1>
 <h2 id="0">0. Введение<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p>В программировании на STL контейнеры и алгоритмы проектируются независимо, то есть структуры данных и алгоритмы разрабатываются по отдельности; мостом, соединяющим контейнеры и алгоритмы, являются итераторы — именно они делают такое независимое проектирование возможным. Как показано на схеме ниже:</p>
-<p><img alt="rela" alt="Извлечение типов traits в STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="Извлечение типов traits в STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>Приведённая схема показывает: цель STL — разделить данные и алгоритмы, проектировать их по отдельности, а затем склеить их обратно посредством вещи под названием iterator.</p>
 <p>В шаблонах проектирования об iterator сказано: <strong>способ последовательного доступа к каждому элементу контейнера, при котором не раскрывается внутреннее представление контейнера. А техника извлечения типов как раз и предназначена для решения проблем, связанных с iterator.</strong></p>
 <p>Применение обобщённых алгоритмов (find, count, find_if) к некоторому контейнеру требует прежде всего дать алгоритму инструмент доступа к элементам контейнера — и эту важную роль играет iterator.</p>
@@ -5599,7 +5599,7 @@
 </span></code></pre></div>
 <p><strong>（2）Добавляем промежуточный слой</strong></p>
 <p>Что же такое Traits в STL? Взгляните на схему:</p>
-<p><img alt="trai" alt="Извлечение типов traits в STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="Извлечение типов traits в STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png"  loading="lazy" decoding="async"/></p>
 <p>Промежуточный слой <code>iterator_traits</code> фиксирует форму <code>func</code> и резко сокращает дублирование кода; всё, что остаётся, — слегка специализировать iterator_traits, чтобы он поддерживал pointer и const pointer:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

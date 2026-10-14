@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Análise do código-fonte do STL list | C++那些事">
       <meta name="twitter:description" content="A versão correspondente do código-fonte é a gcc-4.9.1">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Análise do código-fonte do STL list | C++那些事", "description": "A versão correspondente do código-fonte é a gcc-4.9.1", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/list/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/list/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Análise do código-fonte do STL list | C++那些事", "description": "A versão correspondente do código-fonte é a gcc-4.9.1", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/stl-source-analysis/list/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/stl-source-analysis/list/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Análise do código-fonte", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/array/"}, {"@type": "ListItem", "position": 3, "name": "Análise do código-fonte do STL list | C++那些事", "item": "https://light-city.github.io/stories_things/pt/stl-source-analysis/list/"}]}</script>
   </head>
   
@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5583,16 +5583,16 @@
 
 
 <blockquote>
-<p><strong>Última atualização：2026-10-12</strong></p>
+<p><strong>Última atualização：2026-10-15</strong></p>
 </blockquote>
 <h1 id="analise-do-codigo-fonte-do-stl-list">Análise do código-fonte do STL list<a class="headerlink" href="#analise-do-codigo-fonte-do-stl-list" title="Permanent link">&para;</a></h1>
 <h2 id="0-introducao">0. Introdução<a class="headerlink" href="#0-introducao" title="Permanent link">&para;</a></h2>
 <p>A versão correspondente do código-fonte é <strong>gcc-4.9.1</strong></p>
 <h3 id="1-list">1. list<a class="headerlink" href="#1-list" title="Permanent link">&para;</a></h3>
 <p>list é uma lista ligada circular bidirecional, com a seguinte estrutura:</p>
-<p><img alt="list 1" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png"  loading="lazy" decoding="async"/></p>
 <p>A figura que desenhei é a seguinte:</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>A lista ligada circular bidirecional começa a inserir a partir do nó de valor 3; a moldura vermelha representa o último nó (o nó apontado por end()). As linhas amarelas indicam o apontamento para o nó predecessor, e as linhas pretas indicam o apontamento para o nó sucessor.</p>
 <h3 id="11-codigo-fonte-do-list">1.1 Código-fonte do list<a class="headerlink" href="#11-codigo-fonte-do-list" title="Permanent link">&para;</a></h3>
 <h4 id="111-estrutura-da-classe">1.1.1 Estrutura da classe<a class="headerlink" href="#111-estrutura-da-classe" title="Permanent link">&para;</a></h4>
@@ -5705,7 +5705,7 @@
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Essa inserção é feita antes da posição especificada (em termos de código): por exemplo, inserir um nó de valor 9 (que corresponde no código a __tmp) antes do nó <code>__position</code> de valor 7 especificado; o fluxo concreto da inserção é explicado a seguir.</p>
-<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png" /></p>
+<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png"  loading="lazy" decoding="async"/></p>
 <p>（2）inserir no final, sucessivamente, n nós com valor de nó x</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">_M_fill_initialize</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">__n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">__n</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">__n</span><span class="p">)</span>
@@ -5782,23 +5782,23 @@
 </span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Novamente a figura anterior:</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>Pela análise anterior, sabemos que <code>splice</code> insere o list inteiro representado pela figura acima antes do iterador especificado; por exemplo, se quisermos inserir antes dos dois nós abaixo, os passos gráficos concretos são os seguintes:</p>
 <p>O nó representado por <code>this</code> é o nó de valor 8; a figura abaixo descreve a inserção do list inteiro entre o nó 10 e o nó 8.</p>
 <p><code>__last</code> representa o nó da moldura vermelha, que é o nó apontado por <code>end()</code>; não precisamos dele, de modo que, no processamento posterior, ele será retirado do list inteiro.</p>
 <p><code>__first</code> representa, na figura, o nó de valor 3.</p>
 <p><strong>Passo 1: primeiro, fazer o next do último nó válido, isto é, o nó anterior ao da moldura vermelha, apontar para o nó 8 especificado.</strong></p>
-<p><img alt="step1" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>__last-&gt;_M_prev-&gt;_M_next  = this;   
 </span></code></pre></div>
 <p><strong>Passo 2: o next de <code>_last</code> aponta para ele mesmo.</strong></p>
-<p><img alt="step2" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>__first-&gt;_M_prev-&gt;_M_next = __last;
 </span></code></pre></div>
 <p><strong>Passo 3: fazer o next do nó anterior ao iterador especificado apontar para o primeiro nó do list original (<code>__first</code>).</strong></p>
-<p><img alt="step3" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>this-&gt;_M_prev-&gt;_M_next    = __first;
 </span></code></pre></div>
@@ -5806,17 +5806,17 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>_List_node_base* const __tmp = this-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Passo 5: o predecessor do iterador especificado passa a apontar para o que era o último nó real do list original (o nó anterior a end()).</strong></p>
-<p><img alt="step5" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>this-&gt;_M_prev                = __last-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Passo 6: fazer o prev do último nó do list original (o nó apontado por end()) apontar para ele mesmo.</strong></p>
-<p><img alt="step6" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>__last-&gt;_M_prev              = __first-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Passo 7: fazer o prev do primeiro nó do list original apontar para o nó salvo no passo 4.</strong></p>
-<p><img alt="step7" alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
+<p><img alt="Análise do código-fonte do STL list | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png"  loading="lazy" decoding="async"/></p>
 <p>O código correspondente é:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>__first-&gt;_M_prev             = __tmp;
 </span></code></pre></div>
@@ -5941,7 +5941,7 @@
 </span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Por exemplo: para remover o nó de valor 9, a ilustração do terceiro e do quarto passos:</p>
-<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png" /></p>
+<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png"  loading="lazy" decoding="async"/></p>
 <p><strong>（2）Análise detalhada da remoção de uma série de elementos</strong></p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">iterator</span>
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="cp">#if __cplusplus &gt;= 201103L</span>
@@ -6030,7 +6030,7 @@
 <li>unique</li>
 </ul>
 <p>Remove de cada grupo de elementos iguais e consecutivos do contêiner todos os elementos, exceto o primeiro.</p>
-<p>Note que um elemento só é removido do contêiner <a href="http://www.cplusplus.com/list">lista</a> quando comparado com os elementos imediatamente adjacentes no contêiner <a href="http://www.cplusplus.com/list">lista</a>. Por isso, esta função é especialmente útil para listas ordenadas.</p>
+<p>Note que um elemento só é removido do contêiner <a href="https://www.cplusplus.com/list">lista</a> quando comparado com os elementos imediatamente adjacentes no contêiner <a href="https://www.cplusplus.com/list">lista</a>. Por isso, esta função é especialmente útil para listas ordenadas.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_BinaryPredicate</span><span class="o">&gt;</span>
 </span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="kt">void</span>
@@ -6467,7 +6467,7 @@
 </span><span id="__span-57-30"><a id="__codelineno-57-30" name="__codelineno-57-30" href="#__codelineno-57-30"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>A figura formada ao final é:</p>
-<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png" /></p>
+<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png"  loading="lazy" decoding="async"/></p>
 <p>Portanto, se calcularmos:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="k">sizeof</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="o">=</span><span class="mi">16</span>
 </span></code></pre></div>

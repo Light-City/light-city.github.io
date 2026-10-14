@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5475,7 +5475,7 @@
 <p>deque不像vector那样，vector当内存不够时，需重新分配/复制数据/释放原始空间；不过deque的迭代器设置比vector复杂，因为迭代器不能使用普通指针，因此尽量使用vector。</p>
 <h2 id="1deque">1.deque中控器<a class="headerlink" href="#1deque" title="Permanent link">&para;</a></h2>
 <p>用户看起来deque使用的是连续空间，实际上是**分段连续线性空间**。为了管理分段空间deque容器引入了map，称之为中控器，map是一块连续的空间，其中每个元素是指向缓冲区的指针，缓冲区才是deque存储数据的主体。</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>在上图中，buffer称为缓冲区，显示map size的一段连续空间就是中控器。</p>
 <p>中控器包含了map size,指向buffer的指针，deque的开始迭代器与结尾迭代器。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5485,14 +5485,14 @@
 </span></code></pre></div>
 <p>由于buffer也是指针，所以<code>_Tp</code>是指针的指针。</p>
 <p>deque继承自<code>_Deque_base</code>,而<code>_Deque_base</code>里面有一个<code>_M_impl</code>。</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>根据下图与上述描述，可以知道，中控器是由<code>_Deque_impl</code>实现的。</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>而deque是使用基类<code>_Deque_base</code>来完成内存管理与中控器管理。</p>
 <h2 id="2">2.高端的迭代器<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>对于deque来说，它的迭代器设计的非常棒！</p>
 <p>如下图所示：
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>首先来看一下比较重要的成员：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5503,7 +5503,7 @@
 <p>这几个究竟是什么呢，根据名字，很容易知道啥意思，对于deque来说，是分段连续空间，迭代器执行操作，上述的<code>_M_cur</code>指向具体的元素，<code>_M_first</code>指向这段buffer中的第一个元素,<code>_M_last</code>指向最后一个元素(不是有效的元素)，而<code>_M_node</code>则是指向中控器。所以它是一个指针的指针。</p>
 <p>例如现在迭代器执行++操作，当前buffer不够用了，那么此时需要一个指针能够回到中控器，取下一段buffer，重置<code>_M_first</code>与<code>_M_last</code>的指针位置，<code>_M_cur</code>指向新段buffer中的指定位置。</p>
 <p>我们现在回到一开始的图：</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>最上面的的iterator就是上面几个指针的区块配图。</p>
 <p>那buffer计算是什么实现的呢?</p>
 <p>在源码中计算是根据传递进来的类型，如果传递的类型小于512字节，那么buffersize就是512/sizeof(_Tp)，超过512，就是1。</p>

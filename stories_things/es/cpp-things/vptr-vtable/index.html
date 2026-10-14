@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="mecanismo-de-puntero-virtual-y-tabla-virtual-en-c">Mecanismo de puntero virtual y tabla virtual en C++<a class="headerlink" href="#mecanismo-de-puntero-virtual-y-tabla-virtual-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública personal:</p>
-<p><img alt="wechat" alt="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-teoria-basica">1. Teoría básica<a class="headerlink" href="#1-teoria-basica" title="Permanent link">&para;</a></h2>
 <p>Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como "vtable", "tabla de funciones virtuales", "tabla de métodos virtuales" o "tabla de despacho".</p>
 <p>La tabla virtual es en realidad muy sencilla, aunque describirla con palabras sea un poco complicado. Primero, <strong>cada clase que usa funciones virtuales (o que deriva de una clase que usa funciones virtuales) tiene su propia tabla virtual</strong>. Esa tabla es simplemente un arreglo estático que el compilador construye en tiempo de compilación. La tabla virtual contiene una entrada por cada función virtual que puede ser invocada por los objetos de la clase. Cada entrada de esta tabla es solo un puntero a función, que apunta a la función derivada más accesible para esa clase.</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2-implementacion-y-estructura-interna">2. Implementación y estructura interna<a class="headerlink" href="#2-implementacion-y-estructura-interna" title="Permanent link">&para;</a></h2>
 <p>¡Veamos ahora cómo obtener direcciones e invocar funciones virtuales manipulando el vptr de forma automática y manual!</p>
 <p>Antes de empezar a mirar el código, para facilitar la comprensión, se muestra el grafo de llamadas:</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>Todo el código sigue el estilo de comentarios estándar; seguro que al verlo se entiende, y si no, ¡puedes dejar un mensaje!</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

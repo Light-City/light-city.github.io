@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5474,7 +5474,7 @@
 <p>Unlike vector, which — when memory runs short — must reallocate, copy data, and free the original space, deque avoids that; however, deque's iterator design is more complex than vector's, because its iterators cannot be ordinary pointers, so prefer vector when possible.</p>
 <h2 id="1the-deque-controller">1.The deque controller<a class="headerlink" href="#1the-deque-controller" title="Permanent link">&para;</a></h2>
 <p>To the user, deque appears to use continuous space, but it is in fact a <strong>segmented continuous linear space</strong>. To manage the segmented space, the deque container introduces a map, called the controller: the map is a contiguous space whose every element is a pointer to a buffer, and the buffers are what actually store the deque's data.</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>In the figure above, buffer denotes a buffer, and the contiguous stretch of space shown as map size is the controller.</p>
 <p>The controller holds map size, pointers to buffers, and the deque's start and finish iterators.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5484,14 +5484,14 @@
 </span></code></pre></div>
 <p>Since a buffer is itself referenced via a pointer, <code>_Tp</code> is a pointer to a pointer.</p>
 <p>deque inherits from <code>_Deque_base</code>, and <code>_Deque_base</code> contains an <code>_M_impl</code>.</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>From the figure below and the description above, we can see that the controller is implemented by <code>_Deque_impl</code>.</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>And deque uses the base class <code>_Deque_base</code> to accomplish memory management and controller management.</p>
 <h2 id="2a-sophisticated-iterator">2.A sophisticated iterator<a class="headerlink" href="#2a-sophisticated-iterator" title="Permanent link">&para;</a></h2>
 <p>For deque, its iterator design is excellent!</p>
 <p>As shown in the figure below:
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>First, a look at the more important members:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5502,7 +5502,7 @@
 <p>What exactly are these? Judging by their names, the meaning is easy to grasp. For deque, which is a segmented continuous space, when the iterator performs operations, <code>_M_cur</code> points to the concrete element, <code>_M_first</code> points to the first element of the current buffer, <code>_M_last</code> points to the last element (not a valid element), and <code>_M_node</code> points into the controller. Hence it is a pointer to a pointer.</p>
 <p>For example, when the iterator performs a ++ operation and the current buffer is exhausted, a pointer is needed that can go back to the controller, fetch the next buffer, reset the positions of the <code>_M_first</code> and <code>_M_last</code> pointers, and point <code>_M_cur</code> to the designated position in the new buffer.</p>
 <p>Let's return to the figure from the beginning:</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>The iterator at the very top is the block diagram of the pointers above.</p>
 <p>So how is the buffer size computed?</p>
 <p>In the source code, the computation is based on the passed-in type: if the passed type is smaller than 512 bytes, the buffersize is 512/sizeof(_Tp); if it exceeds 512, it is 1.</p>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <p><strong>जानना कि क्या है, यह भी जानना कि क्यों है — सोर्स कोड के सामने कोई रहस्य नहीं बचता!</strong></p>
 <h2 id="1traits-iterator_category">1.traits मशीन का उपयोग करके एक सरल iterator_category पहचान कार्यान्वित करना<a class="headerlink" href="#1traits-iterator_category" title="Permanent link">&para;</a></h2>
 <p>पिछले अनुभाग में इटरेटर की भूमिका बताई गई थी, जो पहले की तरह नीचे के चित्र में दिखाया गया है:</p>
-<p><img alt="rela" alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>इटरेटर, सीक्वेंस के एलिमेंट्स की ओर इशारा करने वाले पॉइंटर का एक एब्स्ट्रैक्शन है। इटरेटर का उपयोग करके हम सीक्वेंस के किसी एलिमेंट तक पहुँच सकते हैं, सीक्वेंस के किसी एलिमेंट का मान बदल सकते हैं, इटरेटर को आगे या पीछे चला सकते हैं, इत्यादि।</p>
 <p>इटरेटर में सामान्यतः पाँच प्रकार के टाइप होते हैं: value_type, difference_type, reference_type, pointer_type — इन सभी को traits तथा संगत पार्शियल स्पेशलाइज़ेशन द्वारा निकालना अपेक्षाकृत सरल है।</p>
 <p>परंतु iterator_category सामान्यतः 5 प्रकार के होते हैं, और यह संगत टाइप काफी बड़े पैमाने पर कोड लेखन का कार्य खड़ा कर देता है।</p>
@@ -5457,7 +5457,7 @@
 <li>एक दिशा में चलने वाला पठन-लेखन इटरेटर Forward Iterator</li>
 <li>दोनों दिशाओं में चलने वाला पठन-लेखन इटरेटर Bidirectional Iterator</li>
 </ul>
-<p><img alt="iterator" alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png"  loading="lazy" decoding="async"/></p>
 <p>उदाहरण के लिए: हमने advanceII, advanceBI, advanceRAI कार्यान्वित किए, जो क्रमशः Input Iterator, Bidirectional Iterator तथा Random Access Iterator इटरेटर टाइप के संगत कार्यान्वयन दर्शाते हैं।</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5474,7 +5474,7 @@
 <p><code>advanceXX()</code> के दोनों फंक्शन पैरामीटर अनिर्धारित टाइप के हैं (क्योंकि दोनों टेम्प्लेट पैरामीटर हैं)। इन्हें समान नाम देकर ओवरलोडेड फंक्शन्स बनाने के लिए, हमें एक ऐसा फंक्शन पैरामीटर जोड़ना होगा जिसका टाइप निर्धारित हो, ताकि फंक्शन ओवरलोडिंग कार्यप्रणाली प्रभावी रूप से चल सके।</p>
 <p>डिज़ाइन इस प्रकार है: यदि <strong>traits</strong> में इटरेटर का प्रकार निकालने की क्षमता है, तो हम इस “इटरेटर टाइप” संगत टाइप को advancexx के तीसरे पैरामीटर के रूप में उपयोग कर सकते हैं; और यह संगत टाइप अवश्य ही एक class type होना चाहिए, केवल संख्या-नंबर जैसी कोई चीज़ नहीं, क्योंकि कंपाइलर को <strong>ओवरलोड रेज़ोल्यूशन</strong> के लिए इसी पर निर्भर रहना होता है।</p>
 <p>अब इसे कार्यान्वित करते हैं; सबसे पहले एक समग्र स्ट्रक्चर आरेख:</p>
-<p><img alt="itera" alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="STL इटरेटर सोर्स कोड विश्लेषण | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png"  loading="lazy" decoding="async"/></p>
 <p>निम्नलिखित tag परिभाषित करें:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

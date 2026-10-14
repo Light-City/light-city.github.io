@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="implementing-c-polymorphism-in-c">Implementing C++ Polymorphism in C<a class="headerlink" href="#implementing-c-polymorphism-in-c" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>WeChat official account:</p>
-<p><img alt="wechat" alt="Implementing C++ Polymorphism in C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="Implementing C++ Polymorphism in C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-a-c-implementation-example">1. A C++ Implementation Example<a class="headerlink" href="#1-a-c-implementation-example" title="Permanent link">&para;</a></h2>
 <p>Polymorphism in C++: C++ maintains a virtual function table, and by the assignment compatibility rules we know that a base class pointer or reference can point to a derived class object.</p>
 <p>If a base class pointer or reference calls a virtual function of the base class, that base class pointer looks up the function address in its own virtual function table. If the base class pointer or reference points to a derived class object, and that derived class has overridden the base class's virtual function, then the pointer calls the derived class's overridden virtual function.</p>

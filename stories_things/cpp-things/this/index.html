@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5429,7 +5429,7 @@
 <h1 id="c-this-pointer">C++ this Pointer<a class="headerlink" href="#c-this-pointer" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>WeChat official account:</p>
-<p><img alt="wechat" alt="C++ this Pointer | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ this Pointer | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-the-this-pointer">1. The this Pointer<a class="headerlink" href="#1-the-this-pointer" title="Permanent link">&para;</a></h2>
 <p>Many of you, I'm sure, are learning Python. Python has self; the C++ analogue is the this pointer. So let's dig into how the this pointer is used inside a class!</p>
 <p>First, let's talk about what the this pointer is for:</p>
@@ -5484,11 +5484,11 @@
 </span></code></pre></div>
 <p>For this simple program, surely there is no problem: a class is defined, then the constructor initializes it, and we get the person's age, set it, and get it again!</p>
 <p>To verify which one the this pointer is, we now set a breakpoint at <code>add_age</code> and run:</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>You will find that the compiler automatically gives us <code>A* const</code>, not <code>A const *this</code>!</p>
 <p>Next, there is also a const function above, so let's set a breakpoint on <code>get_age</code>, as follows:</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>You will find that the compiler turns the this above into <code>const A* const</code>. You could have guessed this: since the function is a const function, it can only access const variables and const functions and must not modify the values of other variables, so it needs a this that points to variables that cannot be modified — that is, <code>const A*</code>. And since this itself is a <code>const</code> pointer, the result is <code>const A* const</code>!</p>
 <p>Summary: this is constructed before execution of a member function begins and cleared after the member's execution ends. The get_age function above gets resolved to <code>get_age(const A * const this)</code>, and <code>add_age</code> gets resolved to <code>add_age(A* const this, int a)</code>. In C++ classes and structs differ in only one way: class members are private by default, while struct members are public. this is a pointer to the class; if it were a struct, this would be a pointer to the struct.</p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>

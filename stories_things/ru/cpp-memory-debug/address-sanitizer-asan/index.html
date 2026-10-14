@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5559,7 +5559,7 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 Запустите полученный bin-файл — получим следующий результат.</p>
-<p><img width="2312" height="1494" alt="heap use after free" alt="Проверка памяти с помощью AddressSanitizer | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
+<p><img width="2312" height="1494" alt="Проверка памяти с помощью AddressSanitizer | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png"  loading="lazy" decoding="async"/></p>
 <h2 id="2-heap-buffer-overflow">2. heap buffer overflow<a class="headerlink" href="#2-heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Сначала с помощью ключевого слова <code>new</code> в куче выделяется массив из двух целых чисел, и его начальный адрес присваивается указателю <code>arr</code>. Затем программа пытается сохранить значение 10 в третьей позиции массива (индекс 2), что выходит за допустимые границы массива и приводит к ошибке переполнения буфера в куче.</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
@@ -5578,7 +5578,7 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./a.out
 </span></code></pre></div>
 Получим следующий результат проверки.</p>
-<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png" /></p>
+<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="3-stack-buffer-overflow">3. stack buffer overflow<a class="headerlink" href="#3-stack-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>В функции <code>vulnerableFunction</code> определён символьный массив <code>buffer</code> из 8 символов. Затем с помощью <code>std::cin</code> данные со стандартного ввода читаются в <code>buffer</code> без ограничения размера ввода. Если количество введённых символов превышает размер <code>buffer</code>, происходит ошибка переполнения буфера в стеке.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">vulnerableFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5588,7 +5588,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </span></code></pre></div>
 Использование такое же, как выше.</p>
-<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png" /></p>
+<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="4-global-buffer-overflow">4. global buffer overflow<a class="headerlink" href="#4-global-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Глобальный буфер (массив <code>buffer</code>) определён в глобальной области видимости программы без достаточного ограничения размера ввода. Если количество введённых символов превышает размер буфера, происходит ошибка переполнения глобального буфера. Как и переполнение буфера в стеке, переполнение глобального буфера может привести к нестабильности и проблемам безопасности программы.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5602,7 +5602,7 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span></code></pre></div>
 Использование такое же, как выше; получим:</p>
-<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png" /></p>
+<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="5-use-after-return">5. use after return<a class="headerlink" href="#5-use-after-return" title="Permanent link">&para;</a></h2>
 <p>В функции <code>f</code> возвращается адрес локальной переменной <code>i</code>, а в функции <code>main</code> предпринимается попытка обратиться через возвращённый указатель к уже уничтоженной локальной переменной. В такой ситуации можно проверять bin-файл, установив <code>ASAN_OPTIONS=detect_stack_use_after_return=1</code>.</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>g++-13 stack_use_after_return.cc -Wall -g -fsanitize=address
@@ -5620,7 +5620,7 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 И мы получим:</p>
-<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png" /></p>
+<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png"  loading="lazy" decoding="async"/></p>
 <h2 id="6-use-after-scope">6. use after scope<a class="headerlink" href="#6-use-after-scope" title="Permanent link">&para;</a></h2>
 <p>Адрес локальной переменной <code>x</code> присваивается указателю <code>p</code>, однако после выхода из внутренней области видимости предпринимается попытка обратиться через указатель <code>p</code> к уже вышедшей из области действия локальной переменной <code>x</code>, что приводит к ошибке использования вне области видимости. Это также неопределённое поведение.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5639,7 +5639,7 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ASAN_OPTIONS=detect_stack_use_after_scope=0  ./a.out 
 </span></code></pre></div>
 На практике clang++ справляется, а g++ обнаружить не может.</p>
-<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png" /></p>
+<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png"  loading="lazy" decoding="async"/></p>
 <h2 id="7-initialization-order-bugs">7. Initialization order bugs<a class="headerlink" href="#7-initialization-order-bugs" title="Permanent link">&para;</a></h2>
 <p>В двух разных файлах исходного кода присутствует инициализация глобальной переменной <code>a</code>, но порядок инициализации не определён. В файле <code>init_order_b.cc</code> предпринимается попытка использовать значение переменной <code>a</code>, однако из-за несогласованного порядка инициализации возможно неопределённое поведение.</p>
 <p>Код ниже:</p>
@@ -5668,7 +5668,7 @@
 При возникновении такой проблемы мы можем использовать AddressSanitizer для проверки порядка инициализации.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ASAN_OPTIONS</span><span class="o">=</span><span class="n">check_initialization_order</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png" /></p>
+<img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png"  loading="lazy" decoding="async"/></p>
 <h2 id="8-memory-leak">8. memory leak<a class="headerlink" href="#8-memory-leak" title="Permanent link">&para;</a></h2>
 <p>С помощью ключевого слова <code>new</code> динамически выделяется память под целое число, но перед завершением программы она не освобождается ключевым словом <code>delete</code>, что приводит к утечке памяти.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5682,7 +5682,7 @@
 Установите <code>ASAN_OPTIONS=detect_leaks=1</code>.</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ASAN_OPTIONS=detect_leaks=1 ./a.out
 </span></code></pre></div>
-<img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png" /></p>
+<img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_1">Похожие темы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-memory-leak-detection/">Обнаружение утечек памяти в C++ | C++那些事</a></li>

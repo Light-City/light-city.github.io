@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5434,7 +5434,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img width="1736" height="1076" alt="copy memcpy" alt="memcpy 与 std::copy 性能对比 | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="memcpy 与 std::copy 性能对比 | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_1">如何选择？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在实际项目中，如何选择<code>memcpy</code>还是<code>std::copy</code>取决于具体的需求。如果处理的是POD类型，而且希望保持灵活性，那么选择<code>std::copy</code>是更为明智的选择。对于大多数应用场景，<code>std::copy</code>提供了更通用、更安全的数据拷贝方式。</p>
 <p>然而，在追求极致性能的情况下，可以考虑使用<code>memcpy</code>，尤其是在处理大规模数据时。但在做出选择时，务必结合实际应用场景，并借助性能分析工具进行详细测试和优化。</p>

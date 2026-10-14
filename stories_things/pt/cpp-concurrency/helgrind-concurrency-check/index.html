@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5472,7 +5472,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="deadlock" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>Suponha uma variável compartilhada que incrementamos 100 mil vezes em múltiplas threads; qual será o resultado?</p>
 <p>Claramente há um problema de corrida sobre a variável global entre threads, com resultado final inconsistente; o método de detecção com helgrind é o mesmo acima.</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Podemos ver em qual linha está o data race e então corrigir o problema.</p>
-<p><img width="2042" height="1220" alt="datarace" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>Por fim, deixo algumas perguntas:</p>
 <p>1.Como corrigir esses dois códigos com problema?</p>
 <p>2.Além da ferramenta acima, existem outras formas?</p>

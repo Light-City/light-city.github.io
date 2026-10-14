@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Введение в многопоточность C++ | C++那些事">
       <meta name="twitter:description" content="Весь код из этой статьи находится в репозитории «C++那些事».">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Введение в многопоточность C++ | C++那些事", "description": "Весь код из этой статьи находится в репозитории «C++那些事».", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Введение в многопоточность C++ | C++那些事", "description": "Весь код из этой статьи находится в репозитории «C++那些事».", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Многопоточность", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Введение в многопоточность C++ | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-concurrency/threading-in-cpp/"}]}</script>
   </head>
   
@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5691,7 +5691,7 @@
 
 
 <blockquote>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p><strong>Последнее обновление：2026-10-15</strong></p>
 </blockquote>
 <h1 id="c">Введение в многопоточность C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <p>Весь код из этой статьи находится в репозитории «C++那些事».</p>
@@ -5886,8 +5886,8 @@
 <h3 id="43">4.3 Как гарантировать, что только один поток одновременно обращается к глобальной переменной?<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
 <p>Если один поток сейчас находится в критической секции, мы хотим, чтобы другой поток ждал, пока первый завершит. Для этого можно использовать <strong>мьютекс</strong> (сокращение от «взаимное исключение»).</p>
 <p>Наглядная метафора мьютекса:</p>
-<p><img alt="bg2013042408" alt="Введение в многопоточность C++ | C++那些事" src="http://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg" /></p>
-<p>Простой способ не пустить других внутрь — повесить на дверь замок. Пришедший первым запирает дверь, пришедшие позже видят замок и выстраиваются у двери, дожидаясь, когда замок откроют. Это и называется <a href="http://zh.wikipedia.org/wiki/互斥锁">"мьютексом"</a> (Mutual exclusion, сокращённо Mutex) — он не даёт нескольким потокам одновременно читать и писать одну область памяти.</p>
+<p><img alt="Введение в многопоточность C++ | C++那些事" src="https://www.ruanyifeng.com/blogimg/asset/201304/bg2013042408.jpg"  loading="lazy" decoding="async"/></p>
+<p>Простой способ не пустить других внутрь — повесить на дверь замок. Пришедший первым запирает дверь, пришедшие позже видят замок и выстраиваются у двери, дожидаясь, когда замок откроют. Это и называется <a href="https://zh.wikipedia.org/wiki/互斥锁">"мьютексом"</a> (Mutual exclusion, сокращённо Mutex) — он не даёт нескольким потокам одновременно читать и писать одну область памяти.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">m</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">m</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
@@ -5895,7 +5895,7 @@
 Приведённый выше код выводит корректно: <code>sum = 20000000</code>.</p>
 <h2 id="_1">Справочные материалы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html?utm_source=com.ideashower.readitlater.pro&amp;utm_medium=social&amp;utm_oi=35626384621568">http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html?utm_source=com.ideashower.readitlater.pro&amp;utm_medium=social&amp;utm_oi=35626384621568</a></p>
+<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html?utm_source=com.ideashower.readitlater.pro&amp;utm_medium=social&amp;utm_oi=35626384621568">https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html?utm_source=com.ideashower.readitlater.pro&amp;utm_medium=social&amp;utm_oi=35626384621568</a></p>
 <p><a href="https://www.youtube.com/watch?v=eZ8yKZo-PGw&amp;list=PLk6CEY9XxSIAeK-EAh3hB4fgNvYkYmghp&amp;index=4">https://www.youtube.com/watch?v=eZ8yKZo-PGw&amp;list=PLk6CEY9XxSIAeK-EAh3hB4fgNvYkYmghp&amp;index=4</a></p>
 </blockquote>
 <h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

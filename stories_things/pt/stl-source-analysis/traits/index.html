@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5462,7 +5462,7 @@
 <h1 id="stl-traits-extracao-de-tipos">STL traits extração de tipos<a class="headerlink" href="#stl-traits-extracao-de-tipos" title="Permanent link">&para;</a></h1>
 <h2 id="0-introducao">0. Introdução<a class="headerlink" href="#0-introducao" title="Permanent link">&para;</a></h2>
 <p>Na programação com a STL, contêineres e algoritmos são projetados de forma independente, ou seja, estruturas de dados e algoritmos são projetados separadamente; a ponte que conecta contêineres e algoritmos são os iteradores — são eles que tornam possível esse desenho independente. Conforme mostrado na figura abaixo:</p>
-<p><img alt="rela" alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>A figura acima mostra que o objetivo da STL é separar dados e algoritmos, projetando cada um por si, e depois, por meio de algo chamado iterator, colar os dois de volta juntos.</p>
 <p>Nos design patterns, a descrição do iterator é: <strong>um método que permite acessar sequencialmente cada elemento de um contêiner sem expor a representação interna do contêiner. E a técnica de extração de tipos (traits) existe justamente para resolver problemas relacionados a iteradores.</strong></p>
 <p>Ao aplicar algoritmos genéricos (find, count, find_if) a um contêiner, o mais importante é fornecer ao algoritmo uma ferramenta para acessar os elementos do contêiner, e é o iterator que desempenha esse papel essencial.</p>
@@ -5599,7 +5599,7 @@
 </span></code></pre></div>
 <p><strong>（2）Acrescentando a camada intermediária</strong></p>
 <p>O que é Traits na STL? Veja a figura abaixo:</p>
-<p><img alt="trai" alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="STL traits extração de tipos | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png"  loading="lazy" decoding="async"/></p>
 <p>Usando uma camada intermediária <code>iterator_traits</code>, fixamos a forma de <code>func</code>, o que reduz drasticamente o código repetido; tudo o que resta é especializar um pouco o iterator_traits para que suporte pointer e const pointer:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

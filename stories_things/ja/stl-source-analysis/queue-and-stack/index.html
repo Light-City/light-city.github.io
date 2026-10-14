@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5449,7 +5449,7 @@
 <p>stackのソースコードで注目すべき点は2つあります：
 - デフォルトの<code>_Sequence</code>は<code>deque</code>である
 - 内部の関数実装は<code>_Sequence</code>の対応するコンテナの関数を呼び出している。</p>
-<p><img alt="stack.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/stack.png" /></p>
+<p><img alt="stack.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/stack.png"  loading="lazy" decoding="async"/></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deque</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">stack</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
@@ -5548,7 +5548,7 @@
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="p">}</span>
 </span></code></pre></div>
 対応するUMLクラス図は次の通りです：</p>
-<p><img alt="queue_.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/queue_.png" /></p>
+<p><img alt="queue_.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/queue_.png"  loading="lazy" decoding="async"/></p>
 <p>同様に、優先度付きキューは<code>vector</code>をデフォルトコンテナとして使用します。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">_Tp</span><span class="o">&gt;</span><span class="p">,</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">typename</span><span class="w"> </span><span class="nc">_Compare</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">less</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Sequence</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
@@ -5583,7 +5583,7 @@
 </span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
 </span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><img alt="priority_queue.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/priority_queue.png" /></p>
+<p><img alt="priority_queue.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/priority_queue.png"  loading="lazy" decoding="async"/></p>
 <p>この2つのコンテナアダプタがサポートする基盤コンテナをテストします：</p>
 <blockquote>
 <p>queue</p>

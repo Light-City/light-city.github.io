@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5574,7 +5574,7 @@
 - Si un nodo es rojo, sus dos hijos son negros.
 - Para cada nodo, todos los caminos simples desde ese nodo hasta sus nodos hoja descendientes contienen el mismo número de nodos negros.</p>
 <p>Naturalmente, este rb_tree también satisface estas propiedades: el begin del iterador apunta a la raíz del árbol rojo-negro, es decir, al padre de header, y el end apunta al nodo header.</p>
-<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>。
 Los puntos suspensivos del dibujo indican que los nodos no están dibujados por completo y que quedan otros, por eso se omiten.</p>
 <h2 id="1clase-base-de-los-nodos-del-arbol-rojo-negro">1.Clase base de los nodos del árbol rojo-negro<a class="headerlink" href="#1clase-base-de-los-nodos-del-arbol-rojo-negro" title="Permanent link">&para;</a></h2>
 <p>La clase base del árbol rojo-negro es muy sencilla; al principio del fichero se define el marcador de color.</p>
@@ -5803,7 +5803,7 @@ Más adelante expondremos la operación más importante: la inserción.</p>
 <p>Obtener la raíz, el nodo más a la izquierda y el nodo más a la derecha del árbol rojo-negro</p>
 </blockquote>
 <p>Volvamos al dibujo del principio:
-<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />.</p>
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>.</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 图中100 节点</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -5903,12 +5903,12 @@ Veréis que los nombres de función y de variables difieren de los del código f
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <p>case 1.1: el nodo padre es rojo y su nodo tío también es rojo; entonces el padre y el tío se ponen negros, y el abuelo rojo.</p>
-<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
+<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 1.2 Si no hay nodo tío o el nodo tío es negro, se divide en los dos casos siguientes:</p>
 <p>Caso 1.2.1: el nodo tío y de x es negro y x es un hijo derecho</p>
-<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
+<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>Caso 1.2.2: el nodo tío y de x es negro y x es un hijo izquierdo</p>
-<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
+<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png"  loading="lazy" decoding="async"/></p>
 <p>Correspondiente al código fuente:
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
@@ -5933,11 +5933,11 @@ Veréis que los nombres de función y de variables difieren de los del código f
 </span></code></pre></div></p>
 <p>El otro es el proceso simétrico del anterior:</p>
 <p>case 2.1: el nodo padre es rojo y su nodo tío también es rojo; entonces el padre y el tío se ponen negros, y el abuelo rojo.</p>
-<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
+<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2.2 Si no hay nodo tío o el nodo tío es negro</p>
-<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
+<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>Caso 2.2.1: el nodo tío y de x es negro y x es un hijo izquierdo</p>
-<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
+<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png"  loading="lazy" decoding="async"/></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
@@ -6043,12 +6043,12 @@ Veréis que los nombres de función y de variables difieren de los del código f
 <p>Según el proceso de inserción anterior y el análisis del código fuente obtenemos los tres casos siguientes:
 Supongamos que P representa el nodo padre, N el nodo recién insertado, U el nodo tío y G el nodo abuelo.</p>
 <p>case 1: U es rojo, y P y N también son rojos; se puede resolver cambiando colores y ajustando recursivamente de abajo hacia arriba: la próxima vez N pasa a ser G y basta con seguir juzgando hacia arriba. Si por casualidad la raíz queda teñida de rojo, al final del algoritmo se puede forzar root a negro.</p>
-<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
+<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2: U es negro; hay que considerar si N es hijo izquierdo o hijo derecho de P.</p>
 <p>case2.1 Si es hijo derecho, primero se hace una rotación izquierda y se pasa al caso siguiente.</p>
-<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
+<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png"  loading="lazy" decoding="async"/></p>
 <p>case2.2 Puede provenir del caso anterior, ¡pero no necesariamente! La estrategia es: rotación derecha y cambio de colores.</p>
-<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
+<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png"  loading="lazy" decoding="async"/></p>
 <p>Del análisis del código fuente anterior se deduce que la inserción en el árbol rojo-negro es una transformación especular; el otro caso es justamente el contrario.</p>
 <p>La operación de borrado es más compleja y de momento no se analiza aquí; se añadirá más adelante...</p>
 <h2 id="6uso">6.Uso<a class="headerlink" href="#6uso" title="Permanent link">&para;</a></h2>

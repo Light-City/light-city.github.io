@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5474,7 +5474,7 @@
 <p>deque, vector की तरह नहीं है — vector में जब मेमोरी कम पड़ती है तो मेमोरी पुनः आवंटित करनी/डेटा कॉपी करना/मूल स्पेस जारी करना पड़ता है; हालाँकि deque का इटरेटर डिज़ाइन vector से जटिल है, क्योंकि इटरेटर के लिए साधारण पॉइंटर का उपयोग नहीं किया जा सकता, इसलिए जहाँ तक संभव हो vector का ही उपयोग करें।</p>
 <h2 id="1deque">1.deque सेंट्रल कंट्रोलर<a class="headerlink" href="#1deque" title="Permanent link">&para;</a></h2>
 <p>उपयोगकर्ता को देखने में deque निरंतर स्पेस प्रयोग करता प्रतीत होता है, पर वास्तव में वह <strong>खंडित-संतत रैखिक स्पेस</strong> है। खंडित स्पेस के प्रबंधन के लिए deque कंटेनर में map को पेश किया गया है, जिसे सेंट्रल कंट्रोलर कहा जाता है। map एक निरंतर स्पेस है जिसका प्रत्येक एलिमेंट बफर की ओर इशारा करने वाला पॉइंटर है, और बफर ही deque का डेटा संग्रह करने वाला वास्तविक अंग है।</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>उपरोक्त चित्र में, buffer को बफर कहा जाता है, तथा map size दर्शाने वाला निरंतर स्पेस का खंड ही सेंट्रल कंट्रोलर है।</p>
 <p>सेंट्रल कंट्रोलर में map size, buffer की ओर इशारा करने वाला पॉइंटर, तथा deque का आरंभिक इटरेटर और अंतिम इटरेटर शामिल हैं।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5484,14 +5484,14 @@
 </span></code></pre></div>
 <p>चूँकि buffer भी एक पॉइंटर है, इसलिए <code>_Tp</code> पॉइंटर का पॉइंटर है।</p>
 <p>deque, <code>_Deque_base</code> से इनहेरिट करता है, और <code>_Deque_base</code> के भीतर एक <code>_M_impl</code> है।</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>नीचे के चित्र तथा उपरोक्त विवरण के आधार पर जाना जा सकता है कि सेंट्रल कंट्रोलर <code>_Deque_impl</code> द्वारा कार्यान्वित किया जाता है।</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>तथा deque आधार क्लास <code>_Deque_base</code> का उपयोग करके मेमोरी प्रबंधन तथा सेंट्रल कंट्रोलर प्रबंधन पूरा करता है।</p>
 <h2 id="2">2.अत्याधुनिक इटरेटर<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>deque के लिए, इसका इटरेटर डिज़ाइन बहुत ही शानदार है!</p>
 <p>नीचे के चित्र में दिखाया गया है:
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>पहले अपेक्षाकृत महत्वपूर्ण मेंबर्स पर नज़र डालते हैं:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5502,7 +5502,7 @@
 <p>आख़िर ये क्या हैं? नाम से ही सरलता से पता चल जाता है। deque के लिए — जो एक खंडित-संतत स्पेस है — इटरेटर ऑपरेशन करते समय उपरोक्त <code>_M_cur</code> विशिष्ट एलिमेंट की ओर इशारा करता है, <code>_M_first</code> उस buffer खंड के पहले एलिमेंट की ओर, <code>_M_last</code> अंतिम एलिमेंट की ओर (जो वैध एलिमेंट नहीं है), तथा <code>_M_node</code> सेंट्रल कंट्रोलर की ओर इशारा करता है। इसीलिए यह पॉइंटर का पॉइंटर है।</p>
 <p>उदाहरण के लिए, मान लीजिए इटरेटर अभी ++ ऑपरेशन करता है और वर्तमान buffer की जगह खत्म हो जाती है — तब एक ऐसे पॉइंटर की आवश्यकता होती है जो सेंट्रल कंट्रोलर पर लौट सके, अगला buffer खंड ले सके, <code>_M_first</code> तथा <code>_M_last</code> की पॉइंटर स्थिति रीसेट कर सके, ताकि <code>_M_cur</code> नए buffer खंड में निर्दिष्ट स्थिति की ओर इशारा करे।</p>
 <p>अब हम शुरुआत के चित्र पर लौटते हैं:</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>सबसे ऊपर वाला iterator उपरोक्त पॉइंटर्स के ब्लॉक के साथ दिया गया चित्र ही है।</p>
 <p>तो buffer की गणना कैसे कार्यान्वित होती है?</p>
 <p>सोर्स कोड में गणना पास किए गए टाइप के आधार पर होती है: यदि पास किया गया टाइप 512 बाइट्स से छोटा है, तो buffersize 512/sizeof(_Tp) होता है, और 512 से अधिक होने पर 1।</p>

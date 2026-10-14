@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5430,7 +5430,7 @@
 <h1 id="c-this">C++ this 指针<a class="headerlink" href="#c-this" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>微信公众号：</p>
-<p><img alt="wechat" alt="C++ this 指针 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ this 指针 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1this">1.this指针<a class="headerlink" href="#1this" title="Permanent link">&para;</a></h2>
 <p>相信在坐的很多人，都在学Python，对于Python来说有self，类比到C++中就是this指针，那么下面一起来深入分析this指针在类中的使用！</p>
 <p>首先来谈谈this指针的用处：</p>
@@ -5485,11 +5485,11 @@
 </span></code></pre></div>
 <p>对于这个简单的程序，相信大家没得问题吧，就是定义了一个类，然后初始化构造函数，并获取这个人的年龄，设置后，再获取！</p>
 <p>为了验证this指针是哪一个，现在在<code>add_age</code>处添加断点，运行后如下：</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>会发现编译器自动为我们加上<code>A* const</code>，而不是<code>A const *this</code>！</p>
 <p>紧接着，上述还有个常函数，那么我们在对<code>get_age</code>添加断点，如下：</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>会发现编译器把上述的this，变为<code>const A* const</code>，这个大家也能想到，因为这个函数是const函数，那么针对const函数，它只能访问const变量与const函数，不能修改其他变量的值，所以需要一个this指向不能修改的变量，那就是<code>const A*</code>,又由于本身this是<code>const</code>指针，所以就为<code>const A* const</code>!</p>
 <p>总结：this在成员函数的开始执行前构造，在成员的执行结束后清除。上述的get_age函数会被解析成<code>get_age(const A * const this)</code>,<code>add_age</code>函数会被解析成<code>add_age(A* const this,int a)</code>。在C++中类和结构是只有一个区别的：类的成员默认是private，而结构是public。this是类的指针，如果换成结构，那this就是结构的指针了。</p>
 <h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

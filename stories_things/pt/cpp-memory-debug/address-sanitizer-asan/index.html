@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5559,7 +5559,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 <p>Execute o binário gerado e obtenha o resultado a seguir.</p>
-<p><img width="2312" height="1494" alt="heap use after free" alt="AddressSanitizer: Detecção de Memória | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
+<p><img width="2312" height="1494" alt="AddressSanitizer: Detecção de Memória | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png"  loading="lazy" decoding="async"/></p>
 <h2 id="2heap-buffer-overflow">2.heap buffer overflow<a class="headerlink" href="#2heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Primeiro, a palavra-chave <code>new</code> aloca no heap um array com dois inteiros e atribui o endereço inicial do array ao ponteiro <code>arr</code>. Em seguida, o programa tenta armazenar o valor 10 na terceira posição do array (índice 2), o que ultrapassa o intervalo válido do array, causando um estouro de buffer no heap.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
@@ -5578,7 +5578,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./a.out
 </span></code></pre></div>
 <p>Obtemos o resultado de detecção abaixo.</p>
-<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png" /></p>
+<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="3stack-buffer-overflow">3.stack buffer overflow<a class="headerlink" href="#3stack-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Na função <code>vulnerableFunction</code>, é definido um array de caracteres <code>buffer</code> com 8 caracteres. Em seguida, usa-se <code>std::cin</code> para ler dados da entrada padrão para <code>buffer</code>, sem limitar o tamanho da entrada. Se o número de caracteres exceder o tamanho de <code>buffer</code>, ocorre um estouro de buffer na pilha.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">vulnerableFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5588,7 +5588,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Uso igual ao anterior.</p>
-<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png" /></p>
+<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="4global-buffer-overflow">4.global buffer overflow<a class="headerlink" href="#4global-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>O buffer global (o array <code>buffer</code>) é definido no escopo global do programa, sem limitação suficiente do tamanho da entrada. Se o número de caracteres exceder o tamanho do buffer, ocorre um estouro de buffer global. Semelhante ao estouro na pilha, o estouro de buffer global pode causar instabilidade e problemas de segurança.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5602,7 +5602,7 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Uso igual ao anterior; obtemos:</p>
-<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png" /></p>
+<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="5use-after-return">5.use after return<a class="headerlink" href="#5use-after-return" title="Permanent link">&para;</a></h2>
 <p>Na função <code>f</code>, o endereço da variável local <code>i</code> é retornado, mas em <code>main</code> tenta-se acessar a variável local já destruída através do ponteiro retornado. Nesse cenário, é possível detectar no binário configurando <code>ASAN_OPTIONS=detect_stack_use_after_return=1</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>g++-13 stack_use_after_return.cc -Wall -g -fsanitize=address
@@ -5620,7 +5620,7 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>Obteremos:</p>
-<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png" /></p>
+<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png"  loading="lazy" decoding="async"/></p>
 <h2 id="6use-after-scope">6.use after scope<a class="headerlink" href="#6use-after-scope" title="Permanent link">&para;</a></h2>
 <p>O endereço da variável local <code>x</code> é atribuído ao ponteiro <code>p</code>; porém, após sair do escopo interno, tenta-se acessar a variável local <code>x</code> já fora de escopo através do ponteiro <code>p</code>, causando um erro de uso fora de escopo. Isso também é comportamento indefinido.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5639,7 +5639,7 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ASAN_OPTIONS=detect_stack_use_after_scope=0  ./a.out 
 </span></code></pre></div>
 <p>Em testes, o clang++ detecta; o g++ não consegue detectar.</p>
-<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png" /></p>
+<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png"  loading="lazy" decoding="async"/></p>
 <h2 id="7initialization-order-bugs">7.Initialization order bugs<a class="headerlink" href="#7initialization-order-bugs" title="Permanent link">&para;</a></h2>
 <p>Em dois arquivos-fonte diferentes há inicialização da variável global <code>a</code>, mas a ordem de inicialização é incerta. No arquivo <code>init_order_b.cc</code>, tenta-se usar o valor da variável <code>a</code>; devido à ordem de inicialização inconsistente, pode ocorrer comportamento indefinido.</p>
 <p>O código é o seguinte:</p>
@@ -5668,7 +5668,7 @@
 <p>Quando esse tipo de problema ocorre, podemos usar o AddressSanitizer para detectar a ordem de inicialização.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ASAN_OPTIONS</span><span class="o">=</span><span class="n">check_initialization_order</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png" /></p>
+<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png"  loading="lazy" decoding="async"/></p>
 <h2 id="8memory-leak">8.memory leak<a class="headerlink" href="#8memory-leak" title="Permanent link">&para;</a></h2>
 <p>A palavra-chave <code>new</code> aloca dinamicamente memória para um inteiro, mas antes do término do programa a palavra-chave <code>delete</code> não é usada para liberá-la, causando vazamento de memória.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5682,7 +5682,7 @@
 <p>Configure <code>ASAN_OPTIONS=detect_leaks=1</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ASAN_OPTIONS=detect_leaks=1 ./a.out
 </span></code></pre></div>
-<p><img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png" /></p>
+<p><img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png"  loading="lazy" decoding="async"/></p>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-memory-leak-detection/">Detecção de Vazamentos de Memória em C++ | C++那些事</a></li>

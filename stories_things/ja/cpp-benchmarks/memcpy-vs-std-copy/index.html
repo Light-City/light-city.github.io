@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5433,7 +5433,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img width="1736" height="1076" alt="copy memcpy" alt="memcpy と std::copy のパフォーマンス比較 | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="memcpy と std::copy のパフォーマンス比較 | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_1">どう選ぶか？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>実際のプロジェクトで <code>memcpy</code> と <code>std::copy</code> のどちらを選ぶかは、要件次第です。POD 型を扱っていて柔軟性を保ちたいなら、<code>std::copy</code> を選ぶのがより賢明です。多くのシナリオでは、<code>std::copy</code> の方がより汎用的で安全なデータコピー方法を提供します。</p>
 <p>一方、極限のパフォーマンスを追求する場合は、特に大規模データを扱う場面で <code>memcpy</code> を検討できます。ただし選択にあたっては、実際のユースケースに合わせて、プロファイリングツールを使って丁寧に計測・最適化してください。</p>

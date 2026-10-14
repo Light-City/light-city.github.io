@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="c-vptr-vtable">C++ механизм vptr и vtable<a class="headerlink" href="#c-vptr-vtable" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Личный официальный аккаунт:</p>
-<p><img alt="wechat" alt="C++ механизм vptr и vtable | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ механизм vptr и vtable | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.Базовая теория<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Для реализации виртуальных функций C++ использует особую форму позднего связывания, называемую виртуальной таблицей. Эта виртуальная таблица — таблица поиска, служащая для разрешения вызовов функций в динамическом/позднем режиме связывания. Виртуальная таблица иногда носит и другие названия: «vtable», «таблица виртуальных функций», «таблица виртуальных методов» или «таблица диспетчеризации».</p>
 <p>На самом деле виртуальная таблица очень проста, хотя описать её словами несколько сложнее. Во-первых, <strong>каждый класс, использующий виртуальные функции (или порождённый от класса, использующего виртуальные функции), имеет собственную виртуальную таблицу</strong>. Эта таблица — просто статический массив, который компилятор создаёт во время компиляции. Виртуальная таблица содержит по одному пункту на каждую виртуальную функцию, которую может вызвать объект класса. Каждый пункт этой таблицы — просто указатель на функцию, указывающий на доступную классу производную функцию.</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2">2.Реализация и внутреннее устройство<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>Теперь посмотрим, как автоматически и вручную манипулировать vptr, чтобы получать адреса и вызывать виртуальные функции!</p>
 <p>Прежде чем смотреть код, для удобства понимания приведём схему вызовов:</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>Весь код следует стандартному стилю комментариев — уверен, посмотрев, вы поймёте; если нет, пишите в комментариях!</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5429,7 +5429,7 @@
 <h1 id="c-this">C++ указатель this<a class="headerlink" href="#c-this" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Официальный аккаунт в WeChat:</p>
-<p><img alt="wechat" alt="C++ указатель this | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ указатель this | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-this">1.Указатель this<a class="headerlink" href="#1-this" title="Permanent link">&para;</a></h2>
 <p>Полагаю, многие из присутствующих изучают Python; в Python есть self, а аналог в C++ — это указатель this; давайте же вместе глубоко разберём использование указателя this в классах!</p>
 <p>Сначала поговорим о назначении указателя this:</p>
@@ -5484,11 +5484,11 @@
 </span></code></pre></div>
 <p>Думаю, с этой простой программой проблем ни у кого не возникнет: определяется класс, инициализируется конструктор, затем запрашивается возраст человека, после установки — снова запрашивается!</p>
 <p>Чтобы проверить, каким именно является указатель this, поставим точку останова в <code>add_age</code>; после запуска получим следующее:</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>Обнаружим, что компилятор автоматически добавляет нам <code>A* const</code>, а не <code>A const *this</code>!</p>
 <p>Далее, в приведённом выше коде есть ещё и константная функция; поставим точку останова в <code>get_age</code>, как показано ниже:</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>Обнаружим, что компилятор превращает this выше в <code>const A* const</code>; это легко объяснить: поскольку функция является const-функцией, она может обращаться только к const-переменным и const-функциям и не может изменять значения других переменных; поэтому нужен this, указывающий на неизменяемые переменные, то есть <code>const A*</code>; а поскольку сам this — <code>const</code>-указатель, в итоге получаем <code>const A* const</code>!</p>
 <p>Резюме: this конструируется перед началом выполнения членской функции и уничтожается после её завершения. Функция get_age выше будет разобрана как <code>get_age(const A * const this)</code>, а функция <code>add_age</code> — как <code>add_age(A* const this,int a)</code>. В C++ между классом и структурой есть лишь одно различие: члены класса по умолчанию private, а структуры — public. this — это указатель класса; если заменить класс структурой, то this станет указателем на структуру.</p>
 <h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

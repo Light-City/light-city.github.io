@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <p><strong>Conhecer o fato e conhecer o porquê do fato: diante do código-fonte, não há segredos!</strong></p>
 <h2 id="1-usando-o-extrator-para-implementar-um-reconhecimento-simples-de-iterator_category">1. Usando o extrator para implementar um reconhecimento simples de iterator_category<a class="headerlink" href="#1-usando-o-extrator-para-implementar-um-reconhecimento-simples-de-iterator_category" title="Permanent link">&para;</a></h2>
 <p>A seção anterior apontou o papel dos iteradores, conforme a figura abaixo:</p>
-<p><img alt="rela" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>Um iterador é uma abstração de um ponteiro para elementos de uma sequência. Ao usar iteradores, podemos acessar determinado elemento da sequência, alterar o valor de determinado elemento da sequência, fazer o iterador avançar ou retroceder, e assim por diante.</p>
 <p>Os iteradores comumente têm cinco tipos associados: value_type, difference_type, reference_type e pointer_type são relativamente fáceis de extrair com traits e as especializações parciais correspondentes.</p>
 <p>Mas iterator_category também costuma ter 5, e esse tipo associado desperta um esforço de escrita de código de grande escala.</p>
@@ -5457,7 +5457,7 @@
 <li>Forward Iterator: iterador de movimento unidirecional de leitura e escrita</li>
 <li>Bidirectional Iterator: iterador de movimento bidirecional de leitura e escrita</li>
 </ul>
-<p><img alt="iterator" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png"  loading="lazy" decoding="async"/></p>
 <p>Por exemplo: implementamos advanceII, advanceBI e advanceRAI, representando, respectivamente, as implementações correspondentes quando o tipo do iterador é Input Iterator, Bidirectional Iterator e Random Access Iterator.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5474,7 +5474,7 @@
 <p>Quanto aos <code>advanceXX()</code>, ambos têm dois parâmetros de função, com tipos indeterminados (pois todos são parâmetros de template). Para que tenham o mesmo nome e formem funções sobrecarregadas, devemos acrescentar um parâmetro de função com tipo já determinado, para que o mecanismo de sobrecarga de funções possa operar de forma eficaz.</p>
 <p>O desenho é o seguinte: se o <strong>traits</strong> for capaz de extrair a categoria do iterador, podemos usar esse tipo associado "tipo do iterador" como terceiro parâmetro de advancexx; e esse tipo associado deve ser um class type, não pode ser algo como um número, pois o compilador depende dele para fazer a <strong>resolução de sobrecarga</strong>.</p>
 <p>Vamos implementar; primeiro, o diagrama geral da estrutura:</p>
-<p><img alt="itera" alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="Análise do código-fonte dos iteradores da STL | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png"  loading="lazy" decoding="async"/></p>
 <p>Definimos as tags abaixo:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

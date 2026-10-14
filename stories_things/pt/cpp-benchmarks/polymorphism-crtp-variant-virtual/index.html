@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5507,9 +5507,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>Resultado do teste 1: compilado com gcc, vê-se que virtual e std::variant têm desempenho pouco diferente entre si, mas diferem muito de crtp.</p>
-<p><img width="1704" height="1246" alt="gcc bm" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img width="1704" height="1246" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png"  loading="lazy" decoding="async"/></p>
 <p>Resultado do teste 2: compilado com clang, a tendência geral é semelhante à da compilação com gcc; apenas crtp + std::variant apresenta regressão clara de desempenho, o que possivelmente se deve ao uso de std::visit aqui.</p>
-<p><img width="1678" height="1250" alt="clang bm" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img width="1678" height="1250" alt="Polimorfismo em C++: funções virtuais, CRTP e variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png"  loading="lazy" decoding="async"/></p>
 <p>No livro A Tour of C++, menciona-se:</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ‘‘potentially faster’’ should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

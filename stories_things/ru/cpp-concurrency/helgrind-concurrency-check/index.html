@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5472,7 +5472,7 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<img width="2084" height="1622" alt="deadlock" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<img width="2084" height="1622" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_2">Гонка данных<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Предположим, есть разделяемая переменная, которую мы в нескольких потоках увеличиваем 100 тысяч раз — каким будет результат?</p>
 <p>Очевидно, здесь возникает проблема конкуренции нескольких потоков за глобальную переменную: итоговый результат оказывается некорректным. Способ обнаружения с помощью helgrind тот же, что и выше.</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 Теперь мы можем увидеть, на какой строке происходит data race, и затем устранить проблему.</p>
-<p><img width="2042" height="1220" alt="datarace" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="Обнаружение ошибок конкурентности с помощью Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>Напоследок оставлю несколько вопросов:</p>
 <p>1.Как исправить эти два проблемных фрагмента кода?</p>
 <p>2.Кроме описанного выше инструмента, есть ли другие способы?</p>

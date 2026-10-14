@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5473,7 +5473,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="deadlock" alt="Helgrind 并发错误检测 | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="Helgrind 并发错误检测 | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_2">数据竞争<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>假设有一个共享变量，我们在多线程对它增加10w次，这个结果是多少呢？</p>
 <p>很明显这里产生了多线程竞争全局变量的问题，最终的结果不一致，使用helgrind检测方法同上。</p>
@@ -5486,7 +5486,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>此时，我们可以看到data race的行数是哪一行，然后去解决问题。</p>
-<p><img width="2042" height="1220" alt="datarace" alt="Helgrind 并发错误检测 | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="Helgrind 并发错误检测 | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>最后，留几个问题吧：</p>
 <p>1.上面这两个有问题的代码，如何修复？</p>
 <p>2.除了上面工具，还有其他办法？</p>

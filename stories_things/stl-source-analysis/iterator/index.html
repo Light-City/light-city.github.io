@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <p><strong>Know what, and know why — before the source code, no secrets remain!</strong></p>
 <h2 id="1using-the-traits-extractor-to-implement-simple-iterator_category-recognition">1.Using the traits extractor to implement simple iterator_category recognition<a class="headerlink" href="#1using-the-traits-extractor-to-implement-simple-iterator_category-recognition" title="Permanent link">&para;</a></h2>
 <p>The previous section pointed out the role of iterators, shown again in the figure below:</p>
-<p><img alt="rela" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>An iterator is an abstraction of a pointer to an element of a sequence. Using iterators, we can access some element of the sequence, change the value of some element, move the iterator forward or backward, and so on.</p>
 <p>Iterators commonly have five associated types: value_type, difference_type, reference_type, and pointer_type are all fairly easy to extract via traits and the corresponding partial specializations.</p>
 <p>But there are in general also 5 iterator_categories, and this associated type can trigger a large-scale coding effort.</p>
@@ -5457,7 +5457,7 @@
 <li>Forward Iterator: moves one way, read-write</li>
 <li>Bidirectional Iterator: moves both ways, read-write</li>
 </ul>
-<p><img alt="iterator" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png"  loading="lazy" decoding="async"/></p>
 <p>For example: suppose we implement advanceII, advanceBI, and advanceRAI as the respective implementations for the iterator types Input Iterator, Bidirectional Iterator, and Random Access Iterator.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5474,7 +5474,7 @@
 <p>The <code>advanceXX()</code> functions each take two function parameters whose types are undetermined (since they are all template parameters). To give them the same name and form overloaded functions, we must add a function parameter whose type is fixed, so that the function overload mechanism can operate effectively.</p>
 <p>The design is as follows: if <strong>traits</strong> is capable of extracting the category of an iterator, we can use this "iterator category" associated type as the third parameter of advancexx; and this associated type must be a class type, not something like a numeric code, because the compiler relies on it for <strong>overload resolution</strong>.</p>
 <p>Now let's implement it; first, an overall structure diagram:</p>
-<p><img alt="itera" alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="STL iterator source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png"  loading="lazy" decoding="async"/></p>
 <p>Define the following tags:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

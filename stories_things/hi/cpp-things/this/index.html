@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5429,7 +5429,7 @@
 <h1 id="c-this">C++ this पॉइंटर<a class="headerlink" href="#c-this" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>WeChat सार्वजनिक अकाउंट:</p>
-<p><img alt="wechat" alt="C++ this पॉइंटर | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ this पॉइंटर | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1this">1.this पॉइंटर<a class="headerlink" href="#1this" title="Permanent link">&para;</a></h2>
 <p>यक़ीन है कि यहाँ मौजूद बहुत से लोग Python सीख रहे हैं, Python में self होता है, उसी तरह C++ में this पॉइंटर है, तो आइए this पॉइंटर के क्लास में उपयोग पर गहराई से विश्लेषण करते हैं!</p>
 <p>सबसे पहले this पॉइंटर के उपयोगों पर बात करते हैं:</p>
@@ -5484,11 +5484,11 @@
 </span></code></pre></div>
 <p>इस सरल प्रोग्राम पर यक़ीनन किसी को समस्या नहीं होगी, एक क्लास परिभाषित की गई है, फिर कंस्ट्रक्टर से इनिशियलाइज़ किया गया, इस व्यक्ति की उम्र ली, सेट करने के बाद फिर से ली!</p>
 <p>यह जाँचने के लिए कि this पॉइंटर कौन-सा है, अब <code>add_age</code> पर breakpoint लगाकर चलाते हैं, नीचे दिया गया परिणाम:</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>दिखेगा कि कंपाइलर ने हमारे लिए अपने-आप <code>A* const</code> जोड़ा है, <code>A const *this</code> नहीं!</p>
 <p>उसके बाद, ऊपर एक const फ़ंक्शन भी है, तो हम <code>get_age</code> पर breakpoint लगाते हैं, नीचे दिया गया है:</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>दिखेगा कि कंपाइलर ऊपर वाले this को <code>const A* const</code> बना देता है, यह आप सोचकर भी समझ सकते हैं, क्योंकि यह फ़ंक्शन const फ़ंक्शन है, तो const फ़ंक्शन केवल const वेरिएबल और const फ़ंक्शन ही एक्सेस कर सकता है, दूसरे वेरिएबल्स की वैल्यू नहीं बदल सकता, इसलिए एक ऐसा this चाहिए जो न बदले जा सकने वाले वेरिएबल की ओर पॉइंट करे, वह है <code>const A*</code>, और क्योंकि this खुद <code>const</code> पॉइंटर है, इसलिए यह <code>const A* const</code> हो जाता है!</p>
 <p>सारांश: this मेंबर फ़ंक्शन के निष्पादन शुरू होने से पहले बनता है, मेंबर के निष्पादन ख़त्म होने पर हट जाता है। ऊपर वाला get_age फ़ंक्शन <code>get_age(const A * const this)</code> पार्स होगा, <code>add_age</code> फ़ंक्शन <code>add_age(A* const this,int a)</code> पार्स होगा। C++ में क्लास और स्ट्रक्चर में सिर्फ़ एक अंतर है: क्लास के मेंबर डिफ़ॉल्ट रूप से private होते हैं, जबकि स्ट्रक्चर के public। this क्लास का पॉइंटर है, अगर इसे स्ट्रक्चर से बदलें, तो this स्ट्रक्चर का पॉइंटर हो जाएगा।</p>
 <h2 id="_2">संबंधित विषय<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

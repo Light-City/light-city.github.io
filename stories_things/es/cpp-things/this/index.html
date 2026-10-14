@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5429,7 +5429,7 @@
 <h1 id="el-puntero-this-en-c">El puntero this en C++<a class="headerlink" href="#el-puntero-this-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública de WeChat:</p>
-<p><img alt="wechat" alt="El puntero this en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="El puntero this en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-el-puntero-this">1. El puntero this<a class="headerlink" href="#1-el-puntero-this" title="Permanent link">&para;</a></h2>
 <p>Seguro que muchos de los presentes están aprendiendo Python; en Python existe self, y su analogía en C++ es el puntero this. ¡Veamos juntos, a continuación, un análisis en profundidad del uso del puntero this dentro de las clases!</p>
 <p>Hablemos primero de la utilidad del puntero this:</p>
@@ -5484,11 +5484,11 @@
 </span></code></pre></div>
 <p>Para este sencillo programa, seguro que no hay problema: se define una clase, se inicializa con el constructor y, tras ajustar la edad de la persona, se vuelve a obtener.</p>
 <p>Para verificar cuál de los dos es el puntero this, añadimos ahora un punto de interrupción en <code>add_age</code>; al ejecutar se obtiene lo siguiente:</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>Se observa que el compilador añade automáticamente <code>A* const</code>, ¡y no <code>A const *this</code>!</p>
 <p>A continuación, arriba hay también una función constante; añadamos un punto de interrupción en <code>get_age</code>, como se muestra:</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>Se observa que el compilador convierte el this anterior en <code>const A* const</code>, algo que también podemos imaginar: como esta función es una función const, solo puede acceder a variables const y a funciones const, y no puede modificar el valor de otras variables; por eso necesita un this que apunte a variables no modificables, es decir <code>const A*</code>; y como el propio this es un puntero <code>const</code>, el resultado es <code>const A* const</code>!</p>
 <p>En resumen: this se construye antes de que comience la ejecución de la función miembro y se destruye cuando termina la ejecución del miembro. La función get_age anterior se interpreta como <code>get_age(const A * const this)</code>, y la función <code>add_age</code> se interpreta como <code>add_age(A* const this,int a)</code>. En C++, las clases y las estructuras solo se diferencian en una cosa: los miembros de una clase son private por defecto, mientras que los de una estructura son public. this es el puntero de la clase; si se tratara de una estructura, this sería el puntero de la estructura.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>

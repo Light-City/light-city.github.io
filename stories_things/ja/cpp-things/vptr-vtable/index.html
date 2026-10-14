@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="c">C++ 仮想ポインタと仮想テーブル機構<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <h2 id="_1">著者について：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>個人公式アカウント（WeChat）：</p>
-<p><img alt="wechat" alt="C++ 仮想ポインタと仮想テーブル機構 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ 仮想ポインタと仮想テーブル機構 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.基礎理論<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>仮想関数を実現するため、C++は仮想テーブルと呼ばれる特殊な形式の遅延バインディングを使用します。この仮想テーブルは、動的／遅延バインディング方式での関数呼び出しを解決するためのルックアップテーブルです。仮想テーブルは、「vtable」「仮想関数テーブル」「仮想メソッドテーブル」「ディスパッチテーブル」など、他の名前で呼ばれることもあります。</p>
 <p>仮想テーブルは実際には非常にシンプルですが、文章で説明するのは少し複雑です。まず、<strong>仮想関数を使用する各クラス（または仮想関数を使用するクラスから派生したクラス）は、それぞれ独自の仮想テーブルを持ちます</strong>。このテーブルは、コンパイラがコンパイル時に設定する静的配列にすぎません。仮想テーブルには、そのクラスのオブジェクトが呼び出せる各仮想関数のエントリが1つずつ含まれます。このテーブルの各エントリは単なる関数ポインタであり、そのクラスがアクセス可能な派生関数を指しています。</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2">2.実装と内部構造<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>以下では、vptrの自動操作と手動操作によってアドレスを取得し、仮想関数を呼び出してみましょう！</p>
 <p>コードを見始める前に、理解しやすいように、ここで呼び出し図を示します：</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>コードはすべて標準的なコメントスタイルに従っています。見ればわかるはずですが、わからなければコメントを残してください！</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

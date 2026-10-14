@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5433,7 +5433,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img width="1736" height="1076" alt="copy memcpy" alt="memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="memcpy और std::copy परफ़ॉर्मेंस तुलना | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_1">कैसे चुनें?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>वास्तविक प्रोजेक्ट में <code>memcpy</code> चुनना है या <code>std::copy</code>, यह ठोस ज़रूरतों पर निर्भर करता है। यदि POD प्रकारों से निपट रहे हैं और लचीलापन बनाए रखना चाहते हैं, तो <code>std::copy</code> चुनना अधिक समझदारी है। अधिकांश अनुप्रयोग परिदृश्यों के लिए <code>std::copy</code> अधिक सामान्य और सुरक्षित डेटा कॉपी का तरीका प्रदान करता है।</p>
 <p>हालांकि, अंतिम परफ़ॉर्मेंस की मांग वाली स्थितियों में <code>memcpy</code> पर विचार किया जा सकता है, खासकर बड़े पैमाने के डेटा के साथ। लेकिन चुनाव करते समय ज़रूर वास्तविक अनुप्रयोग परिदृश्य को ध्यान में रखें, और परफ़ॉर्मेंस विश्लेषण टूल्स की मदद से विस्तृत परीक्षण व ऑप्टिमाइज़ेशन करें।</p>

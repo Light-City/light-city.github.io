@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5467,7 +5467,7 @@
 <p>Vê-se que a diferença de desempenho é muito grande: um único caractere faz com que o desempenho de std::string mude tanto!</p>
 <p>A essência aqui ainda é o SSO local buffer mencionado antes.</p>
 <p>Teste de desempenho: <a href="https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc">https://quick-bench.com/q/s7pvDB_SwQyDCcZk50odAaYIzMc</a></p>
-<p><img width="1700" height="828" alt="gcc short long" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png" /></p>
+<p><img width="1700" height="828" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/gcc_short_long.png"  loading="lazy" decoding="async"/></p>
 <h2 id="2clanglibc">2.clang++(libc++)<a class="headerlink" href="#2clanglibc" title="Permanent link">&para;</a></h2>
 <p>De forma análoga, tomamos o llvm-14 como exemplo; para ver o código completo, basta acessar o endereço do github abaixo; aqui extraímos o código central.</p>
 <blockquote>
@@ -5504,14 +5504,14 @@
 <p>Já o SSO: o buffer local armazena no máximo 22 caracteres; acima de 22 caracteres, a alocação acontece na heap.</p>
 <p>Por isso, quando aplicamos na clang o mesmo código de teste usado na gcc, obtivemos um resultado um pouco diferente, ou seja: o desempenho da string longa e o da string curta praticamente não diferem. O motivo é que os casos de teste da gcc estão todos dentro de 22 caracteres, ou seja, todos são strings curtas.</p>
 <p>Teste de desempenho: <a href="https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k">https://quick-bench.com/q/nmLMqQZ31cmWBbbIFr2nHN2JL1k</a></p>
-<p><img width="1684" height="856" alt="llvm short long no" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png" /></p>
+<p><img width="1684" height="856" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long_no.png"  loading="lazy" decoding="async"/></p>
 <p>Quando testamos strings realmente longas e curtas, o desempenho passa a mudar de forma clara, com a tendência mantendo-se consistente com a da gcc.</p>
 <ul>
 <li>O conteúdo do teste de string curta é: "hello world hello worl", com 22 caracteres no total.</li>
 <li>O conteúdo do teste de string longa é: "hello world hello world", com 23 caracteres no total.</li>
 </ul>
 <p>Teste de desempenho: <a href="https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE">https://quick-bench.com/q/ujtMrtotEi6RrpfMDJ1UcSLFIJE</a></p>
-<p><img width="1650" height="860" alt="llvm short long" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png" /></p>
+<p><img width="1650" height="860" alt="Teste de desempenho de SSO de string em C++ | C++那些事" src="../../../assets/images/2024/bench/img/llvm_short_long.png"  loading="lazy" decoding="async"/></p>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../memcpy-vs-std-copy/">Comparação de desempenho: memcpy vs std::copy | C++那些事</a></li>

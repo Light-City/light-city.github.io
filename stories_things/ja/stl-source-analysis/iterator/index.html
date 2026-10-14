@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <p><strong>そのように動くことを知るだけでなく、なぜそのように動くのかを知る。ソースコードの前には秘密はない！</strong></p>
 <h2 id="1traitsiterator_category">1.抽出機（traits）を使って簡単なiterator_categoryの識別を実現する<a class="headerlink" href="#1traitsiterator_category" title="Permanent link">&para;</a></h2>
 <p>前節でイテレータの役割を示しました。下図の通りです：</p>
-<p><img alt="rela" alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>イテレータは、シーケンスの要素を指すポインタの一種の抽象です。イテレータを使うことで、シーケンス中の特定の要素にアクセスしたり、シーケンス中の特定の要素の値を変更したり、イテレータを前後に進めたりすることができます。</p>
 <p>イテレータにはよく見られる5つの型があります： value_type, difference_type, reference_type, pointer_type はいずれも traits と対応する部分特殊化で比較的簡単に抽出できます。</p>
 <p>しかし、iterator_categoryも一般に5つあり、この関連型は比較的大規模なコーディング作業を引き起こします。</p>
@@ -5457,7 +5457,7 @@
 <li>単方向移動の読み書きイテレータ Forward Iterator</li>
 <li>双方向移動の読み書きイテレータ Bidirectional Iterator</li>
 </ul>
-<p><img alt="iterator" alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png"  loading="lazy" decoding="async"/></p>
 <p>例えば、私たちがadvanceII, advanceBI, advanceRAIを実装し、それぞれイテレータ型がInput Iterator、Bidirectional Iterator、Random Access Iteratorである場合の対応する実装を表すとします。</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5474,7 +5474,7 @@
 <p><code>advanceXX()</code>にはいずれも2つの関数パラメータがあり、型はどちらも未定です（いずれもテンプレートパラメータのため）。同名にしてオーバーロード関数を形成するには、型が確定している関数パラメータを追加し、関数オーバーロード機構を有効に機能させなければなりません。</p>
 <p>次のように設計します：**traits**がイテレータの種類を抽出できれば、この「イテレータ型」の関連型をadvancexxの第3パラメータとして使えます。この関連型はclass typeでなければならず、数値番号のようなものであってはなりません。コンパイラがそれに依存して**オーバーロード解決**を行うためです。</p>
 <p>では実装に入ります。まず全体の構造図を示します：</p>
-<p><img alt="itera" alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="STL イテレータソースコード解析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png"  loading="lazy" decoding="async"/></p>
 <p>次のtagを定義します：</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

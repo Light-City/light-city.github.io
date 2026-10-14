@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5474,7 +5474,7 @@
 <p>dequeはvectorとは異なります。vectorはメモリが足りなくなると、再割り当て／データのコピー／元の空間の解放が必要です。しかしdequeのイテレータの設計はvectorより複雑です。イテレータに普通のポインタが使えないためです。したがって、できる限りvectorを使いましょう。</p>
 <h2 id="1deque">1.dequeの中核コントローラ（中控器）<a class="headerlink" href="#1deque" title="Permanent link">&para;</a></h2>
 <p>ユーザーから見るとdequeは連続した空間を使っているように見えますが、実際には**区分的に連続な線形空間**です。この区分された空間を管理するため、dequeコンテナにはmapが導入されています。これを中核コントローラ（中控器）と呼びます。mapは1つの連続した空間であり、その各要素はバッファへのポインタで、バッファこそがdequeのデータを格納する主体です。</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>上の図で、bufferはバッファと呼ばれ、map sizeと表示された連続した空間の区切りこそ中核コントローラです。</p>
 <p>中核コントローラには、map size、bufferへのポインタ、dequeの先頭イテレータと末尾イテレータが含まれます。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5484,14 +5484,14 @@
 </span></code></pre></div>
 <p>bufferもポインタなので、<code>_Tp</code>はポインタへのポインタになります。</p>
 <p>dequeは<code>_Deque_base</code>を継承しており、<code>_Deque_base</code>の中には<code>_M_impl</code>があります。</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>下の図と上述の説明から、中核コントローラは<code>_Deque_impl</code>によって実現されていることがわかります。</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>そしてdequeは基底クラス<code>_Deque_base</code>を使って、メモリ管理と中核コントローラの管理を完了させています。</p>
 <h2 id="2">2.高度なイテレータ<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>dequeにとって、そのイテレータの設計は非常に素晴らしいものです！</p>
 <p>下図に示す通りです：
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>まず比較的重要なメンバを見てみましょう：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5502,7 +5502,7 @@
 <p>これらはいったい何でしょうか。名前から、その意味は容易にわかります。dequeは区分的に連続な空間であり、イテレータが操作を実行するとき、上述の<code>_M_cur</code>は具体的な要素を指し、<code>_M_first</code>はこのbufferの最初の要素を指し、<code>_M_last</code>は最後の要素（有効な要素ではない）を指し、<code>_M_node</code>は中核コントローラを指します。したがって、これはポインタへのポインタです。</p>
 <p>例えば、いまイテレータが++操作を実行し、現在のbufferが足りなくなったとします。このとき、中核コントローラに戻れるポインタが必要になり、次のbufferを取得して、<code>_M_first</code>と<code>_M_last</code>のポインタの位置をリセットし、<code>_M_cur</code>は新しいbuffer中の指定位置を指します。</p>
 <p>最初の図に戻りましょう：</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>一番上のiteratorが、上のいくつかのポインタに対応する図です。</p>
 <p>ではbufferの計算はどのように実現されているのでしょうか？</p>
 <p>ソースコード中の計算は、渡されてきた型に基づいています。渡された型が512バイト未満なら、buffersizeは512/sizeof(_Tp)になり、512を超えると1になります。</p>

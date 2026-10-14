@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5474,7 +5474,7 @@
 <p>В отличие от vector, которому при нехватке памяти требуется перевыделить память, скопировать данные и освободить исходное пространство, deque устроен иначе; зато итератор deque устроен сложнее, чем у vector, поскольку итератор не может быть обычным указателем — поэтому по возможности используйте vector.</p>
 <h2 id="1-deque">1. Диспетчер deque<a class="headerlink" href="#1-deque" title="Permanent link">&para;</a></h2>
 <p>Со стороны пользователя deque выглядит как непрерывное пространство, но на деле это <strong>сегментированное непрерывное линейное пространство</strong>. Для управления сегментированным пространством контейнер deque вводит map, называемый диспетчером (центром управления): map — это непрерывный блок пространства, каждый элемент которого — указатель на буфер, и именно буферы являются основной памятью, где deque хранит данные.</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>На схеме выше buffer называется буфером, а непрерывный отрезок, показанный как map size, — это и есть диспетчер.</p>
 <p>Диспетчер содержит map size, указатели на buffer, начальный и конечный итераторы deque.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5484,14 +5484,14 @@
 </span></code></pre></div>
 <p>Поскольку buffer — тоже указатель, <code>_Tp</code> — это указатель на указатель.</p>
 <p>deque наследуется от <code>_Deque_base</code>, а внутри <code>_Deque_base</code> есть <code>_M_impl</code>.</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>Из схемы ниже и сказанного выше можно заключить, что диспетчер реализован в <code>_Deque_impl</code>.</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>А deque использует базовый класс <code>_Deque_base</code> для управления памятью и управления диспетчером.</p>
 <h2 id="2">2. Продвинутый итератор<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>Итератор у deque спроектирован превосходно!</p>
 <p>Смотрите схему:
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>Сначала взглянем на самые важные члены:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5502,7 +5502,7 @@
 <p>Что же это такое? По именам легко понять смысл: deque — сегментированное непрерывное пространство; когда итератор выполняет операции, <code>_M_cur</code> указывает на конкретный элемент, <code>_M_first</code> — на первый элемент текущего buffer, <code>_M_last</code> — на последний элемент (не являющийся валидным элементом), а <code>_M_node</code> указывает на диспетчер. Поэтому он — указатель на указатель.</p>
 <p>Например, итератор выполняет операцию ++, а текущий buffer исчерпан: в этот момент нужен указатель, способный вернуться к диспетчеру, взять следующий buffer, сбросить позиции указателей <code>_M_first</code> и <code>_M_last</code>, а <code>_M_cur</code> направить на заданную позицию в новом сегменте buffer.</p>
 <p>Вернёмся к самой первой схеме:</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>Самый верхний iterator — это блок-схема нескольких описанных выше указателей.</p>
 <p>А как вычисляется buffer?</p>
 <p>В исходниках вычисление опирается на переданный тип: если переданный тип меньше 512 байт, buffersize равен 512/sizeof(_Tp), если превышает 512 — равен 1.</p>

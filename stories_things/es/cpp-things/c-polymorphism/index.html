@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="implementar-el-polimorfismo-de-c-en-lenguaje-c">Implementar el polimorfismo de C++ en lenguaje C<a class="headerlink" href="#implementar-el-polimorfismo-de-c-en-lenguaje-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública personal de WeChat:</p>
-<p><img alt="wechat" alt="Implementar el polimorfismo de C++ en lenguaje C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="Implementar el polimorfismo de C++ en lenguaje C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-ejemplo-de-implementacion-en-c">1. Ejemplo de implementación en C++<a class="headerlink" href="#1-ejemplo-de-implementacion-en-c" title="Permanent link">&para;</a></h2>
 <p>El polimorfismo en C++: en C++ se mantiene una tabla de funciones virtuales y, según las reglas de compatibilidad de asignación, sabemos que un puntero o referencia a la clase padre puede apuntar a objetos de la clase hija.</p>
 <p>Si un puntero o referencia a la clase padre llama a una función virtual de la clase padre, ese puntero a la clase padre buscará la dirección de su propia función en su tabla de funciones virtuales; si ese puntero o referencia al objeto de la clase padre apunta a un objeto de la clase hija, y esa clase hija ha sobrescrito la función virtual de la clase padre, entonces el puntero llamará a la función virtual sobrescrita de la clase hija.</p>

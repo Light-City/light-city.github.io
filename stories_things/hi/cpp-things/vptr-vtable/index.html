@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="c-vptr-vtable">C++ vptr और vtable तंत्र<a class="headerlink" href="#c-vptr-vtable" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>व्यक्तिगत WeChat सार्वजनिक अकाउंट:</p>
-<p><img alt="wechat" alt="C++ vptr और vtable तंत्र | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ vptr और vtable तंत्र | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.बुनियादी सिद्धांत<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे "vtable", "虚函数表", "虚方法表" या "dispatch table"।</p>
 <p>virtual table सचमुच बहुत सरल है, भले ही शब्दों में बताना थोड़ा जटिल है। सबसे पहले, <strong>वर्चुअल फ़ंक्शन उपयोग करने वाली हर क्लास (या वर्चुअल फ़ंक्शन उपयोग करने वाली क्लास से derive हुई) का अपना virtual table होता है</strong>। यह table सिर्फ़ कंपाइलर द्वारा compile time पर set किया गया static array है। virtual table में क्लास के ऑब्जेक्ट द्वारा कॉल किए जा सकने वाले हर वर्चुअल फ़ंक्शन के लिए एक entry होती है। इस table की हर entry सिर्फ़ एक function pointer है, जो उस क्लास द्वारा एक्सेस किए जा सकने वाले सबसे derived फ़ंक्शन की ओर पॉइंट करता है।</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2">2.इम्प्लीमेंटेशन और आंतरिक स्ट्रक्चर<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>नीचे हम vptr के साथ automatic और manual तरीके से पता निकालकर वर्चुअल फ़ंक्शन कॉल करते देखेंगे!</p>
 <p>कोड देखने से पहले, समझने की सुविधा के लिए, यहाँ call graph दिया गया है:</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>कोड पूरी तरह standard comment style का पालन करता है, देखते ही समझ आ जाएगा, न समझ आए तो कमेंट करें!</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="o-mecanismo-de-vptr-e-vtable-em-c">O mecanismo de vptr e vtable em C++<a class="headerlink" href="#o-mecanismo-de-vptr-e-vtable-em-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor:<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
 <p>Conta oficial do WeChat:</p>
-<p><img alt="wechat" alt="O mecanismo de vptr e vtable em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="O mecanismo de vptr e vtable em C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1teoria-basica">1.Teoria básica<a class="headerlink" href="#1teoria-basica" title="Permanent link">&para;</a></h2>
 <p>Para implementar funções virtuais, o C++ usa uma forma especial de ligação tardia chamada tabela virtual. Essa tabela virtual é uma tabela de consulta usada para resolver, de forma dinâmica/tardia, as chamadas de funções. A tabela virtual às vezes recebe outros nomes, como "vtable", "tabela de funções virtuais", "tabela de métodos virtuais" ou "tabela de despacho".</p>
 <p>A tabela virtual, na verdade, é bastante simples, embora descrevê-la em palavras seja um pouco complexo. Primeiro, <strong>cada classe que usa funções virtuais (ou que deriva de uma classe que usa funções virtuais) tem a sua própria tabela virtual</strong>. Essa tabela é apenas um array estático que o compilador configura em tempo de compilação. A tabela virtual contém uma entrada para cada função virtual que pode ser chamada pelos objetos da classe. Cada entrada dessa tabela é apenas um ponteiro de função, apontando para a função derivada acessível por essa classe.</p>
@@ -5456,7 +5456,7 @@
 <h2 id="2implementacao-e-estrutura-interna">2.Implementação e estrutura interna<a class="headerlink" href="#2implementacao-e-estrutura-interna" title="Permanent link">&para;</a></h2>
 <p>Agora vejamos como obter endereços e chamar funções virtuais manipulando o vptr automática e manualmente!</p>
 <p>Antes de olhar o código, para facilitar a compreensão, apresentamos o diagrama de chamadas:</p>
-<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg" /></p>
+<p><img alt="base" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/vptr_vtable/img/base.jpg"  loading="lazy" decoding="async"/></p>
 <p>Todo o código segue o padrão de comentários; acredito que, ao ler, vocês entenderão; caso contrário, deixem um comentário!</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * @file vptr1.cpp</span>

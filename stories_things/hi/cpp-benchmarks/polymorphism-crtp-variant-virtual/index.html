@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5507,9 +5507,9 @@
 </span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="c1">// ...</span>
 </span></code></pre></div>
 <p>टेस्ट परिणाम 1: gcc से कंपाइल, देखा जा सकता है कि virtual और std::variant की परफ़ॉर्मेंस में ज़्यादा अंतर नहीं है, लेकिन crtp से बहुत बड़ा अंतर है।</p>
-<p><img width="1704" height="1246" alt="gcc bm" alt="C++ पॉलीमॉर्फ़िज़्म: वर्चुअल फ़ंक्शन, CRTP और variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png" /></p>
+<p><img width="1704" height="1246" alt="C++ पॉलीमॉर्फ़िज़्म: वर्चुअल फ़ंक्शन, CRTP और variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/gcc_bm.png"  loading="lazy" decoding="async"/></p>
 <p>टेस्ट परिणाम 2: clang से कंपाइल, कुल मिलाकर रुझान gcc कंपाइल के समान ही है, केवल crtp + std::variant की परफ़ॉर्मेंस में स्पष्ट गिरावट दिखती है, संभवतः इसका कारण यह भी है कि यहाँ std::visit का उपयोग किया गया है।</p>
-<p><img width="1678" height="1250" alt="clang bm" alt="C++ पॉलीमॉर्फ़िज़्म: वर्चुअल फ़ंक्शन, CRTP और variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png" /></p>
+<p><img width="1678" height="1250" alt="C++ पॉलीमॉर्फ़िज़्म: वर्चुअल फ़ंक्शन, CRTP और variant | C++那些事" src="../../../assets/images/2024/bench/virtual/img/clang_bm.png"  loading="lazy" decoding="async"/></p>
 <p>A Tour of C++ पुस्तक में लिखा है:</p>
 <blockquote>
 <p>This is basically equivalent to a virtual function call, but potentially faster. As with all claims of performance, this ''potentially faster'' should be verified by measurements when performance is critical. For most uses, the difference in performance is insignificant.</p>

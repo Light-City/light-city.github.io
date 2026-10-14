@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5577,7 +5577,7 @@ set関連の汎用アルゴリズム（set_unionなど）が線形時間の性�
 - あるノードが赤色ならば、その2つの子ノードはいずれも黒色である。
 - 各ノードについて、そのノードからそのすべての子孫の葉ノードへの単純パス上には、すべて同じ数の黒色ノードが含まれる。</p>
 <p>もちろんここのrb_treeも同様にこれらの性質を満たしています。イテレータのbeginは赤黒木の根ノード、すなわちheaderの親を指し、endはheaderノードを指します。</p>
-<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>。
 図中の省略記号は、ノードをすべて描ききれておらず、他にもノードがあるため省略したことを表します。</p>
 <h2 id="1">1.赤黒木ノード基底クラス<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>赤黒木の基底クラス。非常に単純で、ファイルの先頭でカラーマーカーが定義されています。</p>
@@ -5806,7 +5806,7 @@ set関連の汎用アルゴリズム（set_unionなど）が線形時間の性�
 <p>赤黒木の根ノード、最左、最右ノードの取得</p>
 </blockquote>
 <p>最初の図に戻ります：
-<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。</p>
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>。</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 图中100 节点</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -5906,12 +5906,12 @@ set関連の汎用アルゴリズム（set_unionなど）が線形時間の性�
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <p>case 1.1: 親ノードが赤色で、かつその叔父ノードも赤色の場合、父と叔父を黒色にし、祖父を赤色にします。</p>
-<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
+<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 1.2 叔父ノードがない場合、またはその叔父ノードが黒色の場合、次の2つに分かれます：</p>
 <p>ケース1.2.1：xの叔父ノードyは黒色で、xは右の子である</p>
-<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
+<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>ケース1.2.2：xの叔父ノードyは黒色で、xは左の子である</p>
-<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
+<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png"  loading="lazy" decoding="async"/></p>
 <p>対応するソースコードは：
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
@@ -5936,11 +5936,11 @@ set関連の汎用アルゴリズム（set_unionなど）が線形時間の性�
 </span></code></pre></div></p>
 <p>もう1つは上述の対称な過程です：</p>
 <p>case 2.1: 親ノードが赤色で、かつその叔父ノードも赤色の場合、父と叔父を黒色にし、祖父を赤色にします。</p>
-<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
+<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2.2 叔父ノードがない場合、またはその叔父ノードが黒色の場合</p>
-<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
+<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>ケース2.2.1：xの叔父ノードyは黒色で、xは左の子である</p>
-<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
+<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png"  loading="lazy" decoding="async"/></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
@@ -6046,12 +6046,12 @@ set関連の汎用アルゴリズム（set_unionなど）が線形時間の性�
 <p>上述の挿入過程とソースコードの分析から、次の3つの場合が得られます：
 Pは親ノード、Nは現在新しく挿入されたノード、Uは叔父ノード、Gは祖父ノードを表すとします。</p>
 <p>case 1:Uが赤色で、P、Nもともに赤色の場合、色を変えることで、ボトムアップに再帰的に調整できます。次回はNがGとなり、上に向かって判断するだけです。もし偶然にも根ノードが赤色に染まった場合は、アルゴリズムの最後でrootを強制的に黒に変えられます。</p>
-<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
+<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2:Uが黒色の場合、NがPの左の子か右の子かを考慮します。</p>
 <p>case2.1 右の子の場合、まず左回転を行い、その後次の場合に入ります。</p>
-<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
+<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png"  loading="lazy" decoding="async"/></p>
 <p>case2.2 上述のケースから変化してきた可能性もありますが、そうとは限りません！戦略は：右回転、色の変更です。</p>
-<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
+<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png"  loading="lazy" decoding="async"/></p>
 <p>上述のソースコードの分析から、赤黒木の挿入は鏡像変換であり、もう1つの場合はちょうど逆であることがわかりました。</p>
 <p>削除操作は比較的複雑なので、ここでは当面分析せず、後で補います。。。</p>
 <h2 id="6">6.使用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>

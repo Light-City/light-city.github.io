@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5590,9 +5590,9 @@
 <p>The source code corresponds to <strong>gcc-4.9.1</strong></p>
 <h3 id="1list">1.list<a class="headerlink" href="#1list" title="Permanent link">&para;</a></h3>
 <p>list is a doubly linked circular list, with the following structure:</p>
-<p><img alt="list 1" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png"  loading="lazy" decoding="async"/></p>
 <p>A figure I drew myself:</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>The doubly linked circular list starts inserting from the node with value 3; the red box marks the last node (the node pointed to by end()). The yellow lines point to predecessor nodes, and the black lines point to successor nodes.</p>
 <h3 id="11-list-source-code">1.1 list source code<a class="headerlink" href="#11-list-source-code" title="Permanent link">&para;</a></h3>
 <h4 id="111-class-structure">1.1.1 Class structure<a class="headerlink" href="#111-class-structure" title="Permanent link">&para;</a></h4>
@@ -5705,7 +5705,7 @@
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This insertion happens before the specified position (in code terms): for example, inserting a node with value 9 (which is <code>__tmp</code> in the code) before the specified node <code>__position</code> with value 7. The concrete insertion flow is described below.</p>
-<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png" /></p>
+<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png"  loading="lazy" decoding="async"/></p>
 <p>(2) Inserting n nodes with node value x one after another at the end</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">_M_fill_initialize</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">__n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">__n</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">__n</span><span class="p">)</span>
@@ -5782,23 +5782,23 @@
 </span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Again the same figure:</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>From the earlier analysis, we know <code>splice</code> inserts the entire list represented by the figure before the specified iterator. For example, suppose we want to insert before the two nodes below; the concrete graphical steps are as follows:</p>
 <p>The node represented by <code>this</code> is the node with value 8; the figure below describes inserting the entire list between node 10 and node 8.</p>
 <p><code>__last</code> represents the red-box node, which is the node pointed to by <code>end()</code>; we do not need that node, so in the processing below it gets removed from the whole list.</p>
 <p><code>__first</code> represents the node with value 3 in the figure.</p>
 <p><strong>Step 1: First, make the last valid node — that is, the node before the red box — have its next pointer point to the specified node 8.</strong></p>
-<p><img alt="step1" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>__last-&gt;_M_prev-&gt;_M_next  = this;   
 </span></code></pre></div>
 <p><strong>Step 2: <code>_last</code>'s next pointer points to itself.</strong></p>
-<p><img alt="step2" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>__first-&gt;_M_prev-&gt;_M_next = __last;
 </span></code></pre></div>
 <p><strong>Step 3: Make the node before the specified iterator have its next point to the original list's first node (<code>__first</code>).</strong></p>
-<p><img alt="step3" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>this-&gt;_M_prev-&gt;_M_next    = __first;
 </span></code></pre></div>
@@ -5806,17 +5806,17 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>_List_node_base* const __tmp = this-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 5: The specified iterator's predecessor node points to the original list's actual last node (the node before end()).</strong></p>
-<p><img alt="step5" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>this-&gt;_M_prev                = __last-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 6: Make the original list's last node's (the node pointed to by end()) prev point to itself.</strong></p>
-<p><img alt="step6" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>__last-&gt;_M_prev              = __first-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>Step 7: Make the original list's first node's prev point to the node saved in step 4.</strong></p>
-<p><img alt="step7" alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
+<p><img alt="STL list source code analysis | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png"  loading="lazy" decoding="async"/></p>
 <p>The corresponding code:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>__first-&gt;_M_prev             = __tmp;
 </span></code></pre></div>
@@ -5941,7 +5941,7 @@
 </span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>For example: to delete the node with value 9, the third and fourth steps illustrated:</p>
-<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png" /></p>
+<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png"  loading="lazy" decoding="async"/></p>
 <p><strong>(2) Detailed analysis of deleting a series of elements</strong></p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">iterator</span>
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="cp">#if __cplusplus &gt;= 201103L</span>
@@ -6030,7 +6030,7 @@
 <li>unique</li>
 </ul>
 <p>Removes all but the first element from each consecutive group of equal elements in the container.</p>
-<p>Note that an element is only removed from the <a href="http://www.cplusplus.com/list">list</a> container when it compares equal to the element immediately preceding it in the <a href="http://www.cplusplus.com/list">list</a> container. This function is therefore especially useful for sorted lists.</p>
+<p>Note that an element is only removed from the <a href="https://www.cplusplus.com/list">list</a> container when it compares equal to the element immediately preceding it in the <a href="https://www.cplusplus.com/list">list</a> container. This function is therefore especially useful for sorted lists.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_BinaryPredicate</span><span class="o">&gt;</span>
 </span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="kt">void</span>
@@ -6467,7 +6467,7 @@
 </span><span id="__span-57-30"><a id="__codelineno-57-30" name="__codelineno-57-30" href="#__codelineno-57-30"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>The figure that finally emerges is:</p>
-<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png" /></p>
+<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png"  loading="lazy" decoding="async"/></p>
 <p>So if you evaluate:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="k">sizeof</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="o">=</span><span class="mi">16</span>
 </span></code></pre></div>

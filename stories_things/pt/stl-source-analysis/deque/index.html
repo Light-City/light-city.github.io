@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5474,7 +5474,7 @@
 <p>Diferentemente do vector — que, quando a memória é insuficiente, precisa realocar/copiar dados/liberar o espaço original —, o deque tem um desenho de iterador mais complexo que o do vector, pois o iterador não pode usar um ponteiro comum; por isso, dê preferência ao vector.</p>
 <h2 id="1-o-controlador-central-do-deque">1. O controlador central do deque<a class="headerlink" href="#1-o-controlador-central-do-deque" title="Permanent link">&para;</a></h2>
 <p>Aos olhos do usuário, o deque usa um espaço contínuo, mas na verdade é um <strong>espaço linear contínuo por segmentos</strong>. Para gerenciar os segmentos, o contêiner deque introduziu o map, chamado de controlador central: o map é um espaço contínuo em que cada elemento é um ponteiro para um buffer, e os buffers são o corpo principal do armazenamento de dados do deque.</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>Na figura acima, buffer é o nome do buffer, e o trecho contínuo mostrado como map size é o controlador central.</p>
 <p>O controlador central contém o map size, ponteiros para os buffers, além do iterador de início e do iterador de fim do deque.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">**</span><span class="n">_M_map</span><span class="p">;</span>
@@ -5484,14 +5484,14 @@
 </span></code></pre></div>
 <p>Como o buffer também é um ponteiro, <code>_Tp</code> é um ponteiro para ponteiro.</p>
 <p>O deque herda de <code>_Deque_base</code>, e dentro de <code>_Deque_base</code> há um <code>_M_impl</code>.</p>
-<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png" /></p>
+<p><img alt="deque_base.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_bacse.png"  loading="lazy" decoding="async"/></p>
 <p>De acordo com a figura abaixo e a descrição acima, pode-se saber que o controlador central é implementado por <code>_Deque_impl</code>.</p>
-<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png" /></p>
+<p><img alt="impl.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/impl.png"  loading="lazy" decoding="async"/></p>
 <p>E o deque usa a classe base <code>_Deque_base</code> para realizar o gerenciamento de memória e o gerenciamento do controlador central.</p>
 <h2 id="2-um-iterador-sofisticado">2. Um iterador sofisticado<a class="headerlink" href="#2-um-iterador-sofisticado" title="Permanent link">&para;</a></h2>
 <p>Para o deque, o desenho do seu iterador é excelente!</p>
 <p>Conforme a figura abaixo:
-<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png" /></p>
+<img alt="deque_iterator.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_iterator.png"  loading="lazy" decoding="async"/></p>
 <p>Primeiro, vejamos os membros mais importantes:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="n">_Tp</span><span class="w">             </span><span class="o">**</span><span class="n">_Map_pointer</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">_Tp</span><span class="w">     </span><span class="o">*</span><span class="n">_M_cur</span><span class="p">;</span>
@@ -5502,7 +5502,7 @@
 <p>O que afinal são esses? Pelos nomes, é fácil saber o significado. Para o deque, que é um espaço contínuo por segmentos, quando o iterador executa operações: o <code>_M_cur</code> acima aponta para um elemento concreto, o <code>_M_first</code> aponta para o primeiro elemento deste buffer, o <code>_M_last</code> aponta para o último elemento (que não é um elemento válido), e o <code>_M_node</code> aponta para o controlador central. Por isso, é um ponteiro para ponteiro.</p>
 <p>Por exemplo, quando o iterador executa ++ e o buffer atual já não basta, é preciso um ponteiro capaz de voltar ao controlador central, pegar o próximo buffer, reiniciar as posições dos ponteiros <code>_M_first</code> e <code>_M_last</code>, e fazer <code>_M_cur</code> apontar para a posição indicada no novo buffer.</p>
 <p>Volvamos agora à figura do início:</p>
-<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png" /></p>
+<p><img alt="deque_r.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/deque_r.png"  loading="lazy" decoding="async"/></p>
 <p>O iterator no topo é a ilustração do bloco desses ponteiros acima.</p>
 <p>E como é implementado o cálculo do buffer?</p>
 <p>No código-fonte, o cálculo se baseia no tipo passado: se o tipo passado ocupa menos de 512 bytes, o buffersize é 512/sizeof(_Tp); se ultrapassar 512, é 1.</p>

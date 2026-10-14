@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5591,9 +5591,9 @@
 <p>源码对应的版本为**gcc-4.9.1**</p>
 <h3 id="1list">1.list<a class="headerlink" href="#1list" title="Permanent link">&para;</a></h3>
 <p>list为双向环形链表，其结构为：</p>
-<p><img alt="list 1" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_1.png"  loading="lazy" decoding="async"/></p>
 <p>自己绘制的图如下：</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>双向环状链表从节点值为3开始插入，红色框表示最后一个节点(end()指向的节点)。黄色线条表示指向前驱节点，黑色线条表示指向后继节点。</p>
 <h3 id="11-list">1.1 list源码<a class="headerlink" href="#11-list" title="Permanent link">&para;</a></h3>
 <h4 id="111">1.1.1 类结构<a class="headerlink" href="#111" title="Permanent link">&para;</a></h4>
@@ -5706,7 +5706,7 @@
 </span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>这种插入是在指定位置前插入，(对应到代码就是)例如实现在指定<code>__position</code>节点为7前插入节点值9的节点(对应到代码就是__tmp)，下面阐述了具体的插入流程。</p>
-<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png" /></p>
+<p><img alt="list_insert" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_insert.png"  loading="lazy" decoding="async"/></p>
 <p>（2）在末尾依次插入n个节点值为x的节点</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">_M_fill_initialize</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">__n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="n">__x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">__n</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">__n</span><span class="p">)</span>
@@ -5783,23 +5783,23 @@
 </span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>仍然是上述的图：</p>
-<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png" /></p>
+<p><img alt="list_all" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_a.png"  loading="lazy" decoding="async"/></p>
 <p>经过前面分析，我们知道<code>splice</code>是将上述图的所代表的整个list插入指定迭代器前面，例如，我们想要在下面两个节点前面插入，具体图形步骤如下：</p>
 <p><code>this</code>代表的节点为值为8的节点，下图描述的就是在节点10与节点8中间插入整个list。</p>
 <p><code>__last</code>代表的是红色框节点，该节点为<code>end()</code>指向的节点，我们是不需要该节点的，所以在后面处理中，会把该节点从整个list中去除掉。</p>
 <p><code>__first</code>代表的是图中节点值为3的节点。</p>
 <p><strong>第一步：先将最后一个有效节点，也就是红色框的前一个节点的next指针指向指定的节点8。</strong></p>
-<p><img alt="step1" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step1.png"  loading="lazy" decoding="async"/></p>
 <p>对应代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>__last-&gt;_M_prev-&gt;_M_next  = this;   
 </span></code></pre></div>
 <p><strong>第二步：<code>_last</code>的next指针指向自己。</strong></p>
-<p><img alt="step2" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step2.png"  loading="lazy" decoding="async"/></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>__first-&gt;_M_prev-&gt;_M_next = __last;
 </span></code></pre></div>
 <p><strong>第三步：让指定迭代器之前的节点的nex指向原先list的第一个节点(<code>__first</code>)。</strong></p>
-<p><img alt="step3" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step3.png"  loading="lazy" decoding="async"/></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>this-&gt;_M_prev-&gt;_M_next    = __first;
 </span></code></pre></div>
@@ -5807,17 +5807,17 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>_List_node_base* const __tmp = this-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第五步：指定迭代器的前驱节点指向原list中实际最后一个节点(end()前一节点)。</strong></p>
-<p><img alt="step5" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step5.png"  loading="lazy" decoding="async"/></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>this-&gt;_M_prev                = __last-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第六步：让原list的最后一个节点(end()指向的节点)的prev指向自己。</strong></p>
-<p><img alt="step6" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step6.png"  loading="lazy" decoding="async"/></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>__last-&gt;_M_prev              = __first-&gt;_M_prev;
 </span></code></pre></div>
 <p><strong>第七步：让原list第一个节点的prev指向第四步保存的节点。</strong></p>
-<p><img alt="step7" alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png" /></p>
+<p><img alt="STL list 源码剖析 | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/step7.png"  loading="lazy" decoding="async"/></p>
 <p>对应的代码为：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>__first-&gt;_M_prev             = __tmp;
 </span></code></pre></div>
@@ -5942,7 +5942,7 @@
 </span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>例如：删除节点值为9的节点，第三与第四步图解：</p>
-<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png" /></p>
+<p><img alt="list_erase" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_erase.png"  loading="lazy" decoding="async"/></p>
 <p><strong>（2）删除一系列元素详细分析</strong></p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">iterator</span>
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="cp">#if __cplusplus &gt;= 201103L</span>
@@ -6031,7 +6031,7 @@
 <li>unique</li>
 </ul>
 <p>从容器中的每个连续的相等元素组中除去除第一个元素外的所有元素。</p>
-<p>请注意，只有与<a href="http://www.cplusplus.com/list">列表</a>容器紧邻的元素相比，该元素才从<a href="http://www.cplusplus.com/list">列表</a>容器中删除。因此，此功能对于排序列表特别有用。</p>
+<p>请注意，只有与<a href="https://www.cplusplus.com/list">列表</a>容器紧邻的元素相比，该元素才从<a href="https://www.cplusplus.com/list">列表</a>容器中删除。因此，此功能对于排序列表特别有用。</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_Tp</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">_Alloc</span><span class="o">&gt;</span>
 </span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">_BinaryPredicate</span><span class="o">&gt;</span>
 </span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="kt">void</span>
@@ -6468,7 +6468,7 @@
 </span><span id="__span-57-30"><a id="__codelineno-57-30" name="__codelineno-57-30" href="#__codelineno-57-30"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>最后形成的图就是:</p>
-<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png" /></p>
+<p><img alt="list's iterator_design" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/list_iterator_design.png"  loading="lazy" decoding="async"/></p>
 <p>所以如果求:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="k">sizeof</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="o">=</span><span class="mi">16</span>
 </span></code></pre></div>

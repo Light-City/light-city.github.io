@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5462,7 +5462,7 @@
 <h1 id="stl-traits-type-extraction">STL traits type extraction<a class="headerlink" href="#stl-traits-type-extraction" title="Permanent link">&para;</a></h1>
 <h2 id="0introduction">0.Introduction<a class="headerlink" href="#0introduction" title="Permanent link">&para;</a></h2>
 <p>In STL programming, containers and algorithms are designed independently, that is, data structures and algorithms are designed separately; the bridge connecting containers and algorithms is the iterator, and iterators make this independent design possible. As shown in the figure below:</p>
-<p><img alt="rela" alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>The figure above shows that the goal of the STL is to separate data from algorithms, design each of them independently, and then glue the two back together through something called an iterator.</p>
 <p>In design patterns, iterator is described as: <strong>a way to access each element of a container sequentially without exposing the container's internal representation. And type extraction (traits) technology exists precisely to solve problems related to iterators.</strong></p>
 <p>To apply generic algorithms (find, count, find_if) to a container, the most important thing is to provide the algorithm with a tool for accessing the container's elements, and the iterator plays this important role.</p>
@@ -5599,7 +5599,7 @@
 </span></code></pre></div>
 <p><strong>(2) Adding an intermediate layer</strong></p>
 <p>What is Traits in the STL? Look at the figure below:</p>
-<p><img alt="trai" alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png" /></p>
+<p><img alt="STL traits type extraction | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/trai.png"  loading="lazy" decoding="async"/></p>
 <p>Using an intermediate layer <code>iterator_traits</code> fixes the form of <code>func</code>, eliminating a large amount of duplicated code; the only thing left to do is slightly specialize iterator_tartis so that it supports pointer and const pointer:)</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5433,7 +5433,7 @@
 <blockquote>
 <p><a href="https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE">https://quick-bench.com/q/QER6YyI5f33kmqNqV7_Zdw8P5AE</a></p>
 </blockquote>
-<p><img width="1736" height="1076" alt="copy memcpy" alt="Comparación de rendimiento: memcpy frente a std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png" /></p>
+<p><img width="1736" height="1076" alt="Comparación de rendimiento: memcpy frente a std::copy | C++那些事" src="../../../assets/images/2024/bench/img/copy_memcpy.png"  loading="lazy" decoding="async"/></p>
 <h2 id="como-elegir">¿Cómo elegir?<a class="headerlink" href="#como-elegir" title="Permanent link">&para;</a></h2>
 <p>En proyectos reales, la elección entre <code>memcpy</code> y <code>std::copy</code> depende de las necesidades concretas. Si se procesan tipos POD y se quiere mantener la flexibilidad, <code>std::copy</code> es la opción más sensata. Para la mayoría de los escenarios de aplicación, <code>std::copy</code> ofrece una forma de copia de datos más genérica y segura.</p>
 <p>Sin embargo, cuando se persigue el máximo rendimiento, puede considerarse <code>memcpy</code>, sobre todo al procesar grandes volúmenes de datos. Pero al decidir, asegúrate de tener en cuenta el escenario de aplicación real y de apoyarte en herramientas de análisis de rendimiento para hacer pruebas y optimización detalladas.</p>

@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <h1 id="c-c">Реализация полиморфизма C++ на языке C<a class="headerlink" href="#c-c" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Личный официальный аккаунт:</p>
-<p><img alt="wechat" alt="Реализация полиморфизма C++ на языке C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="Реализация полиморфизма C++ на языке C | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-c">1.Пример реализации на C++<a class="headerlink" href="#1-c" title="Permanent link">&para;</a></h2>
 <p>Полиморфизм в C++: в C++ поддерживается таблица виртуальных функций, и согласно правилам совместимости при присваивании мы знаем, что указатель или ссылка родительского класса может указывать на объект дочернего класса.</p>
 <p>Если указатель или ссылка родительского класса вызывает виртуальную функцию родительского класса, то этот указатель родительского класса ищет адрес своей функции в собственной таблице виртуальных функций; если же указатель или ссылка объекта родительского класса указывает на объект дочернего класса, и этот дочерний класс переопределил виртуальную функцию родительского класса, то указатель вызовет переопределённую виртуальную функцию дочернего класса.</p>

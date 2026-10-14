@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5578,7 +5578,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 - 如果一个节点是红色的，则它的两个孩子节点都是黑色的.
 - 对每个节点，从该节点到其所有后代叶节点的简单路径上，均包含相同数目的黑色节点.</p>
 <p>当然这里的rb_tree也是一样满足这几条性质，迭代器的begin指向红黑树根节点，也就是header的父亲，而end指向header节点。</p>
-<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。
+<p><img alt="st.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>。
 图中省略号表示节点没有画完，还有其他节点，所以省略。</p>
 <h2 id="1">1.红黑树节点基类<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>红黑树基类，非常简单，在文件开头定义了颜色标记。</p>
@@ -5807,7 +5807,7 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 <p>获取红黑树根节点、最左与最右节点</p>
 </blockquote>
 <p>回到一开始的图：
-<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png" />。</p>
+<img alt="rbt.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rbt.png"  loading="lazy" decoding="async"/>。</p>
 <p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// 图中100 节点</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="n">_Base_ptr</span><span class="o">&amp;</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nf">_M_root</span><span class="p">()</span><span class="w"> </span><span class="n">_GLIBCXX_NOEXCEPT</span>
@@ -5907,12 +5907,12 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <p>case 1.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
-<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png" /></p>
+<p><img alt="rb_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 1.2 若无叔叔节点或者其叔叔节点为黑色分为下面两种：</p>
 <p>情况1.2.1：x的叔叔节点y是黑色且x是一个右孩子</p>
-<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png" /></p>
+<p><img alt="rb1.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>情况1.2.2：x的叔叔节点y是黑色且x是一个左孩子</p>
-<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png" /></p>
+<p><img alt="rb1.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb1.2.2.png"  loading="lazy" decoding="async"/></p>
 <p>对应源代码中：
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_right</span><span class="p">;</span><span class="w">    </span><span class="c1">// 得到叔叔节点</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w">     </span><span class="c1">// case1: 叔叔节点存在，且为红色</span>
@@ -5937,11 +5937,11 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 </span></code></pre></div></p>
 <p>另外一个是上述对称过程：</p>
 <p>case 2.1: 父节点为红色且其叔叔节点也为红色，则将父亲、叔叔置为黑色，祖父置为红色。</p>
-<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png" /></p>
+<p><img alt="rb2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2.2 若无叔叔节点或者其叔叔节点为黑色</p>
-<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png" /></p>
+<p><img alt="rb2.2.1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.1.png"  loading="lazy" decoding="async"/></p>
 <p>情况2.2.1：x的叔叔节点y是黑色且x是一个左孩子</p>
-<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png" /></p>
+<p><img alt="rb2.2.2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2.2.2.png"  loading="lazy" decoding="async"/></p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">_Rb_tree_node_base</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">__y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__xpp</span><span class="o">-&gt;</span><span class="n">_M_left</span><span class="p">;</span><span class="w"> </span><span class="c1">// 保存叔叔节点</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">__y</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_S_red</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="c1">// 叔叔节点存在且为红色</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">__x</span><span class="o">-&gt;</span><span class="n">_M_parent</span><span class="o">-&gt;</span><span class="n">_M_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_S_black</span><span class="p">;</span><span class="w">    </span><span class="c1">// 父亲节点改为黑色</span>
@@ -6047,12 +6047,12 @@ set相关泛型算法（如set_union等等）可以有线性时间表现.</p>
 <p>根据上述插入过程与源码分析，我们得出下面三种：
 假设P代码父亲节点，N代表当前新插入节点，U代表叔叔节点，G代表祖父节点。</p>
 <p>case 1:U为红色，P、N也都为红色，则可以通过改变颜色，自底向上递归调整，下次N就变味G，往上判断即可。如果碰巧将根节点染成了红色, 可以在算法的最后强制root改为黑。</p>
-<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png" /></p>
+<p><img alt="1_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/1_1.png"  loading="lazy" decoding="async"/></p>
 <p>case 2:U为黑色，考虑N是P的左孩子还是右孩子。</p>
 <p>case2.1 如果是右孩子,先进行左旋转，再进入下一种情况。</p>
-<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png" /></p>
+<p><img alt="2_1.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/2_1.png"  loading="lazy" decoding="async"/></p>
 <p>case2.2 可能是上述情况变化而来，但不一定是！策略为：右旋转，改变颜色。</p>
-<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png" /></p>
+<p><img alt="rb2_2.png" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rb2_2.png"  loading="lazy" decoding="async"/></p>
 <p>经过上述源码的分析得知，红黑树插入为镜像变换，另一种情况刚好相反。</p>
 <p>删除操作，比较复杂，这里就暂时没分析了，后面补上。。。</p>
 <h2 id="6">6.使用<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>

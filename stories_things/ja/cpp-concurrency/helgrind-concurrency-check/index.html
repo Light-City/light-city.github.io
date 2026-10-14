@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5472,7 +5472,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="deadlock" alt="Helgrind 並行エラー検出 | C++那些事" src="../../../assets/images/2024/img/deadlock.png" /></p>
+<p><img width="2084" height="1622" alt="Helgrind 並行エラー検出 | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_2">データ競合<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ある共有変数があり、複数スレッドでそれを10万回インクリメントすると、結果はいくつになるでしょうか？</p>
 <p>明らかに、ここでは複数スレッドがグローバル変数を奪い合う問題が発生しており、最終的な結果は一致しません。helgrindによる検出方法は上記と同じです。</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>このとき、data raceが発生したのがどの行かを確認して、問題を解決しに行くことができます。</p>
-<p><img width="2042" height="1220" alt="datarace" alt="Helgrind 並行エラー検出 | C++那些事" src="../../../assets/images/2024/img/datarace.png" /></p>
+<p><img width="2042" height="1220" alt="Helgrind 並行エラー検出 | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>最後に、いくつか問題を残しておきましょう：</p>
 <p>1.上記の2つの問題のあるコードは、どのように修正すればよいでしょうか？</p>
 <p>2.上記のツール以外に、他の方法はあるでしょうか？</p>

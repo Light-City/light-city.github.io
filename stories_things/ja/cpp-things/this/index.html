@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5429,7 +5429,7 @@
 <h1 id="c-this">C++ this ポインタ<a class="headerlink" href="#c-this" title="Permanent link">&para;</a></h1>
 <h2 id="_1">著者について<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>個人公式アカウント（WeChat）：</p>
-<p><img alt="wechat" alt="C++ this ポインタ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ this ポインタ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1this">1.thisポインタ<a class="headerlink" href="#1this" title="Permanent link">&para;</a></h2>
 <p>ここにいる多くの方はPythonを学んでいることと思います。Pythonにはselfがありますが、C++でそれに対応するのがthisポインタです。それでは、thisポインタのクラス内での使い方を一緒に深く分析していきましょう！</p>
 <p>まずthisポインタの用途から話しましょう：</p>
@@ -5484,11 +5484,11 @@
 </span></code></pre></div>
 <p>この簡単なプログラムについては問題ないでしょう。クラスを定義し、コンストラクタで初期化してこの人の年齢を取得し、設定した後、再度取得しているだけです！</p>
 <p>thisポインタがどちらであるかを検証するために、今度は<code>add_age</code>にブレークポイントを設定して実行すると、次のようになります：</p>
-<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png" /></p>
-<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png" /></p>
+<p><img alt="thiscontrust" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/thiscontrust.png"  loading="lazy" decoding="async"/></p>
+<p><img alt="genthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/genthis.png"  loading="lazy" decoding="async"/></p>
 <p>コンパイラが自動的に<code>A* const</code>を付加しており、<code>A const *this</code>ではないことがわかります！</p>
 <p>続いて、上述のコードにはconstな関数もありますので、<code>get_age</code>にブレークポイントを設定すると、次のようになります：</p>
-<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png" /></p>
+<p><img alt="constthis" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/basic_content/this/img/constthis.png"  loading="lazy" decoding="async"/></p>
 <p>コンパイラが上述のthisを<code>const A* const</code>に変えていることがわかります。これは皆さんも予想できることです。この関数はconst関数であり、const関数はconst変数とconst関数にしかアクセスできず、他の変数の値を変更できません。そのため、変更できない変数を指すthis、すなわち<code>const A*</code>が必要になり、さらにthis自体が<code>const</code>ポインタであるため、<code>const A* const</code>になるのです！</p>
 <p>まとめ：thisはメンバ関数の実行開始前に構築され、メンバの実行終了後に破棄されます。上述のget_age関数は<code>get_age(const A * const this)</code>と解釈され、<code>add_age</code>関数は<code>add_age(A* const this,int a)</code>と解釈されます。C++ではクラスと構造体の違いは1つだけです：クラスのメンバはデフォルトでprivate、構造体はpublicです。thisはクラスのポインタであり、構造体に置き換えれば、thisはその構造体のポインタになります。</p>
 <h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

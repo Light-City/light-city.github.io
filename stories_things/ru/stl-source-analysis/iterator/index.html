@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5447,7 +5447,7 @@
 <p><strong>Знать как — и знать почему; перед исходным кодом нет секретов!</strong></p>
 <h2 id="1-iterator_category">1. Реализуем простое распознавание iterator_category с помощью «экстрактора»<a class="headerlink" href="#1-iterator_category" title="Permanent link">&para;</a></h2>
 <p>В предыдущем разделе была показана роль итераторов, повторим её на схеме ниже:</p>
-<p><img alt="rela" alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png" /></p>
+<p><img alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/rela.png"  loading="lazy" decoding="async"/></p>
 <p>Итератор — это абстракция указателя на элемент последовательности. Используя итераторы, мы можем получить доступ к некоторому элементу последовательности, изменить значение некоторого элемента последовательности, перемещать итератор вперёд или назад и так далее.</p>
 <p>У итераторов обычно выделяют пять связанных типов: value_type, difference_type, reference_type, pointer_type легко извлекаются в traits и соответствующих частичных специализациях.</p>
 <p>Но iterator_category обычно тоже бывает 5 видов, и этот связанный тип порождает довольно большой объём кода.</p>
@@ -5457,7 +5457,7 @@
 <li>однонаправленный итератор для чтения и записи Forward Iterator</li>
 <li>двунаправленный итератор для чтения и записи Bidirectional Iterator</li>
 </ul>
-<p><img alt="iterator" alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png" /></p>
+<p><img alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/iterator.png"  loading="lazy" decoding="async"/></p>
 <p>Например: допустим, мы реализовали advanceII, advanceBI, advanceRAI — реализации соответственно для типов итераторов Input Iterator, Bidirectional Iterator и Random Access Iterator.</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Iterator</span><span class="o">&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">advance</span><span class="p">(</span><span class="n">Iterator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5474,7 +5474,7 @@
 <p>У всех <code>advanceXX()</code> два параметра функции, и типы обоих не определены (поскольку это параметры шаблона). Чтобы они получили одинаковые имена и образовали перегруженные функции, мы должны добавить третий параметр с уже определённым типом, чтобы механизм перегрузки заработал.</p>
 <p>Спроектируем так: если <strong>traits</strong> способен извлечь категорию итератора, мы сможем использовать этот связанный тип «категории итератора» в качестве третьего параметра advancexx. Причём этот связанный тип должен быть class type, а не просто чем-то вроде числового кода, поскольку компилятор опирается на него при <strong>выборе перегрузки</strong>.</p>
 <p>Приступим к реализации; сначала общая структурная схема:</p>
-<p><img alt="itera" alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png" /></p>
+<p><img alt="Анализ исходников STL итераторов | C++那些事" src="https://raw.githubusercontent.com/Light-City/cloudimg/master/itera.png"  loading="lazy" decoding="async"/></p>
 <p>Определим следующие tag:</p>
 <div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_iterator_tag</span><span class="w"> </span><span class="p">{};</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">output_iterator_tag</span><span class="w"> </span><span class="p">{};</span>

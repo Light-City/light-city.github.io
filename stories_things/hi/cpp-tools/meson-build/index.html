@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Meson से C++ प्रोजेक्ट बिल्ड करना | C++那些事">
       <meta name="twitter:description" content="हाल ही में कुछ open source projects उपयोग करते समय पाया कि उन सभी ने meson+ninja के build तरीके को अपनाया है और CMake, Makefile के तरीके को छोड़ दिया है, इस लेख में हम Meson का परिचय कराएँगे, इंस्टॉलेशन से लेकर एक पूरे meson प्रोजेक्ट के लेखन तक।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Meson से C++ प्रोजेक्ट बिल्ड करना | C++那些事", "description": "हाल ही में कुछ open source projects उपयोग करते समय पाया कि उन सभी ने meson+ninja के build तरीके को अपनाया है और CMake, Makefile के तरीके को छोड़ दिया है, इस लेख में हम Meson का परिचय कराएँगे, इंस्टॉलेशन से लेकर एक पूरे meson प्रोजेक्ट के लेखन तक।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-tools/meson-build/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-tools/meson-build/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Meson से C++ प्रोजेक्ट बिल्ड करना | C++那些事", "description": "हाल ही में कुछ open source projects उपयोग करते समय पाया कि उन सभी ने meson+ninja के build तरीके को अपनाया है और CMake, Makefile के तरीके को छोड़ दिया है, इस लेख में हम Meson का परिचय कराएँगे, इंस्टॉलेशन से लेकर एक पूरे meson प्रोजेक्ट के लेखन तक।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-tools/meson-build/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-tools/meson-build/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "टूल्स", "item": "https://light-city.github.io/stories_things/hi/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Meson से C++ प्रोजेक्ट बिल्ड करना | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-tools/meson-build/"}]}</script>
   </head>
   
@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5637,7 +5637,7 @@
 
 
 <blockquote>
-<p><strong>अंतिम अद्यतन：2026-10-12</strong></p>
+<p><strong>अंतिम अद्यतन：2026-10-15</strong></p>
 </blockquote>
 <h1 id="meson-c">Meson से C++ प्रोजेक्ट बिल्ड करना<a class="headerlink" href="#meson-c" title="Permanent link">&para;</a></h1>
 <p>हाल ही में कुछ open source projects उपयोग करते समय पाया कि उन सभी ने meson+ninja के build तरीके को अपनाया है और CMake, Makefile के तरीके को छोड़ दिया है, इस लेख में हम Meson का परिचय कराएँगे, इंस्टॉलेशन से लेकर एक पूरे meson प्रोजेक्ट के लेखन तक।</p>
@@ -5677,7 +5677,7 @@
 <li>documentation, cmake से n गुना बेहतर।</li>
 </ul>
 <blockquote>
-<p><a href="http://mesonbuild.com">http://mesonbuild.com</a></p>
+<p><a href="https://mesonbuild.com">https://mesonbuild.com</a></p>
 </blockquote>
 <p>2.नुकसान</p>
 <ul>

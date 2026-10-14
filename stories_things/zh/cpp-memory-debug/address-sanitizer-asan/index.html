@@ -140,7 +140,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -155,7 +155,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -627,7 +627,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5560,7 +5560,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 <p>运行生成的bin文件，得到如下结果。</p>
-<p><img width="2312" height="1494" alt="heap use after free" alt="AddressSanitizer 内存检测 | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png" /></p>
+<p><img width="2312" height="1494" alt="AddressSanitizer 内存检测 | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png"  loading="lazy" decoding="async"/></p>
 <h2 id="2heap-buffer-overflow">2.heap buffer overflow<a class="headerlink" href="#2heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>首先，通过 <code>new</code> 关键字在堆上分配了一个包含两个整数的数组，并将数组的起始地址赋给指针 <code>arr</code>。然后，程序试图将值 10 存储在数组的第三个位置（索引为 2），这超出了数组的有效范围，导致堆缓冲区溢出错误。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
@@ -5579,7 +5579,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./a.out
 </span></code></pre></div>
 <p>得到下面检测结果。</p>
-<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png" /></p>
+<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="3stack-buffer-overflow">3.stack buffer overflow<a class="headerlink" href="#3stack-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>在 <code>vulnerableFunction</code> 函数中，定义了一个包含 8 个字符的字符数组 <code>buffer</code>。然后，使用 <code>std::cin</code> 从标准输入读取数据存储到 <code>buffer</code> 中，但没有限制输入的大小。如果输入的字符数超过了 <code>buffer</code> 的大小，就会发生栈缓冲区溢出错误。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">vulnerableFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5589,7 +5589,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>用法同上。</p>
-<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png" /></p>
+<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="4global-buffer-overflow">4.global buffer overflow<a class="headerlink" href="#4global-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>全局缓冲区（<code>buffer</code> 数组）在程序的全局范围内定义，而没有受到足够的输入大小限制。如果输入的字符数超过了缓冲区的大小，就会发生全局缓冲区溢出错误。与栈缓冲区溢出类似，全局缓冲区溢出可能导致程序的不稳定性和安全性问题。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5603,7 +5603,7 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>用法同上，得到：</p>
-<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png" /></p>
+<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="5use-after-return">5.use after return<a class="headerlink" href="#5use-after-return" title="Permanent link">&para;</a></h2>
 <p>在函数 <code>f</code> 中，局部变量 <code>i</code> 的地址被返回，但在 <code>main</code> 函数中，尝试通过返回的指针访问已经被销毁的局部变量。当出现这种场景是，可以对bin文件进行检测，设置<code>ASAN_OPTIONS=detect_stack_use_after_return=1</code>。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>g++-13 stack_use_after_return.cc -Wall -g -fsanitize=address
@@ -5621,7 +5621,7 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>我们便会得到：</p>
-<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png" /></p>
+<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png"  loading="lazy" decoding="async"/></p>
 <h2 id="6use-after-scope">6.use after scope<a class="headerlink" href="#6use-after-scope" title="Permanent link">&para;</a></h2>
 <p>将局部变量 <code>x</code> 的地址赋给指针 <code>p</code>，然而，在超出该内部作用域后，尝试通过指针 <code>p</code> 访问已经超出范围的局部变量 <code>x</code>，导致范围外使用错误。这也是未定义行为。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5640,7 +5640,7 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ASAN_OPTIONS=detect_stack_use_after_scope=0  ./a.out 
 </span></code></pre></div>
 <p>实测clang++可以，g++无法检测。</p>
-<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png" /></p>
+<p><img width="1740" height="1216" alt="stack_use_after_scope" src="../../../assets/images/2024/mem/address/stack_use_after_scope.png"  loading="lazy" decoding="async"/></p>
 <h2 id="7initialization-order-bugs">7.Initialization order bugs<a class="headerlink" href="#7initialization-order-bugs" title="Permanent link">&para;</a></h2>
 <p>在两个不同的源文件中，存在全局变量 <code>a</code> 的初始化，但初始化的顺序不确定。在 <code>init_order_b.cc</code> 文件中，尝试使用变量 <code>a</code> 的值，但由于初始化顺序不一致，可能导致未定义的行为。</p>
 <p>代码如下：</p>
@@ -5669,7 +5669,7 @@
 <p>当出现这种问题时，我们可以使用AddressSanitizer检测初始化顺序。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ASAN_OPTIONS</span><span class="o">=</span><span class="n">check_initialization_order</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png" /></p>
+<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png"  loading="lazy" decoding="async"/></p>
 <h2 id="8memory-leak">8.memory leak<a class="headerlink" href="#8memory-leak" title="Permanent link">&para;</a></h2>
 <p>通过 <code>new</code> 关键字动态分配了一个整数的内存，但在程序结束前未使用 <code>delete</code> 关键字释放这块内存，导致内存泄漏。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5683,7 +5683,7 @@
 <p>设置<code>ASAN_OPTIONS=detect_leaks=1</code>。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ASAN_OPTIONS=detect_leaks=1 ./a.out
 </span></code></pre></div>
-<p><img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png" /></p>
+<p><img width="2130" height="308" alt="memory_leak" src="../../../assets/images/2024/mem/address/memory_leak.png"  loading="lazy" decoding="async"/></p>
 <h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-memory-leak-detection/">C++ 内存泄漏检测 | C++那些事</a></li>

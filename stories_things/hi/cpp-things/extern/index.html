@@ -139,7 +139,7 @@
   <nav class="md-header__inner md-grid" aria-label="शीर्षक">
     <a href="../../" title="C++那些事" class="md-header__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
           </span>
           ——
           <span class="md-ellipsis">
-            <a href="https://light-city.github.io/" target="_blank">
+            <a href="https://light-city.github.io/" target="_blank" rel="noopener">
               光城的实验室
             </a>
           </span>
@@ -626,7 +626,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../" title="C++那些事" class="md-nav__button md-logo" aria-label="C++那些事" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo" loading="lazy" decoding="async">
 
     </a>
     C++那些事
@@ -5465,7 +5465,7 @@
 <h1 id="c-extern-linkage-declaration">C++ extern linkage declaration<a class="headerlink" href="#c-extern-linkage-declaration" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>व्यक्तिगत WeChat सार्वजनिक अकाउंट:</p>
-<p><img alt="wechat" alt="C++ extern linkage declaration | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg" /></p>
+<p><img alt="C++ extern linkage declaration | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1c-c-compile">1.C++ और C के compile में अंतर<a class="headerlink" href="#1c-c-compile" title="Permanent link">&para;</a></h2>
 <p>C++ में header फ़ाइलों में अक्सर extern "C" से qualify किए फ़ंक्शन दिखते हैं, उसका क्या काम है? यह C++ द्वारा C भाषा के module में परिभाषित फ़ंक्शन को link करने के लिए है।</p>
 <p>C++ भले C के साथ compatible है, लेकिन C++ फ़ाइल में फ़ंक्शन compile होने के बाद बनने वाला symbol C भाषा से बनने वाले से अलग होता है। क्योंकि C++ function overloading सपोर्ट करता है, C++ फ़ंक्शन compile होने के बाद बनने वाले symbol में फ़ंक्शन पैरामीटर टाइप की जानकारी होती है, जबकि C में नहीं।</p>
