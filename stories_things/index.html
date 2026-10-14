@@ -102,11 +102,8 @@
       <meta name="twitter:title" content="C++那些事 | Stories About C Plus Plus — C++ Learning Site">
       <meta name="twitter:description" content="The official documentation site of C++那些事 (Stories About C Plus Plus / stories_things): a Chinese-language C++ tutorial that takes you from beginner to advanced, covering core syntax, STL source code, modern C++, concurrency, idioms, and hands-on projects, with companion open-source code and videos.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++那些事 | Stories About C Plus Plus — C++ Learning Site", "description": "The official documentation site of C++那些事 (Stories About C Plus Plus / stories_things): a Chinese-language C++ tutorial that takes you from beginner to advanced, covering core syntax, STL source code, modern C++, concurrency, idioms, and hands-on projects, with companion open-source code and videos.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/", "mainEntityOfPage": "https://light-city.github.io/stories_things/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++那些事 | Stories About C Plus Plus — C++ Learning Site", "item": "https://light-city.github.io/stories_things/"}]}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "C++那些事", "alternateName": "Stories About C Plus Plus", "url": "https://light-city.github.io/stories_things/", "inLanguage": "en", "publisher": {"@id": "https://light-city.github.io/stories_things/#organization"}}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "C++那些事", "alternateName": "Stories About C Plus Plus", "url": "https://light-city.github.io/stories_things/", "description": "The official documentation site of C++那些事 (Stories About C Plus Plus / stories_things): a Chinese-language C++ tutorial that takes you from beginner to advanced, covering core syntax, STL source code, modern C++, concurrency, idioms, and hands-on projects, with companion open-source code and videos.", "inLanguage": "en", "publisher": {"@id": "https://light-city.github.io/stories_things/#organization"}}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://light-city.github.io/stories_things/#organization", "name": "CPlusPlusThings", "url": "https://light-city.github.io/stories_things/", "logo": "https://light-city.github.io/stories_things/assets/images/logo.svg", "sameAs": ["https://github.com/Light-City/CPlusPlusThings", "https://x.com/lightcityfran"]}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who is this site for?", "acceptedAnswer": {"@type": "Answer", "text": "Everyone from beginners to advanced C++ learners: fundamentals cover syntax and language mechanics, source-code analysis and modern C++ target advanced readers, and every topic ships with runnable code."}}, {"@type": "Question", "name": "How does this site relate to the CPlusPlusThings repository?", "acceptedAnswer": {"@type": "Answer", "text": "This site is the official documentation of the open-source CPlusPlusThings project: the repo hosts all sample code, while the site provides structured multilingual tutorials, kept in sync."}}, {"@type": "Question", "name": "Which languages are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Seven locales - 简体中文, English, 日本語, Español, Русsky, Português and हिन्दी - switchable anytime from the top-right selector."}}, {"@type": "Question", "name": "Is the content kept up to date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Content iterates with the open-source project; new articles land in the Knowledge Planet community first, then sync to the site."}}]}</script>
   </head>
   
   
@@ -5306,302 +5303,40 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <style>
-    /* Hero section styling */
-    .mdx-container {
-      padding: 3rem 0;
-      background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
-      color: var(--md-primary-bg-color);
-      min-height: 56vh; /* hero headline block, cards live below */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mdx-hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column-reverse;
-      margin: 0 1rem;
-    }
-
-    .mdx-hero__content {
-      margin-top: 2.5rem;
-      text-align: center;
-      max-width: 28rem;
-    }
-
-    .mdx-hero__content h1 {
-      margin-bottom: 1rem;
-      color: var(--md-primary-bg-color);
-      font-weight: 700;
-    }
-
-    .mdx-hero__content p {
-      margin: 1rem 0 2rem;
-      font-size: 1.2rem;
-      color: var(--md-primary-bg-color--light);
-    }
-
-    .mdx-hero__image {
-      width: 100%;
-      max-width: 20rem;
-      padding: 0 1rem;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .mdx-hero__image img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-    }
-
-    /* Button styling */
-    .md-button {
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      border-radius: 5px; /* 添加圆角 */
-    }
-
-    .md-button--primary {
-      background-color: var(--md-primary-bg-color);
-      color: var(--md-primary-fg-color);
-      border: none;
-    }
-
-    /* 快速开始按钮的悬停特效 */
-    .md-button--primary:hover {
-      background-color: var(--md-accent-fg-color); /* 悬停时背景颜色变化 */
-      color: var(--md-primary-bg-color); /* 悬停时文字颜色变化 */
-      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    }
-
-    /* 关于作者按钮的悬停特效 */
-    .md-button:not(.md-button--primary) {
-      background-color: transparent;
-      color: var(--md-primary-bg-color);
-      border: 2px solid var(--md-primary-bg-color);
-    }
-
-    .md-button:not(.md-button--primary):hover {
-      background-color: var(--md-primary-bg-color); /* 悬停时背景颜色变化 */
-      color: var(--md-primary-fg-color); /* 悬停时文字颜色变化 */
-      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    }
-
-    /* Floating animation */
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive adjustments */
-    @media screen and (min-width: 60em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
-
-      .mdx-hero {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .mdx-hero__content {
-        margin-top: 0;
-        text-align: left;
-        margin-right: 3rem;
-      }
-    }
-
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
-
-      .md-main {
-        display: none;
-      }
-
-      .mdx-container {
-        padding: 6rem 0;
-      }
-
-      .mdx-hero__image {
-        max-width: 28rem;
-      }
-    }
-  </style>
   
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__content">
-          <h1>C++那些事</h1>
-          
-          
-            
-            
-            
-          
-          <p><h2> Learn C++ the practical way — the fastest path from beginner to advanced. </h2></p>
-          <div class="mdx-hero__buttons">
-            <a href="cplusplus-things-overview/" title="Project Overview" class="md-button md-button--primary">
-              Get Started
-            </a>
-            <a href="about" title="C++那些事" class="md-button">
-              About the Author
-            </a>
-          </div>
-        </div>
-        <div class="mdx-hero__image">
-          <img src="assets/images/logo.svg" alt="C++那些事" width="1659" height="1200" draggable="false">
-        </div>
-      </div>
-    </div>
-  </section>
+                  
 
-  <style>
-    .mdx-cards {
-      max-width: 61rem;
-      margin: 0 auto;
-      padding: 2.5rem 1rem 1rem;
-    }
-    .mdx-cards h2, .mdx-faq h2 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.4rem;
-    }
-    .mdx-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-      gap: 1rem;
-    }
-    .mdx-card {
-      display: block;
-      padding: 1.1rem 1.2rem;
-      border-radius: 0.5rem;
-      background: var(--md-default-bg-color--lightest, #f6f6f6);
-      color: var(--md-default-fg-color);
-      text-decoration: none !important;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .mdx-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-    .mdx-card strong { display: block; font-size: 1.05rem; margin-bottom: 0.35rem; }
-    .mdx-card span { font-size: 0.86rem; opacity: 0.8; line-height: 1.4; }
-    .mdx-faq {
-      max-width: 46rem;
-      margin: 0 auto;
-      padding: 2rem 1rem 3.5rem;
-    }
-    .mdx-faq details {
-      border: 1px solid rgba(127,127,127,0.25);
-      border-radius: 0.5rem;
-      padding: 0.8rem 1rem;
-      margin-bottom: 0.7rem;
-    }
-    .mdx-faq summary { font-weight: 600; cursor: pointer; }
-    .mdx-faq p { margin: 0.6rem 0 0; opacity: 0.85; }
-  </style>
 
   
   
-    
-    
-    
+
+
+  <h1>Home</h1>
+
+<p align="center"><img src="assets/images/logo.svg" alt="C++那些事 | Stories About C Plus Plus" width="260"></p>
+
+<p>Stories About C++: learn C++ the practical way — the fastest path from beginner to advanced.</p>
+<p>This is the official documentation site of the open-source <a href="https://github.com/Light-City/CPlusPlusThings">CPlusPlusThings</a> project, covering core syntax, STL source-code analysis, modern C++, concurrency, idioms and hands-on projects, with runnable examples and continuous updates.</p>
+<p>Start with the <a href="cplusplus-things-overview/">Project Overview</a>, or jump into <a href="cpp-things/">Fundamentals &amp; Beyond</a>, <a href="stl-source-analysis/">STL Source-Code Analysis</a> or <a href="modern-cpp/cpp11/">Modern C++</a>.</p>
+
+
+
+
+
+
+
+  
   
 
-  <section class="mdx-cards">
-    <h2>Explore the Tutorial</h2>
-    <div class="mdx-cards-grid">
-      
-      <a class="mdx-card" href="cpp-things/">
-        <strong>Fundamentals & Beyond</strong>
-        <span>const, static, vptr, templates and 40+ language topics</span>
-      </a>
-      
-      <a class="mdx-card" href="stl-source-analysis/">
-        <strong>Source-Code Analysis</strong>
-        <span>array to rb_tree: how the STL really works</span>
-      </a>
-      
-      <a class="mdx-card" href="cpp-idioms/">
-        <strong>Idioms</strong>
-        <span>RAII, pImpl, copy-and-swap and more battle-tested idioms</span>
-      </a>
-      
-      <a class="mdx-card" href="modern-cpp/cpp11/">
-        <strong>Modern C++</strong>
-        <span>C++11/17/20 features with hands-on examples</span>
-      </a>
-      
-      <a class="mdx-card" href="cpp-tools/">
-        <strong>Tools</strong>
-        <span>CMake, Bazel, GDB, sanitizers and debugging guides</span>
-      </a>
-      
-      <a class="mdx-card" href="cpp-concurrency/">
-        <strong>Concurrency</strong>
-        <span>threads, jthread internals, SIMD and the libev loop</span>
-      </a>
-      
-      <a class="mdx-card" href="cpp-projects/">
-        <strong>Hands-on Projects</strong>
-        <span>coroutine HTTP server, gRPC, pybind11 and more</span>
-      </a>
-      
-      <a class="mdx-card" href="cpp-benchmarks/">
-        <strong>Benchmarks</strong>
-        <span>SSO, memcpy vs copy, polymorphism trade-offs</span>
-      </a>
-      
-      <a class="mdx-card" href="resources/">
-        <strong>Learning Resources</strong>
-        <span>courses, knowledge base and curated book list</span>
-      </a>
-      
-    </div>
-  </section>
 
-  <section class="mdx-faq">
-    <h2>Frequently Asked Questions</h2>
-    
-    <details>
-      <summary>Who is this site for?</summary>
-      <p>Everyone from beginners to advanced C++ learners: fundamentals cover syntax and language mechanics, source-code analysis and modern C++ target advanced readers, and every topic ships with runnable code.</p>
-    </details>
-    
-    <details>
-      <summary>How does this site relate to the CPlusPlusThings repository?</summary>
-      <p>This site is the official documentation of the open-source CPlusPlusThings project: the repo hosts all sample code, while the site provides structured multilingual tutorials, kept in sync.</p>
-    </details>
-    
-    <details>
-      <summary>Which languages are supported?</summary>
-      <p>Seven locales - 简体中文, English, 日本語, Español, Русsky, Português and हिन्दी - switchable anytime from the top-right selector.</p>
-    </details>
-    
-    <details>
-      <summary>Is the content kept up to date?</summary>
-      <p>Yes. Content iterates with the open-source project; new articles land in the Knowledge Planet community first, then sync to the site.</p>
-    </details>
-    
-  </section>
 
+  
+
+
+
+
+                
+  
 
               </article>
             </div>
@@ -5618,7 +5353,7 @@
         
       </main>
       
-  <footer class="md-footer">
+        <footer class="md-footer">
   
     
       
@@ -5683,7 +5418,7 @@
     </div>
   </div>
 </footer>
-
+      
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
