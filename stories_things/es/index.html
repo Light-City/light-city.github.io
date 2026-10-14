@@ -309,6 +309,7 @@
     <div class="md-container" data-md-component="container">
       
       
+  
         
           
             
@@ -601,6 +602,178 @@
           
         
       
+  <style>
+    /* Basic layout adjustments */
+    .md-header {
+      position: initial;
+    }
+
+    .md-main {
+      display: none;
+    }
+
+    /* Hero section styling */
+    .mdx-container {
+      padding: 3rem 0;
+      background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
+      color: var(--md-primary-bg-color);
+      height: 100vh; /* Ensure the container fills the viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mdx-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column-reverse;
+      margin: 0 1rem;
+    }
+
+    .mdx-hero__content {
+      margin-top: 2.5rem;
+      text-align: center;
+      max-width: 28rem;
+    }
+
+    .mdx-hero__content h1 {
+      margin-bottom: 1rem;
+      color: var(--md-primary-bg-color);
+      font-weight: 700;
+    }
+
+    .mdx-hero__content p {
+      margin: 1rem 0 2rem;
+      font-size: 1.2rem;
+      color: var(--md-primary-bg-color--light);
+    }
+
+    .mdx-hero__image {
+      width: 100%;
+      max-width: 20rem;
+      padding: 0 1rem;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .mdx-hero__image img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    }
+
+    /* Button styling */
+    .md-button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border-radius: 5px; /* 添加圆角 */
+    }
+
+    .md-button--primary {
+      background-color: var(--md-primary-bg-color);
+      color: var(--md-primary-fg-color);
+      border: none;
+    }
+
+    /* 快速开始按钮的悬停特效 */
+    .md-button--primary:hover {
+      background-color: var(--md-accent-fg-color); /* 悬停时背景颜色变化 */
+      color: var(--md-primary-bg-color); /* 悬停时文字颜色变化 */
+      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    }
+
+    /* 关于作者按钮的悬停特效 */
+    .md-button:not(.md-button--primary) {
+      background-color: transparent;
+      color: var(--md-primary-bg-color);
+      border: 2px solid var(--md-primary-bg-color);
+    }
+
+    .md-button:not(.md-button--primary):hover {
+      background-color: var(--md-primary-bg-color); /* 悬停时背景颜色变化 */
+      color: var(--md-primary-fg-color); /* 悬停时文字颜色变化 */
+      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary {
+        display: none;
+      }
+
+      .mdx-hero {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .mdx-hero__content {
+        margin-top: 0;
+        text-align: left;
+        margin-right: 3rem;
+      }
+    }
+
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+
+      .mdx-container {
+        padding: 6rem 0;
+      }
+
+      .mdx-hero__image {
+        max-width: 28rem;
+      }
+    }
+  </style>
+
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__content">
+          <h1>C++那些事</h1>
+          
+          
+            
+            
+            
+            
+          
+          <p><h2>Aprende C++ con la práctica: de principiante a avanzado por el camino más rápido.</h2></p>
+          <div class="mdx-hero__buttons">
+            <a href="cplusplus-things-overview/" title="Descripción del proyecto" class="md-button md-button--primary">
+              Empezar
+            </a>
+            <a href="about" title="About" class="md-button">
+              Sobre el autor
+            </a>
+          </div>
+        </div>
+        <div class="mdx-hero__image">
+          <img src="../assets/images/logo.svg" alt="C++那些事 | Stories About C Plus Plus" width="1659" height="1200" draggable="false">
+        </div>
+      </div>
+    </div>
+  </section>
+
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -5337,23 +5510,6 @@
 
                 
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var root = document.querySelector(".md-content__inner.md-typeset");
-      if (!root) return;
-      var h1 = root.querySelector("h1");
-      if (!h1 || h1.dataset.brandLogo) return;
-      var img = document.createElement("img");
-      img.src = "../assets/images/logo.png";
-      img.alt = "C++那些事 | Stories About C Plus Plus";
-      img.className = "article-title-logo";
-      img.loading = "lazy";
-      img.decoding = "async";
-      h1.insertAdjacentElement("afterend", img);
-      h1.dataset.brandLogo = "1";
-    });
-  </script>
-  
 
               </article>
             </div>
@@ -5370,7 +5526,7 @@
         
       </main>
       
-        <footer class="md-footer">
+  <footer class="md-footer">
   
     
       
@@ -5435,7 +5591,7 @@
     </div>
   </div>
 </footer>
-      
+
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
