@@ -310,7 +310,6 @@
     <div class="md-container" data-md-component="container">
       
       
-  
         
           
             
@@ -603,318 +602,6 @@
           
         
       
-  <style>
-    /* Basic layout adjustments */
-    .md-header {
-      position: initial;
-    }
-
-    /* hide article body but keep .md-main: on narrow screens the primary
-       sidebar inside it doubles as the mobile navigation drawer */
-    .md-content {
-      display: none;
-    }
-
-    .md-main__inner {
-      margin: 0;
-    }
-
-    /* Hero section styling */
-    .mdx-container {
-      padding: 3rem 0;
-      background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
-      color: var(--md-primary-bg-color);
-      min-height: 88vh; /* hero fills most of the viewport, cards live below */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mdx-hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column-reverse;
-      margin: 0 1rem;
-    }
-
-    .mdx-hero__content {
-      margin-top: 2.5rem;
-      text-align: center;
-      max-width: 28rem;
-    }
-
-    .mdx-hero__content h1 {
-      margin-bottom: 1rem;
-      color: var(--md-primary-bg-color);
-      font-weight: 700;
-    }
-
-    .mdx-hero__content p {
-      margin: 1rem 0 2rem;
-      font-size: 1.2rem;
-      color: var(--md-primary-bg-color--light);
-    }
-
-    .mdx-hero__image {
-      width: 100%;
-      max-width: 20rem;
-      padding: 0 1rem;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .mdx-hero__image img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-    }
-
-    /* Button styling */
-    .md-button {
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      border-radius: 5px; /* 添加圆角 */
-    }
-
-    .md-button--primary {
-      background-color: var(--md-primary-bg-color);
-      color: var(--md-primary-fg-color);
-      border: none;
-    }
-
-    /* 快速开始按钮的悬停特效 */
-    .md-button--primary:hover {
-      background-color: var(--md-accent-fg-color); /* 悬停时背景颜色变化 */
-      color: var(--md-primary-bg-color); /* 悬停时文字颜色变化 */
-      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    }
-
-    /* 关于作者按钮的悬停特效 */
-    .md-button:not(.md-button--primary) {
-      background-color: transparent;
-      color: var(--md-primary-bg-color);
-      border: 2px solid var(--md-primary-bg-color);
-    }
-
-    .md-button:not(.md-button--primary):hover {
-      background-color: var(--md-primary-bg-color); /* 悬停时背景颜色变化 */
-      color: var(--md-primary-fg-color); /* 悬停时文字颜色变化 */
-      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
-    }
-
-    /* Floating animation */
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive adjustments */
-    @media screen and (min-width: 60em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
-
-      .mdx-hero {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .mdx-hero__content {
-        margin-top: 0;
-        text-align: left;
-        margin-right: 3rem;
-      }
-    }
-
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
-
-      .md-main {
-        display: none;
-      }
-
-      .mdx-container {
-        padding: 6rem 0;
-      }
-
-      .mdx-hero__image {
-        max-width: 28rem;
-      }
-    }
-  </style>
-  
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__content">
-          <h1>C++那些事</h1>
-          
-          
-            
-            
-            
-          
-          <p><h2> 从实践入手，以最快的方式入门及进阶C++。 </h2></p>
-          <div class="mdx-hero__buttons">
-            <a href="cplusplus-things-overview/" title="项目概要" class="md-button md-button--primary">
-              快速开始
-            </a>
-            <a href="about" title="C++那些事" class="md-button">
-              关于作者
-            </a>
-          </div>
-        </div>
-        <div class="mdx-hero__image">
-          <img src="../assets/images/logo.svg" alt="C++那些事" width="1659" height="1200" draggable="false">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .mdx-cards {
-      max-width: 61rem;
-      margin: 0 auto;
-      padding: 2.5rem 1rem 1rem;
-    }
-    .mdx-cards h2, .mdx-faq h2 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.4rem;
-    }
-    .mdx-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-      gap: 1rem;
-    }
-    .mdx-card {
-      display: block;
-      padding: 1.1rem 1.2rem;
-      border-radius: 0.5rem;
-      background: var(--md-default-bg-color--lightest, #f6f6f6);
-      color: var(--md-default-fg-color);
-      text-decoration: none !important;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .mdx-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-    .mdx-card strong { display: block; font-size: 1.05rem; margin-bottom: 0.35rem; }
-    .mdx-card span { font-size: 0.86rem; opacity: 0.8; line-height: 1.4; }
-    .mdx-faq {
-      max-width: 46rem;
-      margin: 0 auto;
-      padding: 2rem 1rem 3.5rem;
-    }
-    .mdx-faq details {
-      border: 1px solid rgba(127,127,127,0.25);
-      border-radius: 0.5rem;
-      padding: 0.8rem 1rem;
-      margin-bottom: 0.7rem;
-    }
-    .mdx-faq summary { font-weight: 600; cursor: pointer; }
-    .mdx-faq p { margin: 0.6rem 0 0; opacity: 0.85; }
-  </style>
-
-  
-  
-    
-    
-    
-  
-
-  <section class="mdx-cards">
-    <h2>教程导航</h2>
-    <div class="mdx-cards-grid">
-      
-      <a class="mdx-card" href="../cpp-things/">
-        <strong>基础进阶</strong>
-        <span>const、static、vptr、模板等 40+ 语言主题</span>
-      </a>
-      
-      <a class="mdx-card" href="../stl-source-analysis/">
-        <strong>源码剖析</strong>
-        <span>从 array 到 rb_tree，STL 的真实运作方式</span>
-      </a>
-      
-      <a class="mdx-card" href="../cpp-idioms/">
-        <strong>惯用法</strong>
-        <span>RAII、pImpl、copy-and-swap 等实战惯用法</span>
-      </a>
-      
-      <a class="mdx-card" href="../modern-cpp/cpp11/">
-        <strong>现代 C++</strong>
-        <span>C++11/17/20 特性结合实例讲解</span>
-      </a>
-      
-      <a class="mdx-card" href="../cpp-tools/">
-        <strong>工具篇</strong>
-        <span>CMake、Bazel、GDB 与内存检测指南</span>
-      </a>
-      
-      <a class="mdx-card" href="../cpp-concurrency/">
-        <strong>并发编程</strong>
-        <span>线程、jthread 内核实现、SIMD 与 libev 事件循环</span>
-      </a>
-      
-      <a class="mdx-card" href="../cpp-projects/">
-        <strong>项目实战</strong>
-        <span>协程 HTTP 服务器、gRPC、pybind11 等</span>
-      </a>
-      
-      <a class="mdx-card" href="../cpp-benchmarks/">
-        <strong>性能测评</strong>
-        <span>SSO、memcpy 对比、多态性能权衡</span>
-      </a>
-      
-      <a class="mdx-card" href="../resources/">
-        <strong>学习资源</strong>
-        <span>课程、知识库与书单</span>
-      </a>
-      
-    </div>
-  </section>
-
-  <section class="mdx-faq">
-    <h2>常见问题</h2>
-    
-    <details>
-      <summary>这个网站适合什么水平的 C++ 学习者？</summary>
-      <p>从入门到进阶都适合：基础进阶覆盖语法与语言机制，源码剖析与现代 C++ 面向进阶读者，每个知识点都配可运行代码。</p>
-    </details>
-    
-    <details>
-      <summary>《C++那些事》网站和 CPlusPlusThings 仓库是什么关系？</summary>
-      <p>网站是开源项目 CPlusPlusThings 的官方文档站：仓库提供全部示例代码，网站提供成体系的多语言图文教程，内容互相同步。</p>
-    </details>
-    
-    <details>
-      <summary>网站支持哪些语言？</summary>
-      <p>支持简体中文、English、日本語、Español、Русский、Português、हिन्दी 共 7 种语言，右上角可随时切换。</p>
-    </details>
-    
-    <details>
-      <summary>内容会持续更新吗？</summary>
-      <p>会。内容跟随开源项目持续迭代，新文章优先发布在知识星球，随后同步到网站。</p>
-    </details>
-    
-  </section>
-
-
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
@@ -5617,92 +5304,302 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  
-                  
-
-
-  
-  
-
-
-  <h1>主页</h1>
-
-<blockquote>
-<p><strong>最后更新：2026-10-13</strong></p>
-</blockquote>
-
-
-
-
-
-
-
-  
-  
-
-
-
-  
-
-
-
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-          data-repo="Light-City/light-comments"
-          data-repo-id="R_kgDOLcVr-w"
-          data-category="Announcements"
-          data-category-id="DIC_kwDOLcVr-84CdwfH"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="zh-CN"
-          crossorigin="anonymous"
-          async>
-  </script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    // Set palette on initial load
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
-
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
+  <style>
+    /* Hero section styling */
+    .mdx-container {
+      padding: 3rem 0;
+      background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
+      color: var(--md-primary-bg-color);
+      min-height: 56vh; /* hero headline block, cards live below */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    // Register event handlers after documented loaded
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
+    .mdx-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column-reverse;
+      margin: 0 1rem;
+    }
 
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
+    .mdx-hero__content {
+      margin-top: 2.5rem;
+      text-align: center;
+      max-width: 28rem;
+    }
 
-                
+    .mdx-hero__content h1 {
+      margin-bottom: 1rem;
+      color: var(--md-primary-bg-color);
+      font-weight: 700;
+    }
+
+    .mdx-hero__content p {
+      margin: 1rem 0 2rem;
+      font-size: 1.2rem;
+      color: var(--md-primary-bg-color--light);
+    }
+
+    .mdx-hero__image {
+      width: 100%;
+      max-width: 20rem;
+      padding: 0 1rem;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .mdx-hero__image img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    }
+
+    /* Button styling */
+    .md-button {
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border-radius: 5px; /* 添加圆角 */
+    }
+
+    .md-button--primary {
+      background-color: var(--md-primary-bg-color);
+      color: var(--md-primary-fg-color);
+      border: none;
+    }
+
+    /* 快速开始按钮的悬停特效 */
+    .md-button--primary:hover {
+      background-color: var(--md-accent-fg-color); /* 悬停时背景颜色变化 */
+      color: var(--md-primary-bg-color); /* 悬停时文字颜色变化 */
+      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    }
+
+    /* 关于作者按钮的悬停特效 */
+    .md-button:not(.md-button--primary) {
+      background-color: transparent;
+      color: var(--md-primary-bg-color);
+      border: 2px solid var(--md-primary-bg-color);
+    }
+
+    .md-button:not(.md-button--primary):hover {
+      background-color: var(--md-primary-bg-color); /* 悬停时背景颜色变化 */
+      color: var(--md-primary-fg-color); /* 悬停时文字颜色变化 */
+      transform: translateY(-2px) scale(1.05); /* 轻微放大效果 */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary {
+        display: none;
+      }
+
+      .mdx-hero {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .mdx-hero__content {
+        margin-top: 0;
+        text-align: left;
+        margin-right: 3rem;
+      }
+    }
+
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+
+      .md-main {
+        display: none;
+      }
+
+      .mdx-container {
+        padding: 6rem 0;
+      }
+
+      .mdx-hero__image {
+        max-width: 28rem;
+      }
+    }
+  </style>
   
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__content">
+          <h1>C++那些事</h1>
+          
+          
+            
+            
+            
+          
+          <p><h2> 从实践入手，以最快的方式入门及进阶C++。 </h2></p>
+          <div class="mdx-hero__buttons">
+            <a href="cplusplus-things-overview/" title="项目概要" class="md-button md-button--primary">
+              快速开始
+            </a>
+            <a href="about" title="C++那些事" class="md-button">
+              关于作者
+            </a>
+          </div>
+        </div>
+        <div class="mdx-hero__image">
+          <img src="../assets/images/logo.svg" alt="C++那些事" width="1659" height="1200" draggable="false">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .mdx-cards {
+      max-width: 61rem;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 1rem;
+    }
+    .mdx-cards h2, .mdx-faq h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.4rem;
+    }
+    .mdx-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 1rem;
+    }
+    .mdx-card {
+      display: block;
+      padding: 1.1rem 1.2rem;
+      border-radius: 0.5rem;
+      background: var(--md-default-bg-color--lightest, #f6f6f6);
+      color: var(--md-default-fg-color);
+      text-decoration: none !important;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .mdx-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .mdx-card strong { display: block; font-size: 1.05rem; margin-bottom: 0.35rem; }
+    .mdx-card span { font-size: 0.86rem; opacity: 0.8; line-height: 1.4; }
+    .mdx-faq {
+      max-width: 46rem;
+      margin: 0 auto;
+      padding: 2rem 1rem 3.5rem;
+    }
+    .mdx-faq details {
+      border: 1px solid rgba(127,127,127,0.25);
+      border-radius: 0.5rem;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .mdx-faq summary { font-weight: 600; cursor: pointer; }
+    .mdx-faq p { margin: 0.6rem 0 0; opacity: 0.85; }
+  </style>
+
+  
+  
+    
+    
+    
+  
+
+  <section class="mdx-cards">
+    <h2>教程导航</h2>
+    <div class="mdx-cards-grid">
+      
+      <a class="mdx-card" href="cpp-things/">
+        <strong>基础进阶</strong>
+        <span>const、static、vptr、模板等 40+ 语言主题</span>
+      </a>
+      
+      <a class="mdx-card" href="stl-source-analysis/">
+        <strong>源码剖析</strong>
+        <span>从 array 到 rb_tree，STL 的真实运作方式</span>
+      </a>
+      
+      <a class="mdx-card" href="cpp-idioms/">
+        <strong>惯用法</strong>
+        <span>RAII、pImpl、copy-and-swap 等实战惯用法</span>
+      </a>
+      
+      <a class="mdx-card" href="modern-cpp/cpp11/">
+        <strong>现代 C++</strong>
+        <span>C++11/17/20 特性结合实例讲解</span>
+      </a>
+      
+      <a class="mdx-card" href="cpp-tools/">
+        <strong>工具篇</strong>
+        <span>CMake、Bazel、GDB 与内存检测指南</span>
+      </a>
+      
+      <a class="mdx-card" href="cpp-concurrency/">
+        <strong>并发编程</strong>
+        <span>线程、jthread 内核实现、SIMD 与 libev 事件循环</span>
+      </a>
+      
+      <a class="mdx-card" href="cpp-projects/">
+        <strong>项目实战</strong>
+        <span>协程 HTTP 服务器、gRPC、pybind11 等</span>
+      </a>
+      
+      <a class="mdx-card" href="cpp-benchmarks/">
+        <strong>性能测评</strong>
+        <span>SSO、memcpy 对比、多态性能权衡</span>
+      </a>
+      
+      <a class="mdx-card" href="resources/">
+        <strong>学习资源</strong>
+        <span>课程、知识库与书单</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <section class="mdx-faq">
+    <h2>常见问题</h2>
+    
+    <details>
+      <summary>这个网站适合什么水平的 C++ 学习者？</summary>
+      <p>从入门到进阶都适合：基础进阶覆盖语法与语言机制，源码剖析与现代 C++ 面向进阶读者，每个知识点都配可运行代码。</p>
+    </details>
+    
+    <details>
+      <summary>《C++那些事》网站和 CPlusPlusThings 仓库是什么关系？</summary>
+      <p>网站是开源项目 CPlusPlusThings 的官方文档站：仓库提供全部示例代码，网站提供成体系的多语言图文教程，内容互相同步。</p>
+    </details>
+    
+    <details>
+      <summary>网站支持哪些语言？</summary>
+      <p>支持简体中文、English、日本語、Español、Русский、Português、हिन्दी 共 7 种语言，右上角可随时切换。</p>
+    </details>
+    
+    <details>
+      <summary>内容会持续更新吗？</summary>
+      <p>会。内容跟随开源项目持续迭代，新文章优先发布在知识星球，随后同步到网站。</p>
+    </details>
+    
+  </section>
+
 
               </article>
             </div>

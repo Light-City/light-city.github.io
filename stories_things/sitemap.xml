@@ -338,6 +338,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/avoid-default-constructor/"/>
@@ -684,6 +696,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/cpp-things/abstract/</loc>
@@ -1766,6 +1790,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/bilibili-cpp-tutorials/"/>
@@ -1800,6 +1836,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/stl-source-analysis/array/</loc>
@@ -2354,6 +2402,18 @@
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/zh/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/zh/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/avoid-default-constructor/"/>
@@ -2700,6 +2760,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/zh/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/zh/cpp-things/abstract/</loc>
@@ -3782,6 +3854,18 @@
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/zh/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/zh/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/bilibili-cpp-tutorials/"/>
@@ -3816,6 +3900,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/zh/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/zh/stl-source-analysis/array/</loc>
@@ -4370,6 +4466,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/ja/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/ja/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/avoid-default-constructor/"/>
@@ -4716,6 +4824,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/ja/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/ja/cpp-things/abstract/</loc>
@@ -5798,6 +5918,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/ja/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/ja/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/bilibili-cpp-tutorials/"/>
@@ -5832,6 +5964,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/ja/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/ja/stl-source-analysis/array/</loc>
@@ -6386,6 +6530,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/es/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/es/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/avoid-default-constructor/"/>
@@ -6732,6 +6888,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/es/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/es/cpp-things/abstract/</loc>
@@ -7814,6 +7982,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/es/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/es/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/bilibili-cpp-tutorials/"/>
@@ -7848,6 +8028,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/es/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/es/stl-source-analysis/array/</loc>
@@ -8402,6 +8594,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/ru/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/ru/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/avoid-default-constructor/"/>
@@ -8748,6 +8952,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/ru/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/ru/cpp-things/abstract/</loc>
@@ -9830,6 +10046,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/ru/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/ru/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/bilibili-cpp-tutorials/"/>
@@ -9864,6 +10092,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/ru/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/ru/stl-source-analysis/array/</loc>
@@ -10418,6 +10658,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/pt/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/pt/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/avoid-default-constructor/"/>
@@ -10764,6 +11016,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/pt/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/pt/cpp-things/abstract/</loc>
@@ -11846,6 +12110,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/pt/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/pt/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/bilibili-cpp-tutorials/"/>
@@ -11880,6 +12156,18 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/pt/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/pt/stl-source-analysis/array/</loc>
@@ -12434,6 +12722,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-guides/print-1-to-100-without-loop/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/hi/cpp-idioms/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-idioms/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-idioms/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/hi/cpp-idioms/avoid-default-constructor/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-idioms/avoid-default-constructor/"/>
@@ -12780,6 +13080,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-projects/stack-calculator-design/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-projects/stack-calculator-design/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/hi/cpp-things/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/cpp-things/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/cpp-things/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/hi/cpp-things/abstract/</loc>
@@ -13862,6 +14174,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/key-cpp-exercises/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/hi/resources/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/resources/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/resources/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/hi/resources/bilibili-cpp-tutorials/</loc>
         <lastmod>2026-10-12</lastmod>
         <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/resources/bilibili-cpp-tutorials/"/>
@@ -13896,6 +14220,18 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/resources/feishu-cpp-knowledge-base/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/resources/feishu-cpp-knowledge-base/"/>
+    </url>
+    <url>
+        <loc>https://light-city.github.io/stories_things/hi/stl-source-analysis/</loc>
+        <lastmod>2026-10-14</lastmod>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/stl-source-analysis/"/>
     </url>
     <url>
         <loc>https://light-city.github.io/stories_things/hi/stl-source-analysis/array/</loc>
