@@ -104,8 +104,9 @@
       <meta name="twitter:title" content="AddressSanitizer memory detection | C++那些事">
       <meta name="twitter:description" content="C और C++ बहुत unsafe और गलतियों के प्रति संवेदनशील programming languages हैं, Address Sanitizer, Google द्वारा विकसित एक tool है, जो memory access errors, जैसे use-after-free और memory leaks detect करने के लिए है। यह GCC version &gt;= 4.8 में integrate हो चुका है, और C तथा C+…">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AddressSanitizer memory detection | C++那些事", "description": "C और C++ बहुत unsafe और गलतियों के प्रति संवेदनशील programming languages हैं, Address Sanitizer, Google द्वारा विकसित एक tool है, जो memory access errors, जैसे use-after-free और memory leaks detect करने के लिए है। यह GCC version >= 4.8 में integrate हो चुका है, और C तथा C+…", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AddressSanitizer memory detection | C++那些事", "description": "C और C++ बहुत unsafe और गलतियों के प्रति संवेदनशील programming languages हैं, Address Sanitizer, Google द्वारा विकसित एक tool है, जो memory access errors, जैसे use-after-free और memory leaks detect करने के लिए है। यह GCC version >= 4.8 में integrate हो चुका है, और C तथा C+…", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "टूल्स", "item": "https://light-city.github.io/stories_things/hi/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "AddressSanitizer memory detection | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-memory-debug/address-sanitizer-asan/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "AddressSanitizer memory detection | C++那些事", "inLanguage": "hi", "step": [{"@type": "HowToStep", "name": "1. Use after free"}, {"@type": "HowToStep", "name": "2. heap buffer overflow"}, {"@type": "HowToStep", "name": "3. stack buffer overflow"}, {"@type": "HowToStep", "name": "4. global buffer overflow"}, {"@type": "HowToStep", "name": "5. use after return"}, {"@type": "HowToStep", "name": "6. use after scope"}, {"@type": "HowToStep", "name": "7. Initialization order bugs"}, {"@type": "HowToStep", "name": "8. memory leak"}]}</script>
   </head>
   
   
@@ -5559,7 +5560,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-fsanitize=address
 </span></code></pre></div>
 <p>बनी bin फ़ाइल run करने पर, निम्न परिणाम मिलता है।</p>
-<p><img width="2312" height="1494" alt="AddressSanitizer memory detection | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1034" alt="AddressSanitizer memory detection | C++那些事" src="../../../assets/images/2024/mem/address/heap_use_after_free.png"  loading="lazy" decoding="async"/></p>
 <h2 id="2-heap-buffer-overflow">2. heap buffer overflow<a class="headerlink" href="#2-heap-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>सबसे पहले, <code>new</code> keyword से heap पर दो integers वाला एक array allocate किया गया, और array का starting address pointer <code>arr</code> को assign किया गया। फिर, program value 10 को array की तीसरी position (index 2) पर store करने की कोशिश करता है, जो array की valid range से बाहर है, जिससे heap buffer overflow error होता है।</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#include &lt;iostream&gt;
@@ -5578,7 +5579,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./a.out
 </span></code></pre></div>
 <p>नीचे detection परिणाम मिलता है।</p>
-<p><img width="2672" height="1748" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1047" alt="heap_buffer_overflow" src="../../../assets/images/2024/mem/address/heap_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="3-stack-buffer-overflow">3. stack buffer overflow<a class="headerlink" href="#3-stack-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p><code>vulnerableFunction</code> function में, 8 characters वाला एक character array <code>buffer</code> define किया गया है। फिर, <code>std::cin</code> से standard input का data <code>buffer</code> में पढ़ा जाता है, पर input के size की कोई सीमा नहीं है। अगर input के characters की संख्या <code>buffer</code> के size से बढ़ जाती है, तो stack buffer overflow error होगा।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">vulnerableFunction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -5588,7 +5589,7 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>उपयोग ऊपर जैसा ही।</p>
-<p><img width="2986" height="1342" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="719" alt="stack_buffer_overflow" src="../../../assets/images/2024/mem/address/stack_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="4-global-buffer-overflow">4. global buffer overflow<a class="headerlink" href="#4-global-buffer-overflow" title="Permanent link">&para;</a></h2>
 <p>Global buffer (<code>buffer</code> array) program के global scope में define है, और input size की पर्याप्त सीमा नहीं है। अगर input के characters की संख्या buffer के size से बढ़ जाए, तो global buffer overflow error होगा। Stack buffer overflow के समान, global buffer overflow से program की instability और security समस्याएँ हो सकती हैं।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5602,7 +5603,7 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>उपयोग ऊपर जैसा ही, इससे मिलता है:</p>
-<p><img width="2862" height="1358" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="759" alt="global_buffer_overflow" src="../../../assets/images/2024/mem/address/global_buffer_overflow.png"  loading="lazy" decoding="async"/></p>
 <h2 id="5-use-after-return">5. use after return<a class="headerlink" href="#5-use-after-return" title="Permanent link">&para;</a></h2>
 <p>Function <code>f</code> में, local variable <code>i</code> का address return किया जाता है, लेकिन <code>main</code> function में, return किए गए pointer से destroy हो चुके local variable को access करने की कोशिश होती है। ऐसा परिदृश्य आने पर, bin फ़ाइल की जांच की जा सकती है, <code>ASAN_OPTIONS=detect_stack_use_after_return=1</code> सेट करके।</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>g++-13 stack_use_after_return.cc -Wall -g -fsanitize=address
@@ -5620,7 +5621,7 @@
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <p>हमें यह मिलेगा:</p>
-<p><img width="2032" height="1240" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="976" alt="stack_use_after_return" src="../../../assets/images/2024/mem/address/stack_use_after_return.png"  loading="lazy" decoding="async"/></p>
 <h2 id="6-use-after-scope">6. use after scope<a class="headerlink" href="#6-use-after-scope" title="Permanent link">&para;</a></h2>
 <p>Local variable <code>x</code> का address pointer <code>p</code> को assign किया गया, लेकिन उस inner scope से बाहर निकलने के बाद, pointer <code>p</code> से range से बाहर हो चुके local variable <code>x</code> को access करने की कोशिश की जाती है, जिससे out-of-scope use error होता है। यह भी undefined behavior है।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -5668,7 +5669,7 @@
 <p>ऐसी समस्या आने पर, हम AddressSanitizer से initialization order की जांच कर सकते हैं।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ASAN_OPTIONS</span><span class="o">=</span><span class="n">check_initialization_order</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img width="2838" height="1694" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="955" alt="init_order" src="../../../assets/images/2024/mem/address/init_order.png"  loading="lazy" decoding="async"/></p>
 <h2 id="8-memory-leak">8. memory leak<a class="headerlink" href="#8-memory-leak" title="Permanent link">&para;</a></h2>
 <p><code>new</code> keyword से एक integer की memory dynamically allocate की गई, लेकिन program समाप्त होने से पहले <code>delete</code> keyword से इस memory को release नहीं किया गया, जिससे memory leak हुई।</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>

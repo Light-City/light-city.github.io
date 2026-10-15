@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Detección de fugas de memoria en C++ | C++那些事">
       <meta name="twitter:description" content="Al escribir código C/C++ los problemas de memoria están en todas partes; tanto en el trabajo como en las entrevistas, el tema de la memoria está siempre presente.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detección de fugas de memoria en C++ | C++那些事", "description": "Al escribir código C/C++ los problemas de memoria están en todas partes; tanto en el trabajo como en las entrevistas, el tema de la memoria está siempre presente.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-memory-debug/cpp-memory-leak-detection/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-memory-debug/cpp-memory-leak-detection/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detección de fugas de memoria en C++ | C++那些事", "description": "Al escribir código C/C++ los problemas de memoria están en todas partes; tanto en el trabajo como en las entrevistas, el tema de la memoria está siempre presente.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-memory-debug/cpp-memory-leak-detection/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-memory-debug/cpp-memory-leak-detection/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Herramientas", "item": "https://light-city.github.io/stories_things/es/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Detección de fugas de memoria en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-memory-debug/cpp-memory-leak-detection/"}]}</script>
   </head>
   
@@ -5545,7 +5545,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>valgrind --leak-check=full ./a.out 
 </span></code></pre></div>
 <p>Y obtenemos la información que nos da valgrind:</p>
-<p><img width="1986" height="1830" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/detect.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1474" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/detect.png"  loading="lazy" decoding="async"/></p>
 <p>En ella podemos ver varios problemas:</p>
 <ul>
 <li>Invalid write</li>
@@ -5564,12 +5564,12 @@
 <p>Si le añadimos <code>--vgdb-error=0</code>, podemos depurar el código con mucha comodidad, depurando mientras vemos dónde está el problema.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">valgrind</span><span class="w"> </span><span class="o">--</span><span class="n">leak</span><span class="o">-</span><span class="n">check</span><span class="o">=</span><span class="n">full</span><span class="w"> </span><span class="o">--</span><span class="n">vgdb</span><span class="o">-</span><span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img width="1972" height="502" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/attach.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="407" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/attach.png"  loading="lazy" decoding="async"/></p>
 <p>A continuación entramos con gdb</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">gdb</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
 </span></code></pre></div>
 <p>Pegamos en gdb la línea target anterior y luego continue; así veremos el código de la línea correspondiente junto con la información que valgrind sigue emitiendo.</p>
-<p><img width="2480" height="1414" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="912" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png"  loading="lazy" decoding="async"/></p>
 <p><img width="2018" height="890" alt="Detección de fugas de memoria en C++ | C++那些事" src="../../../assets/images/2024/mem/img/continue.png"  loading="lazy" decoding="async"/></p>
 <p>En esta sección hemos practicado con problemas de memoria; si te ha servido de ayuda, te invito a reenviarlo.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>

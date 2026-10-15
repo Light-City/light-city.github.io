@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Helgrind Concurrency Error Detection | C++那些事">
       <meta name="twitter:description" content="Usually, when we write multi-threaded programs, we easily run into two problems:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind Concurrency Error Detection | C++那些事", "description": "Usually, when we write multi-threaded programs, we easily run into two problems:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind Concurrency Error Detection | C++那些事", "description": "Usually, when we write multi-threaded programs, we easily run into two problems:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concurrency", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Helgrind Concurrency Error Detection | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
@@ -5472,7 +5472,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1245" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>Suppose there is a shared variable that we increment 100,000 times from multiple threads — what will the result be?</p>
 <p>Clearly there is a problem here of multiple threads racing on a global variable, and the final result is inconsistent; use the same helgrind detection method as above.</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>At this point, we can see on which line the data race occurs, and then go fix the problem.</p>
-<p><img width="2042" height="1220" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="956" alt="Helgrind Concurrency Error Detection | C++那些事" src="../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>Finally, here are a few questions to leave you with:</p>
 <p>1.How do you fix the two pieces of problematic code above?</p>
 <p>2.Besides the tools above, are there any other approaches?</p>

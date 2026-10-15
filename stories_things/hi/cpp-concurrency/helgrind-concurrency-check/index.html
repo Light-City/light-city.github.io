@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Helgrind concurrency error detection | C++那些事">
       <meta name="twitter:description" content="उत्तर है हाँ, हम valgrind के helgrind tool से इन दोनों समस्याओं का पता लगा सकते हैं, इस लेख की व्याख्या को और सरल बनाने के लिए कुछ उदाहरण दिए गए हैं।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind concurrency error detection | C++那些事", "description": "उत्तर है हाँ, हम valgrind के helgrind tool से इन दोनों समस्याओं का पता लगा सकते हैं, इस लेख की व्याख्या को और सरल बनाने के लिए कुछ उदाहरण दिए गए हैं।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Helgrind concurrency error detection | C++那些事", "description": "उत्तर है हाँ, हम valgrind के helgrind tool से इन दोनों समस्याओं का पता लगा सकते हैं, इस लेख की व्याख्या को और सरल बनाने के लिए कुछ उदाहरण दिए गए हैं।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "कॉनकरेंसी", "item": "https://light-city.github.io/stories_things/hi/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Helgrind concurrency error detection | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
@@ -5472,7 +5472,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1245" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>मान लीजिए एक shared variable है, जिसे हम multiple threads से 10w बार increment करते हैं, तो परिणाम कितना होगा?</p>
 <p>स्पष्ट है कि यहाँ multiple threads के global variable पर race की समस्या पैदा हुई है, अंतिम परिणाम inconsistent आता है, helgrind से detect करने का तरीका वही है जो ऊपर बताया गया।</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>इस समय हम देख सकते हैं कि data race वाली line कौन सी है, और फिर समस्या हल करें।</p>
-<p><img width="2042" height="1220" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="956" alt="Helgrind concurrency error detection | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>अंत में, कुछ प्रश्न छोड़ते हैं:</p>
 <p>1.ऊपर के इन दोनों समस्याग्रस्त code को कैसे ठीक करें?</p>
 <p>2.ऊपर बताए tool के अलावा, कोई और तरीका भी है?</p>

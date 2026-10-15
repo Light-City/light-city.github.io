@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="Detecção de Erros de Concorrência com Helgrind | C++那些事">
       <meta name="twitter:description" content="Ao escrever programas multi-thread normalmente encontramos dois problemas com facilidade:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detecção de Erros de Concorrência com Helgrind | C++那些事", "description": "Ao escrever programas multi-thread normalmente encontramos dois problemas com facilidade:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Detecção de Erros de Concorrência com Helgrind | C++那些事", "description": "Ao escrever programas multi-thread normalmente encontramos dois problemas com facilidade:", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concorrência", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Detecção de Erros de Concorrência com Helgrind | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-concurrency/helgrind-concurrency-check/"}]}</script>
   </head>
   
@@ -5472,7 +5472,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>thread_func2() (deadlock.cc:18)
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>thread_func1() (deadlock.cc:12)
 </span></code></pre></div>
-<p><img width="2084" height="1622" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1245" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/deadlock.png"  loading="lazy" decoding="async"/></p>
 <h2 id="data-race">Data race<a class="headerlink" href="#data-race" title="Permanent link">&para;</a></h2>
 <p>Suponha uma variável compartilhada que incrementamos 100 mil vezes em múltiplas threads; qual será o resultado?</p>
 <p>Claramente há um problema de corrida sobre a variável global entre threads, com resultado final inconsistente; o método de detecção com helgrind é o mesmo acima.</p>
@@ -5485,7 +5485,7 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Podemos ver em qual linha está o data race e então corrigir o problema.</p>
-<p><img width="2042" height="1220" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="956" alt="Detecção de Erros de Concorrência com Helgrind | C++那些事" src="../../../assets/images/2024/img/datarace.png"  loading="lazy" decoding="async"/></p>
 <p>Por fim, deixo algumas perguntas:</p>
 <p>1.Como corrigir esses dois códigos com problema?</p>
 <p>2.Além da ferramenta acima, existem outras formas?</p>

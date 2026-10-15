@@ -105,7 +105,7 @@
       <meta name="twitter:title" content="C++ std::move 原理与用法 | C++那些事">
       <meta name="twitter:description" content="std::move 是一个非常重要的函数，它提供了一种方式，可以将一个左值对象标记为一个特殊类型的右值对象，即 xvalue。这种转变是为了允许执行移动语义，而不是执行常规的拷贝语义。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ std::move 原理与用法 | C++那些事", "description": "std::move 是一个非常重要的函数，它提供了一种方式，可以将一个左值对象标记为一个特殊类型的右值对象，即 xvalue。这种转变是为了允许执行移动语义，而不是执行常规的拷贝语义。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/cpp-std-move/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/cpp-std-move/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ std::move 原理与用法 | C++那些事", "description": "std::move 是一个非常重要的函数，它提供了一种方式，可以将一个左值对象标记为一个特殊类型的右值对象，即 xvalue。这种转变是为了允许执行移动语义，而不是执行常规的拷贝语义。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/cpp-std-move/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/cpp-std-move/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++11", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 3, "name": "现代C++", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "C++ std::move 原理与用法 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/cpp-std-move/"}]}</script>
   </head>
   
@@ -5483,6 +5483,7 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：std::move 是一个非常重要的函数，它提供了一种方式，可以将一个左值对象标记为一个特殊类型的右值对象，即 xvalue。这种转变是为了允许执行移动语义，而不是执行常规的拷贝语义。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c-stdmove">C++ std::move 原理与用法<a class="headerlink" href="#c-stdmove" title="Permanent link">&para;</a></h1>

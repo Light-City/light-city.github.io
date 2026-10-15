@@ -104,7 +104,7 @@
       <meta name="twitter:title" content="C++ メモリリーク検出 | C++那些事">
       <meta name="twitter:description" content="C/C++コードを書くとき、メモリの問題はどこにでもあります。仕事でも面接でも、メモリの話題は避けて通れません。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ メモリリーク検出 | C++那些事", "description": "C/C++コードを書くとき、メモリの問題はどこにでもあります。仕事でも面接でも、メモリの話題は避けて通れません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-memory-debug/cpp-memory-leak-detection/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-memory-debug/cpp-memory-leak-detection/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "url": "https://light-city.github.io/"}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ メモリリーク検出 | C++那些事", "description": "C/C++コードを書くとき、メモリの問題はどこにでもあります。仕事でも面接でも、メモリの話題は避けて通れません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-memory-debug/cpp-memory-leak-detection/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-memory-debug/cpp-memory-leak-detection/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "ツール", "item": "https://light-city.github.io/stories_things/ja/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "C++ メモリリーク検出 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-memory-debug/cpp-memory-leak-detection/"}]}</script>
   </head>
   
@@ -5545,7 +5545,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>valgrind --leak-check=full ./a.out 
 </span></code></pre></div>
 <p>すると、valgrindが私たちに示してくれる情報が得られます：</p>
-<p><img width="1986" height="1830" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/detect.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="1474" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/detect.png"  loading="lazy" decoding="async"/></p>
 <p>このとき、上の画像からいくつかの問題が見て取れます：</p>
 <ul>
 <li>Invalid write</li>
@@ -5564,12 +5564,12 @@
 <p><code>--vgdb-error=0</code>を付けると、コードを非常に便利にデバッグできるようになり、デバッグしながらどこに問題があるかを確認できます。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">valgrind</span><span class="w"> </span><span class="o">--</span><span class="n">leak</span><span class="o">-</span><span class="n">check</span><span class="o">=</span><span class="n">full</span><span class="w"> </span><span class="o">--</span><span class="n">vgdb</span><span class="o">-</span><span class="n">error</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="n">out</span><span class="w"> </span>
 </span></code></pre></div>
-<p><img width="1972" height="502" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/attach.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="407" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/attach.png"  loading="lazy" decoding="async"/></p>
 <p>続いて、gdbでアタッチします</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">gdb</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">out</span>
 </span></code></pre></div>
 <p>上のtargetの行をgdbに貼り付けて、continueを実行すると、対応する行のコードと、valgrindが出力を続ける情報を見ることができます。</p>
-<p><img width="2480" height="1414" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png"  loading="lazy" decoding="async"/></p>
+<p><img width="1600" height="912" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/gdb.png"  loading="lazy" decoding="async"/></p>
 <p><img width="2018" height="890" alt="C++ メモリリーク検出 | C++那些事" src="../../../assets/images/2024/mem/img/continue.png"  loading="lazy" decoding="async"/></p>
 <p>本節では、みなさんと一緒にメモリ問題を実践しました。お役に立てたなら、ぜひシェアをお願いします。</p>
 <h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
