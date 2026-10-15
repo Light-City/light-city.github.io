@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ vptr और vtable तंत्र,C++ बुनियादी बातें"> 
-    <meta name="title" content="C++ vptr और vtable तंत्र | C++那些事"> 
+    <meta name="title" content="C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事"> 
 
     
       
-        <title>C++ vptr और vtable तंत्र | C++那些事 - C++那些事</title>
+        <title>C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/vptr-vtable/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ vptr और vtable तंत्र | C++那些事">
+      <meta property="og:title" content="C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事">
       <meta property="og:description" content="वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे &quot;vtable&quot;, &quot;虚函数表&quot;, &quot;虚方法表&quot; या &quot;dispatch table&quot;।">
       <meta property="og:url" content="https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ vptr और vtable तंत्र | C++那些事">
+      <meta name="twitter:title" content="C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事">
       <meta name="twitter:description" content="वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे &quot;vtable&quot;, &quot;虚函数表&quot;, &quot;虚方法表&quot; या &quot;dispatch table&quot;।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ vptr और vtable तंत्र | C++那些事", "description": "वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे \"vtable\", \"虚函数表\", \"虚方法表\" या \"dispatch table\"।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "मूल बातें और आगे", "item": "https://light-city.github.io/stories_things/hi/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ vptr और vtable तंत्र | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事", "description": "वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे \"vtable\", \"虚函数表\", \"虚方法表\" या \"dispatch table\"।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "मूल बातें और आगे", "item": "https://light-city.github.io/stories_things/hi/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "hi", "mainEntity": [{"@type": "Question", "name": "vtable कब बनती है?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "कंपाइल समय पर, प्रत्येक वर्चुअल-फ़ंक्शन वाली क्लास के लिए एक। हर ऑब्जेक्ट अपनी क्लास की टेबल की ओर एक vptr रखता है; रनटाइम कॉल इसी पॉइंटर से होकर जाती है।"}}, {"@type": "Question", "name": "क्या सभी क्लास में vtable होती है?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "नहीं, केवल वर्चुअल फ़ंक्शन घोषित (या इनहेरिट) करने वाली क्लास में; सादी डेटा क्लास में न vptr होता है न पॉलीमॉर्फ़िज़्म का खर्च।"}}, {"@type": "Question", "name": "वर्चुअल कॉल कितनी धीमी होती है?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "vptr के ज़रिए एक अतिरिक्त indirection; आधुनिक ब्रांच प्रेडिक्शन में अंतर लगभग नगण्य है।"}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-vptr-vtable" class="md-skip">
+        <a href="#c-vtable-vptr" class="md-skip">
           विषय पर बढ़ें
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ vptr और vtable तंत्र | C++那些事
+              C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事
             
           </span>
         </div>
@@ -934,6 +935,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      सामान्य प्रश्न
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="सामान्य प्रश्न">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      vtable कब बनती है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vtable_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      क्या सभी क्लास में vtable होती है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      वर्चुअल कॉल कितनी धीमी होती है?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       संबंधित विषय
     </span>
@@ -5415,6 +5458,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      सामान्य प्रश्न
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="सामान्य प्रश्न">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      vtable कब बनती है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vtable_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      क्या सभी क्लास में vtable होती है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      वर्चुअल कॉल कितनी धीमी होती है?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       संबंधित विषय
     </span>
   </a>
@@ -5442,12 +5527,12 @@
 
 
 <blockquote>
-<p><strong>अंतिम अद्यतन：2026-10-12</strong></p>
+<p><strong>अंतिम अद्यतन：2026-10-15</strong></p>
 </blockquote>
-<h1 id="c-vptr-vtable">C++ vptr और vtable तंत्र<a class="headerlink" href="#c-vptr-vtable" title="Permanent link">&para;</a></h1>
+<h1 id="c-vtable-vptr">C++ vtable और vptr<a class="headerlink" href="#c-vtable-vptr" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>व्यक्तिगत WeChat सार्वजनिक अकाउंट:</p>
-<p><img alt="C++ vptr और vtable तंत्र | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ vtable और vptr: वर्चुअल डिस्पैच कैसे काम करता है | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.बुनियादी सिद्धांत<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>वर्चुअल फ़ंक्शन implement करने के लिए, C++ late binding के एक खास रूप का उपयोग करता है जिसे virtual table कहते हैं। यह virtual table dynamic/late binding तरीके से फ़ंक्शन कॉल हल करने के लिए lookup table है। virtual table को कभी-कभी दूसरे नामों से भी जाना जाता है, जैसे "vtable", "虚函数表", "虚方法表" या "dispatch table"।</p>
 <p>virtual table सचमुच बहुत सरल है, भले ही शब्दों में बताना थोड़ा जटिल है। सबसे पहले, <strong>वर्चुअल फ़ंक्शन उपयोग करने वाली हर क्लास (या वर्चुअल फ़ंक्शन उपयोग करने वाली क्लास से derive हुई) का अपना virtual table होता है</strong>। यह table सिर्फ़ कंपाइलर द्वारा compile time पर set किया गया static array है। virtual table में क्लास के ऑब्जेक्ट द्वारा कॉल किए जा सकने वाले हर वर्चुअल फ़ंक्शन के लिए एक entry होती है। इस table की हर entry सिर्फ़ एक function pointer है, जो उस क्लास द्वारा एक्सेस किए जा सकने वाले सबसे derived फ़ंक्शन की ओर पॉइंट करता है।</p>
@@ -5632,13 +5717,20 @@
 </span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">   </span><span class="mh">0x0000000000400efe</span><span class="w"> </span><span class="o">&lt;+</span><span class="mi">42</span><span class="o">&gt;:</span><span class="w">    </span><span class="n">retq</span><span class="w">   </span>
 </span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">assembler</span><span class="w"> </span><span class="n">dump</span><span class="p">.</span>
 </span></code></pre></div>
-<h2 id="_2">संबंधित विषय<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">सामान्य प्रश्न<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="vtable">vtable कब बनती है?<a class="headerlink" href="#vtable" title="Permanent link">&para;</a></h3>
+<p>कंपाइल समय पर, प्रत्येक वर्चुअल-फ़ंक्शन वाली क्लास के लिए एक। हर ऑब्जेक्ट अपनी क्लास की टेबल की ओर एक vptr रखता है; रनटाइम कॉल इसी पॉइंटर से होकर जाती है।</p>
+<h3 id="vtable_1">क्या सभी क्लास में vtable होती है?<a class="headerlink" href="#vtable_1" title="Permanent link">&para;</a></h3>
+<p>नहीं, केवल वर्चुअल फ़ंक्शन घोषित (या इनहेरिट) करने वाली क्लास में; सादी डेटा क्लास में न vptr होता है न पॉलीमॉर्फ़िज़्म का खर्च।</p>
+<h3 id="_3">वर्चुअल कॉल कितनी धीमी होती है?<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>vptr के ज़रिए एक अतिरिक्त indirection; आधुनिक ब्रांच प्रेडिक्शन में अंतर लगभग नगण्य है।</p>
+<h2 id="_4">संबंधित विषय<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ प्योर वर्चुअल फ़ंक्शन और एब्स्ट्रैक्ट क्लास | C++那些事</a></li>
 <li><a href="../assert/">C++ assert | C++那些事</a></li>
 <li><a href="../bit/">C++ bit-field | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C भाषा से C++ पॉलीमॉर्फ़िज़्म | C++那些事</a></li>
-<li><a href="../const/">C++ const कॉन्स्टेंट और क्वालिफ़ायर | C++那些事</a></li>
+<li><a href="../const/">C++ const विस्तार से: कॉन्स्टेंट, const पॉइंटर vs पॉइंटर-टू-const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const परिवार | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ dereference ऑपरेटर * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ इनिशियलाइज़ेशन और असाइनमेंट | C++那些事</a></li>

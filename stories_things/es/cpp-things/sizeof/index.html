@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="uso del operador sizeof en C++,fundamentos de C++"> 
-    <meta name="title" content="El operador sizeof en C++ | C++那些事"> 
+    <meta name="title" content="sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事"> 
 
     
       
-        <title>El operador sizeof en C++ | C++那些事 - C++那些事</title>
+        <title>sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/sizeof/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/sizeof/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="El operador sizeof en C++ | C++那些事">
+      <meta property="og:title" content="sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事">
       <meta property="og:description" content="/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/sizeof/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="El operador sizeof en C++ | C++那些事">
+      <meta name="twitter:title" content="sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事">
       <meta name="twitter:description" content="/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "El operador sizeof en C++ | C++那些事", "description": "/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "El operador sizeof en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事", "description": "/  @file blackclass.cpp  @brief El tamaño de una clase vacía es 1 byte  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/sizeof/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Por qué sizeof de una clase vacía es 1?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++ exige que objetos distintos tengan direcciones distintas; con tamaño 0 los elementos de un array se solaparían, así que ocupa al menos 1 byte."}}, {"@type": "Question", "name": "¿Cuánto añade una función virtual al sizeof?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Un vptr: 8 bytes en plataformas de 64 bits. La herencia múltiple puede añadir varios vptr."}}, {"@type": "Question", "name": "¿sizeof se evalúa en compilación o en ejecución?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "En compilación (siempre en C++); el resultado es una expresión constante utilizable como dimensión o argumento de plantilla."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#el-operador-sizeof-en-c" class="md-skip">
+        <a href="#sizeof-en-c-tamanos-y-la-clase-vacia-de-1-byte" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              El operador sizeof en C++ | C++那些事
+              sizeof en C++ explicado: tamaños de tipos y por qué una clase vacía es 1 | C++那些事
             
           </span>
         </div>
@@ -1079,6 +1080,48 @@
       5. Principio 6
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-sizeof-de-una-clase-vacia-es-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué sizeof de una clase vacía es 1?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuanto-anade-una-funcion-virtual-al-sizeof" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuánto añade una función virtual al sizeof?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof-se-evalua-en-compilacion-o-en-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿sizeof se evalúa en compilación o en ejecución?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5449,6 +5492,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-sizeof-de-una-clase-vacia-es-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué sizeof de una clase vacía es 1?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuanto-anade-una-funcion-virtual-al-sizeof" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuánto añade una función virtual al sizeof?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof-se-evalua-en-compilacion-o-en-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿sizeof se evalúa en compilación o en ejecución?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5481,7 +5566,7 @@
 <p>💡 <strong>Resumen</strong>：/  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/file" title="GitHub User: file">@file</a> blackclass.cpp  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/brief" title="GitHub User: brief">@brief</a> El tamaño de una clase vacía es 1 byte  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/author" title="GitHub User: author">@author</a> 光城  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/version" title="GitHub User: version">@version</a> v1  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/date" title="GitHub User: date">@date</a> 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r</p>
 <p><strong>Última actualización：2026-10-13</strong></p>
 </blockquote>
-<h1 id="el-operador-sizeof-en-c">El operador sizeof en C++<a class="headerlink" href="#el-operador-sizeof-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="sizeof-en-c-tamanos-y-la-clase-vacia-de-1-byte">sizeof en C++: tamaños y la clase vacía de 1 byte<a class="headerlink" href="#sizeof-en-c-tamanos-y-la-clase-vacia-de-1-byte" title="Permanent link">&para;</a></h1>
 <p>Primero un resumen, y luego ejemplos reales a continuación. ¡A practicar!</p>
 <ul>
 <li>El tamaño de una clase vacía es 1 byte</li>
@@ -5669,13 +5754,20 @@
 </span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="por-que-sizeof-de-una-clase-vacia-es-1">¿Por qué sizeof de una clase vacía es 1?<a class="headerlink" href="#por-que-sizeof-de-una-clase-vacia-es-1" title="Permanent link">&para;</a></h3>
+<p>C++ exige que objetos distintos tengan direcciones distintas; con tamaño 0 los elementos de un array se solaparían, así que ocupa al menos 1 byte.</p>
+<h3 id="cuanto-anade-una-funcion-virtual-al-sizeof">¿Cuánto añade una función virtual al sizeof?<a class="headerlink" href="#cuanto-anade-una-funcion-virtual-al-sizeof" title="Permanent link">&para;</a></h3>
+<p>Un vptr: 8 bytes en plataformas de 64 bits. La herencia múltiple puede añadir varios vptr.</p>
+<h3 id="sizeof-se-evalua-en-compilacion-o-en-ejecucion">¿sizeof se evalúa en compilación o en ejecución?<a class="headerlink" href="#sizeof-se-evalua-en-compilacion-o-en-ejecucion" title="Permanent link">&para;</a></h3>
+<p>En compilación (siempre en C++); el resultado es una expresión constante utilizable como dimensión o argumento de plantilla.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
+<li><a href="../const/">const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

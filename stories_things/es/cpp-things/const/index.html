@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="uso de constantes y calificadores const en C++,fundamentos de C++"> 
-    <meta name="title" content="Constantes y calificadores const en C++ | C++那些事"> 
+    <meta name="title" content="const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事"> 
 
     
       
-        <title>Constantes y calificadores const en C++ | C++那些事 - C++那些事</title>
+        <title>const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Constantes y calificadores const en C++ | C++那些事">
+      <meta property="og:title" content="const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事">
       <meta property="og:description" content="Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Constantes y calificadores const en C++ | C++那些事">
+      <meta name="twitter:title" content="const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事">
       <meta name="twitter:description" content="Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Constantes y calificadores const en C++ | C++那些事", "description": "Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Constantes y calificadores const en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事", "description": "Un tipo const es un tipo declarado con el calificador de tipo const; el valor de una variable u objeto de tipo const no puede actualizarse.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Puntero a const o puntero const?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "const int* p es un puntero a una constante: no puedes modificar el valor señalado. int* const p es un puntero constante: no puedes reasignar el puntero. Regla: const a la izquierda de * protege el valor; a la derecha, el puntero."}}, {"@type": "Question", "name": "¿Puede un objeto const llamar a una función miembro no const?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No. Un objeto const solo puede llamar a funciones miembro const; un objeto no const puede llamar a ambas."}}, {"@type": "Question", "name": "¿const o #define para constantes?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Prefiere const: tiene comprobación de tipos, respeta el ámbito y es depurable. #define es una sustitución de texto sin tipos."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#constantes-y-calificadores-const-en-c" class="md-skip">
+        <a href="#const-en-c-constantes-y-los-dos-tipos-de-puntero-const" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Constantes y calificadores const en C++ | C++那些事
+              const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事
             
           </span>
         </div>
@@ -930,6 +931,48 @@
       7. Uso de const en clases
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntero-a-const-o-puntero-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puntero a const o puntero const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puede-un-objeto-const-llamar-a-una-funcion-miembro-no-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puede un objeto const llamar a una función miembro no const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-o-define-para-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿const o #define para constantes?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5503,6 +5546,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntero-a-const-o-puntero-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puntero a const o puntero const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puede-un-objeto-const-llamar-a-una-funcion-miembro-no-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puede un objeto const llamar a una función miembro no const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-o-define-para-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿const o #define para constantes?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5534,10 +5619,10 @@
 <blockquote>
 <p><strong>Última actualización：2026-10-13</strong></p>
 </blockquote>
-<h1 id="constantes-y-calificadores-const-en-c">Constantes y calificadores const en C++<a class="headerlink" href="#constantes-y-calificadores-const-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="const-en-c-constantes-y-los-dos-tipos-de-puntero-const">const en C++: constantes y los dos tipos de puntero const<a class="headerlink" href="#const-en-c-constantes-y-los-dos-tipos-de-puntero-const" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública de WeChat:</p>
-<p><img alt="Constantes y calificadores const en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-el-significado-de-const">1. El significado de const<a class="headerlink" href="#1-el-significado-de-const" title="Permanent link">&para;</a></h2>
 <p>Un tipo const es un tipo declarado con el calificador de tipo <strong>const</strong>; el valor de una variable u objeto de tipo const no puede actualizarse.</p>
 <h2 id="2-el-papel-de-const">2. El papel de const<a class="headerlink" href="#2-el-papel-de-const" title="Permanent link">&para;</a></h2>
@@ -5854,6 +5939,13 @@ void func(const A &amp;a).</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
 <p>En cuanto a este punto, C++11 no permite declarar e inicializar a la vez; es decir, el uso es el descrito arriba.</p>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="puntero-a-const-o-puntero-const">¿Puntero a const o puntero const?<a class="headerlink" href="#puntero-a-const-o-puntero-const" title="Permanent link">&para;</a></h3>
+<p>const int* p es un puntero a una constante: no puedes modificar el valor señalado. int* const p es un puntero constante: no puedes reasignar el puntero. Regla: const a la izquierda de * protege el valor; a la derecha, el puntero.</p>
+<h3 id="puede-un-objeto-const-llamar-a-una-funcion-miembro-no-const">¿Puede un objeto const llamar a una función miembro no const?<a class="headerlink" href="#puede-un-objeto-const-llamar-a-una-funcion-miembro-no-const" title="Permanent link">&para;</a></h3>
+<p>No. Un objeto const solo puede llamar a funciones miembro const; un objeto no const puede llamar a ambas.</p>
+<h3 id="const-o-define-para-constantes">¿const o #define para constantes?<a class="headerlink" href="#const-o-define-para-constantes" title="Permanent link">&para;</a></h3>
+<p>Prefiere const: tiene comprobación de tipos, respeta el ámbito y es depurable. #define es una sustitución de texto sin tipos.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>

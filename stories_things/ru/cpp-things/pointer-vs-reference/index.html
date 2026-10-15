@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ указатели и ссылки,основы C++"> 
-    <meta name="title" content="C++ указатели и ссылки | C++那些事"> 
+    <meta name="title" content="Указатель и ссылка в C++: ключевые различия | C++那些事"> 
 
     
       
-        <title>C++ указатели и ссылки | C++那些事 - C++那些事</title>
+        <title>Указатель и ссылка в C++: ключевые различия | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/pointer-vs-reference/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/pointer-vs-reference/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ указатели и ссылки | C++那些事">
+      <meta property="og:title" content="Указатель и ссылка в C++: ключевые различия | C++那些事">
       <meta property="og:description" content="При определении ссылки мы обязаны задать ей начальное значение, а указатель — нет.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ указатели и ссылки | C++那些事">
+      <meta name="twitter:title" content="Указатель и ссылка в C++: ключевые различия | C++那些事">
       <meta name="twitter:description" content="При определении ссылки мы обязаны задать ей начальное значение, а указатель — нет.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ указатели и ссылки | C++那些事", "description": "При определении ссылки мы обязаны задать ей начальное значение, а указатель — нет.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ указатели и ссылки | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Указатель и ссылка в C++: ключевые различия | C++那些事", "description": "При определении ссылки мы обязаны задать ей начальное значение, а указатель — нет.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Указатель и ссылка в C++: ключевые различия | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ru", "mainEntity": [{"@type": "Question", "name": "В чём главное различие указателя и ссылки?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Ссылка обязана быть инициализирована, не может быть перепривязана, и пустой ссылки не существует. Указатель можно переприсваивать, он бывает nullptr и многоуровневым."}}, {"@type": "Question", "name": "Что принимать функции: ссылку или указатель?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Ссылку — когда объект обязан быть изменён и «не передали» быть не может. Указатель — для опциональности, хранения в контейнерах и перепривязки."}}, {"@type": "Question", "name": "Бывает ли пустая ссылка в C++?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "По стандарту — нет. Ссылка на разыменованный нулевой указатель — неопределённое поведение."}}]}</script>
   </head>
   
   
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ указатели и ссылки | C++那些事
+              Указатель и ссылка в C++: ключевые различия | C++那些事
             
           </span>
         </div>
@@ -1029,6 +1030,48 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      В чём главное различие указателя и ссылки?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что принимать функции: ссылку или указатель?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бывает ли пустая ссылка в C++?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5517,6 +5560,48 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      В чём главное различие указателя и ссылки?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Что принимать функции: ссылку или указатель?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бывает ли пустая ссылка в C++?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
       Похожие темы
     </span>
   </a>
@@ -5544,12 +5629,12 @@
 
 
 <blockquote>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p><strong>Последнее обновление：2026-10-15</strong></p>
 </blockquote>
-<h1 id="c">C++ указатели и ссылки<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<h1 id="c">Указатель и ссылка в C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Личный официальный аккаунт:</p>
-<p><img alt="C++ указатели и ссылки | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="Указатель и ссылка в C++: ключевые различия | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.Ссылки и указатели<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Общая картина:</p>
 <table>
@@ -5695,13 +5780,20 @@
 <h2 id="3_1">3.Резюме<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
 <p>В C++ введена операция ссылки: наложив на использование ссылок больше ограничений, язык обеспечивает их безопасность и удобство, а также сохраняет элегантность кода. Используйте подходящую операцию в подходящей ситуации: применение ссылок в определённой мере позволяет избежать «повсеместного разгула указателей» и положительно сказывается на стабильности программы. Наконец, указатели и ссылки реализованы на нижнем уровне одинаково — не беспокойтесь о разнице в их производительности.</p>
 <p>Часть материала взята из: <a href="http://irootlee.com/juicer_pointer_reference/#">http://irootlee.com/juicer_pointer_reference/#</a></p>
-<h2 id="_3">Похожие темы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Частые вопросы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">В чём главное различие указателя и ссылки?<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Ссылка обязана быть инициализирована, не может быть перепривязана, и пустой ссылки не существует. Указатель можно переприсваивать, он бывает nullptr и многоуровневым.</p>
+<h3 id="_5">Что принимать функции: ссылку или указатель?<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Ссылку — когда объект обязан быть изменён и «не передали» быть не может. Указатель — для опциональности, хранения в контейнерах и перепривязки.</p>
+<h3 id="c_1">Бывает ли пустая ссылка в C++?<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h3>
+<p>По стандарту — нет. Ссылка на разыменованный нулевой указатель — неопределённое поведение.</p>
+<h2 id="_6">Похожие темы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>
 <li><a href="../bit/">C++ битовые поля | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Реализация полиморфизма C++ на языке C | C++那些事</a></li>
-<li><a href="../const/">Константы и квалификаторы const в C++ | C++那些事</a></li>
+<li><a href="../const/">C++ const подробно: константы, указатель на const и const-указатель | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ всё семейство const | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ оператор разыменования * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ инициализация и присваивание | C++那些事</a></li>

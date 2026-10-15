@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ sizeof 运算符用法,C++基础"> 
-    <meta name="title" content="C++ sizeof 运算符 | C++那些事"> 
+    <meta name="title" content="C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事"> 
 
     
       
-        <title>C++ sizeof 运算符 | C++那些事 - C++那些事</title>
+        <title>C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/sizeof/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/sizeof/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ sizeof 运算符 | C++那些事">
+      <meta property="og:title" content="C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事">
       <meta property="og:description" content="/  @file blackclass.cpp  @brief 空类的大小为1字节  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/sizeof/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ sizeof 运算符 | C++那些事">
+      <meta name="twitter:title" content="C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事">
       <meta name="twitter:description" content="/  @file blackclass.cpp  @brief 空类的大小为1字节  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ sizeof 运算符 | C++那些事", "description": "/  @file blackclass.cpp  @brief 空类的大小为1字节  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ sizeof 运算符 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事", "description": "/  @file blackclass.cpp  @brief 空类的大小为1字节  @author 光城  @version v1  @date 2019-07-21 / using namespace std; class A{}; int main cout<<sizeofA<<endl; r", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/sizeof/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "空类的 sizeof 为什么是 1？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++ 要求不同的完整对象拥有不同地址，如果大小为 0，数组里的元素就会地址重合，所以空类至少占 1 字节。"}}, {"@type": "Question", "name": "含虚函数的类 sizeof 会多出多少？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "多一个 vptr：64 位平台上是 8 字节；多重继承下可能出现多个 vptr，大小相应增加。"}}, {"@type": "Question", "name": "sizeof 在编译期还是运行期求值？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "编译期（C++ 中始终如此），结果是常量表达式，可以直接用作数组维度或模板参数。"}}]}</script>
   </head>
   
   
@@ -124,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-sizeof" class="md-skip">
+        <a href="#c-sizeof-1" class="md-skip">
           跳转至
         </a>
       
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ sizeof 运算符 | C++那些事
+              C++ sizeof 详解：类型大小、空类为什么是 1 | C++那些事
             
           </span>
         </div>
@@ -1085,6 +1086,48 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sizeof-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      空类的 sizeof 为什么是 1？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof" class="md-nav__link">
+    <span class="md-ellipsis">
+      含虚函数的类 sizeof 会多出多少？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sizeof 在编译期还是运行期求值？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5452,6 +5495,48 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sizeof-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      空类的 sizeof 为什么是 1？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof" class="md-nav__link">
+    <span class="md-ellipsis">
+      含虚函数的类 sizeof 会多出多少？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sizeof 在编译期还是运行期求值？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5482,7 +5567,7 @@
 <p>💡 <strong>一分钟速览</strong>：/  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/file" title="GitHub User: file">@file</a> blackclass.cpp  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/brief" title="GitHub User: brief">@brief</a> 空类的大小为1字节  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/author" title="GitHub User: author">@author</a> 光城  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/version" title="GitHub User: version">@version</a> v1  <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/date" title="GitHub User: date">@date</a> 2019-07-21 / using namespace std; class A{}; int main cout&lt;&lt;sizeofA&lt;&lt;endl; r</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-sizeof">C++ sizeof 运算符<a class="headerlink" href="#c-sizeof" title="Permanent link">&para;</a></h1>
+<h1 id="c-sizeof-1">C++ sizeof 详解：类型大小与空类的 1 字节<a class="headerlink" href="#c-sizeof-1" title="Permanent link">&para;</a></h1>
 <p>首先来个总结，然后下面给出实际例子，实战！</p>
 <ul>
 <li>空类的大小为1字节</li>
@@ -5670,13 +5755,20 @@
 </span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="sizeof-1">空类的 sizeof 为什么是 1？<a class="headerlink" href="#sizeof-1" title="Permanent link">&para;</a></h3>
+<p>C++ 要求不同的完整对象拥有不同地址，如果大小为 0，数组里的元素就会地址重合，所以空类至少占 1 字节。</p>
+<h3 id="sizeof">含虚函数的类 sizeof 会多出多少？<a class="headerlink" href="#sizeof" title="Permanent link">&para;</a></h3>
+<p>多一个 vptr：64 位平台上是 8 字节；多重继承下可能出现多个 vptr，大小相应增加。</p>
+<h3 id="sizeof_1">sizeof 在编译期还是运行期求值？<a class="headerlink" href="#sizeof_1" title="Permanent link">&para;</a></h3>
+<p>编译期（C++ 中始终如此），结果是常量表达式，可以直接用作数组维度或模板参数。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>

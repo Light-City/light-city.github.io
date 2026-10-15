@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ struct 与 class 区别用法,C++基础"> 
-    <meta name="title" content="C++ struct 与 class 区别 | C++那些事"> 
+    <meta name="title" content="C++ struct 与 class 的区别详解 | C++那些事"> 
 
     
       
-        <title>C++ struct 与 class 区别 | C++那些事 - C++那些事</title>
+        <title>C++ struct 与 class 的区别详解 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct-vs-class/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct-vs-class/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ struct 与 class 区别 | C++那些事">
+      <meta property="og:title" content="C++ struct 与 class 的区别详解 | C++那些事">
       <meta property="og:description" content="关于C与C++中struct内容：见[struct那些事](struct.md)">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ struct 与 class 区别 | C++那些事">
+      <meta name="twitter:title" content="C++ struct 与 class 的区别详解 | C++那些事">
       <meta name="twitter:description" content="关于C与C++中struct内容：见[struct那些事](struct.md)">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 与 class 区别 | C++那些事", "description": "关于C与C++中struct内容：见[struct那些事](struct.md)", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 与 class 区别 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 与 class 的区别详解 | C++那些事", "description": "关于C与C++中struct内容：见[struct那些事](struct.md)", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 与 class 的区别详解 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "struct 和 class 唯一的区别是什么？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "默认访问权限和默认继承方式：struct 默认 public，class 默认 private；除此之外两者在 C++ 里完全等价。"}}, {"@type": "Question", "name": "struct 能有构造函数和虚函数吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "能。C++ 的 struct 就是类，支持构造、析构、虚函数、模板等全部语言特性。"}}, {"@type": "Question", "name": "什么时候该用 struct？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "习惯上：只聚合数据、没有不变量需要维护时用 struct；一旦有封装和不变量约束，就用 class。"}}]}</script>
   </head>
   
   
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ struct 与 class 区别 | C++那些事
+              C++ struct 与 class 的区别详解 | C++那些事
             
           </span>
         </div>
@@ -1225,6 +1226,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struct-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      struct 和 class 唯一的区别是什么？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      struct 能有构造函数和虚函数吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候该用 struct？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5380,6 +5423,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struct-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      struct 和 class 唯一的区别是什么？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      struct 能有构造函数和虚函数吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候该用 struct？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5409,23 +5494,30 @@
 <blockquote>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-struct-class">C++ struct 与 class 区别<a class="headerlink" href="#c-struct-class" title="Permanent link">&para;</a></h1>
+<h1 id="c-struct-class">C++ struct 与 class 的区别详解<a class="headerlink" href="#c-struct-class" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ struct 与 class 区别 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ struct 与 class 的区别详解 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>关于C与C++中struct内容：见<a href="../struct/">struct那些事</a></p>
 <p>总的来说，struct 更适合看成是一个数据结构的实现体，class 更适合看成是一个对象的实现体。</p>
 <p>区别:</p>
 <p>最本质的一个区别就是默认的访问控制</p>
 <p>默认的继承访问权限。struct 是 public 的，class 是 private 的。</p>
 <p>struct 作为数据结构的实现体，它默认的数据访问控制是 public 的，而 class 作为对象的实现体，它默认的成员变量访问控制是 private 的。</p>
-<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="struct-class">struct 和 class 唯一的区别是什么？<a class="headerlink" href="#struct-class" title="Permanent link">&para;</a></h3>
+<p>默认访问权限和默认继承方式：struct 默认 public，class 默认 private；除此之外两者在 C++ 里完全等价。</p>
+<h3 id="struct">struct 能有构造函数和虚函数吗？<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h3>
+<p>能。C++ 的 struct 就是类，支持构造、析构、虚函数、模板等全部语言特性。</p>
+<h3 id="struct_1">什么时候该用 struct？<a class="headerlink" href="#struct_1" title="Permanent link">&para;</a></h3>
+<p>习惯上：只聚合数据、没有不变量需要维护时用 struct；一旦有封装和不变量约束，就用 class。</p>
+<h2 id="_3">相关主题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>

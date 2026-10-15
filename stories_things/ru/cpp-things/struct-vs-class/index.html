@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ различия struct и class,основы C++"> 
-    <meta name="title" content="C++ различия struct и class | C++那些事"> 
+    <meta name="title" content="struct и class в C++: ключевые различия | C++那些事"> 
 
     
       
-        <title>C++ различия struct и class | C++那些事 - C++那些事</title>
+        <title>struct и class в C++: ключевые различия | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct-vs-class/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct-vs-class/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ различия struct и class | C++那些事">
+      <meta property="og:title" content="struct и class в C++: ключевые различия | C++那些事">
       <meta property="og:description" content="О struct в C и C++: см. [struct那些事](struct.md)">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ различия struct и class | C++那些事">
+      <meta name="twitter:title" content="struct и class в C++: ключевые различия | C++那些事">
       <meta name="twitter:description" content="О struct в C и C++: см. [struct那些事](struct.md)">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ различия struct и class | C++那些事", "description": "О struct в C и C++: см. [struct那些事](struct.md)", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ различия struct и class | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "struct и class в C++: ключевые различия | C++那些事", "description": "О struct в C и C++: см. [struct那些事](struct.md)", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "struct и class в C++: ключевые различия | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ru", "mainEntity": [{"@type": "Question", "name": "Единственное различие struct и class?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Доступ и наследование по умолчанию: struct — public, class — private. В остальном они в C++ полностью эквивалентны."}}, {"@type": "Question", "name": "Может ли struct иметь конструкторы и виртуальные функции?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Да: struct в C++ — это класс со всеми возможностями, включая конструкторы, виртуальные функции и шаблоны."}}, {"@type": "Question", "name": "Когда выбирать struct?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "По соглашению — для простых агрегатов данных без инвариантов; при появлении инкапсуляции и инвариантов — class."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-struct-class" class="md-skip">
+        <a href="#struct-class-c" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ различия struct и class | C++那些事
+              struct и class в C++: ключевые различия | C++那些事
             
           </span>
         </div>
@@ -1224,6 +1225,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struct-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Единственное различие struct и class?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли struct иметь конструкторы и виртуальные функции?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Когда выбирать struct?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5379,6 +5422,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#struct-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Единственное различие struct и class?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли struct иметь конструкторы и виртуальные функции?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Когда выбирать struct?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       Похожие темы
     </span>
   </a>
@@ -5406,25 +5491,32 @@
 
 
 <blockquote>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p><strong>Последнее обновление：2026-10-15</strong></p>
 </blockquote>
-<h1 id="c-struct-class">C++ различия struct и class<a class="headerlink" href="#c-struct-class" title="Permanent link">&para;</a></h1>
+<h1 id="struct-class-c">struct и class в C++<a class="headerlink" href="#struct-class-c" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Личный официальный аккаунт:</p>
-<p><img alt="C++ различия struct и class | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="struct и class в C++: ключевые различия | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>О struct в C и C++: см. <a href="../struct/">struct那些事</a></p>
 <p>В целом struct лучше рассматривать как реализацию структуры данных, а class — как реализацию объекта.</p>
 <p>Различия:</p>
 <p>Самое принципиальное различие — это управление доступом по умолчанию</p>
 <p>Права доступа при наследовании по умолчанию: для struct они public, для class — private.</p>
 <p>struct как реализация структуры данных имеет управление доступом к данным по умолчанию public, тогда как class как реализация объекта имеет управление доступом к переменным-членам по умолчанию private.</p>
-<h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Частые вопросы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="struct-class">Единственное различие struct и class?<a class="headerlink" href="#struct-class" title="Permanent link">&para;</a></h3>
+<p>Доступ и наследование по умолчанию: struct — public, class — private. В остальном они в C++ полностью эквивалентны.</p>
+<h3 id="struct">Может ли struct иметь конструкторы и виртуальные функции?<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h3>
+<p>Да: struct в C++ — это класс со всеми возможностями, включая конструкторы, виртуальные функции и шаблоны.</p>
+<h3 id="struct_1">Когда выбирать struct?<a class="headerlink" href="#struct_1" title="Permanent link">&para;</a></h3>
+<p>По соглашению — для простых агрегатов данных без инвариантов; при появлении инкапсуляции и инвариантов — class.</p>
+<h2 id="_3">Похожие темы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>
 <li><a href="../bit/">C++ битовые поля | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Реализация полиморфизма C++ на языке C | C++那些事</a></li>
-<li><a href="../const/">Константы и квалификаторы const в C++ | C++那些事</a></li>
+<li><a href="../const/">C++ const подробно: константы, указатель на const и const-указатель | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ всё семейство const | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ оператор разыменования * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ инициализация и присваивание | C++那些事</a></li>

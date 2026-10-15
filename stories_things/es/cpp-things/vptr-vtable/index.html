@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="mecanismo de puntero virtual y tabla virtual en C++,fundamentos de C++"> 
-    <meta name="title" content="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事"> 
+    <meta name="title" content="vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事"> 
 
     
       
-        <title>Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事 - C++那些事</title>
+        <title>vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/vptr-vtable/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事">
+      <meta property="og:title" content="vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事">
       <meta property="og:description" content="Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como &quot;vtable&quot;, &quot;tabla de funciones virtuales&quot;, &quot;tabla de métodos virtuales&quot; o &quot;tabla de despacho&quot;.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事">
+      <meta name="twitter:title" content="vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事">
       <meta name="twitter:description" content="Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como &quot;vtable&quot;, &quot;tabla de funciones virtuales&quot;, &quot;tabla de métodos virtuales&quot; o &quot;tabla de despacho&quot;.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事", "description": "Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como \"vtable\", \"tabla de funciones virtuales\", \"tabla de métodos virtuales\" o \"tabla de despacho\".", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事", "description": "Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como \"vtable\", \"tabla de funciones virtuales\", \"tabla de métodos virtuales\" o \"tabla de despacho\".", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuándo se genera la vtable?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "En tiempo de compilación, una por cada clase con funciones virtuales. Cada objeto guarda un único vptr a la tabla de su clase; el despacho en ejecución es una búsqueda a través de ese puntero."}}, {"@type": "Question", "name": "¿Todas las clases tienen vtable?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No. Solo las que declaran (o heredan) funciones virtuales; las clases de datos simples no llevan vptr ni sobrecoste de polimorfismo."}}, {"@type": "Question", "name": "¿Las llamadas virtuales son mucho más lentas?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Añaden un nivel de indirección por el vptr; con la predicción de ramas moderna la diferencia suele ser insignificante. Solo las rutas muy calientes justifican evitarla."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mecanismo-de-puntero-virtual-y-tabla-virtual-en-c" class="md-skip">
+        <a href="#vtable-y-vptr-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事
+              vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事
             
           </span>
         </div>
@@ -929,6 +930,48 @@
       2. Implementación y estructura interna
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-genera-la-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo se genera la vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todas-las-clases-tienen-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Todas las clases tienen vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-llamadas-virtuales-son-mucho-mas-lentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Las llamadas virtuales son mucho más lentas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5413,6 +5456,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-genera-la-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo se genera la vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todas-las-clases-tienen-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Todas las clases tienen vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#las-llamadas-virtuales-son-mucho-mas-lentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Las llamadas virtuales son mucho más lentas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5442,12 +5527,12 @@
 
 
 <blockquote>
-<p><strong>Última actualización：2026-10-12</strong></p>
+<p><strong>Última actualización：2026-10-15</strong></p>
 </blockquote>
-<h1 id="mecanismo-de-puntero-virtual-y-tabla-virtual-en-c">Mecanismo de puntero virtual y tabla virtual en C++<a class="headerlink" href="#mecanismo-de-puntero-virtual-y-tabla-virtual-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="vtable-y-vptr-en-c">vtable y vptr en C++<a class="headerlink" href="#vtable-y-vptr-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública personal:</p>
-<p><img alt="Mecanismo de puntero virtual y tabla virtual en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="vtable y vptr en C++: cómo funciona el despacho virtual | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-teoria-basica">1. Teoría básica<a class="headerlink" href="#1-teoria-basica" title="Permanent link">&para;</a></h2>
 <p>Para implementar las funciones virtuales, C++ usa una forma especial de enlace tardío denominada tabla virtual. Dicha tabla virtual es una tabla de búsqueda que sirve para resolver, mediante enlace dinámico/tardío, las llamadas a funciones. La tabla virtual recibe a veces otros nombres, como "vtable", "tabla de funciones virtuales", "tabla de métodos virtuales" o "tabla de despacho".</p>
 <p>La tabla virtual es en realidad muy sencilla, aunque describirla con palabras sea un poco complicado. Primero, <strong>cada clase que usa funciones virtuales (o que deriva de una clase que usa funciones virtuales) tiene su propia tabla virtual</strong>. Esa tabla es simplemente un arreglo estático que el compilador construye en tiempo de compilación. La tabla virtual contiene una entrada por cada función virtual que puede ser invocada por los objetos de la clase. Cada entrada de esta tabla es solo un puntero a función, que apunta a la función derivada más accesible para esa clase.</p>
@@ -5632,13 +5717,20 @@
 </span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">   </span><span class="mh">0x0000000000400efe</span><span class="w"> </span><span class="o">&lt;+</span><span class="mi">42</span><span class="o">&gt;:</span><span class="w">    </span><span class="n">retq</span><span class="w">   </span>
 </span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">assembler</span><span class="w"> </span><span class="n">dump</span><span class="p">.</span>
 </span></code></pre></div>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="cuando-se-genera-la-vtable">¿Cuándo se genera la vtable?<a class="headerlink" href="#cuando-se-genera-la-vtable" title="Permanent link">&para;</a></h3>
+<p>En tiempo de compilación, una por cada clase con funciones virtuales. Cada objeto guarda un único vptr a la tabla de su clase; el despacho en ejecución es una búsqueda a través de ese puntero.</p>
+<h3 id="todas-las-clases-tienen-vtable">¿Todas las clases tienen vtable?<a class="headerlink" href="#todas-las-clases-tienen-vtable" title="Permanent link">&para;</a></h3>
+<p>No. Solo las que declaran (o heredan) funciones virtuales; las clases de datos simples no llevan vptr ni sobrecoste de polimorfismo.</p>
+<h3 id="las-llamadas-virtuales-son-mucho-mas-lentas">¿Las llamadas virtuales son mucho más lentas?<a class="headerlink" href="#las-llamadas-virtuales-son-mucho-mas-lentas" title="Permanent link">&para;</a></h3>
+<p>Añaden un nivel de indirección por el vptr; con la predicción de ramas moderna la diferencia suele ser insignificante. Solo las rutas muy calientes justifican evitarla.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
+<li><a href="../const/">const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

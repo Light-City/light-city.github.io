@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="diferencias y uso de struct y class en C++,fundamentos de C++"> 
-    <meta name="title" content="Diferencias entre struct y class en C++ | C++那些事"> 
+    <meta name="title" content="struct vs class en C++: diferencias clave explicadas | C++那些事"> 
 
     
       
-        <title>Diferencias entre struct y class en C++ | C++那些事 - C++那些事</title>
+        <title>struct vs class en C++: diferencias clave explicadas | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct-vs-class/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct-vs-class/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Diferencias entre struct y class en C++ | C++那些事">
+      <meta property="og:title" content="struct vs class en C++: diferencias clave explicadas | C++那些事">
       <meta property="og:description" content="Sobre el contenido de struct en C y C++: ver [temas sobre struct](struct.md)">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Diferencias entre struct y class en C++ | C++那些事">
+      <meta name="twitter:title" content="struct vs class en C++: diferencias clave explicadas | C++那些事">
       <meta name="twitter:description" content="Sobre el contenido de struct en C y C++: ver [temas sobre struct](struct.md)">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Diferencias entre struct y class en C++ | C++那些事", "description": "Sobre el contenido de struct en C y C++: ver [temas sobre struct](struct.md)", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Diferencias entre struct y class en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "struct vs class en C++: diferencias clave explicadas | C++那些事", "description": "Sobre el contenido de struct en C y C++: ver [temas sobre struct](struct.md)", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "struct vs class en C++: diferencias clave explicadas | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/struct-vs-class/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuál es la única diferencia entre struct y class?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "El acceso y la herencia por defecto: struct es public por defecto, class es private. Fuera de eso son totalmente equivalentes en C++."}}, {"@type": "Question", "name": "¿Puede un struct tener constructores y funciones virtuales?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Un struct de C++ es una clase: admite constructores, destructores, funciones virtuales y plantillas."}}, {"@type": "Question", "name": "¿Cuándo usar struct?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Por convención, struct para agregados de datos sin invariantes; class en cuanto aparece encapsulación o invariantes."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#diferencias-entre-struct-y-class-en-c" class="md-skip">
+        <a href="#struct-vs-class-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Diferencias entre struct y class en C++ | C++那些事
+              struct vs class en C++: diferencias clave explicadas | C++那些事
             
           </span>
         </div>
@@ -1219,6 +1220,48 @@
       Sobre el autor:
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cual-es-la-unica-diferencia-entre-struct-y-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuál es la única diferencia entre struct y class?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puede-un-struct-tener-constructores-y-funciones-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puede un struct tener constructores y funciones virtuales?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo usar struct?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5377,6 +5420,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cual-es-la-unica-diferencia-entre-struct-y-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuál es la única diferencia entre struct y class?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puede-un-struct-tener-constructores-y-funciones-virtuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Puede un struct tener constructores y funciones virtuales?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-usar-struct" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo usar struct?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5406,25 +5491,32 @@
 
 
 <blockquote>
-<p><strong>Última actualización：2026-10-12</strong></p>
+<p><strong>Última actualización：2026-10-15</strong></p>
 </blockquote>
-<h1 id="diferencias-entre-struct-y-class-en-c">Diferencias entre struct y class en C++<a class="headerlink" href="#diferencias-entre-struct-y-class-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="struct-vs-class-en-c">struct vs class en C++<a class="headerlink" href="#struct-vs-class-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública personal:</p>
-<p><img alt="Diferencias entre struct y class en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="struct vs class en C++: diferencias clave explicadas | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>Sobre el contenido de struct en C y C++: ver <a href="../struct/">temas sobre struct</a></p>
 <p>En términos generales, struct se presta mejor a ser visto como la implementación de una estructura de datos, mientras que class se presta mejor a ser visto como la implementación de un objeto.</p>
 <p>Diferencias:</p>
 <p>La diferencia más esencial está en el control de acceso por defecto</p>
 <p>Los permisos de acceso por defecto en la herencia: en struct son public, y en class son private.</p>
 <p>Como implementación de una estructura de datos, el control de acceso a sus datos por defecto en struct es public, mientras que, como implementación de un objeto, el control de acceso a sus variables miembro por defecto en class es private.</p>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="cual-es-la-unica-diferencia-entre-struct-y-class">¿Cuál es la única diferencia entre struct y class?<a class="headerlink" href="#cual-es-la-unica-diferencia-entre-struct-y-class" title="Permanent link">&para;</a></h3>
+<p>El acceso y la herencia por defecto: struct es public por defecto, class es private. Fuera de eso son totalmente equivalentes en C++.</p>
+<h3 id="puede-un-struct-tener-constructores-y-funciones-virtuales">¿Puede un struct tener constructores y funciones virtuales?<a class="headerlink" href="#puede-un-struct-tener-constructores-y-funciones-virtuales" title="Permanent link">&para;</a></h3>
+<p>Sí. Un struct de C++ es una clase: admite constructores, destructores, funciones virtuales y plantillas.</p>
+<h3 id="cuando-usar-struct">¿Cuándo usar struct?<a class="headerlink" href="#cuando-usar-struct" title="Permanent link">&para;</a></h3>
+<p>Por convención, struct para agregados de datos sin invariantes; class en cuanto aparece encapsulación o invariantes.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
+<li><a href="../const/">const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

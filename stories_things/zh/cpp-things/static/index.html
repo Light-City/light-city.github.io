@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ static 静态成员与生存期用法,C++基础"> 
-    <meta name="title" content="C++ static 静态成员与生存期 | C++那些事"> 
+    <meta name="title" content="C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事"> 
 
     
       
-        <title>C++ static 静态成员与生存期 | C++那些事 - C++那些事</title>
+        <title>C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/static/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/static/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ static 静态成员与生存期 | C++那些事">
+      <meta property="og:title" content="C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事">
       <meta property="og:description" content="当与不同类型一起使用时，Static关键字具有不同的含义。我们可以使用static关键字：">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/static/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ static 静态成员与生存期 | C++那些事">
+      <meta name="twitter:title" content="C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事">
       <meta name="twitter:description" content="当与不同类型一起使用时，Static关键字具有不同的含义。我们可以使用static关键字：">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static 静态成员与生存期 | C++那些事", "description": "当与不同类型一起使用时，Static关键字具有不同的含义。我们可以使用static关键字：", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static 静态成员与生存期 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事", "description": "当与不同类型一起使用时，Static关键字具有不同的含义。我们可以使用static关键字：", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "static 全局变量和普通全局变量有什么区别？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "static 全局变量具有内部链接，只在本编译单元可见；普通全局变量跨文件可见，容易引发符号冲突。"}}, {"@type": "Question", "name": "static 局部变量什么时候初始化？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "程序首次执行到它的定义处初始化一次，C++11 起这个初始化是线程安全的，生命周期持续到程序结束。"}}, {"@type": "Question", "name": "静态成员函数能访问非静态成员吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "不能。静态成员函数没有 this 指针，只能访问静态成员变量和静态成员函数。"}}]}</script>
   </head>
   
   
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ static 静态成员与生存期 | C++那些事
+              C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事
             
           </span>
         </div>
@@ -904,6 +905,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      static 全局变量和普通全局变量有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      static 局部变量什么时候初始化？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态成员函数能访问非静态成员吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5398,6 +5441,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      static 全局变量和普通全局变量有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      static 局部变量什么时候初始化？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态成员函数能访问非静态成员吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5427,10 +5512,10 @@
 <blockquote>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-static">C++ static 静态成员与生存期<a class="headerlink" href="#c-static" title="Permanent link">&para;</a></h1>
+<h1 id="c-static">C++ static 详解：静态变量、静态成员与静态函数<a class="headerlink" href="#c-static" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>微信公众号：</p>
-<p><img alt="C++ static 静态成员与生存期 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ static 详解：静态变量、静态成员与静态函数的用法 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>当与不同类型一起使用时，Static关键字具有不同的含义。我们可以使用static关键字：</p>
 <p><strong>静态变量：</strong> 函数中的变量，类中的变量</p>
 <p><strong>静态类的成员：</strong> 类对象和类中的函数</p>
@@ -5670,13 +5755,20 @@ g++对于上面两个代码文件是可以正常编译并且打印Hello World!�
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">also_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="static_1">static 全局变量和普通全局变量有什么区别？<a class="headerlink" href="#static_1" title="Permanent link">&para;</a></h3>
+<p>static 全局变量具有内部链接，只在本编译单元可见；普通全局变量跨文件可见，容易引发符号冲突。</p>
+<h3 id="static_2">static 局部变量什么时候初始化？<a class="headerlink" href="#static_2" title="Permanent link">&para;</a></h3>
+<p>程序首次执行到它的定义处初始化一次，C++11 起这个初始化是线程安全的，生命周期持续到程序结束。</p>
+<h3 id="_3">静态成员函数能访问非静态成员吗？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>不能。静态成员函数没有 this 指针，只能访问静态成员变量和静态成员函数。</p>
+<h2 id="_4">相关主题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>

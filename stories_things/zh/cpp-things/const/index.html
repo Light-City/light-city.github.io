@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ const 常量与修饰用法,C++基础"> 
-    <meta name="title" content="C++ const 常量与修饰 | C++那些事"> 
+    <meta name="title" content="C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事"> 
 
     
       
-        <title>C++ const 常量与修饰 | C++那些事 - C++那些事</title>
+        <title>C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ const 常量与修饰 | C++那些事">
+      <meta property="og:title" content="C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事">
       <meta property="og:description" content="常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ const 常量与修饰 | C++那些事">
+      <meta name="twitter:title" content="C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事">
       <meta name="twitter:description" content="常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const 常量与修饰 | C++那些事", "description": "常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ const 常量与修饰 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事", "description": "常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "常量指针和指针常量有什么区别？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "const int* p 是指向常量的指针，指向的内容不可修改；int* const p 是指针常量，指针本身不可修改。记忆方法：const 在 * 左边修饰内容，在 * 右边修饰指针。"}}, {"@type": "Question", "name": "const 对象能调用非 const 成员函数吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "不能。const 对象只能调用 const 成员函数，因为编译器要保证成员函数不修改对象状态；非 const 对象则两类成员函数都能调用。"}}, {"@type": "Question", "name": "用 const 还是 #define 定义常量？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "优先 const：它有类型检查、遵守作用域规则、可以调试；#define 只是预处理文本替换，没有类型信息，也不支持命名空间。"}}]}</script>
   </head>
   
   
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ const 常量与修饰 | C++那些事
+              C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事
             
           </span>
         </div>
@@ -936,6 +937,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常量指针和指针常量有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      const 对象能调用非 const 成员函数吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      用 const 还是 #define 定义常量？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5506,6 +5549,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常量指针和指针常量有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      const 对象能调用非 const 成员函数吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      用 const 还是 #define 定义常量？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5536,10 +5621,10 @@
 <p>💡 <strong>一分钟速览</strong>：常类型是指使用类型修饰符const说明的类型，常类型的变量或对象的值是不能被更新的。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-const">C++ const 常量与修饰<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
+<h1 id="c-const">C++ const 详解：常量、常量指针与指针常量的区别<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>微信公众号：</p>
-<p><img alt="C++ const 常量与修饰 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1const">1.const含义<a class="headerlink" href="#1const" title="Permanent link">&para;</a></h2>
 <p>常类型是指使用类型修饰符**const**说明的类型，常类型的变量或对象的值是不能被更新的。</p>
 <h2 id="2const">2.const作用<a class="headerlink" href="#2const" title="Permanent link">&para;</a></h2>
@@ -5856,7 +5941,14 @@ void func(const A &amp;a)。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
 <p>对于此项，c++11不能进行声明并初始化，也就是上述使用方法。</p>
-<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">常量指针和指针常量有什么区别？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>const int* p 是指向常量的指针，指向的内容不可修改；int* const p 是指针常量，指针本身不可修改。记忆方法：const 在 * 左边修饰内容，在 * 右边修饰指针。</p>
+<h3 id="const-const">const 对象能调用非 const 成员函数吗？<a class="headerlink" href="#const-const" title="Permanent link">&para;</a></h3>
+<p>不能。const 对象只能调用 const 成员函数，因为编译器要保证成员函数不修改对象状态；非 const 对象则两类成员函数都能调用。</p>
+<h3 id="const-define">用 const 还是 #define 定义常量？<a class="headerlink" href="#const-define" title="Permanent link">&para;</a></h3>
+<p>优先 const：它有类型检查、遵守作用域规则、可以调试；#define 只是预处理文本替换，没有类型信息，也不支持命名空间。</p>
+<h2 id="_4">相关主题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>

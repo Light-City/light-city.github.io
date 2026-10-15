@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ 虚指针与虚表机制用法,C++基础"> 
-    <meta name="title" content="C++ 虚指针与虚表机制 | C++那些事"> 
+    <meta name="title" content="C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事"> 
 
     
       
-        <title>C++ 虚指针与虚表机制 | C++那些事 - C++那些事</title>
+        <title>C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/vptr-vtable/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ 虚指针与虚表机制 | C++那些事">
+      <meta property="og:title" content="C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事">
       <meta property="og:description" content="为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ 虚指针与虚表机制 | C++那些事">
+      <meta name="twitter:title" content="C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事">
       <meta name="twitter:description" content="为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 虚指针与虚表机制 | C++那些事", "description": "为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ 虚指针与虚表机制 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事", "description": "为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "虚函数表是什么时候生成的？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "编译期生成，每个含虚函数的类一张表；对象里只存一个 vptr 指向所属类的虚表，运行期经 vptr 查表完成动态分发。"}}, {"@type": "Question", "name": "所有类都有虚函数表吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "没有。只有声明了虚函数（或继承了虚函数）的类才有虚表；纯数据类对象不含 vptr，也不承担多态开销。"}}, {"@type": "Question", "name": "虚函数调用比普通函数慢很多吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "只多一次经 vptr 的间接寻址，现代 CPU 分支预测下差距通常可忽略；只有在极热的路径上才值得为它做优化。"}}]}</script>
   </head>
   
   
@@ -124,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c" class="md-skip">
+        <a href="#c-vtablevptr" class="md-skip">
           跳转至
         </a>
       
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 虚指针与虚表机制 | C++那些事
+              C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事
             
           </span>
         </div>
@@ -935,6 +936,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚函数表是什么时候生成的？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      所有类都有虚函数表吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚函数调用比普通函数慢很多吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5416,6 +5459,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚函数表是什么时候生成的？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      所有类都有虚函数表吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚函数调用比普通函数慢很多吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5445,10 +5530,10 @@
 <blockquote>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c">C++ 虚指针与虚表机制<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<h1 id="c-vtablevptr">C++ 虚函数表（vtable）与虚指针（vptr）机制详解<a class="headerlink" href="#c-vtablevptr" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ 虚指针与虚表机制 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ 虚函数表（vtable）与虚指针（vptr）机制详解 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.基础理论<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>为了实现虚函数，C ++使用一种称为虚拟表的特殊形式的后期绑定。该虚拟表是用于解决在动态/后期绑定方式的函数调用函数的查找表。虚拟表有时会使用其他名称，例如“vtable”，“虚函数表”，“虚方法表”或“调度表”。</p>
 <p>虚拟表实际上非常简单，虽然用文字描述有点复杂。首先，<strong>每个使用虚函数的类（或者从使用虚函数的类派生）都有自己的虚拟表</strong>。该表只是编译器在编译时设置的静态数组。虚拟表包含可由类的对象调用的每个虚函数的一个条目。此表中的每个条目只是一个函数指针，指向该类可访问的派生函数。</p>
@@ -5633,13 +5718,20 @@
 </span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">   </span><span class="mh">0x0000000000400efe</span><span class="w"> </span><span class="o">&lt;+</span><span class="mi">42</span><span class="o">&gt;:</span><span class="w">    </span><span class="n">retq</span><span class="w">   </span>
 </span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">assembler</span><span class="w"> </span><span class="n">dump</span><span class="p">.</span>
 </span></code></pre></div>
-<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">常见问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">虚函数表是什么时候生成的？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>编译期生成，每个含虚函数的类一张表；对象里只存一个 vptr 指向所属类的虚表，运行期经 vptr 查表完成动态分发。</p>
+<h3 id="_4">所有类都有虚函数表吗？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>没有。只有声明了虚函数（或继承了虚函数）的类才有虚表；纯数据类对象不含 vptr，也不承担多态开销。</p>
+<h3 id="_5">虚函数调用比普通函数慢很多吗？<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>只多一次经 vptr 的间接寻址，现代 CPU 分支预测下差距通常可忽略；只有在极热的路径上才值得为它做优化。</p>
+<h2 id="_6">相关主题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>

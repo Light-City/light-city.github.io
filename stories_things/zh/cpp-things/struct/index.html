@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
+        <meta name="description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    
-    
+    <meta name="keywords" content="C++ struct 结构体用法,C++基础"> 
+    <meta name="title" content="C++ struct 结构体 | C++那些事"> 
 
     
       
-        <title>C++ struct 结构体 - C++那些事</title>
+        <title>C++ struct 结构体 | C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ struct 结构体">
-      <meta property="og:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
+      <meta property="og:title" content="C++ struct 结构体 | C++那些事">
+      <meta property="og:description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/struct/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -102,11 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ struct 结构体">
-      <meta name="twitter:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
+      <meta name="twitter:title" content="C++ struct 结构体 | C++那些事">
+      <meta name="twitter:description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 结构体", "description": "Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 结构体", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 结构体 | C++那些事", "description": "C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 结构体 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct/"}]}</script>
   </head>
   
   
@@ -163,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ struct 结构体
+              C++ struct 结构体 | C++那些事
             
           </span>
         </div>
@@ -5491,18 +5491,13 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<hr />
-<p>comments: true
-keywords: C++ struct 结构体用法,C++基础
-description: "struct Base {            // public int v1; //    public:      //error int v2; //private: int v3; //void print{       // c中不能在结构体中嵌入函数 //    printf'%s\"
-title: C++ struct 结构体 | C++那些事</p>
-<hr />
 <h1 id="c-struct">C++ struct 结构体<a class="headerlink" href="#c-struct" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ struct 结构体" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ struct 结构体 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1cstruct">1.C中struct<a class="headerlink" href="#1cstruct" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在C中struct只单纯的用作数据的复合类型，也就是说，在结构体声明中只能将数据成员放在里面，而不能将函数放在里面。 </li>
@@ -5729,7 +5724,7 @@ title: C++ struct 结构体 | C++那些事</p>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>
@@ -5743,12 +5738,69 @@ title: C++ struct 结构体 | C++那些事</p>
 
 
 
+  
+  
+
 
 
   
 
 
 
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Light-City/light-comments"
+          data-repo-id="R_kgDOLcVr-w"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOLcVr-84CdwfH"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
   

@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ 指针与引用用法,C++基础"> 
-    <meta name="title" content="C++ 指针与引用 | C++那些事"> 
+    <meta name="title" content="C++ 指针与引用的区别详解 | C++那些事"> 
 
     
       
-        <title>C++ 指针与引用 | C++那些事 - C++那些事</title>
+        <title>C++ 指针与引用的区别详解 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/pointer-vs-reference/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/pointer-vs-reference/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ 指针与引用 | C++那些事">
+      <meta property="og:title" content="C++ 指针与引用的区别详解 | C++那些事">
       <meta property="og:description" content="我们在定义一个引用的时候必须为其指定一个初始值，但是指针却不需要。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/">
       <meta property="og:site_name" content="C++那些事">
@@ -102,11 +102,12 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ 指针与引用 | C++那些事">
+      <meta name="twitter:title" content="C++ 指针与引用的区别详解 | C++那些事">
       <meta name="twitter:description" content="我们在定义一个引用的时候必须为其指定一个初始值，但是指针却不需要。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 指针与引用 | C++那些事", "description": "我们在定义一个引用的时候必须为其指定一个初始值，但是指针却不需要。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ 指针与引用 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 指针与引用的区别详解 | C++那些事", "description": "我们在定义一个引用的时候必须为其指定一个初始值，但是指针却不需要。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ 指针与引用的区别详解 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "指针和引用最核心的区别是什么？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "引用必须初始化且终身不能改绑到别的对象，也不存在空引用；指针可以不初始化、可以重新指向、可以为 nullptr，还有多级指针。"}}, {"@type": "Question", "name": "函数参数用引用还是指针？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "需要修改调用方对象且不允许“不传”时用引用更安全直观；需要表达“可以为空”、需要在容器中存储或重新指向时用指针。"}}, {"@type": "Question", "name": "C++ 里存在空引用吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "标准层面不存在。对空指针解引用得到的“引用”是未定义行为，写代码时不应依赖。"}}]}</script>
   </head>
   
   
@@ -163,7 +164,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ 指针与引用 | C++那些事
+              C++ 指针与引用的区别详解 | C++那些事
             
           </span>
         </div>
@@ -1030,6 +1031,48 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      指针和引用最核心的区别是什么？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数参数用引用还是指针？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里存在空引用吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5518,6 +5561,48 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      指针和引用最核心的区别是什么？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数参数用引用还是指针？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里存在空引用吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5547,10 +5632,10 @@
 <blockquote>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c">C++ 指针与引用<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+<h1 id="c">C++ 指针与引用的区别详解<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ 指针与引用 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ 指针与引用的区别详解 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1">1.引用与指针<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>总论：</p>
 <table>
@@ -5696,13 +5781,20 @@
 <h2 id="3_1">3.总结<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
 <p>C++中引入了引用操作，在对引用的使用加了更多限制条件的情况下，保证了引用使用的安全性和便捷性，还可以保持代码的优雅性。在适合的情况使用适合的操作，引用的使用可以一定程度避免“指针满天飞”的情况，对于提升程序稳定性也有一定的积极意义。最后，指针与引用底层实现都是一样的，不用担心两者的性能差距。</p>
 <p>上述部分参考自：<a href="http://irootlee.com/juicer_pointer_reference/#">http://irootlee.com/juicer_pointer_reference/#</a></p>
-<h2 id="_5">相关主题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">常见问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">指针和引用最核心的区别是什么？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>引用必须初始化且终身不能改绑到别的对象，也不存在空引用；指针可以不初始化、可以重新指向、可以为 nullptr，还有多级指针。</p>
+<h3 id="_7">函数参数用引用还是指针？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>需要修改调用方对象且不允许“不传”时用引用更安全直观；需要表达“可以为空”、需要在容器中存储或重新指向时用指针。</p>
+<h3 id="c_1">C++ 里存在空引用吗？<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h3>
+<p>标准层面不存在。对空指针解引用得到的“引用”是未定义行为，写代码时不应依赖。</p>
+<h2 id="_8">相关主题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>
 <li><a href="../bit/">C++ 位域 | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 语言实现 C++ 多态 | C++那些事</a></li>
-<li><a href="../const/">C++ const 常量与修饰 | C++那些事</a></li>
+<li><a href="../const/">C++ const 详解：常量、常量指针与指针常量的区别 | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const 全家桶 | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 解引用运算符 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初始化与赋值 | C++那些事</a></li>

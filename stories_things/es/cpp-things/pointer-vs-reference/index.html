@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="uso de punteros y referencias en C++,fundamentos de C++"> 
-    <meta name="title" content="Punteros y referencias en C++ | C++那些事"> 
+    <meta name="title" content="Puntero vs referencia en C++: diferencias clave explicadas | C++那些事"> 
 
     
       
-        <title>Punteros y referencias en C++ | C++那些事 - C++那些事</title>
+        <title>Puntero vs referencia en C++: diferencias clave explicadas | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/pointer-vs-reference/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/pointer-vs-reference/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Punteros y referencias en C++ | C++那些事">
+      <meta property="og:title" content="Puntero vs referencia en C++: diferencias clave explicadas | C++那些事">
       <meta property="og:description" content="Al definir una referencia debemos asignarle obligatoriamente un valor inicial, mientras que un puntero no lo necesita.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Punteros y referencias en C++ | C++那些事">
+      <meta name="twitter:title" content="Puntero vs referencia en C++: diferencias clave explicadas | C++那些事">
       <meta name="twitter:description" content="Al definir una referencia debemos asignarle obligatoriamente un valor inicial, mientras que un puntero no lo necesita.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Punteros y referencias en C++ | C++那些事", "description": "Al definir una referencia debemos asignarle obligatoriamente un valor inicial, mientras que un puntero no lo necesita.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Punteros y referencias en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Puntero vs referencia en C++: diferencias clave explicadas | C++那些事", "description": "Al definir una referencia debemos asignarle obligatoriamente un valor inicial, mientras que un puntero no lo necesita.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-15"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Puntero vs referencia en C++: diferencias clave explicadas | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/pointer-vs-reference/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuál es la diferencia esencial entre puntero y referencia?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "La referencia debe inicializarse y nunca se rebinda a otro objeto, y no existe referencia nula. El puntero puede reinicializarse, ser nulo y tener varios niveles."}}, {"@type": "Question", "name": "¿Una función debe recibir referencia o puntero?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Referencia si debe modificar el objeto del llamador y null no es una opción; puntero para expresar opcionalidad, almacenarlo en contenedores o cambiar su destino."}}, {"@type": "Question", "name": "¿Existe la referencia nula en C++?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No según el estándar. Ligar una referencia a un puntero nulo desreferenciado es comportamiento indefinido."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#punteros-y-referencias-en-c" class="md-skip">
+        <a href="#puntero-vs-referencia-en-c" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Punteros y referencias en C++ | C++那些事
+              Puntero vs referencia en C++: diferencias clave explicadas | C++那些事
             
           </span>
         </div>
@@ -1024,6 +1025,48 @@
       3. Resumen
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cual-es-la-diferencia-esencial-entre-puntero-y-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuál es la diferencia esencial entre puntero y referencia?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#una-funcion-debe-recibir-referencia-o-puntero" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Una función debe recibir referencia o puntero?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existe-la-referencia-nula-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Existe la referencia nula en C++?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5515,6 +5558,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cual-es-la-diferencia-esencial-entre-puntero-y-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuál es la diferencia esencial entre puntero y referencia?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#una-funcion-debe-recibir-referencia-o-puntero" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Una función debe recibir referencia o puntero?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existe-la-referencia-nula-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Existe la referencia nula en C++?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5544,12 +5629,12 @@
 
 
 <blockquote>
-<p><strong>Última actualización：2026-10-12</strong></p>
+<p><strong>Última actualización：2026-10-15</strong></p>
 </blockquote>
-<h1 id="punteros-y-referencias-en-c">Punteros y referencias en C++<a class="headerlink" href="#punteros-y-referencias-en-c" title="Permanent link">&para;</a></h1>
+<h1 id="puntero-vs-referencia-en-c">Puntero vs referencia en C++<a class="headerlink" href="#puntero-vs-referencia-en-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-el-autor">Sobre el autor:<a class="headerlink" href="#sobre-el-autor" title="Permanent link">&para;</a></h2>
 <p>Cuenta pública personal:</p>
-<p><img alt="Punteros y referencias en C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="Puntero vs referencia en C++: diferencias clave explicadas | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-referencias-y-punteros">1. Referencias y punteros<a class="headerlink" href="#1-referencias-y-punteros" title="Permanent link">&para;</a></h2>
 <p>Resumen:</p>
 <table>
@@ -5695,13 +5780,20 @@
 <h2 id="3-resumen">3. Resumen<a class="headerlink" href="#3-resumen" title="Permanent link">&para;</a></h2>
 <p>C++ introdujo las referencias para garantizar, imponiendo más restricciones a su uso, seguridad y comodidad, y para conservar además la elegancia del código. Usando la operación adecuada en cada situación, el empleo de referencias puede evitar en cierta medida la situación de "punteros volando por todas partes", lo cual también tiene un sentido positivo para mejorar la estabilidad del programa. En definitiva, punteros y referencias tienen la misma implementación de bajo nivel, así que no hay que preocuparse por diferencias de rendimiento entre ambos.</p>
 <p>Parte de lo anterior está tomado de: <a href="http://irootlee.com/juicer_pointer_reference/#">http://irootlee.com/juicer_pointer_reference/#</a></p>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="cual-es-la-diferencia-esencial-entre-puntero-y-referencia">¿Cuál es la diferencia esencial entre puntero y referencia?<a class="headerlink" href="#cual-es-la-diferencia-esencial-entre-puntero-y-referencia" title="Permanent link">&para;</a></h3>
+<p>La referencia debe inicializarse y nunca se rebinda a otro objeto, y no existe referencia nula. El puntero puede reinicializarse, ser nulo y tener varios niveles.</p>
+<h3 id="una-funcion-debe-recibir-referencia-o-puntero">¿Una función debe recibir referencia o puntero?<a class="headerlink" href="#una-funcion-debe-recibir-referencia-o-puntero" title="Permanent link">&para;</a></h3>
+<p>Referencia si debe modificar el objeto del llamador y null no es una opción; puntero para expresar opcionalidad, almacenarlo en contenedores o cambiar su destino.</p>
+<h3 id="existe-la-referencia-nula-en-c">¿Existe la referencia nula en C++?<a class="headerlink" href="#existe-la-referencia-nula-en-c" title="Permanent link">&para;</a></h3>
+<p>No según el estándar. Ligar una referencia a un puntero nulo desreferenciado es comportamiento indefinido.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>
 <li><a href="../assert/">Aserciones assert en C++ | C++那些事</a></li>
 <li><a href="../bit/">Campos de bits en C++ | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementar el polimorfismo de C++ en lenguaje C | C++那些事</a></li>
-<li><a href="../const/">Constantes y calificadores const en C++ | C++那些事</a></li>
+<li><a href="../const/">const en C++ explicado: constantes y puntero const vs puntero a const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">La familia completa de const en C++ | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">El operador de desreferencia * en C++ | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">Inicialización y asignación en C++ | C++那些事</a></li>

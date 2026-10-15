@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ virtual pointer and vtable mechanism usage,C++ basics"> 
-    <meta name="title" content="C++ Virtual Pointer and vtable Mechanism | C++那些事"> 
+    <meta name="title" content="C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事"> 
 
     
       
-        <title>C++ Virtual Pointer and vtable Mechanism | C++那些事 - C++那些事</title>
+        <title>C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/vptr-vtable/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/vptr-vtable/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ Virtual Pointer and vtable Mechanism | C++那些事">
+      <meta property="og:title" content="C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事">
       <meta property="og:description" content="To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as &quot;vtable&quot;, &quot;virtual function table&quot;, &quot;virtual method table&quot;, or &quot;dispatch table&quot;.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-things/vptr-vtable/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ Virtual Pointer and vtable Mechanism | C++那些事">
+      <meta name="twitter:title" content="C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事">
       <meta name="twitter:description" content="To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as &quot;vtable&quot;, &quot;virtual function table&quot;, &quot;virtual method table&quot;, or &quot;dispatch table&quot;.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ Virtual Pointer and vtable Mechanism | C++那些事", "description": "To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as \"vtable\", \"virtual function table\", \"virtual method table\", or \"dispatch table\".", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ Virtual Pointer and vtable Mechanism | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事", "description": "To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as \"vtable\", \"virtual function table\", \"virtual method table\", or \"dispatch table\".", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/vptr-vtable/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "When is the vtable generated?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "At compile time, one per class with virtual functions. Each object stores a single vptr to its class's table; dispatch at runtime is a lookup through that pointer."}}, {"@type": "Question", "name": "Do all classes have a vtable?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No. Only classes that declare (or inherit) virtual functions get one; plain data classes carry no vptr and no polymorphism overhead."}}, {"@type": "Question", "name": "Are virtual calls much slower than normal calls?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "They add one level of indirection through the vptr; with modern branch prediction the gap is usually negligible. Only ultra-hot paths justify optimizing it away."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-virtual-pointer-and-vtable-mechanism" class="md-skip">
+        <a href="#c-vtable-and-vptr-explained-how-virtual-dispatch-works" class="md-skip">
           Skip to content
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ Virtual Pointer and vtable Mechanism | C++那些事
+              C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事
             
           </span>
         </div>
@@ -929,6 +930,48 @@
       2. Implementation and Internal Structure
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-is-the-vtable-generated" class="md-nav__link">
+    <span class="md-ellipsis">
+      When is the vtable generated?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-all-classes-have-a-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do all classes have a vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-virtual-calls-much-slower-than-normal-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are virtual calls much slower than normal calls?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5413,6 +5456,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-is-the-vtable-generated" class="md-nav__link">
+    <span class="md-ellipsis">
+      When is the vtable generated?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-all-classes-have-a-vtable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do all classes have a vtable?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-virtual-calls-much-slower-than-normal-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are virtual calls much slower than normal calls?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
       Related Topics
@@ -5444,10 +5529,10 @@
 <blockquote>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-virtual-pointer-and-vtable-mechanism">C++ Virtual Pointer and vtable Mechanism<a class="headerlink" href="#c-virtual-pointer-and-vtable-mechanism" title="Permanent link">&para;</a></h1>
+<h1 id="c-vtable-and-vptr-explained-how-virtual-dispatch-works">C++ vtable and vptr Explained: How Virtual Dispatch Works<a class="headerlink" href="#c-vtable-and-vptr-explained-how-virtual-dispatch-works" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author:<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>Personal WeChat official account:</p>
-<p><img alt="C++ Virtual Pointer and vtable Mechanism | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ vtable and vptr Explained: How Virtual Dispatch Works | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-basic-theory">1. Basic Theory<a class="headerlink" href="#1-basic-theory" title="Permanent link">&para;</a></h2>
 <p>To implement virtual functions, C++ uses a special form of late binding known as the virtual table. The virtual table is a lookup table used to resolve function calls in a dynamic/late-bound fashion. The virtual table goes by other names too, such as "vtable", "virtual function table", "virtual method table", or "dispatch table".</p>
 <p>The virtual table is actually quite simple, even if it is a little complicated to describe in words. First, <strong>every class that uses virtual functions (or is derived from a class that uses virtual functions) has its own virtual table</strong>. This table is simply a static array the compiler sets up at compile time. The virtual table contains one entry for each virtual function that can be called by objects of the class. Each entry in this table is just a function pointer pointing to the most-derived function accessible to that class.</p>
@@ -5632,13 +5717,20 @@
 </span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">   </span><span class="mh">0x0000000000400efe</span><span class="w"> </span><span class="o">&lt;+</span><span class="mi">42</span><span class="o">&gt;:</span><span class="w">    </span><span class="n">retq</span><span class="w">   </span>
 </span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">assembler</span><span class="w"> </span><span class="n">dump</span><span class="p">.</span>
 </span></code></pre></div>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="when-is-the-vtable-generated">When is the vtable generated?<a class="headerlink" href="#when-is-the-vtable-generated" title="Permanent link">&para;</a></h3>
+<p>At compile time, one per class with virtual functions. Each object stores a single vptr to its class's table; dispatch at runtime is a lookup through that pointer.</p>
+<h3 id="do-all-classes-have-a-vtable">Do all classes have a vtable?<a class="headerlink" href="#do-all-classes-have-a-vtable" title="Permanent link">&para;</a></h3>
+<p>No. Only classes that declare (or inherit) virtual functions get one; plain data classes carry no vptr and no polymorphism overhead.</p>
+<h3 id="are-virtual-calls-much-slower-than-normal-calls">Are virtual calls much slower than normal calls?<a class="headerlink" href="#are-virtual-calls-much-slower-than-normal-calls" title="Permanent link">&para;</a></h3>
+<p>They add one level of indirection through the vptr; with modern branch prediction the gap is usually negligible. Only ultra-hot paths justify optimizing it away.</p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ Pure Virtual Functions and Abstract Classes | C++那些事</a></li>
 <li><a href="../assert/">C++ assert | C++那些事</a></li>
 <li><a href="../bit/">C++ Bit Fields | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementing C++ Polymorphism in C | C++那些事</a></li>
-<li><a href="../const/">C++ const Constants and Qualifiers | C++那些事</a></li>
+<li><a href="../const/">C++ const Explained: Constants, const Pointer vs Pointer to const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">The Complete C++ const Family | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ Dereference Operator * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ Initialization and Assignment | C++那些事</a></li>

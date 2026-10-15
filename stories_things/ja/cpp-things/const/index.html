@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ const 定数と修飾の使い方,C++基礎"> 
-    <meta name="title" content="C++ const 定数と修飾 | C++那些事"> 
+    <meta name="title" content="C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事"> 
 
     
       
-        <title>C++ const 定数と修飾 | C++那些事 - C++那些事</title>
+        <title>C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ const 定数と修飾 | C++那些事">
+      <meta property="og:title" content="C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事">
       <meta property="og:description" content="const型とは、型修飾子constを使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ const 定数と修飾 | C++那些事">
+      <meta name="twitter:title" content="C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事">
       <meta name="twitter:description" content="const型とは、型修飾子constを使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const 定数と修飾 | C++那些事", "description": "const型とは、型修飾子constを使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ const 定数と修飾 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事", "description": "const型とは、型修飾子constを使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "const ポインタとポインタ const の違いは？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "const int* p は「定数へのポインタ」で指す先の値を変更できません。int* const p は「ポインタ自体が定数」で再代入できません。* の左の const は値を、右の const はポインタを保護します。"}}, {"@type": "Question", "name": "const オブジェクトは非 const メンバ関数を呼べる？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "呼べません。const オブジェクトが呼べるのは const メンバ関数だけです。非 const オブジェクトは両方を呼べます。"}}, {"@type": "Question", "name": "定数は const と #define のどちらで定義すべき？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "const を推奨します。型検査があり、スコープに従い、デバッグ可能です。#define は型情報のない前処理の文字置換です。"}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-const" class="md-skip">
+        <a href="#c-const-2-const" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ const 定数と修飾 | C++那些事
+              C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事
             
           </span>
         </div>
@@ -935,6 +936,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      const ポインタとポインタ const の違いは？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      const オブジェクトは非 const メンバ関数を呼べる？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      定数は const と #define のどちらで定義すべき？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5505,6 +5548,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      const ポインタとポインタ const の違いは？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      const オブジェクトは非 const メンバ関数を呼べる？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      定数は const と #define のどちらで定義すべき？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       関連トピック
     </span>
   </a>
@@ -5535,10 +5620,10 @@
 <p>💡 <strong>要約</strong>：const型とは、型修飾子constを使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。</p>
 <p><strong>最終更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-const">C++ const 定数と修飾<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
+<h1 id="c-const-2-const">C++ const 詳解：定数と 2 種類の const ポインタ<a class="headerlink" href="#c-const-2-const" title="Permanent link">&para;</a></h1>
 <h2 id="_1">作者について<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>WeChat公式アカウント：</p>
-<p><img alt="C++ const 定数と修飾 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1const">1.constの意味<a class="headerlink" href="#1const" title="Permanent link">&para;</a></h2>
 <p>const型とは、型修飾子**const**を使って宣言された型のことで、const型の変数やオブジェクトの値は更新できません。</p>
 <h2 id="2const">2.constの役割<a class="headerlink" href="#2const" title="Permanent link">&para;</a></h2>
@@ -5855,7 +5940,14 @@ void func(const A &amp;a) になります。</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
 <p>この項目については、C++11では宣言と初期化を同時に行うことはできず、上記の使い方になります。</p>
-<h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">よくある質問<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="const-const">const ポインタとポインタ const の違いは？<a class="headerlink" href="#const-const" title="Permanent link">&para;</a></h3>
+<p>const int* p は「定数へのポインタ」で指す先の値を変更できません。int* const p は「ポインタ自体が定数」で再代入できません。* の左の const は値を、右の const はポインタを保護します。</p>
+<h3 id="const-const_1">const オブジェクトは非 const メンバ関数を呼べる？<a class="headerlink" href="#const-const_1" title="Permanent link">&para;</a></h3>
+<p>呼べません。const オブジェクトが呼べるのは const メンバ関数だけです。非 const オブジェクトは両方を呼べます。</p>
+<h3 id="const-define">定数は const と #define のどちらで定義すべき？<a class="headerlink" href="#const-define" title="Permanent link">&para;</a></h3>
+<p>const を推奨します。型検査があり、スコープに従い、デバッグ可能です。#define は型情報のない前処理の文字置換です。</p>
+<h2 id="_3">関連トピック<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>
 <li><a href="../assert/">C++ assert アサーション | C++那些事</a></li>

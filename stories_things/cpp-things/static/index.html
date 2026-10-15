@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ static members and lifetime usage,C++ basics"> 
-    <meta name="title" content="C++ static Members and Lifetime | C++那些事"> 
+    <meta name="title" content="C++ static Explained: Static Variables, Members and Functions | C++那些事"> 
 
     
       
-        <title>C++ static Members and Lifetime | C++那些事 - C++那些事</title>
+        <title>C++ static Explained: Static Variables, Members and Functions | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/static/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/static/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ static Members and Lifetime | C++那些事">
+      <meta property="og:title" content="C++ static Explained: Static Variables, Members and Functions | C++那些事">
       <meta property="og:description" content="When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-things/static/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ static Members and Lifetime | C++那些事">
+      <meta name="twitter:title" content="C++ static Explained: Static Variables, Members and Functions | C++那些事">
       <meta name="twitter:description" content="When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static Members and Lifetime | C++那些事", "description": "When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static Members and Lifetime | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static Explained: Static Variables, Members and Functions | C++那些事", "description": "When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static Explained: Static Variables, Members and Functions | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How does a static global differ from a normal global?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "A static global has internal linkage: it is visible only inside its translation unit. A normal global is visible across files and prone to symbol clashes."}}, {"@type": "Question", "name": "When is a static local variable initialized?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Once, the first time control passes its definition; since C++11 that initialization is thread-safe. Its lifetime lasts until the program ends."}}, {"@type": "Question", "name": "Can a static member function access non-static members?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No. A static member function has no this pointer, so it can only touch static members."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-static-members-and-lifetime" class="md-skip">
+        <a href="#c-static-explained-static-variables-members-and-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ static Members and Lifetime | C++那些事
+              C++ static Explained: Static Variables, Members and Functions | C++那些事
             
           </span>
         </div>
@@ -898,6 +899,48 @@
       Internal Linkage of static (Restricting the Scope of Access)
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-a-static-global-differ-from-a-normal-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a static global differ from a normal global?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-is-a-static-local-variable-initialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      When is a static local variable initialized?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-static-member-function-access-non-static-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can a static member function access non-static members?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5395,6 +5438,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-a-static-global-differ-from-a-normal-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a static global differ from a normal global?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-is-a-static-local-variable-initialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      When is a static local variable initialized?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-static-member-function-access-non-static-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can a static member function access non-static members?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
       Related Topics
@@ -5426,10 +5511,10 @@
 <blockquote>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-static-members-and-lifetime">C++ static Members and Lifetime<a class="headerlink" href="#c-static-members-and-lifetime" title="Permanent link">&para;</a></h1>
+<h1 id="c-static-explained-static-variables-members-and-functions">C++ static Explained: Static Variables, Members and Functions<a class="headerlink" href="#c-static-explained-static-variables-members-and-functions" title="Permanent link">&para;</a></h1>
 <h2 id="about-the-author">About the Author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>WeChat official account:</p>
-<p><img alt="C++ static Members and Lifetime | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ static Explained: Static Variables, Members and Functions | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>When used with different kinds of entities, the static keyword has different meanings. We can use the static keyword:</p>
 <p><strong>Static variables:</strong> variables in a function, variables in a class</p>
 <p><strong>Static class members:</strong> class objects and functions in a class</p>
@@ -5669,13 +5754,20 @@
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">also_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="how-does-a-static-global-differ-from-a-normal-global">How does a static global differ from a normal global?<a class="headerlink" href="#how-does-a-static-global-differ-from-a-normal-global" title="Permanent link">&para;</a></h3>
+<p>A static global has internal linkage: it is visible only inside its translation unit. A normal global is visible across files and prone to symbol clashes.</p>
+<h3 id="when-is-a-static-local-variable-initialized">When is a static local variable initialized?<a class="headerlink" href="#when-is-a-static-local-variable-initialized" title="Permanent link">&para;</a></h3>
+<p>Once, the first time control passes its definition; since C++11 that initialization is thread-safe. Its lifetime lasts until the program ends.</p>
+<h3 id="can-a-static-member-function-access-non-static-members">Can a static member function access non-static members?<a class="headerlink" href="#can-a-static-member-function-access-non-static-members" title="Permanent link">&para;</a></h3>
+<p>No. A static member function has no this pointer, so it can only touch static members.</p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ Pure Virtual Functions and Abstract Classes | C++那些事</a></li>
 <li><a href="../assert/">C++ assert | C++那些事</a></li>
 <li><a href="../bit/">C++ Bit Fields | C++那些事</a></li>
 <li><a href="../c-polymorphism/">Implementing C++ Polymorphism in C | C++那些事</a></li>
-<li><a href="../const/">C++ const Constants and Qualifiers | C++那些事</a></li>
+<li><a href="../const/">C++ const Explained: Constants, const Pointer vs Pointer to const | C++那些事</a></li>
 <li><a href="../cpp-const-family/">The Complete C++ const Family | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ Dereference Operator * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ Initialization and Assignment | C++那些事</a></li>

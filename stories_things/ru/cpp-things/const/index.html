@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ const константы и квалификаторы,основы C++"> 
-    <meta name="title" content="Константы и квалификаторы const в C++ | C++那些事"> 
+    <meta name="title" content="C++ const подробно: константы, указатель на const и const-указатель | C++那些事"> 
 
     
       
-        <title>Константы и квалификаторы const в C++ | C++那些事 - C++那些事</title>
+        <title>C++ const подробно: константы, указатель на const и const-указатель | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/const/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/const/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Константы и квалификаторы const в C++ | C++那些事">
+      <meta property="og:title" content="C++ const подробно: константы, указатель на const и const-указатель | C++那些事">
       <meta property="og:description" content="Тип const — это тип, описанный с помощью квалификатора типа const; значение переменной или объекта типа const не может обновляться.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/const/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Константы и квалификаторы const в C++ | C++那些事">
+      <meta name="twitter:title" content="C++ const подробно: константы, указатель на const и const-указатель | C++那些事">
       <meta name="twitter:description" content="Тип const — это тип, описанный с помощью квалификатора типа const; значение переменной или объекта типа const не может обновляться.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Константы и квалификаторы const в C++ | C++那些事", "description": "Тип const — это тип, описанный с помощью квалификатора типа const; значение переменной или объекта типа const не может обновляться.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Константы и квалификаторы const в C++ | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const подробно: константы, указатель на const и const-указатель | C++那些事", "description": "Тип const — это тип, описанный с помощью квалификатора типа const; значение переменной или объекта типа const не может обновляться.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/const/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/const/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ const подробно: константы, указатель на const и const-указатель | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ru", "mainEntity": [{"@type": "Question", "name": "Чем указатель на const отличается от const-указателя?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "const int* p — указатель на константу: значение менять нельзя. int* const p — константный указатель: нельзя переприсвоить сам указатель. Правило: const слева от * защищает значение, справа — указатель."}}, {"@type": "Question", "name": "Может ли const-объект вызвать не-const метод?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Нет, const-объект вызывает только const-методы. Не-const объект вызывает любые."}}, {"@type": "Question", "name": "const или #define для констант?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Лучше const: есть проверка типов, соблюдение областей видимости и отлаживаемость. #define — текстовая подстановка без типа."}}]}</script>
   </head>
   
   
@@ -123,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#const-c" class="md-skip">
+        <a href="#c-const-const-" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Константы и квалификаторы const в C++ | C++那些事
+              C++ const подробно: константы, указатель на const и const-указатель | C++那些事
             
           </span>
         </div>
@@ -935,6 +936,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#const-const-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем указатель на const отличается от const-указателя?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли const-объект вызвать не-const метод?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      const или #define для констант?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5505,6 +5548,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      Частые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#const-const-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем указатель на const отличается от const-указателя?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли const-объект вызвать не-const метод?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const-define" class="md-nav__link">
+    <span class="md-ellipsis">
+      const или #define для констант?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
       Похожие темы
     </span>
   </a>
@@ -5534,10 +5619,10 @@
 <blockquote>
 <p><strong>Последнее обновление：2026-10-13</strong></p>
 </blockquote>
-<h1 id="const-c">Константы и квалификаторы const в C++<a class="headerlink" href="#const-c" title="Permanent link">&para;</a></h1>
+<h1 id="c-const-const-">C++ const: константы и два вида const-указателей<a class="headerlink" href="#c-const-const-" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Публичный аккаунт в WeChat:</p>
-<p><img alt="Константы и квалификаторы const в C++ | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ const подробно: константы, указатель на const и const-указатель | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1-const">1. Смысл const<a class="headerlink" href="#1-const" title="Permanent link">&para;</a></h2>
 <p>Тип const — это тип, описанный с помощью квалификатора типа <strong>const</strong>; значение переменной или объекта типа const не может обновляться.</p>
 <h2 id="2-const">2. Роль const<a class="headerlink" href="#2-const" title="Permanent link">&para;</a></h2>
@@ -5854,7 +5939,14 @@ void func(const A &amp;a).</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Apple</span><span class="o">::</span><span class="n">ap</span><span class="o">=</span><span class="mi">666</span>
 </span></code></pre></div>
 <p>Что касается этого пункта, C++11 не позволяет объявить и сразу инициализировать — то есть используется способ, описанный выше.</p>
-<h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Частые вопросы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="const-const-">Чем указатель на const отличается от const-указателя?<a class="headerlink" href="#const-const-" title="Permanent link">&para;</a></h3>
+<p>const int* p — указатель на константу: значение менять нельзя. int* const p — константный указатель: нельзя переприсвоить сам указатель. Правило: const слева от * защищает значение, справа — указатель.</p>
+<h3 id="const-const">Может ли const-объект вызвать не-const метод?<a class="headerlink" href="#const-const" title="Permanent link">&para;</a></h3>
+<p>Нет, const-объект вызывает только const-методы. Не-const объект вызывает любые.</p>
+<h3 id="const-define">const или #define для констант?<a class="headerlink" href="#const-define" title="Permanent link">&para;</a></h3>
+<p>Лучше const: есть проверка типов, соблюдение областей видимости и отлаживаемость. #define — текстовая подстановка без типа.</p>
+<h2 id="_3">Похожие темы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>

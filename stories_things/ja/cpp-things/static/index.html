@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ static 静的メンバーと生存期間の使い方,C++基礎"> 
-    <meta name="title" content="C++ static 静的メンバーと生存期間 | C++那些事"> 
+    <meta name="title" content="C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事"> 
 
     
       
-        <title>C++ static 静的メンバーと生存期間 | C++那些事 - C++那些事</title>
+        <title>C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事</title>
       
     
     
@@ -84,7 +84,7 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/static/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/static/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ static 静的メンバーと生存期間 | C++那些事">
+      <meta property="og:title" content="C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事">
       <meta property="og:description" content="staticキーワードは、異なる対象と組み合わせて使う際に異なる意味を持ちます。staticキーワードは次のように使えます：">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/static/">
       <meta property="og:site_name" content="C++那些事">
@@ -101,11 +101,12 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ static 静的メンバーと生存期間 | C++那些事">
+      <meta name="twitter:title" content="C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事">
       <meta name="twitter:description" content="staticキーワードは、異なる対象と組み合わせて使う際に異なる意味を持ちます。staticキーワードは次のように使えます：">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static 静的メンバーと生存期間 | C++那些事", "description": "staticキーワードは、異なる対象と組み合わせて使う際に異なる意味を持ちます。staticキーワードは次のように使えます：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static 静的メンバーと生存期間 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事", "description": "staticキーワードは、異なる対象と組み合わせて使う際に異なる意味を持ちます。staticキーワードは次のように使えます：", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/static/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/static/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/static/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "static グローバルと通常グローバルの違いは？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "static グローバルは内部結合で、その翻訳単位内でのみ可視です。通常グローバルはファイル横断で可視で、シンボル衝突の原因になります。"}}, {"@type": "Question", "name": "static ローカル変数はいつ初期化される？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "定義を最初に通過したときに 1 回だけ。C++11 以降その初期化はスレッドセーフで、寿命はプログラム終了までです。"}}, {"@type": "Question", "name": "静的メンバ関数は非静的メンバにアクセスできる？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "できません。this ポインタがないため、静的メンバのみアクセスできます。"}}]}</script>
   </head>
   
   
@@ -162,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ static 静的メンバーと生存期間 | C++那些事
+              C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事
             
           </span>
         </div>
@@ -903,6 +904,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      static グローバルと通常グローバルの違いは？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      static ローカル変数はいつ初期化される？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      静的メンバ関数は非静的メンバにアクセスできる？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5397,6 +5440,48 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      static グローバルと通常グローバルの違いは？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      static ローカル変数はいつ初期化される？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      静的メンバ関数は非静的メンバにアクセスできる？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       関連トピック
     </span>
   </a>
@@ -5426,10 +5511,10 @@
 <blockquote>
 <p><strong>最終更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-static">C++ static 静的メンバーと生存期間<a class="headerlink" href="#c-static" title="Permanent link">&para;</a></h1>
+<h1 id="c-static">C++ static 詳解：静的変数と静的メンバ<a class="headerlink" href="#c-static" title="Permanent link">&para;</a></h1>
 <h2 id="_1">作者について<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>WeChat公式アカウント：</p>
-<p><img alt="C++ static 静的メンバーと生存期間 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C++ static 詳解：静的変数・静的メンバ・静的関数の使い方 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <p>staticキーワードは、異なる対象と組み合わせて使う際に異なる意味を持ちます。staticキーワードは次のように使えます：</p>
 <p><strong>静的変数：</strong> 関数内の変数、クラス内の変数</p>
 <p><strong>静的なクラスのメンバー：</strong> クラスのオブジェクトとクラス内の関数</p>
@@ -5669,13 +5754,20 @@
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">also_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">よくある質問<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="static_1">static グローバルと通常グローバルの違いは？<a class="headerlink" href="#static_1" title="Permanent link">&para;</a></h3>
+<p>static グローバルは内部結合で、その翻訳単位内でのみ可視です。通常グローバルはファイル横断で可視で、シンボル衝突の原因になります。</p>
+<h3 id="static_2">static ローカル変数はいつ初期化される？<a class="headerlink" href="#static_2" title="Permanent link">&para;</a></h3>
+<p>定義を最初に通過したときに 1 回だけ。C++11 以降その初期化はスレッドセーフで、寿命はプログラム終了までです。</p>
+<h3 id="_3">静的メンバ関数は非静的メンバにアクセスできる？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>できません。this ポインタがないため、静的メンバのみアクセスできます。</p>
+<h2 id="_4">関連トピック<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>
 <li><a href="../assert/">C++ assert アサーション | C++那些事</a></li>
 <li><a href="../bit/">C++ ビットフィールド | C++那些事</a></li>
 <li><a href="../c-polymorphism/">C 言語による C++ 多態の実現 | C++那些事</a></li>
-<li><a href="../const/">C++ const 定数と修飾 | C++那些事</a></li>
+<li><a href="../const/">C++ const 詳解：定数・const ポインタとポインタ const の違い | C++那些事</a></li>
 <li><a href="../cpp-const-family/">C++ const ファミリー | C++那些事</a></li>
 <li><a href="../cpp-dereference-operator/">C++ 間接参照演算子 * | C++那些事</a></li>
 <li><a href="../cpp-iv-initialization/">C++ 初期化と代入 | C++那些事</a></li>
