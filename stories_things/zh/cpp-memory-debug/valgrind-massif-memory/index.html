@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="gpstart -a --wrapper=valgrind --wrapper-args=" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+        <meta name="description" content="用可复现示例介绍 Valgrind Massif 的运行命令、ms_print 峰值快照与分配树，以及堆内存测量不包含的内容。">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++内存Valgrind Massif 内存分析,内存调试"> 
-    <meta name="title" content="Valgrind Massif 内存分析 | C++那些事"> 
+    <meta name="keywords" content="Valgrind Massif C++,堆内存分析,ms_print,内存峰值"> 
+    <meta name="title" content="Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事"> 
 
     
       
-        <title>Valgrind Massif 内存分析 | C++那些事</title>
+        <title>Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-memory-debug/valgrind-massif-memory/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-memory-debug/valgrind-massif-memory/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Valgrind Massif 内存分析 | C++那些事">
-      <meta property="og:description" content="gpstart -a --wrapper=valgrind --wrapper-args=&quot; --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+      <meta property="og:title" content="Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事">
+      <meta property="og:description" content="用可复现示例介绍 Valgrind Massif 的运行命令、ms_print 峰值快照与分配树，以及堆内存测量不包含的内容。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -102,11 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Valgrind Massif 内存分析 | C++那些事">
-      <meta name="twitter:description" content="gpstart -a --wrapper=valgrind --wrapper-args=&quot; --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+      <meta name="twitter:title" content="Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事">
+      <meta name="twitter:description" content="用可复现示例介绍 Valgrind Massif 的运行命令、ms_print 峰值快照与分配树，以及堆内存测量不包含的内容。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Valgrind Massif 内存分析 | C++那些事", "description": "gpstart -a --wrapper=valgrind --wrapper-args=\" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "工具篇", "item": "https://light-city.github.io/stories_things/zh/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Valgrind Massif 内存分析 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事", "description": "用可复现示例介绍 Valgrind Massif 的运行命令、ms_print 峰值快照与分配树，以及堆内存测量不包含的内容。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "工具篇", "item": "https://light-city.github.io/stories_things/zh/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-memory-debug/valgrind-massif-memory/"}]}</script>
   </head>
   
   
@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#valgrind-massif" class="md-skip">
+        <a href="#valgrind-massif-c" class="md-skip">
           跳转至
         </a>
       
@@ -163,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Valgrind Massif 内存分析 | C++那些事
+              Valgrind Massif：定位 C++ 堆内存峰值 | C++那些事
             
           </span>
         </div>
@@ -2656,6 +2656,8 @@
       
         
       
+        
+      
     
     
       
@@ -3533,6 +3535,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp23/deducing-this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++23 Deducing this
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4116,6 +4140,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一个可复现的小程序
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何读报告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      原项目中的用法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5359,6 +5410,33 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
+      一个可复现的小程序
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何读报告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      原项目中的用法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       相关主题
     </span>
   </a>
@@ -5386,17 +5464,44 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：用可复现示例介绍 Valgrind Massif 的运行命令、ms_print 峰值快照与分配树，以及堆内存测量不包含的内容。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="valgrind-massif">Valgrind Massif 内存分析<a class="headerlink" href="#valgrind-massif" title="Permanent link">&para;</a></h1>
-<p>gpstart -a --wrapper=valgrind --wrapper-args=" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/massif.out.%p"</p>
-<p><img width="1600" height="1046" alt="Valgrind Massif 内存分析 | C++那些事" src="../../../assets/images/2024/mem/massif/mss.png"  loading="lazy" decoding="async"/></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ms_print xxx.out | more
+<h1 id="valgrind-massif-c">Valgrind Massif：定位 C++ 堆内存峰值<a class="headerlink" href="#valgrind-massif-c" title="Permanent link">&para;</a></h1>
+<p>Massif 在程序运行期间记录堆使用量，将快照写入 <code>massif.out.&lt;pid&gt;</code>；<code>ms_print</code> 把快照整理成图和分配调用树。它适合回答**内存何时达到峰值、哪些分配路径贡献最大**，但不能单凭这个报告认定发生内存泄漏。Valgrind 通常在 Linux 上使用；下方命令假设该环境已安装 Valgrind。</p>
+<h2 id="_1">一个可复现的小程序<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="p">(</span><span class="mi">1'000'000</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">(</span><span class="mi">2'000'000</span><span class="p">,</span><span class="w"> </span><span class="sc">'b'</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3'000'000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><a href="https://valgrind.org/docs/manual/ms-manual.html">https://valgrind.org/docs/manual/ms-manual.html</a></p>
-<p><img width="2536" height="1230" alt="Valgrind Massif 内存分析 | C++那些事" src="../../../assets/images/2024/mem/massif/ms_print.png"  loading="lazy" decoding="async"/></p>
-<p>valgrind -v --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=./massif.out  ./a.out</p>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>带调试符号编译，再运行分析器：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>c++<span class="w"> </span>-std<span class="o">=</span>c++17<span class="w"> </span>-g<span class="w"> </span>-O0<span class="w"> </span>massif_demo.cpp<span class="w"> </span>-o<span class="w"> </span>massif_demo
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>valgrind<span class="w"> </span>--tool<span class="o">=</span>massif<span class="w"> </span>--time-unit<span class="o">=</span>B<span class="w"> </span>--massif-out-file<span class="o">=</span>massif.out.%p<span class="w"> </span>./massif_demo
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ms_print<span class="w"> </span>massif.out.*<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</span></code></pre></div>
+<p>短程序使用 <code>--time-unit=B</code> 时，横轴表示分配/释放的字节数，而不是默认的指令数；它**不会**改变纵轴的内存单位。输出文件名包含进程 ID，多次运行时应选择对应文件。分析实际程序时保留调试符号，更容易识别分配调用栈。</p>
+<h2 id="_2">如何读报告<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>找到标为 <strong>peak</strong> 的快照，读取总字节数。图展示运行过程中的使用变化，不等同于操作系统统计的 RSS。</li>
+<li>查看峰值下方的分配调用树。它把请求的堆字节及分配器开销归到调用路径；本例两个向量应通过分配函数出现。</li>
+<li>修改一处代码后比较等价运行。输入、编译选项、分配器和分析参数应一致。Valgrind 会显著拖慢运行，因此这里不能用来做速度基准。</li>
+</ol>
+<p>默认只分析堆，栈分析是关闭的；只有需要研究栈使用量时才加 <code>--stacks=yes</code>。<code>--detailed-freq=1</code> 会增加详细快照与分析开销，可在默认详情不足时使用。自定义分配器、内存映射区域等需要额外解释；不要把报告总量直接当作进程全部内存。详见 <a href="https://valgrind.org/docs/manual/ms-manual.html">Massif 官方手册</a>。</p>
+<h2 id="_3">原项目中的用法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>项目曾在某个工作负载中通过 <code>gpstart</code> 包装运行：</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gpstart<span class="w"> </span>-a<span class="w"> </span>--wrapper<span class="o">=</span>valgrind<span class="w"> </span>--wrapper-args<span class="o">=</span><span class="s2">" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/massif.out.%p"</span>
+</span></code></pre></div>
+<p><code>gpstart</code> 是项目专用工具；没有它时先使用上面的独立 <code>valgrind</code> 命令。下方截图展示旧工作流和 <code>ms_print</code> 报告，仅作为界面示例，不代表你的机器会得到相同数值。</p>
+<p><img width="1600" height="1046" alt="此前的 Massif 分析工作流" src="../../../assets/images/2024/mem/massif/mss.png"  loading="lazy" decoding="async"/></p>
+<p><img width="2536" height="1230" alt="ms_print 堆内存报告示例" src="../../../assets/images/2024/mem/massif/ms_print.png"  loading="lazy" decoding="async"/></p>
+<p>另一个基准测试误区可读<a href="../../cpp-idioms/lookup-table-idiom/">查表法与基准陷阱</a>；若要检测非法内存访问，可读 <a href="../address-sanitizer-asan/">AddressSanitizer</a>。</p>
+<h2 id="_4">相关主题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../address-sanitizer-asan/">AddressSanitizer 内存检测 | C++那些事</a></li>
 <li><a href="../cpp-memory-leak-detection/">C++ 内存泄漏检测 | C++那些事</a></li>

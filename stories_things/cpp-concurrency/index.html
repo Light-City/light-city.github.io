@@ -2655,6 +2655,8 @@
       
         
       
+        
+      
     
     
       
@@ -3527,6 +3529,28 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modern-cpp/cpp23/deducing-this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++23 Deducing this
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -5351,7 +5375,7 @@
 <p>Start with correctness before trying to make concurrent code faster. The articles below move from thread lifetime and synchronization to diagnosis and performance.</p>
 <h2 id="recommended-path">Recommended path<a class="headerlink" href="#recommended-path" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Build a working mental model with <a href="threading-in-cpp/">multithreading basics</a> and <a href="std-thread-jthread-guide/">std::thread versus jthread</a>.</li>
+<li>Build a working mental model with <a href="threading-in-cpp/">multithreading basics</a>, the <a href="cpp-concurrency-in-action/">chapter 1–2 code guide</a>, and <a href="std-thread-jthread-guide/">std::thread versus jthread</a>.</li>
 <li>When a program hangs, follow the <a href="cpp-deadlock-debugging/">deadlock troubleshooting guide</a>, then use <a href="gdb-multi-thread-debug/">GDB</a> or <a href="helgrind-concurrency-check/">Helgrind</a> to gather evidence.</li>
 <li>Once the result is correct, investigate <a href="false-sharing-cache-line/">false sharing</a> before assuming more threads will help.</li>
 <li>Compare <a href="cpp17-parallel-stl/">parallel STL</a> and <a href="cpp-simd/">SIMD vectorization</a> for workloads that can actually benefit from them.</li>

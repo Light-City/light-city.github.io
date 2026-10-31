@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="gpstart -a --wrapper=valgrind --wrapper-args=" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+        <meta name="description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ memory Valgrind Massif memory analysis,memory debugging"> 
-    <meta name="title" content="Valgrind Massif Memory Analysis | C++那些事"> 
+    
+    
 
     
       
-        <title>Valgrind Massif Memory Analysis | C++那些事</title>
+        <title>Valgrind Massif Analysis - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-memory-debug/valgrind-massif-memory/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-memory-debug/valgrind-massif-memory/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="Valgrind Massif Memory Analysis | C++那些事">
-      <meta property="og:description" content="gpstart -a --wrapper=valgrind --wrapper-args=&quot; --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+      <meta property="og:title" content="Valgrind Massif Analysis">
+      <meta property="og:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -101,11 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Valgrind Massif Memory Analysis | C++那些事">
-      <meta name="twitter:description" content="gpstart -a --wrapper=valgrind --wrapper-args=&quot; --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…">
+      <meta name="twitter:title" content="Valgrind Massif Analysis">
+      <meta name="twitter:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Valgrind Massif Memory Analysis | C++那些事", "description": "gpstart -a --wrapper=valgrind --wrapper-args=\" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/mas…", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://light-city.github.io/stories_things/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Valgrind Massif Memory Analysis | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Valgrind Massif Analysis", "description": "Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://light-city.github.io/stories_things/cpp-tools/"}, {"@type": "ListItem", "position": 3, "name": "Valgrind Massif Analysis", "item": "https://light-city.github.io/stories_things/cpp-memory-debug/valgrind-massif-memory/"}]}</script>
   </head>
   
   
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#valgrind-massif-memory-analysis" class="md-skip">
+        <a href="#valgrind-massif-find-where-c-heap-memory-peaks" class="md-skip">
           Skip to content
         </a>
       
@@ -162,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Valgrind Massif Memory Analysis | C++那些事
+              Valgrind Massif Analysis
             
           </span>
         </div>
@@ -2655,6 +2655,8 @@
       
         
       
+        
+      
     
     
       
@@ -3532,6 +3534,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modern-cpp/cpp23/deducing-this/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++23 Deducing this
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4112,6 +4136,33 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-program-to-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      A small program to profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpret-the-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpret the report
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#original-project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Original project workflow
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#related-topics" class="md-nav__link">
@@ -5356,6 +5407,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#a-small-program-to-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      A small program to profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpret-the-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpret the report
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#original-project-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Original project workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-topics" class="md-nav__link">
     <span class="md-ellipsis">
       Related Topics
@@ -5387,14 +5465,46 @@
 <blockquote>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="valgrind-massif-memory-analysis">Valgrind Massif Memory Analysis<a class="headerlink" href="#valgrind-massif-memory-analysis" title="Permanent link">&para;</a></h1>
-<p>gpstart -a --wrapper=valgrind --wrapper-args=" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/massif.out.%p"</p>
-<p><img width="1600" height="1046" alt="Valgrind Massif Memory Analysis | C++那些事" src="../../assets/images/2024/mem/massif/mss.png"  loading="lazy" decoding="async"/></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ms_print xxx.out | more
+<hr />
+<p>comments: true
+keywords: Valgrind Massif C++,heap profiling,ms_print,peak memory
+description: "Profile C++ heap use with Valgrind Massif: a reproducible example, command flags, how to read ms_print peak snapshots, and what the measurements exclude."
+title: Valgrind Massif for C++: Find Peak Heap Use | C++那些事</p>
+<hr />
+<h1 id="valgrind-massif-find-where-c-heap-memory-peaks">Valgrind Massif: find where C++ heap memory peaks<a class="headerlink" href="#valgrind-massif-find-where-c-heap-memory-peaks" title="Permanent link">&para;</a></h1>
+<p>Massif records heap usage over a program run and writes snapshots to <code>massif.out.&lt;pid&gt;</code>. <code>ms_print</code> turns the snapshots into a graph and allocation tree. This helps answer <strong>when memory peaks and which allocation paths contribute</strong>; it does not by itself diagnose a leak. Valgrind is commonly used on Linux; the commands below assume it is installed in that environment.</p>
+<h2 id="a-small-program-to-profile">A small program to profile<a class="headerlink" href="#a-small-program-to-profile" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="p">(</span><span class="mi">1'000'000</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">(</span><span class="mi">2'000'000</span><span class="p">,</span><span class="w"> </span><span class="sc">'b'</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">second</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3'000'000</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><a href="https://valgrind.org/docs/manual/ms-manual.html">https://valgrind.org/docs/manual/ms-manual.html</a></p>
-<p><img width="2536" height="1230" alt="Valgrind Massif Memory Analysis | C++那些事" src="../../assets/images/2024/mem/massif/ms_print.png"  loading="lazy" decoding="async"/></p>
-<p>valgrind -v --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=./massif.out  ./a.out</p>
+<p>Compile with debug symbols and run the profiler:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>c++<span class="w"> </span>-std<span class="o">=</span>c++17<span class="w"> </span>-g<span class="w"> </span>-O0<span class="w"> </span>massif_demo.cpp<span class="w"> </span>-o<span class="w"> </span>massif_demo
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>valgrind<span class="w"> </span>--tool<span class="o">=</span>massif<span class="w"> </span>--time-unit<span class="o">=</span>B<span class="w"> </span>--massif-out-file<span class="o">=</span>massif.out.%p<span class="w"> </span>./massif_demo
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ms_print<span class="w"> </span>massif.out.*<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</span></code></pre></div>
+<p>For a short program, <code>--time-unit=B</code> uses allocated/deallocated bytes for the horizontal axis instead of the default instruction count. It does <strong>not</strong> change the vertical memory unit. The output filename includes the process ID, so use the matching file if several runs are present. Compile the real target with symbols to make allocation stacks easier to read.</p>
+<h2 id="interpret-the-report">Interpret the report<a class="headerlink" href="#interpret-the-report" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Locate the snapshot marked <strong>peak</strong> and read its total bytes. The graph shows how usage changes during the run, not an operating-system RSS measurement.</li>
+<li>Inspect the peak allocation tree below the graph. It attributes requested heap bytes and allocator overhead to call paths; the two vectors in this example should appear through allocation functions.</li>
+<li>Compare equivalent runs after changing one thing. Keep input, build flags, allocator and profiling options the same. Valgrind slows execution, so do not treat this run as a speed benchmark.</li>
+</ol>
+<p>By default Massif profiles the heap; stack profiling is off. Enable <code>--stacks=yes</code> only if stack usage is part of your question. <code>--detailed-freq=1</code> requests more detailed snapshots and increases profiling overhead; use it when the default output lacks enough allocation detail. Some custom allocators and memory mapped regions require additional interpretation; consult the <a href="https://valgrind.org/docs/manual/ms-manual.html">official Massif manual</a> before treating the total as all process memory.</p>
+<h2 id="original-project-workflow">Original project workflow<a class="headerlink" href="#original-project-workflow" title="Permanent link">&para;</a></h2>
+<p>The project also used a <code>gpstart</code> wrapper for one workload:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gpstart<span class="w"> </span>-a<span class="w"> </span>--wrapper<span class="o">=</span>valgrind<span class="w"> </span>--wrapper-args<span class="o">=</span><span class="s2">" --tool=massif --time-unit=B --detailed-freq=1 --massif-out-file=/tmp/massif.out.%p"</span>
+</span></code></pre></div>
+<p><code>gpstart</code> is project-specific; start with the standalone <code>valgrind</code> command above if it is unavailable. The screenshots below show the earlier workflow and an <code>ms_print</code> report; their values are examples, not reproducible results for your machine.</p>
+<p><img width="1600" height="1046" alt="Earlier Massif profiling workflow" src="../../assets/images/2024/mem/massif/mss.png"  loading="lazy" decoding="async"/></p>
+<p><img width="2536" height="1230" alt="Example ms_print heap report" src="../../assets/images/2024/mem/massif/ms_print.png"  loading="lazy" decoding="async"/></p>
+<p>For a contrasting microbenchmark problem, see <a href="../../cpp-idioms/lookup-table-idiom/">lookup tables and benchmark pitfalls</a>. For detecting invalid memory access, see <a href="../address-sanitizer-asan/">AddressSanitizer</a>.</p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../address-sanitizer-asan/">AddressSanitizer Memory Checking | C++那些事</a></li>
@@ -5407,69 +5517,12 @@
 
 
 
-  
-  
-
 
 
   
 
 
 
-
-  <h2 id="__comments">Comments</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-          data-repo="Light-City/light-comments"
-          data-repo-id="R_kgDOLcVr-w"
-          data-category="Announcements"
-          data-category-id="DIC_kwDOLcVr-84CdwfH"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
-  </script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    // Set palette on initial load
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
-
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    // Register event handlers after documented loaded
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
-
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
   

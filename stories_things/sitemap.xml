@@ -1766,6 +1766,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/spaceship-operator/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/modern-cpp/cpp23/deducing-this/</loc>
+        <lastmod>2026-10-31</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/modern-cpp/cpp23/deducing-this/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/practical-exercises/10-day-cpp-crash-course/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/practical-exercises/10-day-cpp-crash-course/"/>
@@ -3830,6 +3842,18 @@
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/modern-cpp/cpp20/spaceship-operator/"/>
     </url>
     <url>
+        <loc>https://light-city.github.io/stories_things/zh/modern-cpp/cpp23/deducing-this/</loc>
+        <lastmod>2026-10-31</lastmod>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://light-city.github.io/stories_things/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://light-city.github.io/stories_things/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://light-city.github.io/stories_things/es/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://light-city.github.io/stories_things/ja/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/modern-cpp/cpp23/deducing-this/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/modern-cpp/cpp23/deducing-this/"/>
+    </url>
+    <url>
         <loc>https://light-city.github.io/stories_things/zh/practical-exercises/10-day-cpp-crash-course/</loc>
         <lastmod>2026-10-13</lastmod>
         <xhtml:link rel="alternate" hreflang="zh" href="https://light-city.github.io/stories_things/zh/practical-exercises/10-day-cpp-crash-course/"/>
@@ -4129,6 +4153,11 @@
         <xhtml:link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/stl-source-analysis/vector/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://light-city.github.io/stories_things/ru/stl-source-analysis/vector/"/>
     </url>
+    
+    
+    
+    
+    
     
     
     
