@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="स्कोप सीमित न होने से उत्पन्न naming conflict समस्या का एक सरल हल है, enum वेरिएबल को नाम देते समय prefix लगाना, जैसे ऊपर के उदाहरण को COLOR_BLUE और FEELING_BLUE कर देना।">
+        <meta name="description" content="C++ enum ट्यूटोरियल: क्लासिक enum, C++11 का enum class, क्लास के अंदर enum, और C++26 रिफ्लेक्शन (std::meta) मैक्रो या लुकअप टेबल के बिना enum-to-string रूपांतरण को कैसे हल करता है।">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ enum टाइप का उपयोग,C++ बुनियादी बातें"> 
+    <meta name="keywords" content="C++ enum,enum to string c++,c++26 reflection,enum class"> 
     <meta name="title" content="C++ enum टाइप | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/enum/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ enum टाइप | C++那些事">
-      <meta property="og:description" content="स्कोप सीमित न होने से उत्पन्न naming conflict समस्या का एक सरल हल है, enum वेरिएबल को नाम देते समय prefix लगाना, जैसे ऊपर के उदाहरण को COLOR_BLUE और FEELING_BLUE कर देना।">
+      <meta property="og:description" content="C++ enum ट्यूटोरियल: क्लासिक enum, C++11 का enum class, क्लास के अंदर enum, और C++26 रिफ्लेक्शन (std::meta) मैक्रो या लुकअप टेबल के बिना enum-to-string रूपांतरण को कैसे हल करता है।">
       <meta property="og:url" content="https://light-city.github.io/stories_things/hi/cpp-things/enum/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="hi_IN">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ enum टाइप | C++那些事">
-      <meta name="twitter:description" content="स्कोप सीमित न होने से उत्पन्न naming conflict समस्या का एक सरल हल है, enum वेरिएबल को नाम देते समय prefix लगाना, जैसे ऊपर के उदाहरण को COLOR_BLUE और FEELING_BLUE कर देना।">
+      <meta name="twitter:description" content="C++ enum ट्यूटोरियल: क्लासिक enum, C++11 का enum class, क्लास के अंदर enum, और C++26 रिफ्लेक्शन (std::meta) मैक्रो या लुकअप टेबल के बिना enum-to-string रूपांतरण को कैसे हल करता है।">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ enum टाइप | C++那些事", "description": "स्कोप सीमित न होने से उत्पन्न naming conflict समस्या का एक सरल हल है, enum वेरिएबल को नाम देते समय prefix लगाना, जैसे ऊपर के उदाहरण को COLOR_BLUE और FEELING_BLUE कर देना।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ enum टाइप | C++那些事", "description": "C++ enum ट्यूटोरियल: क्लासिक enum, C++11 का enum class, क्लास के अंदर enum, और C++26 रिफ्लेक्शन (std::meta) मैक्रो या लुकअप टेबल के बिना enum-to-string रूपांतरण को कैसे हल करता है।", "inLanguage": "hi", "url": "https://light-city.github.io/stories_things/hi/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/hi/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "मूल बातें और आगे", "item": "https://light-city.github.io/stories_things/hi/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ enum टाइप | C++那些事", "item": "https://light-city.github.io/stories_things/hi/cpp-things/enum/"}]}</script>
   </head>
   
@@ -1391,7 +1391,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enum-string-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum से String: C++26 रिफ्लेक्शन का जवाब
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      अक्सर पूछे जाने वाले प्रश्न
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="अक्सर पूछे जाने वाले प्रश्न">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-enum-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ में enum को string में कैसे बदलें?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-to-string-" class="md-nav__link">
+    <span class="md-ellipsis">
+      क्या स्टैंडर्ड लाइब्रेरी में enum-to-string बिल्ट-इन है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++26 रिफ्लेक्शन कब इस्तेमाल कर सकते हैं?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       संबंधित विषय
     </span>
@@ -5449,7 +5500,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enum-string-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum से String: C++26 रिफ्लेक्शन का जवाब
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      अक्सर पूछे जाने वाले प्रश्न
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="अक्सर पूछे जाने वाले प्रश्न">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-enum-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ में enum को string में कैसे बदलें?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-to-string-" class="md-nav__link">
+    <span class="md-ellipsis">
+      क्या स्टैंडर्ड लाइब्रेरी में enum-to-string बिल्ट-इन है?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++26 रिफ्लेक्शन कब इस्तेमाल कर सकते हैं?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       संबंधित विषय
     </span>
@@ -5478,7 +5580,8 @@
 
 
 <blockquote>
-<p><strong>अंतिम अद्यतन：2026-10-12</strong></p>
+<p>💡 <strong>सारांश</strong>：C++ enum ट्यूटोरियल: क्लासिक enum, C++11 का enum class, क्लास के अंदर enum, और C++26 रिफ्लेक्शन (std::meta) मैक्रो या लुकअप टेबल के बिना enum-to-string रूपांतरण को कैसे हल करता है।</p>
+<p><strong>अंतिम अद्यतन：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c-enum">C++ enum टाइप<a class="headerlink" href="#c-enum" title="Permanent link">&para;</a></h1>
 <h2 id="_1">लेखक के बारे में:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -5504,7 +5607,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">{</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">Color</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLUE</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Feeling</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCITED</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">":"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5564,7 +5667,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// 定义</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color3</span><span class="o">:</span><span class="kt">char</span><span class="w"> </span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">{</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">'r'</span><span class="p">,</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">BLUE</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">};</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kt">char</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color3</span><span class="o">::</span><span class="n">RED</span><span class="p">);</span>
@@ -5606,7 +5709,32 @@
 </span></code></pre></div>
 <p>enum constant ऑब्जेक्ट का storage space नहीं घेरते, वे compile time पर सभी का मूल्यांकन हो जाता है।</p>
 <p>enum constant की कमी है: इसका implicit डेटा टाइप integer है, इसकी अधिकतम वैल्यू सीमित है, और floating point दर्शा नहीं सकता।</p>
-<h2 id="_4">संबंधित विषय<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="enum-string-c26">Enum से String: C++26 रिफ्लेक्शन का जवाब<a class="headerlink" href="#enum-string-c26" title="Permanent link">&para;</a></h2>
+<p>Enum के मान को उसके नाम में बदलना लगभग हर C++ प्रोजेक्ट की एक ज़रूरत है, और C++26 से पहले स्टैंडर्ड लाइब्रेरी के पास कोई जवाब नहीं था। समाधान, पुराने से नए क्रम में: (1) X-मैक्रो, जो प्रीप्रोसेसर का इस्तेमाल करके enumerators की सूची एक जगह रखते हैं; (2) हाथ से लिखी लुकअप टेबल या टेम्पलेट स्पेशलाइज़ेशन — हर नए enum के साथ एक और टेबल; (3) magic_enum जैसी थर्ड-पार्टी लाइब्रेरी, जो कंपाइलर ट्रिक्स से नाम निकालती हैं पर आकार और अंडरलाइंग टाइप पर सीमाएँ लगाती हैं।</p>
+<p>C++26 का स्टैटिक रिफ्लेक्शन (प्रपोज़ल P2996, <code>std::meta</code>) आख़िरकार इसे कुछ ही लाइनों का असली कोड बना देता है। एक ही फ़ंक्शन कंपाइल टाइम पर किसी भी enum के मेंबर्स को गिनता है और हर enumerator का नाम पढ़ता है:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;meta&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">enumerators_of</span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">identifier_of</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"unknown enumerator"</span><span class="p">);</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>अब एक फ़ंक्शन पूरे कोडबेस के हर enum को कवर करता है। Enumerator का नाम बदलने पर स्ट्रिंग अपने आप अपडेट हो जाती है, और कोई बेमेल रनटाइम के ग़लत लेबल की जगह कंपाइल टाइम पर ही पकड़ में आ जाता है।</p>
+<p>एक ईमानदार सावधानी: यह स्निपेट C++26 ड्राफ्ट में शामिल P2996 का अनुसरण करता है। शुरुआती कंपाइलर प्रीव्यू (EDG और Clang explorer) में सटीक स्पेलिंग अभी बदल रही थी, इसलिए इस्तेमाल से पहले अपने टूलचेन की सपोर्ट टेबल देख लें। तब तक लुकअप टेबल ही सबसे पोर्टेबल, ज़ीरो-डिपेंडेंसी जवाब है।</p>
+<h2 id="_4">अक्सर पूछे जाने वाले प्रश्न<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="c-enum-string">C++ में enum को string में कैसे बदलें?<a class="headerlink" href="#c-enum-string" title="Permanent link">&para;</a></h3>
+<p>C++26 से पहले कोई स्टैंडर्ड तरीका नहीं है: लुकअप टेबल, टेम्पलेट स्पेशलाइज़ेशन, X-मैक्रो या magic_enum जैसी लाइब्रेरी में से चुनना पड़ता है। C++26 स्टैटिक रिफ्लेक्शन कंपाइल टाइम पर मेंबर्स गिनकर नाम सीधे पढ़ लेता है, जिससे चारों का रखरखाव ख़त्म हो जाता है।</p>
+<h3 id="enum-to-string-">क्या स्टैंडर्ड लाइब्रेरी में enum-to-string बिल्ट-इन है?<a class="headerlink" href="#enum-to-string-" title="Permanent link">&para;</a></h3>
+<p>C++26 से पहले नहीं। Streams और std::to_string सिर्फ़ अंडरलाइंग पूर्णांक को फ़ॉर्मैट करते हैं, इसीलिए हर प्रोजेक्ट आख़िरकार अपना helper लिखता है।</p>
+<h3 id="c26">C++26 रिफ्लेक्शन कब इस्तेमाल कर सकते हैं?<a class="headerlink" href="#c26" title="Permanent link">&para;</a></h3>
+<p>C++26 अगला स्टैंडर्ड है और रिफ्लेक्शन ड्राफ्ट में शामिल हो चुका है; EDG और Clang explorer नमूने कंपाइल कर चुके हैं। प्रोडक्शन के लिए कंपाइलर सपोर्ट देखते रहें और लुकअप टेबल को फ़ॉलबैक के तौर पर तैयार रखें।</p>
+<h2 id="_5">संबंधित विषय<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ प्योर वर्चुअल फ़ंक्शन और एब्स्ट्रैक्ट क्लास | C++那些事</a></li>
 <li><a href="../assert/">C++ assert | C++那些事</a></li>

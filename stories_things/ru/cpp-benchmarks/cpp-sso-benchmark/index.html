@@ -5426,8 +5426,8 @@
 <h1 id="sso-c-string">Тест производительности SSO в C++ string<a class="headerlink" href="#sso-c-string" title="Permanent link">&para;</a></h1>
 <p>Сегодня хочу задать вам два вопроса:</p>
 <p><strong>1.Есть ли разница в производительности у приведённого ниже кода?</strong></p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">&quot;hello world hel&quot;</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;hello world helo&quot;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">"hello world hel"</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">"hello world helo"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><strong>2.Чему равен sizeof(std::string)?</strong></p>
 <p>Давайте вместе разберём эти два вопроса.</p>
@@ -5461,8 +5461,8 @@
 <li>Содержимое короткой строки для теста: "hello world hel", всего 15 символов.</li>
 <li>Содержимое длинной строки для теста: "hello world helo", всего 16 символов.</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1(&quot;hello world hel&quot;);
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2(&quot;hello world helo&quot;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1("hello world hel");
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2("hello world helo");
 </span></code></pre></div>
 <p>Видно, что разница в производительности огромна — всего один символ настолько меняет производительность std::string!</p>
 <p>По сути, дело всё в том же SSO local buffer.</p>

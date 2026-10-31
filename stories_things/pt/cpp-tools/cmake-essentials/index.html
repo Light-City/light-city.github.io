@@ -5481,9 +5481,9 @@
 <h2 id="fundamentos-essenciais-do-cmake-parte-1">Fundamentos essenciais do CMake (parte 1)<a class="headerlink" href="#fundamentos-essenciais-do-cmake-parte-1" title="Permanent link">&para;</a></h2>
 <h2 id="1-definir-as-flags-do-compilador">1. Definir as flags do compilador<a class="headerlink" href="#1-definir-as-flags-do-compilador" title="Permanent link">&para;</a></h2>
 <p>Por exemplo: definir o padrão C++ e exibir todos os avisos.</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;-std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;${CMAKE_CXX_FLAGS} -std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">&quot;$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;&quot;</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"-std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"${CMAKE_CXX_FLAGS} -std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">"$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Também é possível definir algumas flags de otimização</p>
 <p>Documentação oficial: <a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html</a></p>
@@ -5497,7 +5497,7 @@
 <h2 id="2-definir-propriedades-dos-arquivos-fonte">2. Definir propriedades dos arquivos-fonte<a class="headerlink" href="#2-definir-propriedades-dos-arquivos-fonte" title="Permanent link">&para;</a></h2>
 <p>Esta é uma funcionalidade complexa do CMake: se existirem vários alvos, pode ser necessário alterar o comportamento de um deles. Por exemplo, se você quiser compilar o main.cpp usando C++11, mas compilar apenas a biblioteca em C++14, pode usar o comando <code>set_source_files_properties</code> para configurar as propriedades de arquivos-fonte específicos, conforme mostrado abaixo:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmakeCopy code
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS &quot;-std=c++11&quot;)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS "-std=c++11")
 </span></code></pre></div>
 <p>No manual a seguir é possível consultar inúmeras propriedades, e cada uma delas pode ser usada para atender às suas necessidades específicas.</p>
 <ul>
@@ -5525,16 +5525,16 @@
 <li><code>CMAKE_MODULE_LINKER_FLAGS</code>: flags usadas ao criar uma biblioteca de módulo</li>
 </ul>
 <p>Por exemplo, você pode adicionar flags do vinculador com o seguinte código:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address&quot;)
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -Wl&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl")
 </span></code></pre></div>
 <p>Saber usar essas flags pode ajudá-lo a controlar melhor o comportamento de vinculação do executável.</p>
 <h2 id="4-pacotes-debug-e-release">4. Pacotes Debug e Release<a class="headerlink" href="#4-pacotes-debug-e-release" title="Permanent link">&para;</a></h2>
 <p>Dentro do arquivo CMakeLists.txt, é possível acessar CMAKE_BUILD_TYPE. Você pode verificar facilmente o tipo de compilação no CMakeLists.txt:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Debug</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Debug Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Debug Build"</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">elseif</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Release</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Release Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Release Build"</span><span class="p">)</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">endif</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Você também pode usar as variáveis de configuração mostradas na seção anterior para definir separadamente as flags do compilador e do vinculador para os diferentes tipos de compilação:</p>

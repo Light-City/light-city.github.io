@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="解决作用域不受限带来的命名冲突问题的一个简单方法是，给枚举变量命名时加前缀，如上面例子改成 COLOR_BLUE 以及 FEELING_BLUE。">
+        <meta name="description" content="C++ 枚举类型详解：传统枚举的坑、C++11 enum class 强类型枚举、类内枚举，以及 C++26 反射（std::meta）如何一段代码解决枚举转字符串，告别宏与查找表。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ enum 枚举类型用法,C++基础"> 
+    <meta name="keywords" content="C++ 枚举,枚举转字符串,c++26 reflection,enum class,C++基础"> 
     <meta name="title" content="C++ enum 枚举类型 | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/enum/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ enum 枚举类型 | C++那些事">
-      <meta property="og:description" content="解决作用域不受限带来的命名冲突问题的一个简单方法是，给枚举变量命名时加前缀，如上面例子改成 COLOR_BLUE 以及 FEELING_BLUE。">
+      <meta property="og:description" content="C++ 枚举类型详解：传统枚举的坑、C++11 enum class 强类型枚举、类内枚举，以及 C++26 反射（std::meta）如何一段代码解决枚举转字符串，告别宏与查找表。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/enum/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -103,10 +103,11 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ enum 枚举类型 | C++那些事">
-      <meta name="twitter:description" content="解决作用域不受限带来的命名冲突问题的一个简单方法是，给枚举变量命名时加前缀，如上面例子改成 COLOR_BLUE 以及 FEELING_BLUE。">
+      <meta name="twitter:description" content="C++ 枚举类型详解：传统枚举的坑、C++11 enum class 强类型枚举、类内枚举，以及 C++26 反射（std::meta）如何一段代码解决枚举转字符串，告别宏与查找表。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ enum 枚举类型 | C++那些事", "description": "解决作用域不受限带来的命名冲突问题的一个简单方法是，给枚举变量命名时加前缀，如上面例子改成 COLOR_BLUE 以及 FEELING_BLUE。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ enum 枚举类型 | C++那些事", "description": "C++ 枚举类型详解：传统枚举的坑、C++11 enum class 强类型枚举、类内枚举，以及 C++26 反射（std::meta）如何一段代码解决枚举转字符串，告别宏与查找表。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ enum 枚举类型 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/enum/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "C++ 里怎么把枚举转成字符串？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++26 之前没有标准做法，只能在查找表、模板特化、X 宏、magic_enum 这类库里选。C++26 静态反射直接在编译期枚举成员读出名字，把上面几种方案的维护成本一次清零。"}}, {"@type": "Question", "name": "标准库有内置的枚举转字符串吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++26 之前没有。流输出和 std::to_string 只会格式化底层整数，所以每个项目最后都自己写了个工具函数。"}}, {"@type": "Question", "name": "C++26 反射什么时候能用上？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++26 是即将发布的标准，反射已进入草案，EDG 和 Clang explorer 已经能编译示例。生产代码请盯着编译器支持状态，查找表方案留作兜底。"}}]}</script>
   </head>
   
   
@@ -1392,7 +1393,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举转字符串：C++26 反射的正解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里怎么把枚举转成字符串？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准库有内置的枚举转字符串吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++26 反射什么时候能用上？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5450,7 +5502,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举转字符串：C++26 反射的正解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里怎么把枚举转成字符串？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准库有内置的枚举转字符串吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++26 反射什么时候能用上？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5479,6 +5582,7 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：C++ 枚举类型详解：传统枚举的坑、C++11 enum class 强类型枚举、类内枚举，以及 C++26 反射（std::meta）如何一段代码解决枚举转字符串，告别宏与查找表。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c-enum">C++ enum 枚举类型<a class="headerlink" href="#c-enum" title="Permanent link">&para;</a></h1>
@@ -5505,7 +5609,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">{</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">Color</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLUE</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Feeling</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCITED</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">":"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5565,7 +5669,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// 定义</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color3</span><span class="o">:</span><span class="kt">char</span><span class="w"> </span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">{</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">'r'</span><span class="p">,</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">BLUE</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">};</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kt">char</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color3</span><span class="o">::</span><span class="n">RED</span><span class="p">);</span>
@@ -5607,7 +5711,32 @@
 </span></code></pre></div>
 <p>枚举常量不会占用对象的存储空间，它们在编译时被全部求值。</p>
 <p>枚举常量的缺点是：它的隐含数据类型是整数，其最大值有限，且不能表示浮点。</p>
-<h2 id="_5">相关主题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="c26">枚举转字符串：C++26 反射的正解<a class="headerlink" href="#c26" title="Permanent link">&para;</a></h2>
+<p>把枚举值变成它的名字，几乎是每个 C++ 项目都会撞上的一次需求，但在 C++26 之前标准库一直没有正解。民间的办法按出现顺序排：（1）X 宏，用预处理器把枚举列表收敛到一处；（2）手写查找表或模板特化，每加一个枚举就要多维护一张表；（3）magic_enum 这类第三方库，靠编译器技巧把名字"钓"出来，但对枚举数量和底层类型都有要求。</p>
+<p>C++26 静态反射（提案 P2996，<code>std::meta</code>）终于把这件事变成几行真正的代码。一个函数在编译期枚举任意枚举类型的成员，并读出每个枚举值的名字：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;meta&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">enumerators_of</span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">identifier_of</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"unknown enumerator"</span><span class="p">);</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>从此一个函数就能覆盖全代码库的所有枚举。枚举值改名后字符串自动跟着变，对不上直接在编译期报错，而不是运行时输出一个错的标签。</p>
+<p><strong>实话实说</strong>：上面这段代码遵循的是已并入 C++26 草案的 P2996，早期编译器预览版（EDG、Clang explorer）里个别拼法还在变，上线前先看自己工具链的支持表。在那之前，查找表仍是最可移植的零依赖方案。</p>
+<h2 id="_5">常见问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="c">C++ 里怎么把枚举转成字符串？<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
+<p>C++26 之前没有标准做法，只能在查找表、模板特化、X 宏、magic_enum 这类库里选。C++26 静态反射直接在编译期枚举成员读出名字，把上面几种方案的维护成本一次清零。</p>
+<h3 id="_6">标准库有内置的枚举转字符串吗？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>C++26 之前没有。流输出和 std::to_string 只会格式化底层整数，所以每个项目最后都自己写了个工具函数。</p>
+<h3 id="c26_1">C++26 反射什么时候能用上？<a class="headerlink" href="#c26_1" title="Permanent link">&para;</a></h3>
+<p>C++26 是即将发布的标准，反射已进入草案，EDG 和 Clang explorer 已经能编译示例。生产代码请盯着编译器支持状态，查找表方案留作兜底。</p>
+<h2 id="_7">相关主题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>

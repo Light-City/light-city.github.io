@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Примечание: все примеры кода из этой статьи размещены в 知识星球 (Zhishi Xingqiu).">
+        <meta name="description" content="Полный обзор семейства const в C++: const против constexpr и constinit, consteval и константные члены, а также как deducing this из C++23 сворачивает четыре перегрузки const/ссылки в одну функцию.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ всё семейство const,std::array,основы C++"> 
+    <meta name="keywords" content="C++ const,constexpr,deducing this,c++23"> 
     <meta name="title" content="C++ всё семейство const | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-const-family/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ всё семейство const | C++那些事">
-      <meta property="og:description" content="Примечание: все примеры кода из этой статьи размещены в 知识星球 (Zhishi Xingqiu).">
+      <meta property="og:description" content="Полный обзор семейства const в C++: const против constexpr и constinit, consteval и константные члены, а также как deducing this из C++23 сворачивает четыре перегрузки const/ссылки в одну функцию.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ru_RU">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ всё семейство const | C++那些事">
-      <meta name="twitter:description" content="Примечание: все примеры кода из этой статьи размещены в 知识星球 (Zhishi Xingqiu).">
+      <meta name="twitter:description" content="Полный обзор семейства const в C++: const против constexpr и constinit, consteval и константные члены, а также как deducing this из C++23 сворачивает четыре перегрузки const/ссылки в одну функцию.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ всё семейство const | C++那些事", "description": "Примечание: все примеры кода из этой статьи размещены в 知识星球 (Zhishi Xingqiu).", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ всё семейство const | C++那些事", "description": "Полный обзор семейства const в C++: const против constexpr и constinit, consteval и константные члены, а также как deducing this из C++23 сворачивает четыре перегрузки const/ссылки в одну функцию.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Глубже в механику языка", "item": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ всё семейство const | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-const-family/"}]}</script>
   </head>
   
@@ -1541,7 +1541,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-deducing-this-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this: пишите перегрузки const/ссылки один раз
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли deducing this заменить перегрузки const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие компиляторы поддерживают deducing this?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-crtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this — это то же самое, что CRTP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5463,7 +5514,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-deducing-this-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this: пишите перегрузки const/ссылки один раз
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Может ли deducing this заменить перегрузки const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какие компиляторы поддерживают deducing this?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-crtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this — это то же самое, что CRTP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5492,7 +5594,8 @@
 
 
 <blockquote>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p>💡 <strong>Кратко</strong>：Полный обзор семейства const в C++: const против constexpr и constinit, consteval и константные члены, а также как deducing this из C++23 сворачивает четыре перегрузки const/ссылки в одну функцию.</p>
+<p><strong>Последнее обновление：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c-const">C++ всё семейство const<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
 <p>План</p>
@@ -5575,7 +5678,35 @@
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="k">constinit</span><span class="w"> </span><span class="k">thread_local</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_1">Похожие темы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-deducing-this-const">C++23 deducing this: пишите перегрузки const/ссылки один раз<a class="headerlink" href="#c23-deducing-this-const" title="Permanent link">&para;</a></h2>
+<p>Кто доходит до конца семейства const, упирается в ту же стену: геттер, корректный для const и не-const объектов, для lvalue и rvalue, требует до четырёх почти одинаковых перегрузок — и в день, когда кто-то поправит лишь одну, они молча разъедутся.</p>
+<p>«Deducing this» из C++23 (явный параметр объекта, предложение P0847) убирает дублирование. Функция-член объявляет собственный объект явным параметром; компилятор выводит его тип вместе с константностью и категорией значения, и один шаблон покрывает все четыре случая:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Before C++23 you needed up to four overloads:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">//   int&amp;  get() &amp;       { return value_; }</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="c1">//   int   get() const&amp;  { return value_; }</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">//   int&amp;&amp; get() &amp;&amp;      { return std::move(value_); }</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">//   ...</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// C++23 deducing this — one template covers them all:</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">self</span><span class="p">).</span><span class="n">value_</span><span class="p">;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>При вызове get() на const-lvalue Self выводится как const Widget&amp;; на rvalue — как Widget&amp;&amp;, и std::forward выполняет перемещение. Что должно быть const — по-прежнему решают знания из начала статьи; deducing this лишь снимает копипасту.</p>
+<p>Возможность также забирает две работы CRTP — подмешивание поведения и вывод производного типа — без шаблонной базы. Поддержка: GCC 14+, Clang 18+, MSVC начиная с VS 2022 17.2.</p>
+<h2 id="_1">Часто задаваемые вопросы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="deducing-this-const">Может ли deducing this заменить перегрузки const?<a class="headerlink" href="#deducing-this-const" title="Permanent link">&para;</a></h3>
+<p>В типичном случае — да. Один шаблон по Self&amp;&amp; со std::forward корректно работает для &amp;, const&amp;, &amp;&amp; и const&amp;&amp;. Отдельные перегрузки нужны, лишь когда поведение реально различается по квалификации, а это редкость.</p>
+<h3 id="deducing-this">Какие компиляторы поддерживают deducing this?<a class="headerlink" href="#deducing-this" title="Permanent link">&para;</a></h3>
+<p>GCC 14 и новее, Clang 18 и новее, MSVC начиная с Visual Studio 2022 17.2. Это возможность C++23 — компилируйте с -std=c++23 (или c++2b на старых драйверах).</p>
+<h3 id="deducing-this-crtp">Deducing this — это то же самое, что CRTP?<a class="headerlink" href="#deducing-this-crtp" title="Permanent link">&para;</a></h3>
+<p>Они пересекаются: оба выводят самый производный тип. Deducing this не требует шаблонного базового класса, работает с лямбдами (рекурсивные лямбды!) и сохраняет иерархию чистой; CRTP остаётся уместным, когда миксин обязан быть переиспользуемым базовым классом.</p>
+<h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>

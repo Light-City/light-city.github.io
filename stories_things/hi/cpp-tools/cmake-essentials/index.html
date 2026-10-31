@@ -5481,9 +5481,9 @@
 <h2 id="cmake_1">CMake के सामान्य आवश्यक तत्व (भाग एक)<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
 <h2 id="1-flags">1. कंपाइलर flags सेट करना<a class="headerlink" href="#1-flags" title="Permanent link">&para;</a></h2>
 <p>उदाहरण के लिए: C++ standard सेट करना, सभी warnings दिखाना।</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;-std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;${CMAKE_CXX_FLAGS} -std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">&quot;$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;&quot;</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"-std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"${CMAKE_CXX_FLAGS} -std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">"$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>कुछ optimization flags भी सेट किए जा सकते हैं</p>
 <p>आधिकारिक सामग्री: <a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html</a></p>
@@ -5497,7 +5497,7 @@
 <h2 id="2-properties">2. सोर्स फ़ाइल की properties सेट करना<a class="headerlink" href="#2-properties" title="Permanent link">&para;</a></h2>
 <p>यह CMake की एक जटिल property है, अगर कई targets मौजूद हैं, तो हो सकता है कि आपको किसी एक target के कुछ व्यवहार बदलने की ज़रूरत पड़े। उदाहरण के लिए, अगर आप main.cpp को C++11 से बिल्ड करना चाहते हैं, लेकिन केवल लाइब्रेरी के लिए इसे C++14 से बिल्ड करना चाहते हैं, तो ऐसी स्थिति में आप <code>set_source_files_properties</code> कमांड का उपयोग करके किसी विशेष सोर्स फ़ाइल की properties कॉन्फ़िगर कर सकते हैं, जैसा नीचे दिखाया गया है:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmakeCopy code
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS &quot;-std=c++11&quot;)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS "-std=c++11")
 </span></code></pre></div>
 <p>बड़ी संख्या में properties निम्न manual से देखी जा सकती हैं, हर property का उपयोग आपकी विशेष ज़रूरतों को पूरा करने के लिए किया जा सकता है।</p>
 <ul>
@@ -5525,16 +5525,16 @@
 <li><code>CMAKE_MODULE_LINKER_FLAGS</code>: module लाइब्रेरी बनाते समय लिंकर द्वारा उपयोग किए जाने वाले flags</li>
 </ul>
 <p>उदाहरण के लिए, आप निम्न कोड से लिंकर flags जोड़ सकते हैं:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address&quot;)
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -Wl&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl")
 </span></code></pre></div>
 <p>इन flags के उपयोग को समझना आपको executable के लिंकिंग व्यवहार पर बेहतर नियंत्रण दिलाने में मदद करता है।</p>
 <h2 id="4-debug-release">4. Debug और Release पैकेज<a class="headerlink" href="#4-debug-release" title="Permanent link">&para;</a></h2>
 <p>CMakeLists.txt फ़ाइल के अंदर CMAKE_BUILD_TYPE को access किया जा सकता है। आप CMakeLists.txt में build type की जांच आसानी से कर सकते हैं:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Debug</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Debug Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Debug Build"</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">elseif</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Release</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Release Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Release Build"</span><span class="p">)</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">endif</span><span class="p">()</span>
 </span></code></pre></div>
 <p>आप पिछले section में दिखाए गए configuration variables का उपयोग करके अलग-अलग build types के लिए compiler और लिंकर flags सेट कर सकते हैं:</p>

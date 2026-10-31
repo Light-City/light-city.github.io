@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Nota: todos os exemplos de código deste artigo foram publicados no Planeta do Conhecimento.">
+        <meta name="description" content="A família const do C++ completa: const vs constexpr vs constinit, consteval e membros const, e como o deducing this do C++23 colapsa quatro sobrecargas const/ref em uma única função.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="a "família" do const em C++,std::array,fundamentos de C++"> 
+    <meta name="keywords" content="C++ const,constexpr,deducing this,c++23"> 
     <meta name="title" content="A família completa do const em C++ | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-const-family/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="A família completa do const em C++ | C++那些事">
-      <meta property="og:description" content="Nota: todos os exemplos de código deste artigo foram publicados no Planeta do Conhecimento.">
+      <meta property="og:description" content="A família const do C++ completa: const vs constexpr vs constinit, consteval e membros const, e como o deducing this do C++23 colapsa quatro sobrecargas const/ref em uma única função.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="pt_BR">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="A família completa do const em C++ | C++那些事">
-      <meta name="twitter:description" content="Nota: todos os exemplos de código deste artigo foram publicados no Planeta do Conhecimento.">
+      <meta name="twitter:description" content="A família const do C++ completa: const vs constexpr vs constinit, consteval e membros const, e como o deducing this do C++23 colapsa quatro sobrecargas const/ref em uma única função.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "A família completa do const em C++ | C++那些事", "description": "Nota: todos os exemplos de código deste artigo foram publicados no Planeta do Conhecimento.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "A família completa do const em C++ | C++那些事", "description": "A família const do C++ completa: const vs constexpr vs constinit, consteval e membros const, e como o deducing this do C++23 colapsa quatro sobrecargas const/ref em uma única função.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Mecanismos avançados da linguagem", "item": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "A família completa do const em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/cpp-const-family/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "pt", "mainEntity": [{"@type": "Question", "name": "Deducing this pode substituir as sobrecargas const?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Sim no caso comum. Um único template sobre Self&amp;amp;&amp;amp; com std::forward se comporta corretamente para &amp;amp;, const&amp;amp;, &amp;amp;&amp;amp; e const&amp;amp;&amp;amp;. Sobrecargas separadas só quando o comportamento realmente difere por qualificação — o que é raro."}}, {"@type": "Question", "name": "Quais compiladores suportam deducing this?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "GCC 14 ou superior, Clang 18 ou superior e MSVC desde o Visual Studio 2022 17.2. É um recurso do C++23: compile com -std=c++23 (ou c++2b em drivers antigos)."}}, {"@type": "Question", "name": "Deducing this é a mesma coisa que CRTP?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Há sobreposição: ambos deduzem o tipo mais derivado. Deducing this dispensa o template base, funciona em lambdas (lambdas recursivas!) e mantém a hierarquia limpa; o CRTP ainda serve quando o mixin precisa ser uma classe base reutilizável."}}]}</script>
   </head>
   
   
@@ -1530,6 +1531,57 @@
   <a href="#32-constinit" class="md-nav__link">
     <span class="md-ellipsis">
       3.2 constinit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c23-deducing-this-escreva-as-sobrecargas-constref-uma-unica-vez" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this: escreva as sobrecargas const/ref uma única vez
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perguntas-frequentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perguntas frequentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perguntas frequentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-pode-substituir-as-sobrecargas-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this pode substituir as sobrecargas const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quais-compiladores-suportam-deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quais compiladores suportam deducing this?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-e-a-mesma-coisa-que-crtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this é a mesma coisa que CRTP?
     </span>
   </a>
   
@@ -5463,6 +5515,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-deducing-this-escreva-as-sobrecargas-constref-uma-unica-vez" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this: escreva as sobrecargas const/ref uma única vez
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perguntas-frequentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perguntas frequentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perguntas frequentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-pode-substituir-as-sobrecargas-const" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this pode substituir as sobrecargas const?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quais-compiladores-suportam-deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quais compiladores suportam deducing this?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-e-a-mesma-coisa-que-crtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deducing this é a mesma coisa que CRTP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#topicos-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Tópicos relacionados
@@ -5492,7 +5595,8 @@
 
 
 <blockquote>
-<p><strong>Última atualização：2026-10-12</strong></p>
+<p>💡 <strong>Resumo</strong>：A família const do C++ completa: const vs constexpr vs constinit, consteval e membros const, e como o deducing this do C++23 colapsa quatro sobrecargas const/ref em uma única função.</p>
+<p><strong>Última atualização：2026-10-24</strong></p>
 </blockquote>
 <h1 id="a-familia-completa-do-const-em-c">A família completa do const em C++<a class="headerlink" href="#a-familia-completa-do-const-em-c" title="Permanent link">&para;</a></h1>
 <p>Sumário</p>
@@ -5575,6 +5679,34 @@
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="k">constinit</span><span class="w"> </span><span class="k">thread_local</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
+<h2 id="c23-deducing-this-escreva-as-sobrecargas-constref-uma-unica-vez">C++23 deducing this: escreva as sobrecargas const/ref uma única vez<a class="headerlink" href="#c23-deducing-this-escreva-as-sobrecargas-constref-uma-unica-vez" title="Permanent link">&para;</a></h2>
+<p>Quem avança na família const acaba no mesmo muro: um getter que deve se comportar bem para objetos const e não const, lvalues e rvalues, precisa de até quatro sobrecargas quase idênticas — e no dia em que alguém editar só uma, elas começam a divergir em silêncio.</p>
+<p>O «deducing this» do C++23 (parâmetro de objeto explícito, proposta P0847) elimina a duplicação. A função membro declara o próprio objeto como parâmetro explícito; o compilador deduz o tipo junto com a constância e a categoria de valor, e um único template cobre os quatro casos:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Before C++23 you needed up to four overloads:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">//   int&amp;  get() &amp;       { return value_; }</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="c1">//   int   get() const&amp;  { return value_; }</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">//   int&amp;&amp; get() &amp;&amp;      { return std::move(value_); }</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">//   ...</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// C++23 deducing this — one template covers them all:</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">self</span><span class="p">).</span><span class="n">value_</span><span class="p">;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>Ao chamar get() num lvalue const, Self deduz como const Widget&amp;; num rvalue, como Widget&amp;&amp; e std::forward move. Decidir o que deve ser const continua sendo papel do que foi explicado antes; deducing this só remove o copia-e-cola.</p>
+<p>O recurso também assume duas tarefas do CRTP — misturar comportamento e deduzir o tipo derivado — sem o boilerplate do template base. Suporte: GCC 14+, Clang 18+, MSVC desde o VS 2022 17.2.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes<a class="headerlink" href="#perguntas-frequentes" title="Permanent link">&para;</a></h2>
+<h3 id="deducing-this-pode-substituir-as-sobrecargas-const">Deducing this pode substituir as sobrecargas const?<a class="headerlink" href="#deducing-this-pode-substituir-as-sobrecargas-const" title="Permanent link">&para;</a></h3>
+<p>Sim no caso comum. Um único template sobre Self&amp;&amp; com std::forward se comporta corretamente para &amp;, const&amp;, &amp;&amp; e const&amp;&amp;. Sobrecargas separadas só quando o comportamento realmente difere por qualificação — o que é raro.</p>
+<h3 id="quais-compiladores-suportam-deducing-this">Quais compiladores suportam deducing this?<a class="headerlink" href="#quais-compiladores-suportam-deducing-this" title="Permanent link">&para;</a></h3>
+<p>GCC 14 ou superior, Clang 18 ou superior e MSVC desde o Visual Studio 2022 17.2. É um recurso do C++23: compile com -std=c++23 (ou c++2b em drivers antigos).</p>
+<h3 id="deducing-this-e-a-mesma-coisa-que-crtp">Deducing this é a mesma coisa que CRTP?<a class="headerlink" href="#deducing-this-e-a-mesma-coisa-que-crtp" title="Permanent link">&para;</a></h3>
+<p>Há sobreposição: ambos deduzem o tipo mais derivado. Deducing this dispensa o template base, funciona em lambdas (lambdas recursivas!) e mantém a hierarquia limpa; o CRTP ainda serve quando o mixin precisa ser uma classe base reutilizável.</p>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funções virtuais puras e classes abstratas em C++ | C++那些事</a></li>

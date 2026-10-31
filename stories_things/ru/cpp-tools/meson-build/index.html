@@ -5763,35 +5763,35 @@
 </span></code></pre></div>
 <h3 id="42-meson-">4.2 Управление meson-проектом<a class="headerlink" href="#42-meson-" title="Permanent link">&para;</a></h3>
 <p>Добавляем в корень проекта файл meson.build со следующим содержимым:</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">project</span><span class="p">(</span><span class="s1">&#39;gtest_div&#39;</span><span class="p">,</span> <span class="s1">&#39;cpp&#39;</span><span class="p">)</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">gtest_proj</span> <span class="o">=</span> <span class="n">subproject</span><span class="p">(</span><span class="s1">&#39;gtest&#39;</span><span class="p">)</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">gtest_dep</span> <span class="o">=</span> <span class="n">gtest_proj</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s1">&#39;gtest_main_dep&#39;</span><span class="p">)</span> 
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">div_src</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s1">&#39;src/division.cc&#39;</span><span class="p">)</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">tests_src</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s1">&#39;test/division_test.cc&#39;</span><span class="p">)</span>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">project</span><span class="p">(</span><span class="s1">'gtest_div'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">gtest_proj</span> <span class="o">=</span> <span class="n">subproject</span><span class="p">(</span><span class="s1">'gtest'</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">gtest_dep</span> <span class="o">=</span> <span class="n">gtest_proj</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s1">'gtest_main_dep'</span><span class="p">)</span> 
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">div_src</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s1">'src/division.cc'</span><span class="p">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">tests_src</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s1">'test/division_test.cc'</span><span class="p">)</span>
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">e</span> <span class="o">=</span> <span class="n">executable</span><span class="p">(</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="s1">&#39;division_test&#39;</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="s1">'division_test'</span><span class="p">,</span>
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">tests_src</span> <span class="o">+</span> <span class="n">div_src</span><span class="p">,</span> 
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">dependencies</span> <span class="p">:</span> <span class="p">[</span> <span class="n">gtest_dep</span><span class="p">],</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">override_options</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cpp_std=c++14&#39;</span><span class="p">]</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">override_options</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'cpp_std=c++14'</span><span class="p">]</span>
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">)</span>
 </span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># https://mesonbuild.com/Unit-tests.html#testing-tool</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">test</span><span class="p">(</span><span class="s1">&#39;this is a division test&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">test</span><span class="p">(</span><span class="s1">'this is a division test'</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </span></code></pre></div>
 Видно, что это содержимое практически совпадает с синтаксисом python; тем, кто знает python, такой код даётся очень легко; здесь подробнее разберём важные части выше.</p>
 <ul>
 <li>Подключение сторонних библиотек</li>
 </ul>
 <p>Например: подключённый сторонний проект называется gtest, вот так:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>project(&#39;gtest&#39;, &#39;cpp&#39;,
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  version : &#39;1.14.0&#39;,
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  default_options : [&#39;cpp_std=c++14&#39;],
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  license : &#39;bsd&#39;)
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>project('gtest', 'cpp',
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  version : '1.14.0',
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  default_options : ['cpp_std=c++14'],
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  license : 'bsd')
 </span></code></pre></div>
 Тогда через subproject можно получить этот project, а затем через <code>gtest_proj.get_variable</code> — информацию о зависимостях gtest; например, в googletest это объявлено так:</p>
 <p><div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">gtest_main_dep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">declare_dependency</span><span class="p">(</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nl">include_directories</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">gtest_incdir</span><span class="p">,</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nl">sources</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">gtest_libsources</span><span class="p">,</span><span class="w"> </span><span class="n">gtest_mainsources</span><span class="p">],</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nl">dependencies</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dependency</span><span class="p">(</span><span class="err">&#39;</span><span class="n">threads</span><span class="err">&#39;</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nl">dependencies</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dependency</span><span class="p">(</span><span class="err">'</span><span class="n">threads</span><span class="err">'</span><span class="p">)</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">)</span>
 </span></code></pre></div>
 - executable</p>
@@ -5800,8 +5800,8 @@
 <li>test</li>
 </ul>
 <p>Синтаксис модульного теста:</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>e = executable(&#39;prog&#39;, &#39;testprog.c&#39;)
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>test(&#39;name of test&#39;, e)
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>e = executable('prog', 'testprog.c')
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>test('name of test', e)
 </span></code></pre></div>
 Можно использовать <code>meson test</code> или <code>ninja test</code>; после выполнения будет создан лог тестирования, находящийся по адресу:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>build/meson-logs/testlog.txt
@@ -5821,7 +5821,7 @@
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>Build type: native build
 </span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Project name: gtest_div
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>Project version: undefined
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>C++ compiler for the host machine: c++ (clang 12.0.5 &quot;Apple clang version 12.0.5 (clang-1205.0.22.11)&quot;)
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>C++ compiler for the host machine: c++ (clang 12.0.5 "Apple clang version 12.0.5 (clang-1205.0.22.11)")
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>C++ linker for the host machine: c++ ld64 650.9
 </span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>Host machine cpu family: x86_64
 </span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>Host machine cpu: x86_64
@@ -5836,7 +5836,7 @@
 </span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
 </span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>gtest| Project name: gtest
 </span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>gtest| Project version: 1.14.0
-</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>gtest| C++ compiler for the host machine: c++ (clang 12.0.5 &quot;Apple clang version 12.0.5 (clang-1205.0.22.11)&quot;)
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a>gtest| C++ compiler for the host machine: c++ (clang 12.0.5 "Apple clang version 12.0.5 (clang-1205.0.22.11)")
 </span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>gtest| C++ linker for the host machine: c++ ld64 650.9
 </span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>gtest| Run-time dependency threads found: YES
 </span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>gtest| Dependency threads found: YES unknown (cached)
@@ -5868,12 +5868,12 @@
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>➜  gtest_div meson compile -C build/            
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>INFO: autodetecting backend as ninja
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>INFO: calculating backend command to run: /usr/local/bin/ninja -C /Users/light/work/practice/gtest_div/build
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>ninja: Entering directory `/Users/light/work/practice/gtest_div/build&#39;
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>ninja: Entering directory `/Users/light/work/practice/gtest_div/build'
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>[5/5] Linking target division_test
 </span></code></pre></div>
 Второй вариант:</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>➜  gtest_div ninja -C build
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ninja: Entering directory `build&#39;
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ninja: Entering directory `build'
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>[5/5] Linking target division_test
 </span></code></pre></div>
 Эти две команды по сути одинаковы — обе компилируют через ninja; разумеется, можно и не указывать каталог через <code>-C</code>, но тогда понадобится <code>cd build &amp;&amp; ninja</code> или <code>cd build &amp;&amp; meson compile</code>.</p>
@@ -5909,7 +5909,7 @@
 </span></code></pre></div>
 Журнал выполнения:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>➜  gtest_div meson test -C build 
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>ninja: Entering directory `/Users/light/work/practice/gtest_div/build&#39;
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>ninja: Entering directory `/Users/light/work/practice/gtest_div/build'
 </span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ninja: no work to do.
 </span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>1/1 this is a division test        OK              0.01s
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>

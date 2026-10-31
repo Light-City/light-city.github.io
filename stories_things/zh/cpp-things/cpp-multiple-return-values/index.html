@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="本篇文章将会给大家用不同的方法来解答这道题目，首先我们转化一下这个题目，使用a / b来模拟下面不考虑被除数为0的场景，返回商与余数。">
+        <meta name="description" content="C++ 一个函数返回多个值的全部写法：pair、tuple、结构体、tie、回调、出参，以及 C++23 std::expected 如何不用异常就把「值或错误」表达清楚。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ 多返回值写法用法,std::tie,C++基础"> 
+    <meta name="keywords" content="C++ 多返回值,std::expected,std::expected 示例,c++23 错误处理"> 
     <meta name="title" content="C++ 多返回值写法 | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-multiple-return-values/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ 多返回值写法 | C++那些事">
-      <meta property="og:description" content="本篇文章将会给大家用不同的方法来解答这道题目，首先我们转化一下这个题目，使用a / b来模拟下面不考虑被除数为0的场景，返回商与余数。">
+      <meta property="og:description" content="C++ 一个函数返回多个值的全部写法：pair、tuple、结构体、tie、回调、出参，以及 C++23 std::expected 如何不用异常就把「值或错误」表达清楚。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -103,10 +103,11 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ 多返回值写法 | C++那些事">
-      <meta name="twitter:description" content="本篇文章将会给大家用不同的方法来解答这道题目，首先我们转化一下这个题目，使用a / b来模拟下面不考虑被除数为0的场景，返回商与余数。">
+      <meta name="twitter:description" content="C++ 一个函数返回多个值的全部写法：pair、tuple、结构体、tie、回调、出参，以及 C++23 std::expected 如何不用异常就把「值或错误」表达清楚。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 多返回值写法 | C++那些事", "description": "本篇文章将会给大家用不同的方法来解答这道题目，首先我们转化一下这个题目，使用a / b来模拟下面不考虑被除数为0的场景，返回商与余数。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 多返回值写法 | C++那些事", "description": "C++ 一个函数返回多个值的全部写法：pair、tuple、结构体、tie、回调、出参，以及 C++23 std::expected 如何不用异常就把「值或错误」表达清楚。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "语言机制深入", "item": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ 多返回值写法 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-multiple-return-values/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "std::expected、std::optional、std::variant 用哪个？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "失败不需要理由时用 optional；两个选项都是同等合法的值时用 variant；第二个位置是错误、希望调用方显式处理时用 expected。"}}, {"@type": "Question", "name": "std::expected 会分配内存吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "不会。它和 optional、variant 一样，把值或错误存在自己的内部存储里，没有堆分配；sizeof 取决于 T、E 和对齐要求。"}}, {"@type": "Question", "name": "什么时候还应该用异常而不是 std::expected？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "真正\"异常\"的场景——构造失败、要穿越很多层的错误——栈回溯反而划算时，继续用异常。解析、校验这类预期内、调用点附近就能恢复的失败，用 expected。"}}]}</script>
   </head>
   
   
@@ -1677,7 +1678,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected：不用异常，把"值或错误"说清楚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpectedstdoptionalstdvariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected、std::optional、std::variant 用哪个？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected 会分配内存吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候还应该用异常而不是 std::expected？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5470,7 +5522,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected：不用异常，把"值或错误"说清楚
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpectedstdoptionalstdvariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected、std::optional、std::variant 用哪个？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected 会分配内存吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么时候还应该用异常而不是 std::expected？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5499,7 +5602,7 @@
 
 
 <blockquote>
-<p>💡 <strong>一分钟速览</strong>：本篇文章将会给大家用不同的方法来解答这道题目，首先我们转化一下这个题目，使用a / b来模拟下面不考虑被除数为0的场景，返回商与余数。</p>
+<p>💡 <strong>一分钟速览</strong>：C++ 一个函数返回多个值的全部写法：pair、tuple、结构体、tie、回调、出参，以及 C++23 std::expected 如何不用异常就把「值或错误」表达清楚。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c">C++ 多返回值写法<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
@@ -5540,7 +5643,7 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="3-struct-binding">3. Struct Binding<a class="headerlink" href="#3-struct-binding" title="Permanent link">&para;</a></h2>
 <p>对上面进行改造，C++17引入的结构化绑定进一步简化了多值返回的代码。使用auto和结构化绑定，使得代码更加直观易懂。</p>
@@ -5613,7 +5716,36 @@
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </span></code></pre></div>
 <p>总体而言，C++提供了多种方式来实现多值返回，每种方式都有其适用的场景。选择合适的方式取决于具体的需求，开发者可以根据代码结构和可读性来灵活使用这些特性。</p>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-stdexpected">C++23 std::expected：不用异常，把"值或错误"说清楚<a class="headerlink" href="#c23-stdexpected" title="Permanent link">&para;</a></h2>
+<p>上面所有方案返回的都是值——但真实代码里最常见的"第二个返回值"其实是错误，而这些容器没有一个是干这活儿的。std::pair<int, bool> 能编译，但没有任何东西拦着你忽略那个 bool。异常能表达，但代价不小：控制流被翻得里外颠倒，签名里也看不出失败路径。</p>
+<p>C++23 的 std::expected<T, E> 补上了这个缺口。它要么装值、要么装错误；不先检查就取不到错误；而且单子式的辅助函数能把正常路径串成一条链：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;charconv&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;expected&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">std</span><span class="o">::</span><span class="n">expected</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">sv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">{};</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="s">"not a number: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">sv</span><span class="p">));</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"42"</span><span class="p">);</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">use</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">// monadic chaining: parse_int(s).and_then(validate).transform(square)</span>
+</span></code></pre></div>
+<p>在邻居里怎么站队：std::optional<T> 约等于 expected<T, void-ish>——失败不需要解释时用它；std::variant<T, E> 装的东西一样，但没有成功/失败的语义；expected<T, E> 是把意图说明白的那一个。编译器支持：GCC 13+、Clang 16+、MSVC 自 VS 2022 17.3 起。</p>
+<h2 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="stdexpectedstdoptionalstdvariant">std::expected、std::optional、std::variant 用哪个？<a class="headerlink" href="#stdexpectedstdoptionalstdvariant" title="Permanent link">&para;</a></h3>
+<p>失败不需要理由时用 optional；两个选项都是同等合法的值时用 variant；第二个位置是错误、希望调用方显式处理时用 expected。</p>
+<h3 id="stdexpected">std::expected 会分配内存吗？<a class="headerlink" href="#stdexpected" title="Permanent link">&para;</a></h3>
+<p>不会。它和 optional、variant 一样，把值或错误存在自己的内部存储里，没有堆分配；sizeof 取决于 T、E 和对齐要求。</p>
+<h3 id="stdexpected_1">什么时候还应该用异常而不是 std::expected？<a class="headerlink" href="#stdexpected_1" title="Permanent link">&para;</a></h3>
+<p>真正"异常"的场景——构造失败、要穿越很多层的错误——栈回溯反而划算时，继续用异常。解析、校验这类预期内、调用点附近就能恢复的失败，用 expected。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>

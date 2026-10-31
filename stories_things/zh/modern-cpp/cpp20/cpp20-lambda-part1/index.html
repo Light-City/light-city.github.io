@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++14 支持泛型 lambda 表达式，这使得 lambda 可以接受任意类型的参数，例如：">
+        <meta name="description" content="C++20 Lambda 表达式（上）：模板语法与类型约束详解，外加 C++23 deducing this 如何让递归 lambda 变成一行代码，不再依赖 std::function。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++20 Lambda 表达式（上）教程,std::array"> 
+    <meta name="keywords" content="C++20 lambda,递归 lambda,deducing this,c++23"> 
     <meta name="title" content="C++20 Lambda 表达式（上） | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/cpp20-lambda-part1/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++20 Lambda 表达式（上） | C++那些事">
-      <meta property="og:description" content="C++14 支持泛型 lambda 表达式，这使得 lambda 可以接受任意类型的参数，例如：">
+      <meta property="og:description" content="C++20 Lambda 表达式（上）：模板语法与类型约束详解，外加 C++23 deducing this 如何让递归 lambda 变成一行代码，不再依赖 std::function。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -103,10 +103,11 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++20 Lambda 表达式（上） | C++那些事">
-      <meta name="twitter:description" content="C++14 支持泛型 lambda 表达式，这使得 lambda 可以接受任意类型的参数，例如：">
+      <meta name="twitter:description" content="C++20 Lambda 表达式（上）：模板语法与类型约束详解，外加 C++23 deducing this 如何让递归 lambda 变成一行代码，不再依赖 std::function。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++20 Lambda 表达式（上） | C++那些事", "description": "C++14 支持泛型 lambda 表达式，这使得 lambda 可以接受任意类型的参数，例如：", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++20 Lambda 表达式（上） | C++那些事", "description": "C++20 Lambda 表达式（上）：模板语法与类型约束详解，外加 C++23 deducing this 如何让递归 lambda 变成一行代码，不再依赖 std::function。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++20", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/"}, {"@type": "ListItem", "position": 3, "name": "现代C++", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "C++20 Lambda 表达式（上） | C++那些事", "item": "https://light-city.github.io/stories_things/zh/modern-cpp/cpp20/cpp20-lambda-part1/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "C++ 里怎么写递归 lambda？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "C++23 起给 lambda 加显式对象形参：[](this auto self, int n) { ... self(n-1) ... }。更早的版本只能用 std::function、Y 组合子，或者干脆写具名函数。"}}, {"@type": "Question", "name": "deducing this 写的递归 lambda 和普通函数一样快吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "实践中一样：编译器会对 self 做特化并内联，不像 C++23 之前 std::function 那条路必须走间接调用。"}}, {"@type": "Question", "name": "deducing this 能配合泛型 lambda 吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "能。self 每次调用按 auto&amp;amp;&amp;amp; 推导，同一个 lambda 可以在不同类型上递归，两个 lambda 互相传递自身还能实现互递归。"}}]}</script>
   </head>
   
   
@@ -3427,7 +3428,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lambdadeducing-this-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归 Lambda：deducing this 一次讲清（C++23）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里怎么写递归 lambda？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing this 写的递归 lambda 和普通函数一样快吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-lambda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing this 能配合泛型 lambda 吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5424,7 +5476,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lambdadeducing-this-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归 Lambda：deducing this 一次讲清（C++23）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ 里怎么写递归 lambda？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing this 写的递归 lambda 和普通函数一样快吗？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this-lambda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing this 能配合泛型 lambda 吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5453,6 +5556,7 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：C++20 Lambda 表达式（上）：模板语法与类型约束详解，外加 C++23 deducing this 如何让递归 lambda 变成一行代码，不再依赖 std::function。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c20-lambda">C++20 Lambda 表达式（上）<a class="headerlink" href="#c20-lambda" title="Permanent link">&para;</a></h1>
@@ -5511,7 +5615,27 @@
 <blockquote>
 <p>本节完</p>
 </blockquote>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="lambdadeducing-this-c23">递归 Lambda：deducing this 一次讲清（C++23）<a class="headerlink" href="#lambdadeducing-this-c23" title="Permanent link">&para;</a></h2>
+<p>普通 lambda 没法喊出自己的名字，所以递归以前只有两条路：把 lambda 存进 std::function（有分配、有间接调用），或者套一层 Y 组合子（聪明，但没法读）。C++23 的显式对象形参——就是 deducing this 那个特性——优雅地解决了这件事：lambda 把自己当作第一个参数收进来：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// C++23 explicit object parameter: the lambda receives itself</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">this</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">};</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3628800</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">// before C++23 you needed std::function (heavy) or a Y-combinator (clever)</span>
+</span></code></pre></div>
+<p>self 参数在每次调用时推导，所以泛型递归也没问题：同一个 lambda 能在任意类型上递归，两个 lambda 互相传递自身还能玩互递归。因为编译器能看穿 self，这些调用的内联效果跟你手写具名函数一样。</p>
+<p>编译器支持：GCC 14+、Clang 18+、MSVC 自 VS 2022 17.2 起，编译加 -std=c++23。</p>
+<h2 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="c-lambda">C++ 里怎么写递归 lambda？<a class="headerlink" href="#c-lambda" title="Permanent link">&para;</a></h3>
+<p>C++23 起给 lambda 加显式对象形参：<code>[](this auto self, int n) { ... self(n-1) ... }</code>。更早的版本只能用 std::function、Y 组合子，或者干脆写具名函数。</p>
+<h3 id="deducing-this-lambda">deducing this 写的递归 lambda 和普通函数一样快吗？<a class="headerlink" href="#deducing-this-lambda" title="Permanent link">&para;</a></h3>
+<p>实践中一样：编译器会对 self 做特化并内联，不像 C++23 之前 std::function 那条路必须走间接调用。</p>
+<h3 id="deducing-this-lambda_1">deducing this 能配合泛型 lambda 吗？<a class="headerlink" href="#deducing-this-lambda_1" title="Permanent link">&para;</a></h3>
+<p>能。self 每次调用按 auto&amp;&amp; 推导，同一个 lambda 可以在不同类型上递归，两个 lambda 互相传递自身还能实现互递归。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-coroutines/">C++20 协程入门 | C++那些事</a></li>
 <li><a href="../cpp20-channel/">C++20 channel 实战 | C++那些事</a></li>

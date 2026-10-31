@@ -5673,7 +5673,7 @@
 </span></code></pre></div>
 <p><code>allocator_traits</code>の中で次のものが見つかります：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">  </span><span class="cm">/**</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="cm">   * @brief   The allocator&#39;s pointer type.</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="cm">   * @brief   The allocator's pointer type.</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="cm">   *</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="cm">   * @c Alloc::pointer if that type exists, otherwise @c value_type*</span>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="cm">  */</span>
@@ -5691,7 +5691,7 @@
 </span></code></pre></div>
 <p>次と等価です</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/**</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="cm">* @brief   The allocator&#39;s pointer type.</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="cm">* @brief   The allocator's pointer type.</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="cm">*</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="cm">* @c Alloc::pointer if that type exists, otherwise @c value_type*</span>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="cm">*/</span>
@@ -6208,7 +6208,7 @@ vectorのコードでは、基底クラスのメモリ関数やtypedefなどを�
 </span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="w">    </span><span class="p">{</span>
 </span><span id="__span-34-20"><a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a><span class="w">        </span><span class="c1">//内存加倍</span>
 </span><span id="__span-34-21"><a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">__len</span><span class="w"> </span><span class="o">=</span>
-</span><span id="__span-34-22"><a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">        </span><span class="n">_M_check_len</span><span class="p">(</span><span class="n">size_type</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;vector::_M_insert_aux&quot;</span><span class="p">);</span>
+</span><span id="__span-34-22"><a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="w">        </span><span class="n">_M_check_len</span><span class="p">(</span><span class="n">size_type</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="s">"vector::_M_insert_aux"</span><span class="p">);</span>
 </span><span id="__span-34-23"><a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">__elems_before</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__position</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">begin</span><span class="p">();</span>
 </span><span id="__span-34-24"><a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a><span class="w">        </span><span class="n">pointer</span><span class="w"> </span><span class="nf">__new_start</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">_M_allocate</span><span class="p">(</span><span class="n">__len</span><span class="p">));</span>
 </span><span id="__span-34-25"><a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a><span class="w">        </span><span class="n">pointer</span><span class="w"> </span><span class="nf">__new_finish</span><span class="p">(</span><span class="n">__new_start</span><span class="p">);</span>

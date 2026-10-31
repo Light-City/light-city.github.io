@@ -5426,8 +5426,8 @@
 <h1 id="c-string-sso">C++ string SSO パフォーマンステスト<a class="headerlink" href="#c-string-sso" title="Permanent link">&para;</a></h1>
 <p>今日は皆さんに2つの質問があります：</p>
 <p><strong>1.次のコードにパフォーマンス上の違いはあるか？</strong></p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">&quot;hello world hel&quot;</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;hello world helo&quot;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">"hello world hel"</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">"hello world helo"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><strong>2.sizeof(std::string) はいくつか？</strong></p>
 <p>それでは、この2つの問題を一緒に探っていきましょう。</p>
@@ -5461,8 +5461,8 @@
 <li>短い文字列のテスト内容："hello world hel"、合計 15 文字。</li>
 <li>長い文字列のテスト内容："hello world helo"、合計 16 文字。</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1(&quot;hello world hel&quot;);
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2(&quot;hello world helo&quot;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1("hello world hel");
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2("hello world helo");
 </span></code></pre></div>
 <p>パフォーマンスの差が非常に大きいことがわかります。わずか1文字の違いで std::string のパフォーマンスがここまで変わるのです！</p>
 <p>本質は前述の SSO ローカルバッファです。</p>

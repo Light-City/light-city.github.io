@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Простой способ решить проблему конфликтов имён, вызванную неограниченной областью видимости, — добавлять префикс к именам перечислителей: например, в примере выше заменить на COLOR_BLUE и FEELING_BLUE.">
+        <meta name="description" content="Учебник по enum в C++: классические перечисления, enum class из C++11, enum внутри классов и как рефлексия C++26 (std::meta) наконец решает преобразование enum в строку без макросов и таблиц поиска.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ использование перечислений enum,основы C++"> 
+    <meta name="keywords" content="C++ enum,enum в строку c++,рефлексия c++26,enum class"> 
     <meta name="title" content="C++ перечисления enum | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/enum/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ перечисления enum | C++那些事">
-      <meta property="og:description" content="Простой способ решить проблему конфликтов имён, вызванную неограниченной областью видимости, — добавлять префикс к именам перечислителей: например, в примере выше заменить на COLOR_BLUE и FEELING_BLUE.">
+      <meta property="og:description" content="Учебник по enum в C++: классические перечисления, enum class из C++11, enum внутри классов и как рефлексия C++26 (std::meta) наконец решает преобразование enum в строку без макросов и таблиц поиска.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/enum/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ru_RU">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ перечисления enum | C++那些事">
-      <meta name="twitter:description" content="Простой способ решить проблему конфликтов имён, вызванную неограниченной областью видимости, — добавлять префикс к именам перечислителей: например, в примере выше заменить на COLOR_BLUE и FEELING_BLUE.">
+      <meta name="twitter:description" content="Учебник по enum в C++: классические перечисления, enum class из C++11, enum внутри классов и как рефлексия C++26 (std::meta) наконец решает преобразование enum в строку без макросов и таблиц поиска.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ перечисления enum | C++那些事", "description": "Простой способ решить проблему конфликтов имён, вызванную неограниченной областью видимости, — добавлять префикс к именам перечислителей: например, в примере выше заменить на COLOR_BLUE и FEELING_BLUE.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ перечисления enum | C++那些事", "description": "Учебник по enum в C++: классические перечисления, enum class из C++11, enum внутри классов и как рефлексия C++26 (std::meta) наконец решает преобразование enum в строку без макросов и таблиц поиска.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ перечисления enum | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/enum/"}]}</script>
   </head>
   
@@ -1391,7 +1391,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enum-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      enum в строку: ответ рефлексии C++26
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как преобразовать enum в строку в C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Есть ли в стандартной библиотеке встроенное преобразование enum в строку?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Когда реально можно пользоваться рефлексией C++26?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5449,7 +5500,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enum-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      enum в строку: ответ рефлексии C++26
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enum-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как преобразовать enum в строку в C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Есть ли в стандартной библиотеке встроенное преобразование enum в строку?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Когда реально можно пользоваться рефлексией C++26?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5478,7 +5580,8 @@
 
 
 <blockquote>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p>💡 <strong>Кратко</strong>：Учебник по enum в C++: классические перечисления, enum class из C++11, enum внутри классов и как рефлексия C++26 (std::meta) наконец решает преобразование enum в строку без макросов и таблиц поиска.</p>
+<p><strong>Последнее обновление：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c-enum">C++ перечисления enum<a class="headerlink" href="#c-enum" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Об авторе:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -5504,7 +5607,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">{</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">Color</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLUE</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Feeling</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCITED</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">":"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5564,7 +5667,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// 定义</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color3</span><span class="o">:</span><span class="kt">char</span><span class="w"> </span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">{</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">'r'</span><span class="p">,</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">BLUE</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">};</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kt">char</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color3</span><span class="o">::</span><span class="n">RED</span><span class="p">);</span>
@@ -5606,7 +5709,32 @@
 </span></code></pre></div>
 <p>Перечислимые константы не занимают памяти в объекте; они полностью вычисляются во время компиляции.</p>
 <p>Недостаток перечислимых констант: их неявный тип данных — целочисленный, их максимальное значение ограничено, и они не могут представлять числа с плавающей точкой.</p>
-<h2 id="_5">Похожие темы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="enum-c26">enum в строку: ответ рефлексии C++26<a class="headerlink" href="#enum-c26" title="Permanent link">&para;</a></h2>
+<p>Превратить значение enum в его имя — задача, на которую наталкивается почти каждый проект на C++, и до C++26 в стандартной библиотеке не было ответа. Обходные пути, от старых к новым: (1) X-макросы, злоупотребляющие препроцессором, чтобы держать список перечислителей в одном месте; (2) рукописные таблицы поиска или специализация шаблонов — каждый новый enum означает ещё одну таблицу; (3) сторонние библиотеки вроде magic_enum, которые «выуживают» имена трюками компилятора, но ограничивают размер и базовый тип.</p>
+<p>Статическая рефлексия C++26 (предложение P2996, <code>std::meta</code>) наконец превращает это в несколько строк настоящего кода. Одна функция перечисляет члены любого enum на этапе компиляции и читает имя каждого перечислителя:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;meta&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">enumerators_of</span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">identifier_of</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"unknown enumerator"</span><span class="p">);</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Теперь одна функция покрывает все enum в кодовой базе. Переименование перечислителя автоматически обновляет строку, а несовпадение выявляется при компиляции, а не неверной меткой в рантайме.</p>
+<p>Честная оговорка: фрагмент следует P2996 в том виде, в каком он вошёл в черновик C++26. Точные написания ещё менялись в ранних превью компиляторов (EDG и Clang explorers), поэтому сверьтесь с таблицей поддержки вашего инструментария. До тех пор таблица поиска остаётся самым переносимым решением без зависимостей.</p>
+<h2 id="_5">Часто задаваемые вопросы<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="enum-c">Как преобразовать enum в строку в C++?<a class="headerlink" href="#enum-c" title="Permanent link">&para;</a></h3>
+<p>До C++26 стандартного способа нет: выбор между таблицей поиска, специализацией шаблонов, X-макросами или библиотекой вроде magic_enum. Статическая рефлексия C++26 перечисляет члены на компиляции и читает имя напрямую, устраняя сопровождение всех четырёх вариантов.</p>
+<h3 id="enum">Есть ли в стандартной библиотеке встроенное преобразование enum в строку?<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
+<p>До C++26 — нет. Потоки и std::to_string форматируют только целочисленное значение, поэтому каждый проект в итоге пишет собственный помощник.</p>
+<h3 id="c26">Когда реально можно пользоваться рефлексией C++26?<a class="headerlink" href="#c26" title="Permanent link">&para;</a></h3>
+<p>C++26 — грядущий стандарт, рефлексия уже в черновике; EDG и Clang explorers компилируют примеры. Для продакшена отслеживайте поддержку компилятора и держите таблицу поиска как запасной вариант.</p>
+<h2 id="_6">Похожие темы<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>

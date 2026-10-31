@@ -5484,9 +5484,9 @@
 <h2 id="cmake_1">CMake常用必备一<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
 <h2 id="1flags">1.设置编译器flags<a class="headerlink" href="#1flags" title="Permanent link">&para;</a></h2>
 <p>例如：设置C++标准，显示所有警告。</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;-std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">&quot;${CMAKE_CXX_FLAGS} -std=c++0x -Wall&quot;</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">&quot;$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;&quot;</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"-std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">set</span><span class="p">(</span><span class="n">CMAKE_CXX_FLAGS</span><span class="w"> </span><span class="s">"${CMAKE_CXX_FLAGS} -std=c++0x -Wall"</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">add_compile_options</span><span class="p">(</span><span class="s">"$&lt;$&lt;STREQUAL:$&lt;TARGET_PROPERTY:LINKER_LANGUAGE&gt;,CXX&gt;:-std=c++11&gt;"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>还可以设置一些优化flags</p>
 <p>官方资料：<a href="https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html</a></p>
@@ -5500,7 +5500,7 @@
 <h2 id="2">2.设置源文件属性<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>这是CMake的一个复杂属性，如果存在多个目标，可能需要更改一个目标的某些行为。例如，如果要使用C++11构建main.cpp，而只构建库，则可能希望将其构建为C++14。在这种情况下，您可以使用<code>set_source_files_properties</code>命令来配置特定源文件的属性，如下所示：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmakeCopy code
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS &quot;-std=c++11&quot;)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/*.cpp PROPERTIES COMPILE_FLAGS "-std=c++11")
 </span></code></pre></div>
 <p>可以从以下手册中查看大量的属性，每个属性都可以用于满足您的特定需求。</p>
 <ul>
@@ -5528,16 +5528,16 @@
 <li><code>CMAKE_MODULE_LINKER_FLAGS</code>：在创建模块库时由链接器使用的标志</li>
 </ul>
 <p>例如，您可以使用以下代码添加链接器标志：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address&quot;)
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS &quot;${CMAKE_EXE_LINKER_FLAGS} -Wl&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl")
 </span></code></pre></div>
 <p>了解如何使用这些标志可以帮助您更好地控制可执行文件的链接行为。</p>
 <h2 id="4debugrelease">4.Debug与Release包<a class="headerlink" href="#4debugrelease" title="Permanent link">&para;</a></h2>
 <p>在CMakeLists.txt文件内部，可以访问CMAKE_BUILD_TYPE。你可以在CMakeLists.txt中轻松检查构建类型：</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Debug</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Debug Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Debug Build"</span><span class="p">)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">elseif</span><span class="p">(</span><span class="n">$</span><span class="p">{</span><span class="n">CMAKE_BUILD_TYPE</span><span class="p">}</span><span class="w"> </span><span class="n">MATCHES</span><span class="w"> </span><span class="n">Release</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Release Build&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">message</span><span class="p">(</span><span class="s">"Release Build"</span><span class="p">)</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">endif</span><span class="p">()</span>
 </span></code></pre></div>
 <p>您还可以使用上一节中所示的配置变量，分别为不同的构建类型设置编译器和链接器标志：</p>

@@ -5428,8 +5428,8 @@
 <h1 id="c-string-sso">C++ string SSO 性能测试<a class="headerlink" href="#c-string-sso" title="Permanent link">&para;</a></h1>
 <p>今天想问大家两个问题：</p>
 <p><strong>1.下面代码性能上有没有区别？</strong></p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">&quot;hello world hel&quot;</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;hello world helo&quot;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">"hello world hel"</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">"hello world helo"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><strong>2.sizeof(std::string)是多少？</strong></p>
 <p>下面，我们来一起探索这两个问题。</p>
@@ -5463,8 +5463,8 @@
 <li>短字符串测试内容为："hello world hel"，总共15个字符。</li>
 <li>长字符串测试内容为："hello world helo"，总共为16个字符。</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1(&quot;hello world hel&quot;);
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2(&quot;hello world helo&quot;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1("hello world hel");
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2("hello world helo");
 </span></code></pre></div>
 <p>可以看到性能差距非常大，仅仅一个字符会导致std::string性能差别这么大！</p>
 <p>这里本质还是前面的SSO local buffer。</p>

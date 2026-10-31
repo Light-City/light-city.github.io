@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Hoy planteamos otra pregunta de entrevista bastante clásica: ¿cómo puede una función devolver varios resultados? ¿Cuántas formas se te ocurren?">
+        <meta name="description" content="Todas las formas de devolver varios valores en C++ — pair, tuple, struct, tie, callbacks, parámetros de salida — y cómo std::expected de C++23 expresa devoluciones de valor-o-error sin excepciones.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="formas de devolver varios valores en C++,std::tie,fundamentos de C++"> 
+    <meta name="keywords" content="c++ devolver varios valores,std::expected,manejo de errores c++23"> 
     <meta name="title" content="Formas de devolver varios valores en C++ | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-multiple-return-values/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Formas de devolver varios valores en C++ | C++那些事">
-      <meta property="og:description" content="Hoy planteamos otra pregunta de entrevista bastante clásica: ¿cómo puede una función devolver varios resultados? ¿Cuántas formas se te ocurren?">
+      <meta property="og:description" content="Todas las formas de devolver varios valores en C++ — pair, tuple, struct, tie, callbacks, parámetros de salida — y cómo std::expected de C++23 expresa devoluciones de valor-o-error sin excepciones.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Formas de devolver varios valores en C++ | C++那些事">
-      <meta name="twitter:description" content="Hoy planteamos otra pregunta de entrevista bastante clásica: ¿cómo puede una función devolver varios resultados? ¿Cuántas formas se te ocurren?">
+      <meta name="twitter:description" content="Todas las formas de devolver varios valores en C++ — pair, tuple, struct, tie, callbacks, parámetros de salida — y cómo std::expected de C++23 expresa devoluciones de valor-o-error sin excepciones.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Formas de devolver varios valores en C++ | C++那些事", "description": "Hoy planteamos otra pregunta de entrevista bastante clásica: ¿cómo puede una función devolver varios resultados? ¿Cuántas formas se te ocurren?", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Formas de devolver varios valores en C++ | C++那些事", "description": "Todas las formas de devolver varios valores en C++ — pair, tuple, struct, tie, callbacks, parámetros de salida — y cómo std::expected de C++23 expresa devoluciones de valor-o-error sin excepciones.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Mecanismos avanzados del lenguaje", "item": "https://light-city.github.io/stories_things/es/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "Fundamentos y más", "item": "https://light-city.github.io/stories_things/es/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "Formas de devolver varios valores en C++ | C++那些事", "item": "https://light-city.github.io/stories_things/es/cpp-things/cpp-multiple-return-values/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿std::expected, std::optional o std::variant — cuál?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "optional cuando el «sin valor» no necesita motivo. variant cuando ambas alternativas son valores legítimos de igual rango. expected cuando la segunda casilla es un error que quieres que el llamador trate explícitamente."}}, {"@type": "Question", "name": "¿std::expected reserva memoria?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "No. Igual que optional y variant, guarda el valor o el error inline en su propio almacenamiento. No hay asignación en el heap; sizeof depende de T, E y su alineación."}}, {"@type": "Question", "name": "¿Cuándo debo seguir usando excepciones en vez de std::expected?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Guarda las excepciones para condiciones realmente excepcionales — fallos de construcción, errores que cruzan muchas capas — donde el desenrollado de pila compensa. Usa expected para fallos anticipados y recuperables cerca del punto de llamada, como parseo y validación."}}]}</script>
   </head>
   
   
@@ -1672,6 +1673,57 @@
       6. Deducción de plantillas
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c23-stdexpected-valor-o-error-sin-excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected: valor o error, sin excepciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-stdoptional-o-stdvariant-cual" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿std::expected, std::optional o std::variant — cuál?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-reserva-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿std::expected reserva memoria?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-debo-seguir-usando-excepciones-en-vez-de-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo debo seguir usando excepciones en vez de std::expected?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5469,6 +5521,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdexpected-valor-o-error-sin-excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected: valor o error, sin excepciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-stdoptional-o-stdvariant-cual" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿std::expected, std::optional o std::variant — cuál?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-reserva-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿std::expected reserva memoria?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-debo-seguir-usando-excepciones-en-vez-de-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cuándo debo seguir usando excepciones en vez de std::expected?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5498,7 +5601,8 @@
 
 
 <blockquote>
-<p><strong>Última actualización：2026-10-12</strong></p>
+<p>💡 <strong>Resumen</strong>：Todas las formas de devolver varios valores en C++ — pair, tuple, struct, tie, callbacks, parámetros de salida — y cómo std::expected de C++23 expresa devoluciones de valor-o-error sin excepciones.</p>
+<p><strong>Última actualización：2026-10-24</strong></p>
 </blockquote>
 <h1 id="formas-de-devolver-varios-valores-en-c">Formas de devolver varios valores en C++<a class="headerlink" href="#formas-de-devolver-varios-valores-en-c" title="Permanent link">&para;</a></h1>
 <p>Hoy planteamos otra pregunta de entrevista bastante clásica: ¿cómo puede una función devolver varios resultados? ¿Cuántas formas se te ocurren?</p>
@@ -5538,7 +5642,7 @@ El inconveniente de este enfoque es evidente: cuando hay más de dos valores de 
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="3-struct-binding">3. Struct Binding<a class="headerlink" href="#3-struct-binding" title="Permanent link">&para;</a></h2>
 <p>Rework del método anterior: los enlaces estructurados (structured bindings) introducidos en C++17 simplifican aún más el código de devolución múltiple. Usar auto y enlaces estructurados hace el código más intuitivo y fácil de entender.</p>
@@ -5611,6 +5715,35 @@ El inconveniente de este enfoque es evidente: cuando hay más de dos valores de 
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </span></code></pre></div>
 En conjunto, C++ ofrece diversas formas de implementar la devolución de múltiples valores, y cada una tiene sus escenarios de aplicación. Elegir la adecuada depende de las necesidades concretas; según la estructura del código y la legibilidad, estas características pueden usarse con flexibilidad.</p>
+<h2 id="c23-stdexpected-valor-o-error-sin-excepciones">C++23 std::expected: valor o error, sin excepciones<a class="headerlink" href="#c23-stdexpected-valor-o-error-sin-excepciones" title="Permanent link">&para;</a></h2>
+<p>Todas las técnicas de arriba devuelven valores — pero el «segundo valor de retorno» más común en código real es un error, y ninguno de estos contenedicos lo dice. std::pair<int, bool> compila, pero nada te impide ignorar el bool. Las excepciones lo dicen, pero a un precio: invierten el flujo de control y vuelven invisibles los caminos de fallo en la firma.</p>
+<p>std::expected<T, E> de C++23 cierra el hueco. Contiene el valor o el error, el error es inaccesible sin comprobarlo primero, y los ayudantes mónada encadenan el camino feliz:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;charconv&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;expected&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">std</span><span class="o">::</span><span class="n">expected</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">sv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">{};</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="s">"not a number: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">sv</span><span class="p">));</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"42"</span><span class="p">);</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">use</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">// monadic chaining: parse_int(s).and_then(validate).transform(square)</span>
+</span></code></pre></div>
+<p>Dónde encaja entre vecinos: std::optional<T> es un expected<T, void-ish> — úsalo cuando el fallo no necesita explicación; std::variant<T, E> transporta la misma carga pero sin semántica de éxito/error; expected<T, E> es la versión que declara la intención. Soporte: GCC 13+, Clang 16+, MSVC desde VS 2022 17.3.</p>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="stdexpected-stdoptional-o-stdvariant-cual">¿std::expected, std::optional o std::variant — cuál?<a class="headerlink" href="#stdexpected-stdoptional-o-stdvariant-cual" title="Permanent link">&para;</a></h3>
+<p>optional cuando el «sin valor» no necesita motivo. variant cuando ambas alternativas son valores legítimos de igual rango. expected cuando la segunda casilla es un error que quieres que el llamador trate explícitamente.</p>
+<h3 id="stdexpected-reserva-memoria">¿std::expected reserva memoria?<a class="headerlink" href="#stdexpected-reserva-memoria" title="Permanent link">&para;</a></h3>
+<p>No. Igual que optional y variant, guarda el valor o el error inline en su propio almacenamiento. No hay asignación en el heap; sizeof depende de T, E y su alineación.</p>
+<h3 id="cuando-debo-seguir-usando-excepciones-en-vez-de-stdexpected">¿Cuándo debo seguir usando excepciones en vez de std::expected?<a class="headerlink" href="#cuando-debo-seguir-usando-excepciones-en-vez-de-stdexpected" title="Permanent link">&para;</a></h3>
+<p>Guarda las excepciones para condiciones realmente excepcionales — fallos de construcción, errores que cruzan muchas capas — donde el desenrollado de pila compensa. Usa expected para fallos anticipados y recuperables cerca del punto de llamada, como parseo y validación.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funciones virtuales puras y clases abstractas en C++ | C++那些事</a></li>

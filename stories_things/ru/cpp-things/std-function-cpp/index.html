@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Недавно, пишу код на C++, я воспользовался is_function и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки..., а что такое шесть точек...... вы знаете?">
+        <meta name="description" content="Как устроен std::function внутри (стирание типа, малая буферная оптимизация) с примерами, и когда std::move_only_function из C++23 заменяет std::function для перемещаемых-но-не-копируемых вызываемых объектов.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ подробный разбор std::function,std::function,основы C++"> 
+    <meta name="keywords" content="std::function внутри,move_only_function,стирание типа,c++23"> 
     <meta name="title" content="C++ подробный разбор std::function | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/std-function-cpp/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ подробный разбор std::function | C++那些事">
-      <meta property="og:description" content="Недавно, пишу код на C++, я воспользовался is_function и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки..., а что такое шесть точек...... вы знаете?">
+      <meta property="og:description" content="Как устроен std::function внутри (стирание типа, малая буферная оптимизация) с примерами, и когда std::move_only_function из C++23 заменяет std::function для перемещаемых-но-не-копируемых вызываемых объектов.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ru_RU">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ подробный разбор std::function | C++那些事">
-      <meta name="twitter:description" content="Недавно, пишу код на C++, я воспользовался is_function и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки..., а что такое шесть точек...... вы знаете?">
+      <meta name="twitter:description" content="Как устроен std::function внутри (стирание типа, малая буферная оптимизация) с примерами, и когда std::move_only_function из C++23 заменяет std::function для перемещаемых-но-не-копируемых вызываемых объектов.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ подробный разбор std::function | C++那些事", "description": "Недавно, пишу код на C++, я воспользовался is_function и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки..., а что такое шесть точек...... вы знаете?", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ подробный разбор std::function | C++那些事", "description": "Как устроен std::function внутри (стирание типа, малая буферная оптимизация) с примерами, и когда std::move_only_function из C++23 заменяет std::function для перемещаемых-но-не-копируемых вызываемых объектов.", "inLanguage": "ru", "url": "https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Глубже в механику языка", "item": "https://light-city.github.io/stories_things/ru/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "Основы и дальше", "item": "https://light-city.github.io/stories_things/ru/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ подробный разбор std::function | C++那些事", "item": "https://light-city.github.io/stories_things/ru/cpp-things/std-function-cpp/"}]}</script>
   </head>
   
@@ -1583,7 +1583,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::move_only_function против std::function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем std::move_only_function отличается от std::function?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-unique_ptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Почему std::function не может хранить лямбду с захватом unique_ptr?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::move_only_function быстрее std::function?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5415,7 +5466,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::move_only_function против std::function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Часто задаваемые вопросы
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часто задаваемые вопросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Чем std::move_only_function отличается от std::function?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-unique_ptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Почему std::function не может хранить лямбду с захватом unique_ptr?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::move_only_function быстрее std::function?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       Похожие темы
     </span>
@@ -5444,8 +5546,8 @@
 
 
 <blockquote>
-<p>💡 <strong>Кратко</strong>：Недавно, пишу код на C++, я воспользовался is_function и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки..., а что такое шесть точек...... вы знаете?</p>
-<p><strong>Последнее обновление：2026-10-12</strong></p>
+<p>💡 <strong>Кратко</strong>：Как устроен std::function внутри (стирание типа, малая буферная оптимизация) с примерами, и когда std::move_only_function из C++23 заменяет std::function для перемещаемых-но-не-копируемых вызываемых объектов.</p>
+<p><strong>Последнее обновление：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c-stdfunction">C++ подробный разбор std::function<a class="headerlink" href="#c-stdfunction" title="Permanent link">&para;</a></h1>
 <p>Недавно, пишу код на C++, я воспользовался <code>is_function</code> и заодно взглянул на реализацию в исходниках — и обнаружил некоторые вещи: раньше мы изучали три точки <code>...</code>, а что такое шесть точек <code>......</code> вы знаете?</p>
@@ -5491,8 +5593,8 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Is func a function? &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Is vararg_func a function? &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vararg_func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Is func a function? "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Is vararg_func a function? "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vararg_func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5501,7 +5603,26 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Is vararg_func a function? true
 </span></code></pre></div>
 <p>Ну как, разобрались? На этом раздел окончен~</p>
-<h2 id="_1">Похожие темы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-stdmove_only_function-stdfunction">C++23 std::move_only_function против std::function<a class="headerlink" href="#c23-stdmove_only_function-stdfunction" title="Permanent link">&para;</a></h2>
+<p>У прочитанного вами стирания типа есть скрытая цена: std::function требует, чтобы завёрнутый вызываемый объект был копируем, — копируемая обёртка часть его контракта. Захватите std::unique_ptr в лямбде и попробуйте сохранить — компилятор откажет:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">make_sink</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">ptr</span><span class="p">)]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// move-only closure</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// std::function&lt;std::size_t()&gt; f = make_sink();   // ERROR: closure not copyable</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">std</span><span class="o">::</span><span class="n">move_only_function</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_sink</span><span class="p">();</span><span class="w">  </span><span class="c1">// OK since C++23</span>
+</span></code></pre></div>
+<p>std::move_only_function (C++23, заголовок <functional>) снимает требование копируемости. Она принимает только-перемещаемые замыкания и потому естественно встаёт в пайплайны, асинхронные задачи и коллбэки, владеющие исключительными ресурсами — файловыми дескрипторами, соединениями.</p>
+<p>Как выбирать: оставайтесь на std::function, когда вызываемые объекты дёшево копируются и legacy-API этого требует; переходите на std::move_only_function, когда замыкание чем-то единолично владеет. Помните также, что std::function копирует замыкание при присваивании — при тяжёлых захватах это реальная цена, которой move_only_function избегает. В чувствительных к производительности местах обычный шаблонный параметр по-прежнему бьёт обоих: без стирания, без косвенности, полностью встраивается.</p>
+<h2 id="_1">Часто задаваемые вопросы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="stdmove_only_function-stdfunction">Чем std::move_only_function отличается от std::function?<a class="headerlink" href="#stdmove_only_function-stdfunction" title="Permanent link">&para;</a></h3>
+<p>std::function требует копируемых вызываемых объектов и копирует их при присваивании; std::move_only_function (C++23) принимает только-перемещаемые и только перемещает. Поведение и синтаксис вызова совпадают.</p>
+<h3 id="stdfunction-unique_ptr">Почему std::function не может хранить лямбду с захватом unique_ptr?<a class="headerlink" href="#stdfunction-unique_ptr" title="Permanent link">&para;</a></h3>
+<p>Потому что std::function должна уметь копировать хранимый вызываемый объект, а копирующий конструктор замыкания удаляется, как только оно захватывает только-перемещаемый тип вроде unique_ptr. Используйте std::move_only_function или шаблонный параметр.</p>
+<h3 id="stdmove_only_function-stdfunction_1">std::move_only_function быстрее std::function?<a class="headerlink" href="#stdmove_only_function-stdfunction_1" title="Permanent link">&para;</a></h3>
+<p>Она экономит на копировании и части учёта, но обе проходят стирание типа и косвенный вызов. Если место вызова знает тип, передавайте вызываемый объект шаблонным параметром — это по-настоящему быстрый путь.</p>
+<h2 id="_2">Похожие темы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ чисто виртуальные функции и абстрактные классы | C++那些事</a></li>
 <li><a href="../assert/">C++ утверждения assert | C++那些事</a></li>

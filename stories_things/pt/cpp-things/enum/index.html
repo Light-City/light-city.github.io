@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Uma forma simples de resolver os conflitos de nomenclatura causados pelo escopo ilimitado é adicionar um prefixo ao nomear as variáveis de enumeração, como no exemplo acima, alterando para COLOR_BLUE e FEELING_BLUE.">
+        <meta name="description" content="Tutorial de enum em C++: enums clássicos, enum class do C++11, enums dentro de classes e como a reflexão do C++26 (std::meta) finalmente resolve a conversão de enum para string sem macros nem tabelas de busca.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="uso de tipos de enumeração (enum) em C++,fundamentos de C++"> 
+    <meta name="keywords" content="C++ enum,enum para string c++,reflexão c++26,enum class"> 
     <meta name="title" content="Tipos de enumeração (enum) em C++ | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/enum/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Tipos de enumeração (enum) em C++ | C++那些事">
-      <meta property="og:description" content="Uma forma simples de resolver os conflitos de nomenclatura causados pelo escopo ilimitado é adicionar um prefixo ao nomear as variáveis de enumeração, como no exemplo acima, alterando para COLOR_BLUE e FEELING_BLUE.">
+      <meta property="og:description" content="Tutorial de enum em C++: enums clássicos, enum class do C++11, enums dentro de classes e como a reflexão do C++26 (std::meta) finalmente resolve a conversão de enum para string sem macros nem tabelas de busca.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/pt/cpp-things/enum/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="pt_BR">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Tipos de enumeração (enum) em C++ | C++那些事">
-      <meta name="twitter:description" content="Uma forma simples de resolver os conflitos de nomenclatura causados pelo escopo ilimitado é adicionar um prefixo ao nomear as variáveis de enumeração, como no exemplo acima, alterando para COLOR_BLUE e FEELING_BLUE.">
+      <meta name="twitter:description" content="Tutorial de enum em C++: enums clássicos, enum class do C++11, enums dentro de classes e como a reflexão do C++26 (std::meta) finalmente resolve a conversão de enum para string sem macros nem tabelas de busca.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Tipos de enumeração (enum) em C++ | C++那些事", "description": "Uma forma simples de resolver os conflitos de nomenclatura causados pelo escopo ilimitado é adicionar um prefixo ao nomear as variáveis de enumeração, como no exemplo acima, alterando para COLOR_BLUE e FEELING_BLUE.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Tipos de enumeração (enum) em C++ | C++那些事", "description": "Tutorial de enum em C++: enums clássicos, enum class do C++11, enums dentro de classes e como a reflexão do C++26 (std::meta) finalmente resolve a conversão de enum para string sem macros nem tabelas de busca.", "inLanguage": "pt", "url": "https://light-city.github.io/stories_things/pt/cpp-things/enum/", "mainEntityOfPage": "https://light-city.github.io/stories_things/pt/cpp-things/enum/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentos e além", "item": "https://light-city.github.io/stories_things/pt/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "Tipos de enumeração (enum) em C++ | C++那些事", "item": "https://light-city.github.io/stories_things/pt/cpp-things/enum/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "pt", "mainEntity": [{"@type": "Question", "name": "Como converto um enum para string em C++?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Antes do C++26 não existe forma padrão: escolha entre tabela de busca, especialização de templates, X-macros ou uma biblioteca como magic_enum. A reflexão estática do C++26 enumera os membros em compilação e lê o nome diretamente, eliminando a manutenção das quatro."}}, {"@type": "Question", "name": "A biblioteca padrão tem conversão embutida de enum para string?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Só no C++26. Streams e std::to_string formatam apenas o inteiro subjacente, e é por isso que todo projeto acaba escrevendo o próprio helper."}}, {"@type": "Question", "name": "Quando vou poder usar a reflexão do C++26?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "O C++26 é o próximo padrão e a reflexão já está no draft; EDG e os explorers do Clang já compilam os exemplos. Para produção, acompanhe o suporte do compilador e mantenha uma tabela de busca como fallback."}}]}</script>
   </head>
   
   
@@ -1387,6 +1388,57 @@
       Tipos de enumeração dentro de classes
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-enum-para-string-a-resposta-da-reflexao-do-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      De enum para string: a resposta da reflexão do C++26
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perguntas-frequentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perguntas frequentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perguntas frequentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-converto-um-enum-para-string-em-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como converto um enum para string em C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-biblioteca-padrao-tem-conversao-embutida-de-enum-para-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      A biblioteca padrão tem conversão embutida de enum para string?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quando-vou-poder-usar-a-reflexao-do-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quando vou poder usar a reflexão do C++26?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5449,6 +5501,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#de-enum-para-string-a-resposta-da-reflexao-do-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      De enum para string: a resposta da reflexão do C++26
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perguntas-frequentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perguntas frequentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perguntas frequentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-converto-um-enum-para-string-em-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Como converto um enum para string em C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-biblioteca-padrao-tem-conversao-embutida-de-enum-para-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      A biblioteca padrão tem conversão embutida de enum para string?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quando-vou-poder-usar-a-reflexao-do-c26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quando vou poder usar a reflexão do C++26?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#topicos-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Tópicos relacionados
@@ -5478,7 +5581,8 @@
 
 
 <blockquote>
-<p><strong>Última atualização：2026-10-12</strong></p>
+<p>💡 <strong>Resumo</strong>：Tutorial de enum em C++: enums clássicos, enum class do C++11, enums dentro de classes e como a reflexão do C++26 (std::meta) finalmente resolve a conversão de enum para string sem macros nem tabelas de busca.</p>
+<p><strong>Última atualização：2026-10-24</strong></p>
 </blockquote>
 <h1 id="tipos-de-enumeracao-enum-em-c">Tipos de enumeração (enum) em C++<a class="headerlink" href="#tipos-de-enumeracao-enum-em-c" title="Permanent link">&para;</a></h1>
 <h2 id="sobre-o-autor">Sobre o autor:<a class="headerlink" href="#sobre-o-autor" title="Permanent link">&para;</a></h2>
@@ -5504,7 +5608,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">{</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">Color</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLUE</span><span class="p">;</span><span class="w"> </span><span class="c1">// error</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">Feeling</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCITED</span><span class="p">;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">":"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5564,7 +5668,7 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// 定义</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Color3</span><span class="o">:</span><span class="kt">char</span><span class="w"> </span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">{</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">&#39;r&#39;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">RED</span><span class="o">=</span><span class="sc">'r'</span><span class="p">,</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">BLUE</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">};</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kt">char</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color3</span><span class="o">::</span><span class="n">RED</span><span class="p">);</span>
@@ -5606,6 +5710,31 @@
 </span></code></pre></div>
 <p>As constantes de enumeração não ocupam espaço de armazenamento dos objetos; elas são todas avaliadas em tempo de compilação.</p>
 <p>A desvantagem das constantes de enumeração é que seu tipo de dados implícito é o inteiro, com valor máximo limitado e sem capacidade de representar números de ponto flutuante.</p>
+<h2 id="de-enum-para-string-a-resposta-da-reflexao-do-c26">De enum para string: a resposta da reflexão do C++26<a class="headerlink" href="#de-enum-para-string-a-resposta-da-reflexao-do-c26" title="Permanent link">&para;</a></h2>
+<p>Converter um valor de enum no seu nome é um problema que quase todo projeto C++ acaba encontrando, e até o C++26 a biblioteca padrão não tinha resposta. As alternativas, da mais antiga para a mais recente: (1) X-macros, que abusam do pré-processador para manter a lista de enumeradores num só lugar; (2) tabelas de busca escritas à mão ou especialização de templates, onde cada enum novo significa mais uma tabela para manter; (3) bibliotecas de terceiros como magic_enum, que extraem os nomes com truques de compilador, mas impõem limites de tamanho e tipo subjacente.</p>
+<p>A reflexão estática do C++26 (proposta P2996, <code>std::meta</code>) finalmente transforma isso em poucas linhas de código de verdade. Uma função enumera os membros de qualquer enum em tempo de compilação e lê o nome de cada enumerador:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;meta&gt;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">enum_to_string</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">enumerators_of</span><span class="p">(</span><span class="o">^^</span><span class="n">E</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="o">:</span><span class="n">e</span><span class="o">:</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">meta</span><span class="o">::</span><span class="n">identifier_of</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"unknown enumerator"</span><span class="p">);</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Uma única função passa a cobrir todos os enums do código. Renomear um enumerador atualiza a string automaticamente, e uma divergência aparece na compilação em vez de virar um rótulo errado em runtime.</p>
+<p>Um aviso honesto: o trecho segue a P2996 conforme entrou no draft do C++26. As grafias exatas ainda estavam se assentando nas previews dos compiladores (EDG e Clang explorers), então confira a tabela de suporte da sua toolchain antes de usar. Até lá, a tabela de busca continua sendo a resposta mais portátil e sem dependências.</p>
+<h2 id="perguntas-frequentes">Perguntas frequentes<a class="headerlink" href="#perguntas-frequentes" title="Permanent link">&para;</a></h2>
+<h3 id="como-converto-um-enum-para-string-em-c">Como converto um enum para string em C++?<a class="headerlink" href="#como-converto-um-enum-para-string-em-c" title="Permanent link">&para;</a></h3>
+<p>Antes do C++26 não existe forma padrão: escolha entre tabela de busca, especialização de templates, X-macros ou uma biblioteca como magic_enum. A reflexão estática do C++26 enumera os membros em compilação e lê o nome diretamente, eliminando a manutenção das quatro.</p>
+<h3 id="a-biblioteca-padrao-tem-conversao-embutida-de-enum-para-string">A biblioteca padrão tem conversão embutida de enum para string?<a class="headerlink" href="#a-biblioteca-padrao-tem-conversao-embutida-de-enum-para-string" title="Permanent link">&para;</a></h3>
+<p>Só no C++26. Streams e std::to_string formatam apenas o inteiro subjacente, e é por isso que todo projeto acaba escrevendo o próprio helper.</p>
+<h3 id="quando-vou-poder-usar-a-reflexao-do-c26">Quando vou poder usar a reflexão do C++26?<a class="headerlink" href="#quando-vou-poder-usar-a-reflexao-do-c26" title="Permanent link">&para;</a></h3>
+<p>O C++26 é o próximo padrão e a reflexão já está no draft; EDG e os explorers do Clang já compilam os exemplos. Para produção, acompanhe o suporte do compilador e mantenha uma tabela de busca como fallback.</p>
 <h2 id="topicos-relacionados">Tópicos relacionados<a class="headerlink" href="#topicos-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">Funções virtuais puras e classes abstratas em C++ | C++那些事</a></li>

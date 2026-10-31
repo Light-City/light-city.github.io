@@ -5426,8 +5426,8 @@
 <h1 id="c-string-sso">C++ string SSO परफ़ॉर्मेंस टेस्ट<a class="headerlink" href="#c-string-sso" title="Permanent link">&para;</a></h1>
 <p>आज मैं आपसे दो सवाल पूछना चाहता हूँ:</p>
 <p><strong>1. नीचे दिए गए कोड में परफ़ॉर्मेंस के लिहाज़ से कोई अंतर है क्या?</strong></p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">&quot;hello world hel&quot;</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;hello world helo&quot;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">"hello world hel"</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">"hello world helo"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><strong>2. sizeof(std::string) कितना होता है?</strong></p>
 <p>चलिए, इन दोनों सवालों का पता लगाते हैं।</p>
@@ -5461,8 +5461,8 @@
 <li>छोटे स्ट्रिंग की टेस्ट सामग्री: "hello world hel", कुल 15 कैरेक्टर।</li>
 <li>लंबे स्ट्रिंग की टेस्ट सामग्री: "hello world helo", कुल 16 कैरेक्टर।</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1(&quot;hello world hel&quot;);
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2(&quot;hello world helo&quot;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1("hello world hel");
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2("hello world helo");
 </span></code></pre></div>
 <p>देखा जा सकता है कि परफ़ॉर्मेंस का अंतर बहुत बड़ा है, केवल एक कैरेक्टर std::string की परफ़ॉर्मेंस में इतना बड़ा अंतर ला देता है!</p>
 <p>इसका मूल कारण वही पहले वाला SSO local buffer ही है।</p>

@@ -5426,8 +5426,8 @@
 <h1 id="prueba-de-rendimiento-del-sso-de-string-en-c">Prueba de rendimiento del SSO de string en C++<a class="headerlink" href="#prueba-de-rendimiento-del-sso-de-string-en-c" title="Permanent link">&para;</a></h1>
 <p>Hoy quiero plantearos dos preguntas:</p>
 <p><strong>1.¿Hay diferencia de rendimiento entre los códigos siguientes?</strong></p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">&quot;hello world hel&quot;</span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;hello world helo&quot;</span><span class="p">);</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">(</span><span class="s">"hello world hel"</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">"hello world helo"</span><span class="p">);</span>
 </span></code></pre></div>
 <p><strong>2.¿Cuánto es sizeof(std::string)?</strong></p>
 <p>A continuación, exploremos juntos estas dos preguntas.</p>
@@ -5461,8 +5461,8 @@
 <li>El contenido de la prueba con cadena corta es: "hello world hel", 15 caracteres en total.</li>
 <li>El contenido de la prueba con cadena larga es: "hello world helo", 16 caracteres en total.</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1(&quot;hello world hel&quot;);
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2(&quot;hello world helo&quot;);
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>std::string s1("hello world hel");
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>std::string s2("hello world helo");
 </span></code></pre></div>
 <p>Puede verse que la diferencia de rendimiento es enorme: ¡un solo carácter provoca una variación de rendimiento tan grande en std::string!</p>
 <p>En el fondo, esto se debe al SSO local buffer comentado antes.</p>

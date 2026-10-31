@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="注：本記事のすべてのコード例は星球に掲載しています。">
+        <meta name="description" content="C++のconstファミリー完全ガイド：constとconstexprとconstinit、consteval、constメンバーの違い、そしてC++23のdeducing thisが4つのconst/参照オーバーロードを1つにまとめる方法。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ const ファミリーの使い方,std::array,C++基礎"> 
+    <meta name="keywords" content="C++ const,constexpr,deducing this,c++23"> 
     <meta name="title" content="C++ const ファミリー | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-const-family/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ const ファミリー | C++那些事">
-      <meta property="og:description" content="注：本記事のすべてのコード例は星球に掲載しています。">
+      <meta property="og:description" content="C++のconstファミリー完全ガイド：constとconstexprとconstinit、consteval、constメンバーの違い、そしてC++23のdeducing thisが4つのconst/参照オーバーロードを1つにまとめる方法。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ja_JP">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ const ファミリー | C++那些事">
-      <meta name="twitter:description" content="注：本記事のすべてのコード例は星球に掲載しています。">
+      <meta name="twitter:description" content="C++のconstファミリー完全ガイド：constとconstexprとconstinit、consteval、constメンバーの違い、そしてC++23のdeducing thisが4つのconst/参照オーバーロードを1つにまとめる方法。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const ファミリー | C++那些事", "description": "注：本記事のすべてのコード例は星球に掲載しています。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ const ファミリー | C++那些事", "description": "C++のconstファミリー完全ガイド：constとconstexprとconstinit、consteval、constメンバーの違い、そしてC++23のdeducing thisが4つのconst/参照オーバーロードを1つにまとめる方法。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "言語機構の深掘り", "item": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ const ファミリー | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-const-family/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "deducing thisはconstオーバーロードを置き換えられますか？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "よくあるケースでは可能です。Self&amp;amp;&amp;amp;の単一テンプレートとstd::forwardで、&amp;amp;、const&amp;amp;、&amp;amp;&amp;amp;、const&amp;amp;&amp;amp;のすべてで正しく動作します。修飾ごとに振る舞いが本当に異なる場合だけ個別のオーバーロードが必要で、それは稀です。"}}, {"@type": "Question", "name": "どのコンパイラがdeducing thisに対応していますか？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "GCC 14以降、Clang 18以降、MSVCはVisual Studio 2022 17.2以降です。C++23機能なので、-std=c++23（古いドライバではc++2b）でコンパイルしてください。"}}, {"@type": "Question", "name": "deducing thisはCRTPと同じですか？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "重なります：どちらも最派生型を推論します。deducing thisは基底クラステンプレート不要で、lambda（再帰lambda！）でも使え、階層も綺麗なまま。ミックスインを再利用可能な基底クラスにしたい場面ではCRTPが依然 有効です。"}}]}</script>
   </head>
   
   
@@ -1541,7 +1542,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-deducing-thisconst" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this：const/参照オーバーロードを一度に書く
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-thisconst" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing thisはconstオーバーロードを置き換えられますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      どのコンパイラがdeducing thisに対応していますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-thiscrtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing thisはCRTPと同じですか？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5463,7 +5515,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-deducing-thisconst" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 deducing this：const/参照オーバーロードを一度に書く
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deducing-thisconst" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing thisはconstオーバーロードを置き換えられますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      どのコンパイラがdeducing thisに対応していますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deducing-thiscrtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      deducing thisはCRTPと同じですか？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5492,7 +5595,8 @@
 
 
 <blockquote>
-<p><strong>最終更新：2026-10-12</strong></p>
+<p>💡 <strong>要約</strong>：C++のconstファミリー完全ガイド：constとconstexprとconstinit、consteval、constメンバーの違い、そしてC++23のdeducing thisが4つのconst/参照オーバーロードを1つにまとめる方法。</p>
+<p><strong>最終更新：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c-const">C++ const ファミリー<a class="headerlink" href="#c-const" title="Permanent link">&para;</a></h1>
 <p>目次</p>
@@ -5575,7 +5679,35 @@
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="k">constinit</span><span class="w"> </span><span class="k">thread_local</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-deducing-thisconst">C++23 deducing this：const/参照オーバーロードを一度に書く<a class="headerlink" href="#c23-deducing-thisconst" title="Permanent link">&para;</a></h2>
+<p>constファミリーを学び進めると、ほぼ誰もが同じ壁にぶつかります。constオブジェクト・非constオブジェクト・左辺値・右辺値のすべてで正しく振る舞うgetterは、ほぼ同一のオーバーロードを最大4つ書くことになり、どこか一つだけ編集された日に静かに不一致が始まります。</p>
+<p>C++23の「deducing this」（明示的オブジェクト引数、提案P0847）はこのコピペを消します。メンバ関数が自分自身のオブジェクトを明示的な引数として宣言すると、コンパイラは型とともにconst性と値カテゴリを推論し、1つのテンプレートで4ケースすべてを賄えます：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Before C++23 you needed up to four overloads:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="c1">//   int&amp;  get() &amp;       { return value_; }</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="c1">//   int   get() const&amp;  { return value_; }</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">//   int&amp;&amp; get() &amp;&amp;      { return std::move(value_); }</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">//   ...</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// C++23 deducing this — one template covers them all:</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Self</span><span class="o">&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">(</span><span class="n">self</span><span class="p">).</span><span class="n">value_</span><span class="p">;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>const左辺値でget()を呼ぶとSelfはconst Widget&amp;、右辺値ではWidget&amp;&amp;と推論され、std::forwardがムーブを運びます。「何をconstにすべきか」を決めるのは依然として前述のconstの知識で、deducing thisは重複労働を取り除くだけです。</p>
+<p>この機能はCRTPが担っていた二つの役割——ミックスインと最派生型の推論——も、基底クラステンプレートのボイラープレートなしでこなします。コンパイラ対応：GCC 14+、Clang 18+、MSVCはVS 2022 17.2から。</p>
+<h2 id="_1">よくある質問<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="deducing-thisconst">deducing thisはconstオーバーロードを置き換えられますか？<a class="headerlink" href="#deducing-thisconst" title="Permanent link">&para;</a></h3>
+<p>よくあるケースでは可能です。Self&amp;&amp;の単一テンプレートとstd::forwardで、&amp;、const&amp;、&amp;&amp;、const&amp;&amp;のすべてで正しく動作します。修飾ごとに振る舞いが本当に異なる場合だけ個別のオーバーロードが必要で、それは稀です。</p>
+<h3 id="deducing-this">どのコンパイラがdeducing thisに対応していますか？<a class="headerlink" href="#deducing-this" title="Permanent link">&para;</a></h3>
+<p>GCC 14以降、Clang 18以降、MSVCはVisual Studio 2022 17.2以降です。C++23機能なので、-std=c++23（古いドライバではc++2b）でコンパイルしてください。</p>
+<h3 id="deducing-thiscrtp">deducing thisはCRTPと同じですか？<a class="headerlink" href="#deducing-thiscrtp" title="Permanent link">&para;</a></h3>
+<p>重なります：どちらも最派生型を推論します。deducing thisは基底クラステンプレート不要で、lambda（再帰lambda！）でも使え、階層も綺麗なまま。ミックスインを再利用可能な基底クラスにしたい場面ではCRTPが依然 有効です。</p>
+<h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>
 <li><a href="../assert/">C++ assert アサーション | C++那些事</a></li>

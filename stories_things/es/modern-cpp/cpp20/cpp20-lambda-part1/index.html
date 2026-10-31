@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++14 soporta expresiones lambda genéricas, lo que permite que una lambda acepte parámetros de cualquier tipo, por ejemplo:">
+        <meta name="description" content="Lambda en C++20 (parte 1): sintaxis de plantillas y restricciones de tipo, y cómo el deducing this de C++23 convierte las lambdas recursivas en una línea sin std::function.">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="tutorial de expresiones lambda de C++20 (parte 1),std::array"> 
+    <meta name="keywords" content="lambda c++20,lambda recursiva,deducing this"> 
     <meta name="title" content="Expresiones lambda de C++20 (parte 1) | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/cpp20-lambda-part1/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Expresiones lambda de C++20 (parte 1) | C++那些事">
-      <meta property="og:description" content="C++14 soporta expresiones lambda genéricas, lo que permite que una lambda acepte parámetros de cualquier tipo, por ejemplo:">
+      <meta property="og:description" content="Lambda en C++20 (parte 1): sintaxis de plantillas y restricciones de tipo, y cómo el deducing this de C++23 convierte las lambdas recursivas en una línea sin std::function.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="es_ES">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Expresiones lambda de C++20 (parte 1) | C++那些事">
-      <meta name="twitter:description" content="C++14 soporta expresiones lambda genéricas, lo que permite que una lambda acepte parámetros de cualquier tipo, por ejemplo:">
+      <meta name="twitter:description" content="Lambda en C++20 (parte 1): sintaxis de plantillas y restricciones de tipo, y cómo el deducing this de C++23 convierte las lambdas recursivas en una línea sin std::function.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Expresiones lambda de C++20 (parte 1) | C++那些事", "description": "C++14 soporta expresiones lambda genéricas, lo que permite que una lambda acepte parámetros de cualquier tipo, por ejemplo:", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Expresiones lambda de C++20 (parte 1) | C++那些事", "description": "Lambda en C++20 (parte 1): sintaxis de plantillas y restricciones de tipo, y cómo el deducing this de C++23 convierte las lambdas recursivas en una línea sin std::function.", "inLanguage": "es", "url": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/", "mainEntityOfPage": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++20", "item": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/"}, {"@type": "ListItem", "position": 3, "name": "C++ moderno", "item": "https://light-city.github.io/stories_things/es/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "Expresiones lambda de C++20 (parte 1) | C++那些事", "item": "https://light-city.github.io/stories_things/es/modern-cpp/cpp20/cpp20-lambda-part1/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cómo escribo una lambda recursiva en C++?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Desde C++23, dale un parámetro de objeto explícito: [](this auto self, int n) { ... self(n-1) ... }. Antes, toca std::function, un combinador-Y, o simplemente una función con nombre."}}, {"@type": "Question", "name": "¿La lambda recursiva con deducing this es tan rápida como una función normal?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "En la práctica, sí: el compilador especializa la llamada a través de self y puede inlinearla, a diferencia de la llamada indirecta de std::function que exigía la recursión pre-C++23."}}, {"@type": "Question", "name": "¿Funciona deducing this con lambdas genéricas?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Sí. self se deduce como auto&amp;amp;&amp;amp; en cada llamada, así que la misma lambda recursa sobre distintos tipos, y dos lambdas pueden incluso llamarse mutuamente pasándose entre sí."}}]}</script>
   </head>
   
   
@@ -3426,6 +3427,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lambdas-recursivas-con-deducing-this-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambdas recursivas con deducing this (C++23)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-escribo-una-lambda-recursiva-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cómo escribo una lambda recursiva en C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-lambda-recursiva-con-deducing-this-es-tan-rapida-como-una-funcion-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿La lambda recursiva con deducing this es tan rápida como una función normal?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciona-deducing-this-con-lambdas-genericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Funciona deducing this con lambdas genéricas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5423,6 +5475,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lambdas-recursivas-con-deducing-this-c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambdas recursivas con deducing this (C++23)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas frecuentes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preguntas frecuentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-escribo-una-lambda-recursiva-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Cómo escribo una lambda recursiva en C++?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-lambda-recursiva-con-deducing-this-es-tan-rapida-como-una-funcion-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿La lambda recursiva con deducing this es tan rápida como una función normal?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciona-deducing-this-con-lambdas-genericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Funciona deducing this con lambdas genéricas?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#temas-relacionados" class="md-nav__link">
     <span class="md-ellipsis">
       Temas relacionados
@@ -5452,7 +5555,8 @@
 
 
 <blockquote>
-<p><strong>Última actualización：2026-10-12</strong></p>
+<p>💡 <strong>Resumen</strong>：Lambda en C++20 (parte 1): sintaxis de plantillas y restricciones de tipo, y cómo el deducing this de C++23 convierte las lambdas recursivas en una línea sin std::function.</p>
+<p><strong>Última actualización：2026-10-24</strong></p>
 </blockquote>
 <h1 id="expresiones-lambda-de-c20-parte-1">Expresiones lambda de C++20 (parte 1)<a class="headerlink" href="#expresiones-lambda-de-c20-parte-1" title="Permanent link">&para;</a></h1>
 <h2 id="plantillas-lambda-en-c20">Plantillas lambda en C++20<a class="headerlink" href="#plantillas-lambda-en-c20" title="Permanent link">&para;</a></h2>
@@ -5510,6 +5614,26 @@
 <blockquote>
 <p>Fin de esta sección</p>
 </blockquote>
+<h2 id="lambdas-recursivas-con-deducing-this-c23">Lambdas recursivas con deducing this (C++23)<a class="headerlink" href="#lambdas-recursivas-con-deducing-this-c23" title="Permanent link">&para;</a></h2>
+<p>Una lambda normal no puede nombrarse a sí misma, así que la recursión significaba guardar la lambda en un std::function (asignación, indirección) o envolverla en un combinador-Y (ingenioso, ilegible). Los parámetros de objeto explícitos de C++23 —la misma característica deducing this— lo resuelven con elegancia: la lambda se recibe a sí misma como primer parámetro:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// C++23 explicit object parameter: the lambda receives itself</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">this</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">};</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3628800</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">// before C++23 you needed std::function (heavy) or a Y-combinator (clever)</span>
+</span></code></pre></div>
+<p>El parámetro self se deduce en cada llamada, así que la recursión genérica también funciona: una lambda puede recursar sobre cualquier tipo, y dos lambdas pueden llamarse mutuamente pasándose entre sí. Como el compilador ve a través de self, estas llamadas se inlinean como si hubieras escrito una función con nombre.</p>
+<p>Soporte de compiladores: GCC 14+, Clang 18+, MSVC desde VS 2022 17.2 — compila con -std=c++23.</p>
+<h2 id="preguntas-frecuentes">Preguntas frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
+<h3 id="como-escribo-una-lambda-recursiva-en-c">¿Cómo escribo una lambda recursiva en C++?<a class="headerlink" href="#como-escribo-una-lambda-recursiva-en-c" title="Permanent link">&para;</a></h3>
+<p>Desde C++23, dale un parámetro de objeto explícito: <code>[](this auto self, int n) { ... self(n-1) ... }</code>. Antes, toca std::function, un combinador-Y, o simplemente una función con nombre.</p>
+<h3 id="la-lambda-recursiva-con-deducing-this-es-tan-rapida-como-una-funcion-normal">¿La lambda recursiva con deducing this es tan rápida como una función normal?<a class="headerlink" href="#la-lambda-recursiva-con-deducing-this-es-tan-rapida-como-una-funcion-normal" title="Permanent link">&para;</a></h3>
+<p>En la práctica, sí: el compilador especializa la llamada a través de self y puede inlinearla, a diferencia de la llamada indirecta de std::function que exigía la recursión pre-C++23.</p>
+<h3 id="funciona-deducing-this-con-lambdas-genericas">¿Funciona deducing this con lambdas genéricas?<a class="headerlink" href="#funciona-deducing-this-con-lambdas-genericas" title="Permanent link">&para;</a></h3>
+<p>Sí. self se deduce como auto&amp;&amp; en cada llamada, así que la misma lambda recursa sobre distintos tipos, y dos lambdas pueden incluso llamarse mutuamente pasándose entre sí.</p>
 <h2 id="temas-relacionados">Temas relacionados<a class="headerlink" href="#temas-relacionados" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cpp-coroutines/">Introducción a las corrutinas de C++20 | C++那些事</a></li>

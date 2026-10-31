@@ -5457,14 +5457,14 @@
 </span></code></pre></div>
 <blockquote>
 <p>コード例：<a href="https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/assert/assert.c">assert.c</a>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> </span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="c1"> </span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="w"> </span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span><span class="w"> </span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="cm">/*  Some big code in between and let&#39;s say x  </span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="cm">/*  Some big code in between and let's say x  </span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="cm">    is accidentally changed to 9  */</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"> </span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
@@ -5477,7 +5477,7 @@
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span><span class="w"> </span>
 </span></code></pre></div>
 出力：
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nl">assert</span><span class="p">:</span><span class="w"> </span><span class="n">assert</span><span class="p">.</span><span class="n">c</span><span class="o">:</span><span class="mi">13</span><span class="o">:</span><span class="w"> </span><span class="n">main</span><span class="o">:</span><span class="w"> </span><span class="n">Assertion</span><span class="w"> </span><span class="err">&#39;</span><span class="n">x</span><span class="o">==</span><span class="mi">7</span><span class="err">&#39;</span><span class="w"> </span><span class="n">failed</span><span class="p">.</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nl">assert</span><span class="p">:</span><span class="w"> </span><span class="n">assert</span><span class="p">.</span><span class="n">c</span><span class="o">:</span><span class="mi">13</span><span class="o">:</span><span class="w"> </span><span class="n">main</span><span class="o">:</span><span class="w"> </span><span class="n">Assertion</span><span class="w"> </span><span class="err">'</span><span class="n">x</span><span class="o">==</span><span class="mi">7</span><span class="err">'</span><span class="w"> </span><span class="n">failed</span><span class="p">.</span>
 </span></code></pre></div>
 出力を見ると、ソースファイルや行番号など、エラーの位置が示されていることがわかります！</p>
 </blockquote>

@@ -5740,7 +5740,7 @@ For example:</p>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>}b1;
 </span></code></pre></div>
 <h4 id="zeroing-a-bit-field-via-re-mapping">Zeroing a bit field via re-mapping<a class="headerlink" href="#zeroing-a-bit-field-via-re-mapping" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>int* p = (int *) &amp;b1;  // 将 &quot;位域结构体的地址&quot; 映射至 &quot;整形（int*) 的地址&quot; 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>int* p = (int *) &amp;b1;  // 将 "位域结构体的地址" 映射至 "整形（int*) 的地址" 
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>*p = 0;                // 清除 s1，将各成员归零
 </span></code></pre></div>
 <h4 id="re-mapping-a-32-bit-bit-field-to-unsigned-int-via-a-union-union">Re-mapping a 32-bit bit field to unsigned int via a union (union)<a class="headerlink" href="#re-mapping-a-32-bit-bit-field-to-unsigned-int-via-a-union-union" title="Permanent link">&para;</a></h4>

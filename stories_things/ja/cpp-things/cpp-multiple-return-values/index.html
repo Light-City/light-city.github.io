@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="今日もまた定番の面接問題をひとつ出しましょう：関数が複数の結果を返すにはどうすればよいか？何通りの方法が思いつきますか？">
+        <meta name="description" content="C++で関数が複数の値を返す方法のすべて：pair、tuple、構造体、tie、コールバック、出力引数、そしてC++23のstd::expectedが例外なしで「値またはエラー」を表現する方法。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ 複数戻り値の書き方の使い方,std::tie,C++基礎"> 
+    <meta name="keywords" content="C++ 複数の戻り値,std::expected,expected 例"> 
     <meta name="title" content="C++ 複数戻り値の書き方 | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/cpp-multiple-return-values/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ 複数戻り値の書き方 | C++那些事">
-      <meta property="og:description" content="今日もまた定番の面接問題をひとつ出しましょう：関数が複数の結果を返すにはどうすればよいか？何通りの方法が思いつきますか？">
+      <meta property="og:description" content="C++で関数が複数の値を返す方法のすべて：pair、tuple、構造体、tie、コールバック、出力引数、そしてC++23のstd::expectedが例外なしで「値またはエラー」を表現する方法。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="ja_JP">
@@ -102,10 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ 複数戻り値の書き方 | C++那些事">
-      <meta name="twitter:description" content="今日もまた定番の面接問題をひとつ出しましょう：関数が複数の結果を返すにはどうすればよいか？何通りの方法が思いつきますか？">
+      <meta name="twitter:description" content="C++で関数が複数の値を返す方法のすべて：pair、tuple、構造体、tie、コールバック、出力引数、そしてC++23のstd::expectedが例外なしで「値またはエラー」を表現する方法。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 複数戻り値の書き方 | C++那些事", "description": "今日もまた定番の面接問題をひとつ出しましょう：関数が複数の結果を返すにはどうすればよいか？何通りの方法が思いつきますか？", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-12", "dateModified": "2026-10-12"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ 複数戻り値の書き方 | C++那些事", "description": "C++で関数が複数の値を返す方法のすべて：pair、tuple、構造体、tie、コールバック、出力引数、そしてC++23のstd::expectedが例外なしで「値またはエラー」を表現する方法。", "inLanguage": "ja", "url": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/", "mainEntityOfPage": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-24", "dateModified": "2026-10-24"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "言語機構の深掘り", "item": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "基礎から応用へ", "item": "https://light-city.github.io/stories_things/ja/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ 複数戻り値の書き方 | C++那些事", "item": "https://light-city.github.io/stories_things/ja/cpp-things/cpp-multiple-return-values/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "std::expected と std::optional と std::variant、どれを使う？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "「値がない」のに理由が要らないなら optional。両方の選択肢が対等な正当な値なら variant。2番目のスロットが呼び出し側に明示的に扱ってほしいエラーなら expected。"}}, {"@type": "Question", "name": "std::expected はメモリを確保しますか？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。optional や variant と同様に、値またはエラーを自身のストレージにインラインで保持します。ヒープ割り当てはなく、sizeof は T・E・アライメントで決まります。"}}, {"@type": "Question", "name": "std::expected ではなく例外を使うべき場面は？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "本当に例外的な状況——構造の失敗、多数の層をまたぐエラー——でスタック巻き戻しが報われるなら例外のまま。パースやバリデーションなど、呼び出し地点の近くで回復できる想定内の失敗には expected を。"}}]}</script>
   </head>
   
   
@@ -1676,7 +1677,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected：例外なしで「値またはエラー」を明示する
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-stdoptional-stdvariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected と std::optional と std::variant、どれを使う？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected はメモリを確保しますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected ではなく例外を使うべき場面は？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5469,7 +5521,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::expected：例外なしで「値またはエラー」を明示する
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      よくある質問
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected-stdoptional-stdvariant" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected と std::optional と std::variant、どれを使う？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected はメモリを確保しますか？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdexpected_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::expected ではなく例外を使うべき場面は？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       関連トピック
     </span>
@@ -5498,7 +5601,8 @@
 
 
 <blockquote>
-<p><strong>最終更新：2026-10-12</strong></p>
+<p>💡 <strong>要約</strong>：C++で関数が複数の値を返す方法のすべて：pair、tuple、構造体、tie、コールバック、出力引数、そしてC++23のstd::expectedが例外なしで「値またはエラー」を表現する方法。</p>
+<p><strong>最終更新：2026-10-24</strong></p>
 </blockquote>
 <h1 id="c">C++ 複数戻り値の書き方<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <p>今日もまた定番の面接問題をひとつ出しましょう：関数が複数の結果を返すにはどうすればよいか？何通りの方法が思いつきますか？</p>
@@ -5538,7 +5642,7 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">", "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="3-struct-binding">3. Struct Binding<a class="headerlink" href="#3-struct-binding" title="Permanent link">&para;</a></h2>
 <p>上の方法を改造します。C++17で導入された構造化束縛は、複数値返却のコードをさらに簡潔にします。autoと構造化束縛を使うことで、コードはより直感的で理解しやすくなります。</p>
@@ -5611,7 +5715,36 @@
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">quotient</span><span class="p">,</span><span class="w"> </span><span class="n">remainder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </span></code></pre></div>
 <p>総じて、C++には複数値返却を実現するさまざまな方法があり、それぞれに適したシーンがあります。適切な方法の選択は具体的な要件次第であり、開発者はコード構造と可読性に応じてこれらの機能を柔軟に使い分けることができます。</p>
-<h2 id="_1">関連トピック<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-stdexpected">C++23 std::expected：例外なしで「値またはエラー」を明示する<a class="headerlink" href="#c23-stdexpected" title="Permanent link">&para;</a></h2>
+<p>上記のどの手法も返すのは値です。しかし実際のコードで最も多い「2番目の戻り値」はエラーであり、これらのコンテナはその仕事をしません。std::pair<int, bool> はコンパイルできますが、bool を無視することを止められません。例外なら表現できますが、代償もあります：制御フローは裏返しになり、失敗経路がシグネチャから見えなくなります。</p>
+<p>C++23の std::expected<T, E> がこの隙間を埋めます。値またはエラーのどちらかを保持し、エラーはチェックせずにはアクセスできず、モナディックなヘルパーで正常系を一本につなげられます：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;charconv&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;expected&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string_view&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">std</span><span class="o">::</span><span class="n">expected</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">sv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">{};</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ec</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sv</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="s">"not a number: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">sv</span><span class="p">));</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">auto</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_int</span><span class="p">(</span><span class="s">"42"</span><span class="p">);</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">use</span><span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">// monadic chaining: parse_int(s).and_then(validate).transform(square)</span>
+</span></code></pre></div>
+<p>近所との付き合い方：std::optional<T> はほぼ expected<T, void-ish> — 失敗に理由が不要ならこちら。std::variant<T, E> は同じ中身を運びますが成功/失敗の意味はありません。expected<T, E> は意図を明示する版です。コンパイラ対応：GCC 13+、Clang 16+、MSVCはVS 2022 17.3から。</p>
+<h2 id="_1">よくある質問<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="stdexpected-stdoptional-stdvariant">std::expected と std::optional と std::variant、どれを使う？<a class="headerlink" href="#stdexpected-stdoptional-stdvariant" title="Permanent link">&para;</a></h3>
+<p>「値がない」のに理由が要らないなら optional。両方の選択肢が対等な正当な値なら variant。2番目のスロットが呼び出し側に明示的に扱ってほしいエラーなら expected。</p>
+<h3 id="stdexpected">std::expected はメモリを確保しますか？<a class="headerlink" href="#stdexpected" title="Permanent link">&para;</a></h3>
+<p>いいえ。optional や variant と同様に、値またはエラーを自身のストレージにインラインで保持します。ヒープ割り当てはなく、sizeof は T・E・アライメントで決まります。</p>
+<h3 id="stdexpected_1">std::expected ではなく例外を使うべき場面は？<a class="headerlink" href="#stdexpected_1" title="Permanent link">&para;</a></h3>
+<p>本当に例外的な状況——構造の失敗、多数の層をまたぐエラー——でスタック巻き戻しが報われるなら例外のまま。パースやバリデーションなど、呼び出し地点の近くで回復できる想定内の失敗には expected を。</p>
+<h2 id="_2">関連トピック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 純粋仮想関数と抽象クラス | C++那些事</a></li>
 <li><a href="../assert/">C++ assert アサーション | C++那些事</a></li>

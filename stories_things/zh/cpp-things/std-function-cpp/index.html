@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="最近在写C++代码时用到了isfunction，然后顺便看了一下源码实现，发现了一些问题，以前咱们学习的是三个点...，那六个点.">
+        <meta name="description" content="std::function 底层实现拆解：类型擦除、小缓冲优化与使用示例，以及 C++23 std::move_only_function 何时取代 std::function 来装下只可移动的可调用对象。">
       
       
         <meta name="author" content="光城">
@@ -25,7 +25,7 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ std::function 详解用法,std::function,C++基础"> 
+    <meta name="keywords" content="std::function 实现,move_only_function,move_only_function vs function,类型擦除,c++23"> 
     <meta name="title" content="C++ std::function 详解 | C++那些事"> 
 
     
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/std-function-cpp/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++ std::function 详解 | C++那些事">
-      <meta property="og:description" content="最近在写C++代码时用到了isfunction，然后顺便看了一下源码实现，发现了一些问题，以前咱们学习的是三个点...，那六个点.">
+      <meta property="og:description" content="std::function 底层实现拆解：类型擦除、小缓冲优化与使用示例，以及 C++23 std::move_only_function 何时取代 std::function 来装下只可移动的可调用对象。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -103,10 +103,11 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++ std::function 详解 | C++那些事">
-      <meta name="twitter:description" content="最近在写C++代码时用到了isfunction，然后顺便看了一下源码实现，发现了一些问题，以前咱们学习的是三个点...，那六个点.">
+      <meta name="twitter:description" content="std::function 底层实现拆解：类型擦除、小缓冲优化与使用示例，以及 C++23 std::move_only_function 何时取代 std::function 来装下只可移动的可调用对象。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ std::function 详解 | C++那些事", "description": "最近在写C++代码时用到了isfunction，然后顺便看了一下源码实现，发现了一些问题，以前咱们学习的是三个点...，那六个点.", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ std::function 详解 | C++那些事", "description": "std::function 底层实现拆解：类型擦除、小缓冲优化与使用示例，以及 C++23 std::move_only_function 何时取代 std::function 来装下只可移动的可调用对象。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "语言机制深入", "item": "https://light-city.github.io/stories_things/zh/cpp-things/cpp-mutable-keyword/"}, {"@type": "ListItem", "position": 3, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 4, "name": "C++ std::function 详解 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/std-function-cpp/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "std::function 和 std::move_only_function 有什么区别？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "std::function 要求可调用对象可拷贝、赋值时拷贝；std::move_only_function（C++23）接受只可移动的可调用对象且只移动。其余行为和调用写法一致。"}}, {"@type": "Question", "name": "为什么 std::function 装不下捕获 unique_ptr 的 lambda？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "因为 std::function 必须能拷贝存储的可调用对象，而闭包一旦捕获 unique_ptr 这种只可移动的类型，拷贝构造函数就被删除了。改用 std::move_only_function 或模板形参。"}}, {"@type": "Question", "name": "std::move_only_function 比 std::function 快吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "它省掉拷贝开销和部分簿记，但两者都经过类型擦除和间接调用。如果调用点已知类型，把可调用对象做成模板形参——那才是真正的快路径。"}}]}</script>
   </head>
   
   
@@ -1584,7 +1585,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdmove_only_function-vs-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::move_only_function vs std::function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-stdmove_only_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::function 和 std::move_only_function 有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-unique_ptr-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么 std::function 装不下捕获 unique_ptr 的 lambda？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::move_only_function 比 std::function 快吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5416,7 +5468,58 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#c23-stdmove_only_function-vs-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++23 std::move_only_function vs std::function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-stdmove_only_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::function 和 std::move_only_function 有什么区别？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdfunction-unique_ptr-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么 std::function 装不下捕获 unique_ptr 的 lambda？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdmove_only_function-stdfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      std::move_only_function 比 std::function 快吗？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5445,7 +5548,7 @@
 
 
 <blockquote>
-<p>💡 <strong>一分钟速览</strong>：最近在写C++代码时用到了isfunction，然后顺便看了一下源码实现，发现了一些问题，以前咱们学习的是三个点...，那六个点.</p>
+<p>💡 <strong>一分钟速览</strong>：std::function 底层实现拆解：类型擦除、小缓冲优化与使用示例，以及 C++23 std::move_only_function 何时取代 std::function 来装下只可移动的可调用对象。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c-stdfunction">C++ std::function 详解<a class="headerlink" href="#c-stdfunction" title="Permanent link">&para;</a></h1>
@@ -5492,8 +5595,8 @@
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">boolalpha</span><span class="p">;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Is func a function? &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Is vararg_func a function? &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vararg_func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Is func a function? "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Is vararg_func a function? "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_function</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">vararg_func</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
 </span></code></pre></div>
@@ -5502,7 +5605,26 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Is vararg_func a function? true
 </span></code></pre></div>
 <p>你学会了吗，本节完~</p>
-<h2 id="_1">相关主题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="c23-stdmove_only_function-vs-stdfunction">C++23 std::move_only_function vs std::function<a class="headerlink" href="#c23-stdmove_only_function-vs-stdfunction" title="Permanent link">&para;</a></h2>
+<p>前面讲的类型擦除藏着一个隐性代价：std::function 要求被包装的可调用对象可拷贝构造——"包装器本身可拷贝"是它契约的一部分。在 lambda 里捕获一个 std::unique_ptr 再存进去试试，编译器直接拒绝：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">make_sink</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">ptr</span><span class="p">)]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// move-only closure</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// std::function&lt;std::size_t()&gt; f = make_sink();   // ERROR: closure not copyable</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">std</span><span class="o">::</span><span class="n">move_only_function</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_sink</span><span class="p">();</span><span class="w">  </span><span class="c1">// OK since C++23</span>
+</span></code></pre></div>
+<p>std::move_only_function（C++23，头文件 <functional>）去掉了拷贝要求。它能装下只可移动的闭包，于是在流水线、异步任务、持有文件句柄或连接这类独占资源的回调里，它才是对口的类型。</p>
+<p>怎么选：可调用对象拷贝便宜、又要兼容老接口时，继续用 std::function；闭包独占持有资源时，换 std::move_only_function。还要记得 std::function 赋值时会拷贝闭包——捕获内容一重，这就是笔真实开销，move_only_function 正好省掉它。性能敏感的调用点，普通模板形参依然碾压两者：无擦除、无间接调用、可完全内联。</p>
+<h2 id="_1">常见问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="stdfunction-stdmove_only_function">std::function 和 std::move_only_function 有什么区别？<a class="headerlink" href="#stdfunction-stdmove_only_function" title="Permanent link">&para;</a></h3>
+<p>std::function 要求可调用对象可拷贝、赋值时拷贝；std::move_only_function（C++23）接受只可移动的可调用对象且只移动。其余行为和调用写法一致。</p>
+<h3 id="stdfunction-unique_ptr-lambda">为什么 std::function 装不下捕获 unique_ptr 的 lambda？<a class="headerlink" href="#stdfunction-unique_ptr-lambda" title="Permanent link">&para;</a></h3>
+<p>因为 std::function 必须能拷贝存储的可调用对象，而闭包一旦捕获 unique_ptr 这种只可移动的类型，拷贝构造函数就被删除了。改用 std::move_only_function 或模板形参。</p>
+<h3 id="stdmove_only_function-stdfunction">std::move_only_function 比 std::function 快吗？<a class="headerlink" href="#stdmove_only_function-stdfunction" title="Permanent link">&para;</a></h3>
+<p>它省掉拷贝开销和部分簿记，但两者都经过类型擦除和间接调用。如果调用点已知类型，把可调用对象做成模板形参——那才是真正的快路径。</p>
+<h2 id="_2">相关主题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>

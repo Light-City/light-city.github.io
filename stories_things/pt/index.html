@@ -617,7 +617,7 @@
       padding: 3rem 0;
       background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-primary-fg-color--light));
       color: var(--md-primary-bg-color);
-      height: 100vh; /* Ensure the container fills the viewport height */
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -660,6 +660,54 @@
       width: 100%;
       height: auto;
       filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    }
+
+    .mdx-paths {
+      padding: 4rem 1.5rem 5rem;
+      background: var(--md-default-bg-color);
+      color: var(--md-default-fg-color);
+    }
+
+    .mdx-paths__inner {
+      max-width: 61rem;
+      margin: 0 auto;
+    }
+
+    .mdx-paths h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+    }
+
+    .mdx-paths p {
+      max-width: 65ch;
+      margin: 0 0 2rem;
+    }
+
+    .mdx-paths ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mdx-paths a {
+      display: block;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--md-default-fg-color--lightest);
+      color: var(--md-typeset-a-color);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .mdx-paths a:hover,
+    .mdx-paths a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+    }
+
+    @media screen and (max-width: 40em) {
+      .mdx-paths ul { grid-template-columns: 1fr; }
     }
 
     /* Button styling */
@@ -757,7 +805,7 @@
             
             
           
-          <p><h2>Aprenda C++ na prática — do iniciante ao avançado do jeito mais rápido.</h2></p>
+          <p>Aprenda C++ na prática — do iniciante ao avançado do jeito mais rápido.</p>
           <div class="mdx-hero__buttons">
             <a href="cplusplus-things-overview/" title="Visão geral do projeto" class="md-button md-button--primary">
               Começar
@@ -771,6 +819,30 @@
           <img src="../assets/images/logo.svg" alt="C++那些事 | Stories About C Plus Plus" width="1659" height="1200" draggable="false">
         </div>
       </div>
+    </div>
+  </section>
+  
+    
+    
+    
+  
+  <section class="mdx-paths" aria-labelledby="learning-paths-title">
+    <div class="mdx-paths__inner md-typeset">
+      <h2 id="learning-paths-title">Aprenda C++ por temas</h2>
+      <p>Comece pelos fundamentos e avance para C++ moderno, a STL e a programação concorrente.</p>
+      <nav aria-label="Aprenda C++ por temas">
+        <ul>
+          
+            <li><a href="cpp-things/">Fundamentos</a></li>
+          
+            <li><a href="modern-cpp/cpp20/">C++ moderno</a></li>
+          
+            <li><a href="stl-source-analysis/">Código-fonte da STL</a></li>
+          
+            <li><a href="cpp-concurrency/">Concorrência</a></li>
+          
+        </ul>
+      </nav>
     </div>
   </section>
 
