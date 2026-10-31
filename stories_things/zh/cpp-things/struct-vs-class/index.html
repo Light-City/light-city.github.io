@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="关于C与C++中struct内容：见[struct那些事](struct.md)">
+        <meta name="description" content="通过可编译示例比较 C++ struct 与 class 的默认成员访问、默认继承方式，并说明何时选择两者以及聚合类型的常见误解。">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ struct 与 class 区别用法,C++基础"> 
-    <meta name="title" content="C++ struct 与 class 的区别详解 | C++那些事"> 
+    <meta name="keywords" content="C++ struct 和 class 区别,默认访问权限,默认继承,聚合类型"> 
+    <meta name="title" content="C++ struct 与 class 的区别：默认访问和继承 | C++那些事"> 
 
     
       
-        <title>C++ struct 与 class 的区别详解 | C++那些事</title>
+        <title>C++ struct 与 class 的区别：默认访问和继承 | C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct-vs-class/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct-vs-class/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ struct 与 class 的区别详解 | C++那些事">
-      <meta property="og:description" content="关于C与C++中struct内容：见[struct那些事](struct.md)">
+      <meta property="og:title" content="C++ struct 与 class 的区别：默认访问和继承 | C++那些事">
+      <meta property="og:description" content="通过可编译示例比较 C++ struct 与 class 的默认成员访问、默认继承方式，并说明何时选择两者以及聚合类型的常见误解。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -102,12 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ struct 与 class 的区别详解 | C++那些事">
-      <meta name="twitter:description" content="关于C与C++中struct内容：见[struct那些事](struct.md)">
+      <meta name="twitter:title" content="C++ struct 与 class 的区别：默认访问和继承 | C++那些事">
+      <meta name="twitter:description" content="通过可编译示例比较 C++ struct 与 class 的默认成员访问、默认继承方式，并说明何时选择两者以及聚合类型的常见误解。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 与 class 的区别详解 | C++那些事", "description": "关于C与C++中struct内容：见[struct那些事](struct.md)", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 与 class 的区别详解 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/"}]}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "struct 和 class 唯一的区别是什么？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "默认访问权限和默认继承方式：struct 默认 public，class 默认 private；除此之外两者在 C++ 里完全等价。"}}, {"@type": "Question", "name": "struct 能有构造函数和虚函数吗？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "能。C++ 的 struct 就是类，支持构造、析构、虚函数、模板等全部语言特性。"}}, {"@type": "Question", "name": "什么时候该用 struct？&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "习惯上：只聚合数据、没有不变量需要维护时用 struct；一旦有封装和不变量约束，就用 class。"}}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 与 class 的区别：默认访问和继承 | C++那些事", "description": "通过可编译示例比较 C++ struct 与 class 的默认成员访问、默认继承方式，并说明何时选择两者以及聚合类型的常见误解。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 与 class 的区别：默认访问和继承 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct-vs-class/"}]}</script>
   </head>
   
   
@@ -164,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ struct 与 class 的区别详解 | C++那些事
+              C++ struct 与 class 的区别：默认访问和继承 | C++那些事
             
           </span>
         </div>
@@ -1218,7 +1217,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      关于作者：
+      成员访问：第一个默认值
     </span>
   </a>
   
@@ -1227,47 +1226,50 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      常见问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="常见问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#struct-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      struct 和 class 唯一的区别是什么？
+      继承方式：第二个默认值
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#struct" class="md-nav__link">
     <span class="md-ellipsis">
-      struct 能有构造函数和虚函数吗？
+      struct 一定是纯数据聚合吗？
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#struct_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      什么时候该用 struct？
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际如何选择？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5414,7 +5416,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      关于作者：
+      成员访问：第一个默认值
     </span>
   </a>
   
@@ -5423,47 +5425,50 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      常见问题
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="常见问题">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#struct-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      struct 和 class 唯一的区别是什么？
+      继承方式：第二个默认值
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#struct" class="md-nav__link">
     <span class="md-ellipsis">
-      struct 能有构造函数和虚函数吗？
+      struct 一定是纯数据聚合吗？
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#struct_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      什么时候该用 struct？
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      实际如何选择？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于作者
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       相关主题
     </span>
@@ -5492,26 +5497,103 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：通过可编译示例比较 C++ struct 与 class 的默认成员访问、默认继承方式，并说明何时选择两者以及聚合类型的常见误解。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-struct-class">C++ struct 与 class 的区别详解<a class="headerlink" href="#c-struct-class" title="Permanent link">&para;</a></h1>
-<h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="c-struct-class">C++ <code>struct</code> 与 <code>class</code> 有什么区别？<a class="headerlink" href="#c-struct-class" title="Permanent link">&para;</a></h1>
+<p>在 C++ 中，两者都定义类类型，都支持构造函数、成员函数、模板、继承和虚函数。语言规则上的区别是**成员的默认访问权限**和**基类的默认继承方式**；团队中的用法习惯是另一回事。</p>
+<table>
+<thead>
+<tr>
+<th>省略访问说明时</th>
+<th><code>struct</code></th>
+<th><code>class</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成员</td>
+<td><code>public</code></td>
+<td><code>private</code></td>
+</tr>
+<tr>
+<td>基类</td>
+<td><code>public</code></td>
+<td><code>private</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">成员访问：第一个默认值<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Open</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// 默认 public</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">};</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">Closed</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// 默认 private</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">};</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">Open</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">Closed</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="c1">// b.value = 2;         // 错误：私有成员</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>显式写出 <code>public:</code> 或 <code>private:</code> 就会覆盖默认值。<code>struct</code> 可以隐藏成员，<code>class</code> 也可以公开成员。关于 C 语言结构体及名称查找的更多区别，参见 <a href="../struct/">C 与 C++ 的 <code>struct</code></a>。</p>
+<h2 id="_2">继承方式：第二个默认值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">PublicChild</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// 等同于 : public Base</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrivateChild</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// 等同于 : private Base</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">PublicChild</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">PrivateChild</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">PublicChild</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="o">*&gt;</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">PrivateChild</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="o">*&gt;</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<p>用 <code>c++ -std=c++17 -Wall -Wextra struct_class.cpp</code> 编译。<code>PrivateChild</code> 依然继承了 <code>Base</code>，只是外部代码不能隐式地把它的指针转成 <code>Base*</code>。在公开接口中，若继承方式对读者有意义，建议明确写出 <code>public</code> 或 <code>private</code>。</p>
+<h2 id="struct"><code>struct</code> 一定是纯数据聚合吗？<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h2>
+<p>不是。“公开的数据记录用 <code>struct</code>，维护不变量的类型用 <code>class</code>”是一种常见约定。是否为聚合类型还取决于构造函数、访问权限、基类及虚函数等条件，不能只看关键字。下面两个类型在 C++17 中都是聚合：</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Pair</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_aggregate_v</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_aggregate_v</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">Pair</span><span class="w"> </span><span class="n">q</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_3">实际如何选择？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>成员本来就是公开接口的简单数据记录，通常用 <code>struct</code>。</li>
+<li>需要通过操作维护不变量、限制成员的直接修改，通常用 <code>class</code>。</li>
+<li>不要让读者猜公开 API 的访问或继承意图；有必要时显式写出权限。</li>
+</ul>
+<p>关键字本身不会带来特殊性能，也不会把 C++ 类型变成“C 风格结构体”。进一步阅读 <a href="../explicit/"><code>explicit</code> 转换</a>和<a href="../smart-pointer-as-parameter/">智能指针函数参数</a>。</p>
+<h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://eel.is/c++draft/class.access">C++ 工作草案：成员访问默认值</a></li>
+<li><a href="https://eel.is/c++draft/class.access.base">C++ 工作草案：基类访问默认值</a></li>
+<li><a href="https://eel.is/c++draft/dcl.init.aggr">C++ 工作草案：聚合类型</a></li>
+</ul>
+<h2 id="_5">关于作者<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ struct 与 class 的区别详解 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
-<p>关于C与C++中struct内容：见<a href="../struct/">struct那些事</a></p>
-<p>总的来说，struct 更适合看成是一个数据结构的实现体，class 更适合看成是一个对象的实现体。</p>
-<p>区别:</p>
-<p>最本质的一个区别就是默认的访问控制</p>
-<p>默认的继承访问权限。struct 是 public 的，class 是 private 的。</p>
-<p>struct 作为数据结构的实现体，它默认的数据访问控制是 public 的，而 class 作为对象的实现体，它默认的成员变量访问控制是 private 的。</p>
-<h2 id="_2">常见问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="struct-class">struct 和 class 唯一的区别是什么？<a class="headerlink" href="#struct-class" title="Permanent link">&para;</a></h3>
-<p>默认访问权限和默认继承方式：struct 默认 public，class 默认 private；除此之外两者在 C++ 里完全等价。</p>
-<h3 id="struct">struct 能有构造函数和虚函数吗？<a class="headerlink" href="#struct" title="Permanent link">&para;</a></h3>
-<p>能。C++ 的 struct 就是类，支持构造、析构、虚函数、模板等全部语言特性。</p>
-<h3 id="struct_1">什么时候该用 struct？<a class="headerlink" href="#struct_1" title="Permanent link">&para;</a></h3>
-<p>习惯上：只聚合数据、没有不变量需要维护时用 struct；一旦有封装和不变量约束，就用 class。</p>
-<h2 id="_3">相关主题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><img alt="C++ struct 与 class 的区别：默认访问和继承 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<h2 id="_6">相关主题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ 纯虚函数与抽象类 | C++那些事</a></li>
 <li><a href="../assert/">C++ assert 断言 | C++那些事</a></li>

@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
+        <meta name="description" content="结合源码比较 C 与 C++ 的 struct：成员函数、访问控制、继承，以及结构体与同名函数的名称查找问题。">
       
       
         <meta name="author" content="光城">
@@ -26,11 +26,11 @@
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     <meta name="keywords" content="C++ struct 结构体用法,C++基础"> 
-    <meta name="title" content="C++ struct 结构体 | C++那些事"> 
+    <meta name="title" content="C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事"> 
 
     
       
-        <title>C++ struct 结构体 | C++那些事</title>
+        <title>C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ struct 结构体 | C++那些事">
-      <meta property="og:description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
+      <meta property="og:title" content="C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事">
+      <meta property="og:description" content="结合源码比较 C 与 C++ 的 struct：成员函数、访问控制、继承，以及结构体与同名函数的名称查找问题。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/struct/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -102,11 +102,11 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ struct 结构体 | C++那些事">
-      <meta name="twitter:description" content="C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。">
+      <meta name="twitter:title" content="C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事">
+      <meta name="twitter:description" content="结合源码比较 C 与 C++ 的 struct：成员函数、访问控制、继承，以及结构体与同名函数的名称查找问题。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct 结构体 | C++那些事", "description": "C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct 结构体 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct/"}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事", "description": "结合源码比较 C 与 C++ 的 struct：成员函数、访问控制、继承，以及结构体与同名函数的名称查找问题。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/struct/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶", "item": "https://light-city.github.io/stories_things/zh/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/struct/"}]}</script>
   </head>
   
   
@@ -124,7 +124,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-struct" class="md-skip">
+        <a href="#c-c-struct" class="md-skip">
           跳转至
         </a>
       
@@ -163,7 +163,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ struct 结构体 | C++那些事
+              C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事
             
           </span>
         </div>
@@ -5491,13 +5491,14 @@
 
 
 <blockquote>
-<p>💡 <strong>一分钟速览</strong>：C++ 中的 struct 是聚合数据类型：默认成员为 public，可包含成员函数、构造函数，支持继承与虚函数，与 class 仅差默认访问权限。</p>
+<p>💡 <strong>一分钟速览</strong>：结合源码比较 C 与 C++ 的 struct：成员函数、访问控制、继承，以及结构体与同名函数的名称查找问题。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-struct">C++ struct 结构体<a class="headerlink" href="#c-struct" title="Permanent link">&para;</a></h1>
+<h1 id="c-c-struct">C 与 C++ 的 <code>struct</code><a class="headerlink" href="#c-c-struct" title="Permanent link">&para;</a></h1>
+<p>本文用仓库原有示例比较两种语言。若你要判断在 C++ 中该选 <code>struct</code> 还是 <code>class</code>，可先看 <a href="../struct-vs-class/">C++ <code>struct</code> 与 <code>class</code> 的区别</a>：该页重点解释两种关键字的默认成员访问与默认继承方式。</p>
 <h2 id="_1">关于作者：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>个人公众号：</p>
-<p><img alt="C++ struct 结构体 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
+<p><img alt="C 与 C++ 的 struct：成员、继承和名称查找 | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="1cstruct">1.C中struct<a class="headerlink" href="#1cstruct" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在C中struct只单纯的用作数据的复合类型，也就是说，在结构体声明中只能将数据成员放在里面，而不能将函数放在里面。 </li>

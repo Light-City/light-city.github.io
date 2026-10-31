@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="About struct in C and C++, see [All About struct](struct.md)">
+        <meta name="description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       
       
         <meta name="author" content="光城">
@@ -25,12 +25,12 @@
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
-    <meta name="keywords" content="C++ struct vs class differences usage,C++ basics"> 
-    <meta name="title" content="C++ struct vs class: Key Differences Explained | C++那些事"> 
+    
+    
 
     
       
-        <title>C++ struct vs class: Key Differences Explained | C++那些事</title>
+        <title>struct vs class - C++那些事</title>
       
     
     
@@ -84,8 +84,8 @@
       <link rel="alternate" hreflang="pt" href="https://light-city.github.io/stories_things/pt/cpp-things/struct-vs-class/">
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/struct-vs-class/">
       <meta property="og:type" content="article">
-      <meta property="og:title" content="C++ struct vs class: Key Differences Explained | C++那些事">
-      <meta property="og:description" content="About struct in C and C++, see [All About struct](struct.md)">
+      <meta property="og:title" content="struct vs class">
+      <meta property="og:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-things/struct-vs-class/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -101,12 +101,11 @@
       <meta property="og:image:alt" content="C++那些事">
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="C++ struct vs class: Key Differences Explained | C++那些事">
-      <meta name="twitter:description" content="About struct in C and C++, see [All About struct](struct.md)">
+      <meta name="twitter:title" content="struct vs class">
+      <meta name="twitter:description" content="Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++ struct vs class: Key Differences Explained | C++那些事", "description": "About struct in C and C++, see [All About struct](struct.md)", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "C++ struct vs class: Key Differences Explained | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/"}]}</script>
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is the only difference between struct and class?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Default access and default inheritance: struct defaults to public, class to private. Beyond that the two are fully equivalent in C++."}}, {"@type": "Question", "name": "Can a struct have constructors and virtual functions?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A C++ struct is a class; it supports constructors, destructors, virtual functions and templates."}}, {"@type": "Question", "name": "When should I use struct?&amp;para;", "acceptedAnswer": {"@type": "Answer", "text": "By convention, use struct for plain data aggregates with no invariants; switch to class once encapsulation or invariants appear."}}]}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "struct vs class", "description": "Stories About C++ (CPlusPlusThings) — a structured, multi-language guide to modern C++11/14/17/20, STL internals, concurrency, idioms and hands-on projects, companion site of the open-source CPlusPlusThings repository.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-15", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond", "item": "https://light-city.github.io/stories_things/cpp-things/const/"}, {"@type": "ListItem", "position": 3, "name": "struct vs class", "item": "https://light-city.github.io/stories_things/cpp-things/struct-vs-class/"}]}</script>
   </head>
   
   
@@ -124,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#c-struct-vs-class-key-differences" class="md-skip">
+        <a href="#c-struct-vs-class-what-changes" class="md-skip">
           Skip to content
         </a>
       
@@ -163,7 +162,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C++ struct vs class: Key Differences Explained | C++那些事
+              struct vs class
             
           </span>
         </div>
@@ -1215,53 +1214,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-the-author" class="md-nav__link">
+  <a href="#member-access-the-first-default" class="md-nav__link">
     <span class="md-ellipsis">
-      About the Author:
+      Member access: the first default
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faq" class="md-nav__link">
+  <a href="#inheritance-access-the-second-default" class="md-nav__link">
     <span class="md-ellipsis">
-      FAQ
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="FAQ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-the-only-difference-between-struct-and-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is the only difference between struct and class?
+      Inheritance access: the second default
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#can-a-struct-have-constructors-and-virtual-functions" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#is-a-struct-always-a-plain-data-aggregate" class="md-nav__link">
     <span class="md-ellipsis">
-      Can a struct have constructors and virtual functions?
+      Is a struct always a plain data aggregate?
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#when-should-i-use-struct" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#which-should-you-choose" class="md-nav__link">
     <span class="md-ellipsis">
-      When should I use struct?
+      Which should you choose?
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the author
+    </span>
+  </a>
   
 </li>
       
@@ -5411,53 +5413,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-the-author" class="md-nav__link">
+  <a href="#member-access-the-first-default" class="md-nav__link">
     <span class="md-ellipsis">
-      About the Author:
+      Member access: the first default
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faq" class="md-nav__link">
+  <a href="#inheritance-access-the-second-default" class="md-nav__link">
     <span class="md-ellipsis">
-      FAQ
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="FAQ">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-the-only-difference-between-struct-and-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is the only difference between struct and class?
+      Inheritance access: the second default
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#can-a-struct-have-constructors-and-virtual-functions" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#is-a-struct-always-a-plain-data-aggregate" class="md-nav__link">
     <span class="md-ellipsis">
-      Can a struct have constructors and virtual functions?
+      Is a struct always a plain data aggregate?
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#when-should-i-use-struct" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#which-should-you-choose" class="md-nav__link">
     <span class="md-ellipsis">
-      When should I use struct?
+      Which should you choose?
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-author" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the author
+    </span>
+  </a>
   
 </li>
       
@@ -5493,23 +5498,105 @@
 <blockquote>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
-<h1 id="c-struct-vs-class-key-differences">C++ struct vs class: Key Differences<a class="headerlink" href="#c-struct-vs-class-key-differences" title="Permanent link">&para;</a></h1>
-<h2 id="about-the-author">About the Author:<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
+<hr />
+<p>comments: true
+keywords: C++ struct vs class,default access,default inheritance,aggregate
+description: "Compare C++ struct and class with compilable examples: default member access, default inheritance, and when each keyword is clearer in an API."
+title: C++ struct vs class: Default Access and Inheritance | C++那些事</p>
+<hr />
+<h1 id="c-struct-vs-class-what-changes">C++ <code>struct</code> vs <code>class</code>: what changes?<a class="headerlink" href="#c-struct-vs-class-what-changes" title="Permanent link">&para;</a></h1>
+<p>In C++, both keywords define a class type. They support constructors, member functions, templates, inheritance and virtual functions. The language differences are the <strong>default access of members</strong> and the <strong>default access of base classes</strong>. Code conventions are a separate design choice.</p>
+<table>
+<thead>
+<tr>
+<th>Omitted access specifier</th>
+<th><code>struct</code></th>
+<th><code>class</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Members</td>
+<td><code>public</code></td>
+<td><code>private</code></td>
+</tr>
+<tr>
+<td>Base class</td>
+<td><code>public</code></td>
+<td><code>private</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="member-access-the-first-default">Member access: the first default<a class="headerlink" href="#member-access-the-first-default" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Open</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// public by default</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">};</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">Closed</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// private by default</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">};</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">Open</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">Closed</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="c1">// b.value = 2;         // Error: private member</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Explicit <code>public:</code> or <code>private:</code> overrides either default. A <code>struct</code> can hide members; a <code>class</code> can expose them. For a longer comparison with C structs and name lookup, read <a href="../struct/">C and C++ <code>struct</code></a>.</p>
+<h2 id="inheritance-access-the-second-default">Inheritance access: the second default<a class="headerlink" href="#inheritance-access-the-second-default" title="Permanent link">&para;</a></h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">PublicChild</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// equivalent to : public Base</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrivateChild</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w">  </span><span class="c1">// equivalent to : private Base</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">PublicChild</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of_v</span><span class="o">&lt;</span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">PrivateChild</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">PublicChild</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="o">*&gt;</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">PrivateChild</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="o">*&gt;</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span></code></pre></div>
+<p>Compile with <code>c++ -std=c++17 -Wall -Wextra struct_class.cpp</code>. <code>PrivateChild</code> still has <code>Base</code> as a base; the implicit pointer conversion is inaccessible to outside code. Write <code>: public Base</code> or <code>: private Base</code> explicitly when the distinction matters to readers.</p>
+<h2 id="is-a-struct-always-a-plain-data-aggregate">Is a <code>struct</code> always a plain data aggregate?<a class="headerlink" href="#is-a-struct-always-a-plain-data-aggregate" title="Permanent link">&para;</a></h2>
+<p>No. <code>struct</code> is often used for simple public data and <code>class</code> for types that protect invariants, but these are conventions. Aggregate status depends on properties such as constructors, access, bases and virtual functions, not on the keyword alone. Both of these are aggregates in C++17:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Pair</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_aggregate_v</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_aggregate_v</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&gt;</span><span class="p">);</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">Pair</span><span class="w"> </span><span class="n">q</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="which-should-you-choose">Which should you choose?<a class="headerlink" href="#which-should-you-choose" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Prefer <code>struct</code> for an intentionally public record whose members are part of the interface.</li>
+<li>Prefer <code>class</code> when callers should interact through operations that maintain an invariant.</li>
+<li>State access and inheritance explicitly in public APIs when relying on a default would obscure intent.</li>
+</ul>
+<p>The choice does not change an object into a “C style struct” or grant special performance. For other interface decisions, see <a href="../explicit/"><code>explicit</code> conversions</a> and <a href="../smart-pointer-as-parameter/">smart pointers as parameters</a>.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://eel.is/c++draft/class.access">C++ working draft: member access defaults</a></li>
+<li><a href="https://eel.is/c++draft/class.access.base">C++ working draft: base access defaults</a></li>
+<li><a href="https://eel.is/c++draft/dcl.init.aggr">C++ working draft: aggregates</a></li>
+</ul>
+<h2 id="about-the-author">About the author<a class="headerlink" href="#about-the-author" title="Permanent link">&para;</a></h2>
 <p>Personal WeChat official account:</p>
-<p><img alt="C++ struct vs class: Key Differences Explained | C++那些事" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
-<p>About struct in C and C++, see <a href="../struct/">All About struct</a></p>
-<p>Generally speaking, a struct is better seen as the implementation body of a data structure, while a class is better seen as the implementation body of an object.</p>
-<p>Differences:</p>
-<p>The most essential difference is the default access control</p>
-<p>The default inheritance access permission: for a struct it is public, for a class it is private.</p>
-<p>As the implementation body of a data structure, a struct's default data access control is public, whereas as the implementation body of an object, a class's default member variable access control is private.</p>
-<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-the-only-difference-between-struct-and-class">What is the only difference between struct and class?<a class="headerlink" href="#what-is-the-only-difference-between-struct-and-class" title="Permanent link">&para;</a></h3>
-<p>Default access and default inheritance: struct defaults to public, class to private. Beyond that the two are fully equivalent in C++.</p>
-<h3 id="can-a-struct-have-constructors-and-virtual-functions">Can a struct have constructors and virtual functions?<a class="headerlink" href="#can-a-struct-have-constructors-and-virtual-functions" title="Permanent link">&para;</a></h3>
-<p>Yes. A C++ struct is a class; it supports constructors, destructors, virtual functions and templates.</p>
-<h3 id="when-should-i-use-struct">When should I use struct?<a class="headerlink" href="#when-should-i-use-struct" title="Permanent link">&para;</a></h3>
-<p>By convention, use struct for plain data aggregates with no invariants; switch to class once encapsulation or invariants appear.</p>
+<p><img alt="struct vs class" src="https://raw.githubusercontent.com/Light-City/CPlusPlusThings/master/img/wechat.jpg"  loading="lazy" decoding="async"/></p>
 <h2 id="related-topics">Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../abstract/">C++ Pure Virtual Functions and Abstract Classes | C++那些事</a></li>
@@ -5530,69 +5617,12 @@
 
 
 
-  
-  
-
 
 
   
 
 
 
-
-  <h2 id="__comments">Comments</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-          data-repo="Light-City/light-comments"
-          data-repo-id="R_kgDOLcVr-w"
-          data-category="Announcements"
-          data-category-id="DIC_kwDOLcVr-84CdwfH"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="preferred_color_scheme"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
-  </script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    // Set palette on initial load
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
-
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    // Register event handlers after documented loaded
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
-
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
   
