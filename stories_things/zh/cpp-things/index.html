@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="基础进阶相关文章索引，按主题查阅。">
+        <meta name="description" content="从 const、指针与引用入手，沿着类型转换、虚函数和宏的学习路径阅读 C++ 基础进阶文章，并结合代码示例理解常见陷阱。">
       
       
         <meta name="author" content="光城">
@@ -81,7 +81,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="基础进阶 · 文章索引 | C++那些事">
-      <meta property="og:description" content="基础进阶相关文章索引，按主题查阅。">
+      <meta property="og:description" content="从 const、指针与引用入手，沿着类型转换、虚函数和宏的学习路径阅读 C++ 基础进阶文章，并结合代码示例理解常见陷阱。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-things/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -99,9 +99,9 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="基础进阶 · 文章索引 | C++那些事">
-      <meta name="twitter:description" content="基础进阶相关文章索引，按主题查阅。">
+      <meta name="twitter:description" content="从 const、指针与引用入手，沿着类型转换、虚函数和宏的学习路径阅读 C++ 基础进阶文章，并结合代码示例理解常见陷阱。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "基础进阶 · 文章索引 | C++那些事", "description": "基础进阶相关文章索引，按主题查阅。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "基础进阶 · 文章索引 | C++那些事", "description": "从 const、指针与引用入手，沿着类型转换、虚函数和宏的学习路径阅读 C++ 基础进阶文章，并结合代码示例理解常见陷阱。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-things/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-things/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "基础进阶 · 文章索引 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-things/"}]}</script>
   </head>
   
@@ -5289,6 +5289,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐学习路径
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      全部文章
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5308,12 +5334,19 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：从 const、指针与引用入手，沿着类型转换、虚函数和宏的学习路径阅读 C++ 基础进阶文章，并结合代码示例理解常见陷阱。</p>
 <p><strong>最后更新：2026-10-14</strong></p>
 </blockquote>
 <h1 id="_1">基础进阶 · 文章索引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>按主题查阅</p>
-</blockquote>
+<p>这一专题适合按问题选择阅读路线，而不必从头到尾逐篇阅读。</p>
+<h2 id="_2">推荐学习路径<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>值与类型。</strong> 先读 <a href="const/">const 与修饰符</a>、<a href="pointer-vs-reference/">指针与引用</a>和<a href="struct-vs-class/">struct 与 class</a>，理解日常接口设计中的基本选择。</li>
+<li><strong>转换与推导。</strong> 接着读 <a href="explicit/">explicit 显式转换</a>、<a href="decltype/">decltype</a>和<a href="using/">using 声明</a>，再进入复杂模板。</li>
+<li><strong>运行时行为。</strong> 继续看<a href="virtual/">虚函数</a>、<a href="vptr-vtable/">虚表机制</a>和<a href="smart-pointer-as-parameter/">智能指针作函数参数</a>，通过代码核对每条规则。</li>
+<li><strong>预处理调试。</strong> 遇到 <code>#</code>、<code>##</code> 或条件定义的意外行为时，查阅<a href="macro/">宏与条件编译</a>。</li>
+</ol>
+<h2 id="_3">全部文章<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="abstract/">C++ 纯虚函数与抽象类</a></li>
 <li><a href="assert/">C++ assert 断言</a></li>

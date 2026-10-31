@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Index of C++20 articles, browse by topic.">
+        <meta name="description" content="Follow a C++20 learning path from concepts and ranges to coroutines, modules and std::span, with focused articles and code examples for each feature.">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/modern-cpp/cpp20/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="C++20 · Article Index | C++那些事">
-      <meta property="og:description" content="Index of C++20 articles, browse by topic.">
+      <meta property="og:description" content="Follow a C++20 learning path from concepts and ranges to coroutines, modules and std::span, with focused articles and code examples for each feature.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/modern-cpp/cpp20/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="C++20 · Article Index | C++那些事">
-      <meta name="twitter:description" content="Index of C++20 articles, browse by topic.">
+      <meta name="twitter:description" content="Follow a C++20 learning path from concepts and ranges to coroutines, modules and std::span, with focused articles and code examples for each feature.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++20 · Article Index | C++那些事", "description": "Index of C++20 articles, browse by topic.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/modern-cpp/cpp20/", "mainEntityOfPage": "https://light-city.github.io/stories_things/modern-cpp/cpp20/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "C++20 · Article Index | C++那些事", "description": "Follow a C++20 learning path from concepts and ranges to coroutines, modules and std::span, with focused articles and code examples for each feature.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/modern-cpp/cpp20/", "mainEntityOfPage": "https://light-city.github.io/stories_things/modern-cpp/cpp20/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "C++20", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp20/"}, {"@type": "ListItem", "position": 3, "name": "Modern C++", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp11/"}, {"@type": "ListItem", "position": 4, "name": "C++20 · Article Index | C++那些事", "item": "https://light-city.github.io/stories_things/modern-cpp/cpp20/"}]}</script>
   </head>
   
@@ -5312,6 +5312,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended order
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-c20-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      All C++20 articles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5331,13 +5357,20 @@
 
 
 <blockquote>
-<p>💡 <strong>TL;DR</strong>：Index of C++20 articles, browse by topic.</p>
+<p>💡 <strong>TL;DR</strong>：Follow a C++20 learning path from concepts and ranges to coroutines, modules and std::span, with focused articles and code examples for each feature.</p>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
 <h1 id="c20-article-index">C++20 · Article Index<a class="headerlink" href="#c20-article-index" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Browse by topic</p>
-</blockquote>
+<p>C++20 changed both everyday library code and larger program structure. Begin with features you can use in ordinary functions, then move to the features that need more build-system support.</p>
+<h2 id="recommended-order">Recommended order<a class="headerlink" href="#recommended-order" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Read the <a href="embrace-cpp20/">C++20 feature overview</a> to decide which changes matter to your codebase.</li>
+<li>Use <a href="cpp20-concepts/">concepts</a> to express template requirements, then try <a href="cpp20-ranges/">ranges</a> to compose operations on sequences.</li>
+<li>Study <a href="cpp20-span/">std::span</a> before accepting a pointer-and-length pair in a new API.</li>
+<li>Explore <a href="cpp-coroutines/">coroutines</a> and <a href="cpp20-modules/">modules</a> after checking your compiler and build-tool support. These features need more than a syntax change.</li>
+<li>Use the <a href="cpp20-lambda-part1/">lambda guide</a> for templated call operators and related techniques.</li>
+</ol>
+<h2 id="all-c20-articles">All C++20 articles<a class="headerlink" href="#all-c20-articles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="cpp-coroutines/">Getting Started with C++20 Coroutines</a></li>
 <li><a href="cpp20-channel/">C++20 channel in Practice</a></li>

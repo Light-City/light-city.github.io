@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="并发编程专题索引：多线程入门、std::thread 与 jthread 内核实现、死锁排查、GDB/Helgrind 调试、False Sharing、并行 STL、SIMD 与 libev 事件循环，共 12 篇实战文章。">
+        <meta name="description" content="按“先正确、再优化”的顺序学习 C++ 并发：线程生命周期、死锁定位、缓存行争用、调试工具、并行算法与 SIMD。">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="并发编程 · 文章索引 | C++那些事">
-      <meta property="og:description" content="并发编程专题索引：多线程入门、std::thread 与 jthread 内核实现、死锁排查、GDB/Helgrind 调试、False Sharing、并行 STL、SIMD 与 libev 事件循环，共 12 篇实战文章。">
+      <meta property="og:description" content="按“先正确、再优化”的顺序学习 C++ 并发：线程生命周期、死锁定位、缓存行争用、调试工具、并行算法与 SIMD。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/cpp-concurrency/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -103,9 +103,9 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="并发编程 · 文章索引 | C++那些事">
-      <meta name="twitter:description" content="并发编程专题索引：多线程入门、std::thread 与 jthread 内核实现、死锁排查、GDB/Helgrind 调试、False Sharing、并行 STL、SIMD 与 libev 事件循环，共 12 篇实战文章。">
+      <meta name="twitter:description" content="按“先正确、再优化”的顺序学习 C++ 并发：线程生命周期、死锁定位、缓存行争用、调试工具、并行算法与 SIMD。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "并发编程 · 文章索引 | C++那些事", "description": "并发编程专题索引：多线程入门、std::thread 与 jthread 内核实现、死锁排查、GDB/Helgrind 调试、False Sharing、并行 STL、SIMD 与 libev 事件循环，共 12 篇实战文章。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-concurrency/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-concurrency/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "并发编程 · 文章索引 | C++那些事", "description": "按“先正确、再优化”的顺序学习 C++ 并发：线程生命周期、死锁定位、缓存行争用、调试工具、并行算法与 SIMD。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/cpp-concurrency/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/cpp-concurrency/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "并发编程", "item": "https://light-city.github.io/stories_things/zh/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "并发编程 · 文章索引 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/cpp-concurrency/"}]}</script>
   </head>
   
@@ -5300,6 +5300,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐学习路径
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      全部并发文章
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5319,13 +5345,19 @@
 
 
 <blockquote>
-<p>💡 <strong>一分钟速览</strong>：并发编程专题索引：多线程入门、std::thread 与 jthread 内核实现、死锁排查、GDB/Helgrind 调试、False Sharing、并行 STL、SIMD 与 libev 事件循环，共 12 篇实战文章。</p>
+<p>💡 <strong>一分钟速览</strong>：按“先正确、再优化”的顺序学习 C++ 并发：线程生命周期、死锁定位、缓存行争用、调试工具、并行算法与 SIMD。</p>
 <p><strong>最后更新：2026-10-13</strong></p>
 </blockquote>
 <h1 id="_1">并发编程 · 文章索引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>按主题查阅</p>
-</blockquote>
+<p>并发代码应先保证正确，再讨论速度。本专题按线程生命周期、故障定位和性能分析排列。</p>
+<h2 id="_2">推荐学习路径<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>从<a href="threading-in-cpp/">多线程入门</a>与 <a href="std-thread-jthread-guide/">std::thread 和 jthread</a>建立线程生命周期的基本模型。</li>
+<li>程序卡住时先按<a href="cpp-deadlock-debugging/">死锁排查指南</a>定位，再用 <a href="gdb-multi-thread-debug/">GDB</a>或 <a href="helgrind-concurrency-check/">Helgrind</a>收集证据。</li>
+<li>正确性确认后再检查 <a href="false-sharing-cache-line/">False Sharing</a>，不要预设线程越多越快。</li>
+<li>对合适的负载比较<a href="cpp17-parallel-stl/">并行 STL</a>和 <a href="cpp-simd/">SIMD 向量化</a>。</li>
+</ol>
+<h2 id="_3">全部并发文章<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="cpp-concurrency-in-action/">C++ Concurrency in Action 导读</a></li>
 <li><a href="cpp-deadlock-debugging/">C++ 死锁排查</a></li>

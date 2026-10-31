@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Concurrency topic index: multithreading basics, std::thread & jthread internals, deadlock debugging, GDB/Helgrind, false sharing, parallel STL, SIMD and the libev event loop — 12 hands-on articles.">
+        <meta name="description" content="Learn C++ concurrency in stages: thread lifecycle, deadlock diagnosis, cache-line contention and debugging tools, then parallel algorithms and SIMD.">
       
       
         <meta name="author" content="光城">
@@ -85,7 +85,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-concurrency/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Concurrency Programming · Article Index | C++那些事">
-      <meta property="og:description" content="Concurrency topic index: multithreading basics, std::thread &amp; jthread internals, deadlock debugging, GDB/Helgrind, false sharing, parallel STL, SIMD and the libev event loop — 12 hands-on articles.">
+      <meta property="og:description" content="Learn C++ concurrency in stages: thread lifecycle, deadlock diagnosis, cache-line contention and debugging tools, then parallel algorithms and SIMD.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-concurrency/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -102,9 +102,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Concurrency Programming · Article Index | C++那些事">
-      <meta name="twitter:description" content="Concurrency topic index: multithreading basics, std::thread &amp; jthread internals, deadlock debugging, GDB/Helgrind, false sharing, parallel STL, SIMD and the libev event loop — 12 hands-on articles.">
+      <meta name="twitter:description" content="Learn C++ concurrency in stages: thread lifecycle, deadlock diagnosis, cache-line contention and debugging tools, then parallel algorithms and SIMD.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Concurrency Programming · Article Index | C++那些事", "description": "Concurrency topic index: multithreading basics, std::thread & jthread internals, deadlock debugging, GDB/Helgrind, false sharing, parallel STL, SIMD and the libev event loop — 12 hands-on articles.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-concurrency/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Concurrency Programming · Article Index | C++那些事", "description": "Learn C++ concurrency in stages: thread lifecycle, deadlock diagnosis, cache-line contention and debugging tools, then parallel algorithms and SIMD.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-concurrency/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-concurrency/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-13", "dateModified": "2026-10-13"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Concurrency", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}, {"@type": "ListItem", "position": 3, "name": "Concurrency Programming · Article Index | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-concurrency/"}]}</script>
   </head>
   
@@ -5299,6 +5299,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-concurrency-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      All concurrency articles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5318,13 +5344,19 @@
 
 
 <blockquote>
-<p>💡 <strong>TL;DR</strong>：Concurrency topic index: multithreading basics, std::thread &amp; jthread internals, deadlock debugging, GDB/Helgrind, false sharing, parallel STL, SIMD and the libev event loop — 12 hands-on articles.</p>
+<p>💡 <strong>TL;DR</strong>：Learn C++ concurrency in stages: thread lifecycle, deadlock diagnosis, cache-line contention and debugging tools, then parallel algorithms and SIMD.</p>
 <p><strong>Last updated：2026-10-13</strong></p>
 </blockquote>
 <h1 id="concurrency-programming-article-index">Concurrency Programming · Article Index<a class="headerlink" href="#concurrency-programming-article-index" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Browse by topic</p>
-</blockquote>
+<p>Start with correctness before trying to make concurrent code faster. The articles below move from thread lifetime and synchronization to diagnosis and performance.</p>
+<h2 id="recommended-path">Recommended path<a class="headerlink" href="#recommended-path" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Build a working mental model with <a href="threading-in-cpp/">multithreading basics</a> and <a href="std-thread-jthread-guide/">std::thread versus jthread</a>.</li>
+<li>When a program hangs, follow the <a href="cpp-deadlock-debugging/">deadlock troubleshooting guide</a>, then use <a href="gdb-multi-thread-debug/">GDB</a> or <a href="helgrind-concurrency-check/">Helgrind</a> to gather evidence.</li>
+<li>Once the result is correct, investigate <a href="false-sharing-cache-line/">false sharing</a> before assuming more threads will help.</li>
+<li>Compare <a href="cpp17-parallel-stl/">parallel STL</a> and <a href="cpp-simd/">SIMD vectorization</a> for workloads that can actually benefit from them.</li>
+</ol>
+<h2 id="all-concurrency-articles">All concurrency articles<a class="headerlink" href="#all-concurrency-articles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="cpp-concurrency-in-action/">C++ Concurrency in Action Reading Guide</a></li>
 <li><a href="cpp-deadlock-debugging/">C++ Deadlock Troubleshooting</a></li>

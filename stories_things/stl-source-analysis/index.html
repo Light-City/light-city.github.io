@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Source-Code Analysis topic index: browse all articles in this section.">
+        <meta name="description" content="Read STL implementation guides in a deliberate order: sequence containers, tree and hash containers, iterators, invalidation and type traits.">
       
       
         <meta name="author" content="光城">
@@ -81,7 +81,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Source-Code Analysis · Article Index | C++那些事">
-      <meta property="og:description" content="Source-Code Analysis topic index: browse all articles in this section.">
+      <meta property="og:description" content="Read STL implementation guides in a deliberate order: sequence containers, tree and hash containers, iterators, invalidation and type traits.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/stl-source-analysis/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -98,9 +98,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Source-Code Analysis · Article Index | C++那些事">
-      <meta name="twitter:description" content="Source-Code Analysis topic index: browse all articles in this section.">
+      <meta name="twitter:description" content="Read STL implementation guides in a deliberate order: sequence containers, tree and hash containers, iterators, invalidation and type traits.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Source-Code Analysis · Article Index | C++那些事", "description": "Source-Code Analysis topic index: browse all articles in this section.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/stl-source-analysis/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Source-Code Analysis · Article Index | C++那些事", "description": "Read STL implementation guides in a deliberate order: sequence containers, tree and hash containers, iterators, invalidation and type traits.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/stl-source-analysis/", "mainEntityOfPage": "https://light-city.github.io/stories_things/stl-source-analysis/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Source-Code Analysis · Article Index | C++那些事", "item": "https://light-city.github.io/stories_things/stl-source-analysis/"}]}</script>
   </head>
   
@@ -5288,6 +5288,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#choose-a-source-code-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose a source-code path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-source-analyses" class="md-nav__link">
+    <span class="md-ellipsis">
+      All source analyses
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5307,13 +5333,19 @@
 
 
 <blockquote>
-<p>💡 <strong>TL;DR</strong>：Source-Code Analysis topic index: browse all articles in this section.</p>
+<p>💡 <strong>TL;DR</strong>：Read STL implementation guides in a deliberate order: sequence containers, tree and hash containers, iterators, invalidation and type traits.</p>
 <p><strong>Last updated：2026-10-14</strong></p>
 </blockquote>
 <h1 id="source-code-analysis-article-index">Source-Code Analysis · Article Index<a class="headerlink" href="#source-code-analysis-article-index" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Browse by topic</p>
-</blockquote>
+<p>These articles explain implementation choices, not just the public STL API. Some source listings come from older GCC releases; check the version named in an article before applying an internal detail to a current standard library.</p>
+<h2 id="choose-a-source-code-path">Choose a source-code path<a class="headerlink" href="#choose-a-source-code-path" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Sequence containers:</strong> begin with <a href="array/">array</a>, then compare <a href="vector/">vector</a> and <a href="deque/">deque</a> storage and iterator behavior.</li>
+<li><strong>Associative containers:</strong> study the <a href="rb-tree/">red-black tree</a> before <a href="map-and-multimap/">map and multimap</a>; compare that with <a href="unordered_map/">unordered_map</a> and its hash-table structure.</li>
+<li><strong>Correctness:</strong> connect <a href="iterator/">iterator internals</a> with the <a href="stl-iterator-invalidation/">iterator invalidation guide</a> so performance changes do not introduce dangling iterators.</li>
+<li><strong>Template machinery:</strong> use the <a href="traits/">traits guide</a> when an implementation relies on type extraction.</li>
+</ol>
+<h2 id="all-source-analyses">All source analyses<a class="headerlink" href="#all-source-analyses" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="array/">STL array source code analysis</a></li>
 <li><a href="cpp-string-deep-dive/">STL string deep dive</a></li>

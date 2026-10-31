@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Fundamentals & Beyond topic index: browse all articles in this section.">
+        <meta name="description" content="Start with C++ fundamentals, then follow focused paths through types, object lifetime, polymorphism and common pitfalls, with links to runnable examples.">
       
       
         <meta name="author" content="光城">
@@ -81,7 +81,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/cpp-things/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Fundamentals &amp; Beyond · Article Index | C++那些事">
-      <meta property="og:description" content="Fundamentals &amp; Beyond topic index: browse all articles in this section.">
+      <meta property="og:description" content="Start with C++ fundamentals, then follow focused paths through types, object lifetime, polymorphism and common pitfalls, with links to runnable examples.">
       <meta property="og:url" content="https://light-city.github.io/stories_things/cpp-things/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="en_US">
@@ -98,9 +98,9 @@
       <meta name="twitter:image:alt" content="C++那些事">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Fundamentals &amp; Beyond · Article Index | C++那些事">
-      <meta name="twitter:description" content="Fundamentals &amp; Beyond topic index: browse all articles in this section.">
+      <meta name="twitter:description" content="Start with C++ fundamentals, then follow focused paths through types, object lifetime, polymorphism and common pitfalls, with links to runnable examples.">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Fundamentals & Beyond · Article Index | C++那些事", "description": "Fundamentals & Beyond topic index: browse all articles in this section.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Fundamentals & Beyond · Article Index | C++那些事", "description": "Start with C++ fundamentals, then follow focused paths through types, object lifetime, polymorphism and common pitfalls, with links to runnable examples.", "inLanguage": "en", "url": "https://light-city.github.io/stories_things/cpp-things/", "mainEntityOfPage": "https://light-city.github.io/stories_things/cpp-things/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "Fundamentals & Beyond · Article Index | C++那些事", "item": "https://light-city.github.io/stories_things/cpp-things/"}]}</script>
   </head>
   
@@ -5288,6 +5288,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-practical-reading-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      A practical reading path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      All articles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5307,13 +5333,19 @@
 
 
 <blockquote>
-<p>💡 <strong>TL;DR</strong>：Fundamentals &amp; Beyond topic index: browse all articles in this section.</p>
+<p>💡 <strong>TL;DR</strong>：Start with C++ fundamentals, then follow focused paths through types, object lifetime, polymorphism and common pitfalls, with links to runnable examples.</p>
 <p><strong>Last updated：2026-10-14</strong></p>
 </blockquote>
 <h1 id="fundamentals-beyond-article-index">Fundamentals &amp; Beyond · Article Index<a class="headerlink" href="#fundamentals-beyond-article-index" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Browse by topic</p>
-</blockquote>
+<p>This section is a guided route through the language rather than a list to read from top to bottom. Pick the path that matches the problem you are solving.</p>
+<h2 id="a-practical-reading-path">A practical reading path<a class="headerlink" href="#a-practical-reading-path" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Understand values and types.</strong> Start with <a href="const/">const and qualifiers</a>, <a href="pointer-vs-reference/">pointers versus references</a>, and <a href="struct-vs-class/">struct versus class</a>. These choices affect the signatures you write every day.</li>
+<li><strong>Control conversions and deduction.</strong> Read <a href="explicit/">explicit conversions</a>, <a href="decltype/">decltype</a>, and <a href="using/">using declarations</a> before tackling more complex templates.</li>
+<li><strong>Understand runtime behavior.</strong> Continue with <a href="virtual/">virtual functions</a>, <a href="vptr-vtable/">vtable mechanics</a>, and <a href="smart-pointer-as-parameter/">smart pointers as parameters</a>. Check the code examples before relying on a rule of thumb.</li>
+<li><strong>Debug the preprocessor.</strong> Use the <a href="macro/">macro and conditional compilation guide</a> when <code>#</code>, <code>##</code>, or conditional definitions produce surprising results.</li>
+</ol>
+<h2 id="all-articles">All articles<a class="headerlink" href="#all-articles" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="abstract/">C++ Pure Virtual Functions and Abstract Classes</a></li>
 <li><a href="assert/">C++ assert</a></li>

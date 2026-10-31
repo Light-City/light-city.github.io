@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="源码剖析相关文章索引，按主题查阅。">
+        <meta name="description" content="按顺序阅读 STL 源码：先看顺序容器，再比较树和哈希容器，最后掌握迭代器失效与类型萃取；注意文章所用的标准库版本。">
       
       
         <meta name="author" content="光城">
@@ -81,7 +81,7 @@
       <link rel="alternate" hreflang="hi" href="https://light-city.github.io/stories_things/hi/stl-source-analysis/">
       <meta property="og:type" content="article">
       <meta property="og:title" content="源码剖析 · 文章索引 | C++那些事">
-      <meta property="og:description" content="源码剖析相关文章索引，按主题查阅。">
+      <meta property="og:description" content="按顺序阅读 STL 源码：先看顺序容器，再比较树和哈希容器，最后掌握迭代器失效与类型萃取；注意文章所用的标准库版本。">
       <meta property="og:url" content="https://light-city.github.io/stories_things/zh/stl-source-analysis/">
       <meta property="og:site_name" content="C++那些事">
       <meta property="og:locale" content="zh_CN">
@@ -99,9 +99,9 @@
       <link rel="alternate" type="application/rss+xml" title="C++那些事" href="https://light-city.github.io/stories_things/feed.xml">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="源码剖析 · 文章索引 | C++那些事">
-      <meta name="twitter:description" content="源码剖析相关文章索引，按主题查阅。">
+      <meta name="twitter:description" content="按顺序阅读 STL 源码：先看顺序容器，再比较树和哈希容器，最后掌握迭代器失效与类型萃取；注意文章所用的标准库版本。">
       <meta name="twitter:image" content="https://light-city.github.io/stories_things/assets/images/og-cover.png">
-      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "源码剖析 · 文章索引 | C++那些事", "description": "源码剖析相关文章索引，按主题查阅。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/stl-source-analysis/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/stl-source-analysis/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
+      <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "源码剖析 · 文章索引 | C++那些事", "description": "按顺序阅读 STL 源码：先看顺序容器，再比较树和哈希容器，最后掌握迭代器失效与类型萃取；注意文章所用的标准库版本。", "inLanguage": "zh", "url": "https://light-city.github.io/stories_things/zh/stl-source-analysis/", "mainEntityOfPage": "https://light-city.github.io/stories_things/zh/stl-source-analysis/", "image": "https://light-city.github.io/stories_things/assets/images/og-cover.png", "author": {"@type": "Person", "name": "光城", "alternateName": "Light City", "url": "https://light-city.github.io/", "jobTitle": "C++ / Systems Engineer", "sameAs": ["https://github.com/Light-City", "https://x.com/lightcityfran", "https://light-city.medium.com/", "https://www.zhihu.com/people/francis-52-23/posts", "https://space.bilibili.com/367439608"]}, "publisher": {"@type": "Organization", "name": "C++那些事"}, "datePublished": "2026-10-14", "dateModified": "2026-10-14"}</script>
       <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "C++那些事", "item": "https://light-city.github.io/stories_things/"}, {"@type": "ListItem", "position": 2, "name": "源码剖析 · 文章索引 | C++那些事", "item": "https://light-city.github.io/stories_things/zh/stl-source-analysis/"}]}</script>
   </head>
   
@@ -5289,6 +5289,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      按问题选择路线
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      全部源码剖析
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5308,12 +5334,19 @@
 
 
 <blockquote>
+<p>💡 <strong>一分钟速览</strong>：按顺序阅读 STL 源码：先看顺序容器，再比较树和哈希容器，最后掌握迭代器失效与类型萃取；注意文章所用的标准库版本。</p>
 <p><strong>最后更新：2026-10-14</strong></p>
 </blockquote>
 <h1 id="_1">源码剖析 · 文章索引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>按主题查阅</p>
-</blockquote>
+<p>这些文章讨论的是 STL 的实现选择，而不只是公开 API。部分源码来自较旧的 GCC 版本；把内部细节用于当前项目之前，请先确认文章注明的实现版本。</p>
+<h2 id="_2">按问题选择路线<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>顺序容器：</strong> 从 <a href="array/">array</a>入手，再比较 <a href="vector/">vector</a>与 <a href="deque/">deque</a>的存储和迭代器行为。</li>
+<li><strong>关联容器：</strong> 先理解<a href="rb-tree/">红黑树</a>，再看 <a href="map-and-multimap/">map 与 multimap</a>；随后与 <a href="unordered_map/">unordered_map</a>的哈希表结构比较。</li>
+<li><strong>正确性：</strong> 把<a href="iterator/">迭代器实现</a>与<a href="stl-iterator-invalidation/">迭代器失效</a>放在一起读，避免优化时留下悬空迭代器。</li>
+<li><strong>模板机制：</strong> 遇到类型提取代码时，查阅 <a href="traits/">traits 类型萃取</a>。</li>
+</ol>
+<h2 id="_3">全部源码剖析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="array/">STL array 源码剖析</a></li>
 <li><a href="cpp-string-deep-dive/">STL string 深析</a></li>
